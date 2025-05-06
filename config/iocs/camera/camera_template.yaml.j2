@@ -14,7 +14,7 @@ entities:
     {% set camera_elements = 1447680 %}
   {%- endif %}
   
-  {%- if camera.devtype == "camerasim" %}
+  {%- if camera.devtype == "camerasim" or devtype == "camerasim" %}
   - type: ADSimDetector.simDetector
   {%- else %}
   - type: ADAravis.aravisCamera
