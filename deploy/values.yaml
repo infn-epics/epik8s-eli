@@ -5,7 +5,7 @@ ingressClassName: "haproxy"
 epik8namespace: "int.eli-np.ro"
 targetRevision: "main"
 serviceAccountName: "default"
-token: 6r-MzeKyVxfVnhPAxtpP
+# token:
 ## starting point
 giturl: https://baltig.infn.it/lnf-da-control/epik8s-eli.git
 gitrev: devel
@@ -348,7 +348,7 @@ epicsConfiguration:
     - name: "camerasim"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      image: baltig.infn.it:4567/epics-containers/infn-epics-ioc:latest
+      image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camerasim
       devgroup: diag
       gitinit: true
@@ -432,7 +432,7 @@ epicsConfiguration:
     - name: "cam01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      image: baltig.infn.it:4567/epics-containers/infn-epics-ioc:latest
+      image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: diag
       gitinit: true
@@ -473,7 +473,7 @@ epicsConfiguration:
     - name: "cam02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      image: baltig.infn.it:4567/epics-containers/infn-epics-ioc:latest
+      image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: diag
       gitinit: true
@@ -515,7 +515,7 @@ epicsConfiguration:
     - name: "cam03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      image: baltig.infn.it:4567/epics-containers/infn-epics-ioc:latest
+      image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: diag
       gitinit: true
