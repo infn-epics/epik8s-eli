@@ -446,7 +446,7 @@ epicsConfiguration:
       affinityKey: "gige"
       affinityValue: "enabled"
       iocprefix: "LEL:SCN01"
-      autosync: true ## restart automatically on changes
+      autosync: false ## restart automatically on changes
       iocinit:
         - name: "AcquirePeriod"
           value: "1"
@@ -487,7 +487,7 @@ epicsConfiguration:
       affinityKey: "gige"
       affinityValue: "enabled"
       iocprefix: "LEL:SCN02"
-      autosync: true ## restart automatically on changes
+      autosync: false ## restart automatically on changes
       iocinit:
         - name: "AcquirePeriod"
           value: "1"
@@ -529,7 +529,7 @@ epicsConfiguration:
       affinityKey: "gige"
       affinityValue: "enabled"
       iocprefix: "LEL:SCN03"
-      autosync: true ## restart automatically on changes
+      autosync: false ## restart automatically on changes
       iocinit:
         - name: "AcquirePeriod"
           value: "1"
