@@ -3,7 +3,7 @@
 #############################################
 
 epicsEnvSet("IOCMODULE", "elinp-gp09-ioc01")
-epicsEnvSet("IOCNAME", "__IOC_NAME__")
+epicsEnvSet("IOCNAME", "{{iocname}}")
 epicsEnvSet("NETIF", "eth0")
 
 epicsEnvSet("IOCSH_PS1","${IOCNAME}> ")
