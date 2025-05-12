@@ -1131,7 +1131,7 @@ epicsConfiguration:
       scpoptions: "-O"
 
     - name: "key-gp08"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&mode=object&objectId=119372"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&mode=object&objectId=133675"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-launcher-chart.git'
       devtype: m9210
       devgroup: adc
