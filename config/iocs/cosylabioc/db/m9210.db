@@ -1,0 +1,686 @@
+## Project       : Agilient m9210A
+## Description   : Provides EPICS support for m9210A DAQ board
+## Authors       : Vyacheslav Isaev <slava.isaev@cosylab.com>
+##
+## Copyright (c) 2015 Cosylab d.d.
+# -------------------------------- [ Device ] --------------------------------
+# Template file: m9210Device.template
+#
+
+record(mbbi, "$(PREFIX,undefined):STAT") {
+	field(DESC, "The state of the device.")
+	field(DTYP, "asynInt32")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)State")
+	field(ZRVL, "0")
+	field(ZRST, "UNKNOWN")
+	field(ONVL, "1")
+	field(ONST, "IOCINIT")
+	field(TWVL, "2")
+	field(TWST, "OFF")
+	field(THVL, "3")
+	field(THST, "INIT")
+	field(FRVL, "4")
+	field(FRST, "ON")
+	field(FVVL, "5")
+	field(FVST, "ERROR")
+	field(SXVL, "6")
+	field(SXST, "FAULT")	
+	field(SVVL, "7")
+	field(SVST, "RESETTING")	
+	field(SCAN, "I/O Intr")
+}
+
+record(waveform, "$(PREFIX,undefined):MSGS") {
+	field(DESC, "Send message to device driver.")
+	field(DTYP, "asynOctetWrite")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)Command")
+	field(FTVL, "UCHAR")
+	field(NELM, "255")
+}
+
+record(waveform, "$(PREFIX,undefined):MSGR") {
+	field(DESC, "Receive message from device driver.")
+	field(DTYP, "asynOctetRead")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)Command")
+	field(SCAN, "I/O Intr")	
+	field(FTVL, "UCHAR")
+	field(NELM, "255")
+}
+
+record(stringin, "$(PREFIX,undefined):IMDL") {
+	field(DESC, "Model of the device.")
+	field(DTYP, "asynOctetRead")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)Model")
+	field(SCAN, "I/O Intr")	
+}
+
+record(stringin, "$(PREFIX,undefined):ISN") {
+	field(DESC, "Serial number of the device.")
+	field(DTYP, "asynOctetRead")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)Serial")
+	field(SCAN, "I/O Intr")	
+}
+
+record(stringin, "$(PREFIX,undefined):IHW") {
+	field(DESC, "Hardware revision of the device.")
+	field(DTYP, "asynOctetRead")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)HardwareRevision")
+	field(SCAN, "I/O Intr")	
+}
+
+record(stringin, "$(PREFIX,undefined):IFW") {
+	field(DESC, "Firmware version of the device.")
+	field(DTYP, "asynOctetRead")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)FirmwareVersion")
+	field(SCAN, "I/O Intr")	
+}
+
+record(stringin, "$(PREFIX,undefined):ISW") {
+	field(DESC, "Software version of the device driver.")
+	field(DTYP, "asynOctetRead")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)SoftwareVersion")
+	field(SCAN, "I/O Intr")	
+}
+
+record(mbbi, "$(PREFIX,undefined):STS") {
+	field(DESC, "The status of the device.")
+	field(DTYP, "asynInt32")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)ErrorCode")
+	field(SCAN, "I/O Intr")	
+	field(ZRVL, "0")
+	field(ONVL, "1")
+	field(TWVL, "2")
+	field(THVL, "3")
+	field(FRVL, "4")
+	field(FVVL, "5")
+	field(SXVL, "6")
+	field(SVVL, "7")
+	field(EIVL, "8")
+	field(NIVL, "9")
+	field(TEVL, "10")
+	field(ELVL, "11")
+	field(TVVL, "12")
+	field(TTVL, "13")
+	field(FTVL, "14")
+	field(FFVL, "15")
+	field(ZRST, "No error")
+	field(ONST, "Initializing")
+	field(TWST, "Resetting")
+	field(THST, "PBIT test failure")
+	field(FRST, "No board detected")
+	field(FVST, "Static cfg. error")
+	field(SXST, "Dynamic cfg. error")
+	field(SVST, "Idle")
+	field(EIST, "Measuring")
+	field(NIST, "WaitingForArm")
+	field(TEST, "WaitingForTrigger")
+	field(ELST, "Reserved")
+	field(TVST, "Reserved")
+	field(TTST, "Reserved")
+	field(FTST, "Reserved")
+	field(FFST, "Miscellaneous errors")
+}
+
+record(bo, "$(PREFIX,undefined):ENBL")
+{
+	field(DESC, "Device is enabled for automatic start.")
+	field(DTYP, "asynInt32")
+	field(OUT,"@asyn( $(ASYN_PORT,undefined), 0)Enabled")
+	field(ZNAM	, "DISABLED")
+	field(ONAM	, "ENABLED")
+	field(VAL,  "1")
+	field(PINI, "YES")
+}
+
+record(bi, "$(PREFIX,undefined):ENBL_RB")
+{
+	field(DESC, "Is device enabled for automatic start?")
+	field(DTYP, "asynInt32")
+	field(SCAN, "I/O Intr")
+	field(INP,"@asyn( $(ASYN_PORT,undefined), 0)Enabled")
+	field(ZNAM	, "DISABLED")
+	field(ONAM	, "ENABLED")
+	field(VAL,  "1")
+#	field(PINI, "YES")
+}
+
+record(bo, "$(PREFIX,undefined):TRG_SP") {
+	field(DESC, "Software trigger")
+	field(DTYP, "asynInt32")
+	field(OUT,	"@asyn($(ASYN_PORT,undefined), 0)Trigger")
+	field(ZNAM, "NotTriggered")
+	field(ONAM, "Triggered")
+}
+
+record(stringin, "$(PREFIX,undefined):TRGS_RB") {
+	field(DESC, "Active trigger source")
+	field(DTYP, "asynOctetRead")
+	field(INP,	"@asyn($(ASYN_PORT,undefined), 0)ActiveTriggerSource")
+	field(SCAN, "I/O Intr")
+}
+
+record(mbbi, "$(PREFIX,undefined):TRGT_RB") {
+	field(DESC, "Active trigger type")
+	field(DTYP, "asynInt32")
+	field(INP,	"@asyn($(ASYN_PORT,undefined), 0)TriggerType")
+	field(SCAN, "I/O Intr")
+	field(ZRVL, "0")
+	field(ONVL, "1")
+	field(TWVL, "2")
+	field(THVL, "3")	
+	field(ZRST, "EDGE")
+	field(ONST, "TV")
+	field(TWST, "IMMEDIATE")
+	field(THST, "MAGNITUDE")
+}
+
+record(mbbi, "$(PREFIX,undefined):TRGC_RB") {
+	field(DESC, "Active trigger coupling.")
+	field(DTYP, "asynInt32")
+	field(INP,	"@asyn($(ASYN_PORT,undefined), 0)TriggerCoupling")
+	field(SCAN, "I/O Intr")
+	field(ZRVL, "0")
+	field(ONVL, "1")
+	field(TWVL, "2")
+	field(ZRST, "AC")
+	field(ONST, "DC")
+	field(TWST, "HF_REJECT")
+}
+
+record(ao, "$(PREFIX,undefined):TRGL_SP") {
+	field(DESC, "Trigger level.")
+	field(EGU,  "V")
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(ASYN_PORT,undefined), 0)TriggerLevel")
+	field(LOPR, "0.0")
+	field(HOPR, "5.0")
+	field(PINI, "YES")
+	field(VAL,  "1.1")
+}
+
+record(ai, "$(PREFIX,undefined):TRGL_RB") {
+	field(DESC, "Active trigger level.")
+	field(EGU,  "V")
+	field(DTYP, "asynFloat64")
+	field(SCAN, "I/O Intr")
+	field(INP,  "@asyn($(ASYN_PORT,undefined), 0)TriggerLevel")
+}
+
+record(stringin, "$(PREFIX,undefined):DPRX") {
+	field(DESC, "Driver prefix.")
+	field(DTYP, "asynOctetRead")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)DrvPrefix")
+	field(SCAN, "I/O Intr")	
+}
+
+record(stringin, "$(PREFIX,undefined):DREV") {
+	field(DESC, "Driver revision.")
+	field(DTYP, "asynOctetRead")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)DrvRevision")
+	field(SCAN, "I/O Intr")	
+}
+
+record(stringin, "$(PREFIX,undefined):DVDR") {
+	field(DESC, "Driver vendor.")
+	field(DTYP, "asynOctetRead")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)DrvVendor")
+	field(SCAN, "I/O Intr")	
+}
+
+record(stringin, "$(PREFIX,undefined):DDSC") {
+	field(DESC, "Driver vendor.")
+	field(DTYP, "asynOctetRead")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)DrvDescription")
+	field(SCAN, "I/O Intr")	
+}
+
+#record(mbbo, "$(PREFIX,undefined):CLKS") {
+#	field(DESC, "Set the clock source for sampling.")
+#	field(DTYP, "asynInt32")
+#	field(OUT,  "@asyn($(ASYN_PORT,undefined), 0)ClockSource")
+#	field(ZRVL, "0")
+#	field(ZRST, "INT")
+#	field(ONVL, "5")
+#	field(ONST, "EXT1")
+#}
+
+record(ao, "$(PREFIX,undefined):CLKF_SP") {
+	field(DESC, "Set the sampling rate.")
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(ASYN_PORT,undefined), 0)ClockFrequency")
+	field(EGU,  "GS/s")
+	field(HOPR, "4")
+	field(LOPR, "0.01")
+	field(VAL,  "4")
+	field(PINI, "YES")
+	field(PREC, "3")
+}
+
+record(ai, "$(PREFIX,undefined):CLKF_RB") {
+	field(DESC, "Applied sampling frequency.")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(ASYN_PORT,undefined), 0)ClockFrequency")
+	field(SCAN, "I/O Intr")
+	field(EGU,  "GS/s")
+	field(PREC, "3")
+}
+
+#record(longout, "$(PREFIX,undefined):CLKD") {
+#	field(DESC, "Clock divider")
+#	field(DTYP, "asynInt32")
+#	field(OUT,	"@asyn($(ASYN_PORT,undefined), 0)ClockDivisor")
+#}
+
+#record(ai, "$(PREFIX,undefined):CLKF_RB") {
+#	field(DESC, "RBV for the internal clock frequency.")
+#	field(DTYP, "asynFloat64")
+#	field(SCAN, "I/O Intr")
+#	field(INP,  "@asyn($(ASYN_PORT,undefined), 0)ClockFrequency")
+#	field(VAL,  "1")
+#}
+
+record(ai, "$(PREFIX,undefined):TMP") {
+	field(DESC, "Temperature.")
+	field(DTYP, "asynFloat64")
+	field(INP, "@asyn($(ASYN_PORT,undefined), 0)Temperature")
+	field(SCAN, "1 second")
+	field(EGU,  "C")
+	field(HIGH, "39")
+	field(HIHI, "40")
+	field(HSV,  "MINOR")
+	field(HHSV, "MAJOR")
+}
+## Project       : Agilient m9210A
+## Description   : Provides EPICS support for m9210A DAQ board
+## Authors       : Vyacheslav Isaev <slava.isaev@cosylab.com>
+##
+## Copyright (c) 2015 Cosylab d.d.
+# ------------------------------- [ Channel Group  ] -------------------------------
+# Template file: m9210ChannelGroup.template
+#
+
+record(mbbi, "$(PREFIX,undefined):AI:STAT") {
+	field(DESC, "The state of the channel.")
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(ASYN_PORT,undefined).ai, -1)State")
+	field(ZRVL, "0")
+	field(ZRST, "UNKNOWN")
+	field(ONVL, "1")
+	field(ONST, "IOCINIT")
+	field(TWVL, "2")
+	field(TWST, "DISABLED")
+	field(THVL, "3")
+	field(THST, "ENABLED")
+	field(FRVL, "4")
+	field(FRST, "PROCESSING")
+	field(FVVL, "5")
+	field(FVST, "DEGRADED")
+	field(SXVL, "6")
+	field(SXST, "ERROR")
+	field(SVVL, "7")
+	field(SVST, "RESETTING")
+	field(EIVL, "8")
+	field(EIST, "FAULT")
+	field(EIVL, "9")
+	field(EIST, "READY")
+	field(SCAN, "I/O Intr")	
+}
+
+# Messaging
+record(waveform, "$(PREFIX,undefined):AI:MSGS") {
+	field(DESC, "Send message to device driver.")
+	field(DTYP, "asynOctetWrite")
+	field(INP, "@asyn($(ASYN_PORT,undefined).ai, -1)Command")
+	field(FTVL, "UCHAR")
+	field(NELM, "255")	
+}
+
+record(waveform, "$(PREFIX,undefined):AI:MSGR") {
+	field(DESC, "Receive message from device driver.")
+	field(DTYP, "asynOctetRead")
+	field(INP, "@asyn($(ASYN_PORT,undefined).ai, -1)Command")
+	field(SCAN, "I/O Intr")	
+	field(FTVL, "UCHAR")
+	field(NELM, "255")
+}
+
+record(bo, "$(PREFIX,undefined):AI:ENBL")
+{
+	field(DTYP, "asynInt32")
+    field(OUT,  "@asyn( $(ASYN_PORT,undefined).ai, -1)Enabled")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")    
+    field(PINI, "YES")        
+    field(VAL,  "1")
+}
+
+
+record(bi, "$(PREFIX,undefined):AI:ENBL_RB") {
+	field(DTYP, "asynInt32")
+	field(SCAN, "I/O Intr")
+    field(INP,  "@asyn( $(ASYN_PORT,undefined).ai, -1)Enabled")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")
+}
+## Project       : Agilient m9210A
+## Description   : Provides EPICS support for m9210A DAQ board
+## Authors       : Vyacheslav Isaev <slava.isaev@cosylab.com>
+##
+## Copyright (c) 2015 Cosylab d.d.
+# ------------------------- [ Analog Input Channel ] -------------------------
+# Template file: m9210AnalogInputChannel.template
+#
+
+## Project       : Agilient m9210A
+## Description   : Provides EPICS support for m9210A DAQ board
+## Authors       : Vyacheslav Isaev <slava.isaev@cosylab.com>
+##
+## Copyright (c) 2015 Cosylab d.d.
+
+
+# ---------------------------- [ Analog Channel ] ----------------------------
+# Template file: m9210AnalogChannel.template
+#
+
+## Project       : Agilient m9210A
+## Description   : Provides EPICS support for m9210A DAQ board
+## Authors       : Vyacheslav Isaev <slava.isaev@cosylab.com>
+##
+## Copyright (c) 2015 Cosylab d.d.
+# ------------------------------- [ Channel  ] -------------------------------
+# Template file: m9210Channel.template
+#
+
+record(mbbi, "$(PREFIX,undefined):AI0:STAT") {
+	field(DESC, "The state of the channel.")
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(ASYN_PORT,undefined).ai, 0) State")
+	field(ZRVL, "0")
+	field(ZRST, "UNKNOWN")
+	field(ONVL, "1")
+	field(ONST, "IOCINIT")
+	field(TWVL, "2")
+	field(TWST, "DISABLED")
+	field(THVL, "3")
+	field(THST, "ENABLED [DEPRECATED]")
+	field(FRVL, "4")
+	field(FRST, "PROCESSING")
+	field(FVVL, "5")
+	field(FVST, "DEGRADED [DEPRECATED]")
+	field(SXVL, "6")
+	field(SXST, "ERROR")
+	field(SVVL, "7")
+	field(SVST, "RESET")
+	field(EIVL, "8")
+	field(EIST, "FAULT")
+	field(EIVL, "9")
+	field(EIST, "READY [DEPRECATED]")
+	field(SCAN, "I/O Intr")
+}
+
+record(bo, "$(PREFIX,undefined):AI0:ENBL_SP"){
+	field(DESC, "Specifies if the channel eanbled.")
+	field(DTYP, "asynInt32")
+    field(OUT,  "@asyn( $(ASYN_PORT,undefined).ai, 0)Enabled")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")
+    field(PINI, "YES")
+    field(VAL, "1")
+}
+
+record(ao, "$(PREFIX,undefined):AI0:RNG_SP") {
+	field(DESC, "Range of the analog input.")
+	field(DTYP, "asynFloat64")
+	field(OUT, "@asyn($(ASYN_PORT,undefined).ai, 0)RangeDouble")
+	field(EGU, "Vpp")
+	field(VAL, "5")
+	field(PINI, "YES")
+	field(HOPR, "50")
+	field(LOPR, "0")
+	field(PREC, "2")	
+}
+
+record(bi, "$(PREFIX,undefined):AI0:ENBL_RB"){
+	field(DESC, "Current state of the analog input")
+	field(DTYP, "asynInt32")
+	field(SCAN, "I/O Intr")
+    field(INP, "@asyn( $(ASYN_PORT,undefined).ai, 0)Enabled")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")    
+}
+
+record(ai, "$(PREFIX,undefined):AI0:RNG_RB") {
+	field(DESC, "Applied range of the analog input")
+	field(DTYP, "asynFloat64")
+	field(SCAN, "I/O Intr")
+	field(INP, "@asyn($(ASYN_PORT,undefined).ai, 0)RangeDouble")
+	field(SCAN, "I/O Intr")	
+	field(EGU,  "Vpp")
+	field(PREC, "2")
+}
+
+
+record(ao,"$(PREFIX,undefined):AI0:ATT_SP") {
+	field(DESC, "Attenuation of the analog input")
+	field(DTYP, "asynInt32")
+	field(OUT,	"@asyn($(ASYN_PORT,undefined).ai, 0)Attenuation")
+	field(VAL,  "1")
+	field(PINI, "YES")
+	field(HOPR, "10")
+	field(LOPR, "1")
+}
+
+record(ao,"$(PREFIX,undefined):AI0:OFS_SP") {
+	field(DESC, "Offset of analog channel")
+	field(DTYP, "asynFloat64")
+	field(OUT, "@asyn($(ASYN_PORT,undefined).ai, 0)Offset")
+	field(EGU, "Vdc")
+	field(VAL, "0.0")
+	field(PINI, "YES")
+	field(HOPR, "20.0")
+	field(LOPR, "-20.0")
+	field(PREC, "2")
+}
+
+
+record(mbbo, "$(PREFIX,undefined):AI0:IMPD_SP") {
+	field(DESC, "Impedance of the analog input")
+	field(DTYP, "asynInt32")
+	field(OUT,	"@asyn($(ASYN_PORT,undefined).ai, 0)Impedance32")
+    field(ZRVL, 50)
+	field(ONVL, 1000000)
+	field(ZRST, "50 Ohm")
+	field(ONST, "1 MOhm")
+	field(VAL,  "0")
+	field(PINI, "YES")
+}
+
+record(mbbo,"$(PREFIX,undefined):AI0:ACDC_SP") {
+	field(DESC, "Coupling of the analog input")
+	field(DTYP, "asynInt32")
+	field(OUT,	"@asyn($(ASYN_PORT,undefined).ai, 0)Coupling")
+	field(ZRVL, 0)
+	field(ONVL, 1)
+	field(TWVL, 2)
+	field(ZRST, "AC")
+	field(ONST, "DC")
+    field(TWST, "GND")
+    field(VAL,  0)
+    field(PINI, "YES")
+}
+
+record(ai,"$(PREFIX,undefined):AI0:OFS_RB") {
+	field(DESC, "Applied offsef of the analog input")
+	field(DTYP, "asynFloat64")
+	field(SCAN, "I/O Intr")
+	field(INP,	"@asyn($(ASYN_PORT,undefined).ai, 0)Offset")
+	field(EGU,  "Vdc")
+	field(PREC, "2")
+}
+
+record(mbbi,"$(PREFIX,undefined):AI0:ACDC_RB") {
+	field(DESC, "Applied coupling of the analog input")
+	field(DTYP, "asynInt32")
+	field(SCAN, "I/O Intr")
+	field(INP,	"@asyn($(ASYN_PORT,undefined).ai, 0)Coupling")
+	field(ZRVL, 0)
+	field(ONVL, 1)
+	field(TWVL, 2)
+	field(ZRST, "AC")
+	field(ONST, "DC")
+	field(TWST, "GND")
+}
+
+record(mbbi, "$(PREFIX,undefined):AI0:IMPD_RB") {
+	field(DESC, "Applied impedance of the analog input")
+	field(DTYP, "asynInt32")
+	field(INP,	"@asyn($(ASYN_PORT,undefined).ai, 0)Impedance32")
+    field(ZRVL, 50)
+	field(ONVL, 1000000)
+	field(ZRST, "50 Ohm")
+	field(ONST, "1 MOhm")
+	field(SCAN, "I/O Intr")	
+}
+
+record(ai,"$(PREFIX,undefined):AI0:ATT_RB") {
+	field(DESC, "Applied attenuation of the analog input")
+	field(DTYP, "asynInt32")
+	field(INP,	"@asyn($(ASYN_PORT,undefined).ai, 0)Attenuation")
+	field(SCAN, "I/O Intr")
+}
+
+#
+# Following types and NDS functions could be used for the buffer output
+#
+# - asynInt8ArrayIn    : BufferInt8
+# - asynInt16ArrayIn   : BufferInt16
+# - asynInt32ArrayIn   : BufferInt32
+# - asynFloat32ArrayIn : BufferFloat32
+# - asynFloat64ArrayIn : BufferFloat64
+#
+record(waveform, "$(PREFIX,undefined):AI0") {
+	field(DESC, "Read data acquisition buffer.")
+	field(DTYP, "asynFloat64ArrayIn")
+	field(INP,  "@asyn($(ASYN_PORT,undefined).ai, 0) BufferFloat64")
+	field(FTVL, "DOUBLE")
+	field(NELM, "$(BUFSIZE,undefined)")
+	field(PINI, "NO")
+	field(SCAN, "I/O Intr")
+#	field(TSE,   "-2")
+	field(FLNK,  "$(PREFIX,undefined):AI0:ROI")
+}
+
+record(subArray, "$(PREFIX,undefined):AI0:ROI") {
+	field(DESC, "Sub array of raw data.")
+	field(INP,  "$(PREFIX,undefined):AI0")
+	field(FTVL, "DOUBLE")
+	field(MALM, "$(BUFSIZE,undefined)")
+	field(NELM, "$(BUFSIZE,undefined)")
+	field(INDX, "0")
+	field(FLNK,  "$(PREFIX,undefined):AI0:FANOUT")
+}
+
+record(fanout, "$(PREFIX,undefined):AI0:FANOUT") {
+	field(DESC, "Fanout")
+	field(SCAN, "Passive")
+	field(SELM, "All")	
+	field(LNK1, "$(PREFIX,undefined):AI0:CNT")
+	field(LNK2, "$(PV_STATS,undefined)")
+	field(LNK3, "$(PREFIX,undefined):AI0:AVG")
+}
+
+record(calc, "$(PREFIX,undefined):AI0:CNT"){
+	field(INPA, "$(PREFIX,undefined):AI0:CNT")
+	field(CALC, "A+1")
+	field(VAL, "0")
+}
+
+record(calc, "$(PREFIX,undefined):AI0:TCNT"){
+    field(DESC, "Time counter")
+	field(INPA, "$(PREFIX,undefined):AI0:TCNT")
+	field(CALC, "A+1")
+	field(VAL, "0")
+	field(SCAN, "1 second")
+}
+
+record(longin,  "$(PREFIX,undefined):AI0:CNTLCK"){
+	field(INP,  "$(PREFIX,undefined):AI0:CNT NPP")
+	field(SCAN, "Passive")
+	field(VAL,  "0")
+}
+
+record(longin,  "$(PREFIX,undefined):AI0:CNTLCK2"){
+	field(INP,  "$(PREFIX,undefined):AI0:CNT NPP")
+	field(SCAN, "Passive")
+	field(VAL,  "0")
+}
+
+record(longin,  "$(PREFIX,undefined):AI0:TCNTLCK"){
+	field(DESC, "Time counter lock.")
+	field(INP,  "$(PREFIX,undefined):AI0:TCNT NPP")
+	field(SCAN, "Passive")
+	field(VAL,  "0")
+}
+
+record(longin,  "$(PREFIX,undefined):AI0:TRGCNTLCK"){
+    field(DESC, "Trigger counter lock.")
+	field(INP,  "$(PV_EVENT_CNT,undefined) NPP")
+	field(SCAN, "Passive")
+	field(VAL,  "0")
+}
+
+record(compress, "$(PREFIX,undefined):AI0:AVG"){
+	field(INP,   "$(PREFIX,undefined):AI0")
+	field(ALG,   "Average")
+	field(NSAM,  "$(BUFSIZE,undefined)")
+	field(N,     "100")
+}
+
+record(calcout, "$(PREFIX,undefined):AI0:MISS"){
+    field(DESC, "Missed triggers")
+	field(INPA, "$(PREFIX,undefined):AI0:CNTLCK NPP")
+	field(INPB, "$(PREFIX,undefined):AI0:CNTLCK PP")
+	field(INPC, "$(PREFIX,undefined):AI0:TRGCNTLCK NPP")
+	field(INPD, "$(PREFIX,undefined):AI0:TRGCNTLCK PP")
+	field(INPE, "$(PREFIX,undefined):AI0:MISS NPP")
+	field(CALC, "E+(D-C)-(B-A)")
+	field(VAL,   "0")	
+	field(SCAN, "10 second")			
+}
+
+record(calc, "$(PREFIX,undefined):AI0:CTR"){
+    field(DESC, "Calculated trigger rate.")
+	field(INPA, "$(PREFIX,undefined):AI0:CNTLCK2 NPP")
+	field(INPB, "$(PREFIX,undefined):AI0:CNTLCK2 PP")
+	field(INPE, "$(PREFIX,undefined):AI0:MISS NPP")
+	field(CALC, "(B-A)/10")
+	field(VAL,   "0")
+	field(SCAN, "10 second")
+	field(FLNK, "$(PREFIX,undefined):AI0:CTRA")
+	field(EGU,  "Hz")
+}
+
+record(compress, "$(PREFIX,undefined):AI0:CTRA"){
+    field(DESC,  "Calculated trigger rate average.")
+	field(INP,   "$(PREFIX,undefined):AI0:CTR")
+	field(ALG,   "N to 1 Average")
+	field(NSAM,  "1")
+	field(N,     "30")
+	field(EGU,   "Hz")
+}
+
+
+# Following types and NDS functions could be used for the single value output
+#
+# -  asynInt32   : ValueInt32 
+# -  asynFloat32 : ValueFloat32 
+# -  asynFloat64 : ValueFloat64 
+#
+record(ai, "$(PREFIX,undefined):AI0:IN") {
+	field(DESC, "Current value.")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(ASYN_PORT,undefined).ai, 0) ValueFloat64")
+	field(SCAN, "I/O Intr")
+}
+
+

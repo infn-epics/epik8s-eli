@@ -1,0 +1,28 @@
+# Mapping between hardware event code and a software (EPICS) database event
+#
+# Macros:
+#  SYS = System name
+#  EVR = EVR devObj name
+#  EVT = Event code (hardware). Set EVT=0 to disable.
+#  CODE = EPICS database event number (software)
+#
+#
+record(event, "$(SYS,recursive)-$(EVR,recursive):Event-$(EVT,recursive)-SP") {
+  field(DTYP, "EVR Event")
+  field(SCAN, "I/O Intr")
+  field(INP , "@OBJ=$(EVR,recursive),Code=$(EVT,recursive)")
+  field(TSE , "-2") # from device support
+  field(VAL , "$(CODE,recursive)")
+  field(FLNK, "$(SYS,recursive)-$(EVR,recursive):Event-$(EVT,recursive)-Cnt-I")
+  info(autosaveFields_pass0, "INP VAL")
+}
+
+record(calc, "$(SYS,recursive)-$(EVR,recursive):Event-$(EVT,recursive)-Cnt-I") {
+  field(SDIS, "$(SYS,recursive)-$(EVR,recursive):Event-$(EVT,recursive)-SP")
+  field(DISV, "0")
+  field(CALC, "A+1")
+  field(INPA, "$(SYS,recursive)-$(EVR,recursive):Event-$(EVT,recursive)-Cnt-I NPP")
+  field(TSEL, "$(SYS,recursive)-$(EVR,recursive):Event-$(EVT,recursive)-SP.TIME")
+  field(LOLO, "0")
+  field(LLSV, "MINOR")
+}
