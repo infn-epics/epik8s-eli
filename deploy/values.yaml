@@ -312,7 +312,7 @@ epicsConfiguration:
       devgroup: diag
       start: "/epics/ioc/config/start.sh"
       gitinit: true
-      autosync: true ## restart automatically on changes
+      autosync: false ## restart automatically on changes
       usegateway: false
     
     
