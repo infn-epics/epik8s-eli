@@ -1096,9 +1096,9 @@ epicsConfiguration:
       iocdir: "cosylabioc"
       devgroup: timing
       host: "10.16.4.23" ## plelievg001
-      workdir: "/opt/codac-4.1/apps/elinp-gp08-ioc06/iocBoot/epik8s"
+      workdir: "/opt/codac-4.1/apps/elinp-gp09-ioc01/iocBoot/epik8s-evg"
       exec: "start.sh"
-      iocbin: "../../bin/linux-x86_64/elinp-gp08-ioc06"
+      iocbin: "../../bin/linux-x86_64/elinp-gp09-ioc01"
       iocfunc: "elinp_gp09_ioc01"
       autosync: false
       nfsMounts:
