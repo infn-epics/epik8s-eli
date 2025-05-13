@@ -657,7 +657,7 @@ epicsConfiguration:
     - name: "plelievrkey001"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&mode=object&objectId=119372"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-launcher-chart.git'
-      iocprefix: "LEL:TIM"
+      iocprefix: "LEL"
       devtype: evr230
       iocdir: "cosylabioc"
       devgroup: timing
@@ -687,18 +687,18 @@ epicsConfiguration:
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       devices:
-          - name: "FCT01"
+          - name: "DIA:FCT01"
             devtype: "m9210"
             dev: "PCI::INSTR0"
             buffer: 2059
             eventpv: ":Event-1-Cnt-I"
             iocinit:
-          - name: "FCT02"
+          - name: "DIA:FCT02"
             devtype: "m9210"
             dev: "PCI::INSTR1"
             buffer: 2059
             iocinit:
-          - name: "EVR-BPMCAM"
+          - name: "TIM:EVR-BPMCAM"
             devtype: evr230
             bus: 9
             slot: 9
@@ -756,7 +756,7 @@ epicsConfiguration:
                 value: "62.08"
               - name: "Ena-Sel"
                 value: "Enabled"
-          - name: "EVR-CAM"
+          - name: "TIM:EVR-CAM"
             devtype: evr230
             bus: 9
             slot: 10
@@ -814,7 +814,7 @@ epicsConfiguration:
                 value: "62.08"
               - name: "Ena-Sel"
                 value: "Enabled"
-          - name: "EVR-ADC"
+          - name: "TIM:EVR-ADC"
             devtype: evr230
             bus: 9
             slot: 11
