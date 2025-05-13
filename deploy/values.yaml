@@ -352,7 +352,9 @@ epicsConfiguration:
       devtype: camerasim
       devgroup: diag
       gitinit: true
-      iocdir: "camera"
+      template: "camera"
+      targetRevision: 'templates'
+
       pva: true
       # hostNetwork: true
       iocprefix: "LEL:CAMERA:SIM"
@@ -375,7 +377,7 @@ epicsConfiguration:
           value: true
         - name: "roi_enable"
           value: true
-      cameras:
+      devices:
         - name: "CAM01"
           iocinit:
           - name: "AcquirePeriod"
@@ -1128,8 +1130,8 @@ epicsConfiguration:
     #   ssh_options: "-o HostKeyAlgorithms=ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
     #   scpoptions: "-O"
 
-    - name: "key-gp08"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&mode=object&objectId=133675"
+    - name: "plelievrkey001"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&mode=object&objectId=119372"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-launcher-chart.git'
       devtype: m9210
       devgroup: adc
