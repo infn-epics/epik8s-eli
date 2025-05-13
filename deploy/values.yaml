@@ -1135,7 +1135,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-launcher-chart.git'
       devtype: m9210
       devgroup: adc
-      host: "10.16.4.62"
+      host: "10.16.4.25"
       workdir: "/opt/codac-4.1/apps/elinp-gp08-ioc06/epik8s-key"
       iocbin: "../bin/linux-x86_64/elinp-gp08-ioc06"
       iocfunc: "elinp_gp08_ioc06"
@@ -1163,13 +1163,14 @@ epicsConfiguration:
         type: "cifs"
       iocprefix: "LEL:DIA"
       devices:
-        m9210:
           - name: "FCT01"
+            devtype: "m9210"
             dev: "PCI::INSTR0"
             buffer: 2059
             eventpv: ":Event-1-Cnt-I"
             iocinit:
           - name: "FCT02"
+            devtype: "m9210"
             dev: "PCI::INSTR1"
             buffer: 2059
             iocinit:

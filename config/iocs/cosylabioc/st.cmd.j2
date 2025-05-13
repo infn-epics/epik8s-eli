@@ -18,33 +18,35 @@ dbLoadDatabase "dbd/mrfkey.dbd"
 #############################################
 ## HW setup                                ##
 #############################################
-{% for evg in devices.evg %}
-{%- set prefix = iocprefix %}
-{% if evg.prefix is defined %}
-{%- set prefix = evg.prefix %}
-{% endif %}
-mrmEvgSetupPCI("{{evg.name}}",{{evg.bus}},{{evg.slot}},{{evg.func}})
-dbLoadRecords("elinp-evg.db", "SYS={{prefix}}, EVG={{evg.name}}")
-{% endfor %}
 
-{% for evr in devices.evr %}
-{%- set prefix = iocprefix %}
-{% if evr.prefix is defined %}
-{%- set prefix = evr.prefix %}
-{% endif %}
-mrmEvrSetupPCI("{{evr.name}}",0,{{evr.bus}},{{evr.slot}},{{evr.func}})
-dbLoadRecords("elinp-evr.db", "SYS={{prefix}}, EVR={{evr.name}},EVT=0")
-dbLoadRecords("elinp-evrsoft.db", "SYS={{prefix}}, EVR={{evr.name}}, EVT=0, CODE=0")
-{% endfor %}
 
-{% for adc in devices.m9210 %}
+
+{%- for dev in devices %}
 {%- set prefix = iocprefix %}
-{% if adc.prefix is defined %}
-{%- set prefix = adc.prefix %}
-{% endif %}
-ndsCreateDevice "m9210", "{{adc.name}}", "N_AI=1, DEV={{adc.dev}}, OPT=DriverSetup=CAL=0, BUFSIZE={{adc.bufsize}}"
-dbLoadRecords "db/m9210.db", "PREFIX={{prefix}}, IDX=0, MODULEIDX=0,  ASYN_PORT={{adc.name}}, TIMEOUT=1, BUFSIZE={{adc.bufsize}}, PV_EVENT_CNT={{eventpv}}, PV_STATS={{prefix}}:MACB_CW"
-dbLoadRecords "db/xct-stat.template", "PREFIX={{prefix}}, NELM={{adc.bufsize}}, BUFSIZE={{adc.bufsize}}, SRCREC={{prefix}}:AI0:ROI, UBUNCHSAMPL=64, IOCNAME={{iocname}}, PV_SR_TP=ai, PV_SR={{prefix}}:CLKF_RB, PV_IMPED_TP=mbbi, PV_IMPED={{prefix}}:AI0:IMPD_RB"
+{% if dev.prefix is defined %}
+{%- set prefix = dev.prefix %}
+{%- endif %}
+## device TYPE {{dev.devtype}} ### 
+## {{dev.name}} ##
+{%- if dev.devtype == "mrfkey" %}
+{%- if dev.devtype == "evr" %}
+mrmEvrSetupPCI("{{dev.name}}",0,{{dev.bus}},{{dev.slot}},{{dev.func}})
+dbLoadRecords("elinp-evr.db", "SYS={{prefix}}, EVR={{dev.name}},EVT=0")
+dbLoadRecords("elinp-evrsoft.db", "SYS={{prefix}}, EVR={{dev.name}}, EVT=0, CODE=0")
+{%- endif %}
+
+{%- if dev.devtype == "evg" %}
+mrmEvgSetupPCI("{{dev.name}}",{{dev.bus}},{{dev.slot}},{{dev.func}})
+dbLoadRecords("elinp-evg.db", "SYS={{prefix}}, EVG={{dev.name}}")
+{%- endif %}
+
+{%- if dev.devtype == "m9210" %}
+ndsCreateDevice "m9210", "{{dev.name}}", "N_AI=1, DEV={{dev.dev}}, OPT=DriverSetup=CAL=0, BUFSIZE={{dev.bufsize}}"
+dbLoadRecords "db/m9210.db", "PREFIX={{prefix}}, IDX=0, MODULEIDX=0,  ASYN_PORT={{dev.name}}, TIMEOUT=1, BUFSIZE={{dev.bufsize}}, PV_EVENT_CNT={{eventpv}}, PV_STATS={{prefix}}:MACB_CW"
+dbLoadRecords "db/xct-stat.template", "PREFIX={{prefix}}, NELM={{dev.bufsize}}, BUFSIZE={{dev.bufsize}}, SRCREC={{prefix}}:AI0:ROI, UBUNCHSAMPL=64, IOCNAME={{iocname}}, PV_SR_TP=ai, PV_SR={{prefix}}:CLKF_RB, PV_IMPED_TP=mbbi, PV_IMPED={{prefix}}:AI0:IMPD_RB"
+{%- endif %}
+#########
+
 {% endfor %}
 
 #############################################
@@ -93,39 +95,15 @@ iocInit
 # OR load EVG config with internal clock
 #< "${PTTS}/ioc_config/tmg-EVGinternal.cmd"
 
-{% for evg in devices.evg %}
+{%- for dev in devices %}
 {%- set prefix = iocprefix %}
-{% if evg.prefix is defined %}
-{%- set prefix = evg.prefix %}
-{% endif %}
-{%- if evg.iocinit is sequence %}
-{%- for param in evg.iocinit %}
-dbpf ("{{prefix}}:{{evg.name}}:{{param.name}}","{{param.value}}")
-{%- endfor %}
+{% if dev.prefix is defined %}
+{%- set prefix = dev.prefix %}
 {%- endif %}
-{%- endfor %}
 
-{%- for evr in devices.evr %}
-{%- set prefix = iocprefix %}
-{% if evr.prefix is defined %}
-{%- set prefix = evr.prefix %}
-{%- endif %}
-{%- if evr.iocinit is sequence %}
-{%- for param in evr.iocinit %}
-dbpf ("{{prefix}}:{{evr.name}}:{{param.name}}","{{param.value}}")
-{%- endfor %}
-{%- endif %}
-{%- endfor %}
-
-
-{%- for adc in devices.m9210 %}
-{%- set prefix = iocprefix %}
-{%- if adc.prefix is defined %}
-{%- set prefix = adc.prefix %}
-{%- endif %}
-{%- if adc.iocinit is sequence %}
-{%- for param in adc.iocinit %}
-dbpf ("{{prefix}}:{{adc.name}}:{{param.name}}","{{param.value}}")
+{%- if dev.iocinit is sequence %}
+{%- for param in dev.iocinit %}
+dbpf ("{{prefix}}:{{dev.name}}:{{param.name}}","{{param.value}}")
 {%- endfor %}
 {%- endif %}
 {%- endfor %}
