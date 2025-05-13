@@ -28,7 +28,6 @@ dbLoadDatabase "dbd/mrfkey.dbd"
 {%- endif %}
 ## device TYPE {{dev.devtype}} ### 
 ## {{dev.name}} ##
-{%- if dev.devtype == "mrfkey" %}
 {%- if dev.devtype == "evr" %}
 mrmEvrSetupPCI("{{dev.name}}",0,{{dev.bus}},{{dev.slot}},{{dev.func}})
 dbLoadRecords("elinp-evr.db", "SYS={{prefix}}, EVR={{dev.name}},EVT=0")
@@ -47,7 +46,7 @@ dbLoadRecords "db/xct-stat.template", "PREFIX={{prefix}}, NELM={{dev.bufsize}}, 
 {%- endif %}
 #########
 
-{% endfor %}
+{%- endfor %}
 
 #############################################
 ## DB Loading                              ##
