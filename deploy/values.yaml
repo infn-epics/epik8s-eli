@@ -687,8 +687,8 @@ epicsConfiguration:
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       devices:
-        evr:
           - name: "EVR-BPMCAM"
+            devtype: evr230
             bus: 9
             slot: 9
             func: 0
@@ -746,6 +746,7 @@ epicsConfiguration:
               - name: "Ena-Sel"
                 value: "Enabled"
           - name: "EVR-CAM"
+            devtype: evr230
             bus: 9
             slot: 10
             func: 0
@@ -803,6 +804,7 @@ epicsConfiguration:
               - name: "Ena-Sel"
                 value: "Enabled"
           - name: "EVR-ADC"
+            devtype: evr230
             bus: 9
             slot: 11
             func: 0
