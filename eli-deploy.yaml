@@ -8,9 +8,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/infn-epics/epik8s-chart.git'
+    repoURL: 'https://github.com/infn-epics/epik8s-eli.git'
     path: deploy
-    targetRevision: main
+    targetRevision: devel
     helm:
       values: |
           namespace: eli
