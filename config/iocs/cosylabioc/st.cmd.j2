@@ -28,13 +28,13 @@ dbLoadDatabase "dbd/mrfkey.dbd"
 {%- endif %}
 ## device TYPE {{dev.devtype}} ### 
 ## {{dev.name}} ##
-{%- if dev.devtype == "evr" %}
+{%- if dev.devtype == "evr230" %}
 mrmEvrSetupPCI("{{dev.name}}",0,{{dev.bus}},{{dev.slot}},{{dev.func}})
 dbLoadRecords("elinp-evr.db", "SYS={{prefix}}, EVR={{dev.name}},EVT=0")
 dbLoadRecords("elinp-evrsoft.db", "SYS={{prefix}}, EVR={{dev.name}}, EVT=0, CODE=0")
 {%- endif %}
 
-{%- if dev.devtype == "evg" %}
+{%- if dev.devtype == "evg230" %}
 mrmEvgSetupPCI("{{dev.name}}",{{dev.bus}},{{dev.slot}},{{dev.func}})
 dbLoadRecords("elinp-evg.db", "SYS={{prefix}}, EVG={{dev.name}}")
 {%- endif %}
