@@ -662,7 +662,7 @@ epicsConfiguration:
       iocdir: "cosylabioc"
       devgroup: timing
       host: "10.16.4.25" 
-      workdir: "/opt/codac-4.1/apps/elinp-gp08-ioc06/epik8s"
+      workdir: "/opt/codac-4.1/apps/elinp-gp08-ioc06/epik8s-delay"
       exec: "start.sh"
       iocbin: "../bin/linux-x86_64/elinp-gp08-ioc06"
       iocfunc: "elinp_gp08_ioc06"
