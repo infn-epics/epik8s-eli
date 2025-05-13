@@ -39,7 +39,7 @@ dbLoadRecords("elinp-evg.db", "SYS={{prefix}}, EVG={{dev.name}}")
 {%- endif %}
 
 {%- if dev.devtype == "m9210" %}
-ndsCreateDevice "m9210", "{{dev.name}}", "N_AI=1, DEV={{dev.dev}}, OPT=DriverSetup=CAL=0, BUFSIZE={{dev.buffer}}"
+ndsCreateDevice "m9210", "{{dev.name}}", "N_AI=2, DEV={{dev.dev}}, OPT=DriverSetup=CAL=0, BUFSIZE={{dev.buffer}}"
 dbLoadRecords "db/m9210.db", "PREFIX={{prefix}}:{{dev.name}}, IDX=0, MODULEIDX=0,  ASYN_PORT={{dev.name}}, TIMEOUT=1, BUFSIZE={{dev.buffer}}, PV_EVENT_CNT={{eventpv}}, PV_STATS={{prefix}}:{{dev.name}}:MACB_CW"
 dbLoadRecords "db/xct-stat.template", "PREFIX={{prefix}}:{{dev.name}}, NELM={{dev.buffer}}, BUFSIZE={{dev.buffer}}, SRCREC={{prefix}}:{{dev.name}}:AI0:ROI, UBUNCHSAMPL=64, IOCNAME={{iocname}}, PV_SR_TP=ai, PV_SR={{prefix}}:{{dev.name}}:CLKF_RB, PV_IMPED_TP=mbbi, PV_IMPED={{prefix}}:{{dev.name}}:AI0:IMPD_RB"
 {%- endif %}
