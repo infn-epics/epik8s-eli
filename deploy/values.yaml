@@ -654,7 +654,7 @@ epicsConfiguration:
       ssh_options: "-o HostKeyAlgorithms=ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
       scpoptions: "-O"
     
-    - name: "plelievrkey001-delay"
+    - name: "plelievrkey001"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&mode=object&objectId=119372"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-launcher-chart.git'
       iocprefix: "LEL:TIM"
@@ -687,6 +687,17 @@ epicsConfiguration:
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       devices:
+          - name: "FCT01"
+            devtype: "m9210"
+            dev: "PCI::INSTR0"
+            buffer: 2059
+            eventpv: ":Event-1-Cnt-I"
+            iocinit:
+          - name: "FCT02"
+            devtype: "m9210"
+            dev: "PCI::INSTR1"
+            buffer: 2059
+            iocinit:
           - name: "EVR-BPMCAM"
             devtype: evr230
             bus: 9
@@ -1134,53 +1145,53 @@ epicsConfiguration:
     #   ssh_options: "-o HostKeyAlgorithms=ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
     #   scpoptions: "-O"
 
-    - name: "plelievrkey001-adc"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&mode=object&objectId=119372"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-launcher-chart.git'
-      devtype: m9210
-      devgroup: adc
-      host: "10.16.4.25"
-      workdir: "/opt/codac-4.1/apps/elinp-gp08-ioc06/epik8s-key"
-      iocbin: "../bin/linux-x86_64/elinp-gp08-ioc06"
-      iocfunc: "elinp_gp08_ioc06"
-      exec: "start.sh"
-      iocdir: "cosylabioc"
-      autosync: false
-      nfsMounts:
-      - name: data
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/data
-        mountPath: /nfs/data
-        opt: "-o credentials=/etc/smbcredentials"
-        type: "cifs"
-      - name: autosave
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/autosave
-        mountPath: /nfs/autosave
-        opt: "-o credentials=/etc/smbcredentials"
-        type: "cifs"
-      - name: config
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/config
-        mountPath: /nfs/config
-        opt: "-o credentials=/etc/smbcredentials"
-        type: "cifs"
-      iocprefix: "LEL:DIA"
-      devices:
-          - name: "FCT01"
-            devtype: "m9210"
-            dev: "PCI::INSTR0"
-            buffer: 2059
-            eventpv: ":Event-1-Cnt-I"
-            iocinit:
-          - name: "FCT02"
-            devtype: "m9210"
-            dev: "PCI::INSTR1"
-            buffer: 2059
-            iocinit:
+    # - name: "plelievrkey001-adc"
+    #   asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&mode=object&objectId=119372"
+    #   charturl: 'https://baltig.infn.it/epics-containers/ioc-launcher-chart.git'
+    #   devtype: m9210
+    #   devgroup: adc
+    #   host: "10.16.4.25"
+    #   workdir: "/opt/codac-4.1/apps/elinp-gp08-ioc06/epik8s-key"
+    #   iocbin: "../bin/linux-x86_64/elinp-gp08-ioc06"
+    #   iocfunc: "elinp_gp08_ioc06"
+    #   exec: "start.sh"
+    #   iocdir: "cosylabioc"
+    #   autosync: false
+    #   nfsMounts:
+    #   - name: data
+    #     server: "192.168.197.157"
+    #     path: /data_epik8s/eli/data
+    #     mountPath: /nfs/data
+    #     opt: "-o credentials=/etc/smbcredentials"
+    #     type: "cifs"
+    #   - name: autosave
+    #     server: "192.168.197.157"
+    #     path: /data_epik8s/eli/autosave
+    #     mountPath: /nfs/autosave
+    #     opt: "-o credentials=/etc/smbcredentials"
+    #     type: "cifs"
+    #   - name: config
+    #     server: "192.168.197.157"
+    #     path: /data_epik8s/eli/config
+    #     mountPath: /nfs/config
+    #     opt: "-o credentials=/etc/smbcredentials"
+    #     type: "cifs"
+    #   iocprefix: "LEL:DIA"
+    #   devices:
+    #       - name: "FCT01"
+    #         devtype: "m9210"
+    #         dev: "PCI::INSTR0"
+    #         buffer: 2059
+    #         eventpv: ":Event-1-Cnt-I"
+    #         iocinit:
+    #       - name: "FCT02"
+    #         devtype: "m9210"
+    #         dev: "PCI::INSTR1"
+    #         buffer: 2059
+    #         iocinit:
 
-      ssh_options: "-o HostKeyAlgorithms=ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
-      scpoptions: "-O"
+    #   ssh_options: "-o HostKeyAlgorithms=ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
+    #   scpoptions: "-O"
 
     - name: "polrev-icpdas01"
       asset: "https://confluence.infn.it/x/nYD8DQ"
