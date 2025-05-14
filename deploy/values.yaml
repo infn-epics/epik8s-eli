@@ -364,7 +364,7 @@ epicsConfiguration:
       pva: true
       # hostNetwork: true
       iocprefix: "LEL:CAMERA:SIM"
-      autosync: true ## restart automatically on changes
+      autosync: false ## restart automatically on changes
       iocinit:
         - name: "AcquirePeriod"
           value: "1"
