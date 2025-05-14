@@ -354,6 +354,8 @@ epicsConfiguration:
       gitinit: true
       template: "adcamera"
       targetRevision: 'templates'
+      enable_ingress: true
+
       stream_enable: true
       roi_enable: true
       stats_enable: true
