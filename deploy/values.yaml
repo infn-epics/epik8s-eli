@@ -352,7 +352,7 @@ epicsConfiguration:
       devtype: camerasim
       devgroup: diag
       gitinit: true
-      template: "camera"
+      template: "adcamera"
       targetRevision: 'templates'
 
       pva: true
