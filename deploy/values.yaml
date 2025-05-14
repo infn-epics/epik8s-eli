@@ -354,7 +354,11 @@ epicsConfiguration:
       gitinit: true
       template: "adcamera"
       targetRevision: 'templates'
-
+      stream_enable: true
+      roi_enable: true
+      stats_enable: true
+      proc_enable: true
+      overlay_enable: true
       pva: true
       # hostNetwork: true
       iocprefix: "LEL:CAMERA:SIM"
