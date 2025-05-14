@@ -355,13 +355,17 @@ epicsConfiguration:
       template: "adcamera"
       targetRevision: 'templates'
       enable_ingress: true
-
+      service:   
+        http:
+          enable: true
+          port: 8082
       stream_enable: true
       roi_enable: true
       stats_enable: true
       proc_enable: true
       overlay_enable: true
       pva: true
+      
       # hostNetwork: true
       iocprefix: "LEL:CAMERA:SIM"
       autosync: false ## restart automatically on changes
