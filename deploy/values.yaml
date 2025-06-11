@@ -1355,7 +1355,7 @@ epicsConfiguration:
         - name: "IONP02"
           channel: 1
         - name: "IONP03"
-          channel: 
+          channel: 2
         - name: "IONP04"
           channel: 3
     - name: "vpconion19"
