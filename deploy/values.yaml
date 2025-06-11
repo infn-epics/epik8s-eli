@@ -36,7 +36,7 @@ epicsConfiguration:
       replicaCount: 1
       exec: start.sh
       auto_security: true
-      
+      template: "gateway"
       autosync: true ## restart automatically on changes
       staticIp: true
       resources:
@@ -54,6 +54,7 @@ epicsConfiguration:
       ingress:
         enabled: false
       loadbalancer: 10.16.4.203
+      template: "pvagateway"
       replicaCount: 1
       exec: start.sh
       auto_security: true
@@ -303,6 +304,30 @@ epicsConfiguration:
       workdir: "/opt/epik8s-eli"
       exec: "start.sh"
       #autosync: true ## restart automatically on changes
+
+    - name: "bdeliplxbpm007"
+      asset: "https://confluence.infn.it/x/doKBBg"
+      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git' 
+      template: "libera-spe"
+      devtype: bpm
+      devgroup: diag
+      iocprefix: "PLXSPE"
+      pva: false
+      devices:
+        - name: "PLXBPM07"
+          channel: 3
+        - name: "PLXBPM08"
+          channel: 4
+        - name: "PLXBPM09"
+          channel: 5
+        - name: "PLXBPM10"
+          channel: 6  
+      host: "bdsparcplxbpm007.lnf.infn.it"
+      ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
+      workdir: "/opt/sparc-template-sppp"
+      scpoptions: "-O"
+      exec: "start.sh"
+      autosync: false ## restart automatically on changes
 
     - name: "orbit"
       asset: "https://confluence.infn.it/x/nYD8DQ"
@@ -1174,31 +1199,27 @@ epicsConfiguration:
     #   scpoptions: "-O"
 
     - name: "polrev-icpdas01"
-      asset: "https://confluence.infn.it/x/nYD8DQ"
+      asset: "https://servicedesk.infn.it/secure/insight/assets/LNFELINP-134115"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL:POLREV"
       iocroot: "ICPDAS01"
       template: "icpdas"
       devtype: icp7060
       devgroup: polarity_reversal
-      autosync: false
       opi: "icpdas"
-      
       iocparam:
         - name: "server"
           value: 10.16.4.32 # ddeliicp6r6i001.lnf.infn.it #10.16.4.32
 
     - name: "polrev-icpdas02"
-      asset: "https://confluence.infn.it/x/nYD8DQ"
+      asset: "https://servicedesk.infn.it/secure/insight/assets/LNFELINP-134116"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL:POLREV"
       iocroot: "ICPDAS02"
       template: "icpdas"
       devtype: icp7060
       devgroup: polarity_reversal
-      opi: "icpdas"
-      autosync: false
-      
+      opi: "icpdas"      
       iocparam:
         - name: "server"
           value: 10.16.4.33 # ddeliicp6r6i002.lnf.infn.it # 10.16.4.33
@@ -1219,36 +1240,46 @@ epicsConfiguration:
           value: 4001
       opi: "agilentXGS"
       devices:
-        img:
-          opi: "xgs600img"
-          channels:
           - name: "GAUG01:CC"
             sensor: "I1"
             tcauto: "T3"
+            devtype: "img"
+            opi: "xgs600img"
           - name: "GAUG02:CC"
             sensor: "I2"
             tcauto: "T3"
+            devtype: "img"
+            opi: "xgs600img"
           - name: "GAUG03:CC"
             sensor: "I3"
             tcauto: "T3"
+            devtype: "img"
+            opi: "xgs600img"
           - name: "GAUG04:CC"
             sensor: "I4"
             tcauto: "T3"
-        setpoint:
-          opi: "xgs600setpoint"
-          channels:
+            devtype: "img"
+            opi: "xgs600img"          
           - name: "GAUG01:CC:SP1"
             sensor: "I1"
             number: "1"
+            devtype: "setpoint"
+            opi: "xgs600setpoint"
           - name: "GAUG01:CC:SP2"
             sensor: "I2"
             number: "2"
+            devtype: "setpoint"
+            opi: "xgs600setpoint"
           - name: "GAUG02:CC:SP1"
             sensor: "I3"
             number: "1"
+            devtype: "setpoint"
+            opi: "xgs600setpoint"
           - name: "GAUG02:CC:SP2"
             sensor: "I4"
             number: "2"
+            devtype: "setpoint"
+            opi: "xgs600setpoint"
           
     - name: "vgcon02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111737"
@@ -1266,36 +1297,46 @@ epicsConfiguration:
           value: 4003
       opi: "agilentXGS"
       devices:
-        img:
-          opi: "xgs600img"
-          channels:
           - name: "GAUG05:CC"
             sensor: "I1"
             tcauto: "T3"
+            devtype: "img"
+            opi: "xgs600img"
           - name: "GAUG06:CC"
             sensor: "I2"
             tcauto: "T3"
+            devtype: "img"
+            opi: "xgs600img"
           - name: "GAUG07:CC"
             sensor: "I3"
             tcauto: "T3"
+            devtype: "img"
+            opi: "xgs600img"
           - name: "GAUG08:CC"
             sensor: "I4"
             tcauto: "T3"
-        setpoint:
-          opi: "xgs600setpoint"
-          channels:
+            devtype: "img"
+            opi: "xgs600img"
           - name: "GAUG05:CC:SP1"
             sensor: "I1"
             number: "1"
+            devtype: "setpoint"
+            opi: "xgs600setpoint"
           - name: "GAUG06:CC:SP2"
             sensor: "I2"
             number: "2"
+            devtype: "setpoint"
+            opi: "xgs600setpoint"
           - name: "GAUG07:CC:SP1"
             sensor: "I3"
             number: "1"
+            devtype: "setpoint"
+            opi: "xgs600setpoint"
           - name: "GAUG08:CC:SP2"
             sensor: "I4"
             number: "2"
+            devtype: "setpoint"
+            opi: "xgs600setpoint"
           
     - name: "vpcon17"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
