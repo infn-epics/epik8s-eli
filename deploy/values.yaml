@@ -859,6 +859,7 @@ epicsConfiguration:
 
       ssh_options: "-o HostKeyAlgorithms=ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
       scpoptions: "-O"
+
     - name: "plelievrkey001"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&mode=object&objectId=119372"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
@@ -866,7 +867,7 @@ epicsConfiguration:
       devtype: evr230
       template: "mrf-pci-230"
       devgroup: timing
-      host: "10.16.4.25" 
+      host: "plelievr002.int.eli-np.ro" # "10.16.4.25" 
       workdir: "/opt/codac-4.1/apps/elinp-gp08-ioc06/epik8s-delay"
       exec: "start.sh"
       iocbin: "../bin/linux-x86_64/elinp-gp08-ioc06"
@@ -1090,7 +1091,7 @@ epicsConfiguration:
       devtype: evg230
       template: "mrf-pci-230"
       devgroup: timing
-      host: "10.16.4.23" ## plelievg001
+      host: "plelievg001.int.eli-np.ro" # "10.16.4.23" ## plelievg001
       workdir: "/opt/codac-4.1/apps/elinp-gp09-ioc01/iocBoot/epik8s-evg"
       exec: "start.sh"
       iocbin: "../../bin/linux-x86_64/elinp-gp09-ioc01"
