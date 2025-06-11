@@ -1199,6 +1199,8 @@ epicsConfiguration:
       devtype: icp7060
       devgroup: polarity_reversal
       opi: "icpdas"
+      autosync: true
+
       iocparam:
         - name: "server"
           value: 10.16.4.32 # ddeliicp6r6i001.lnf.infn.it #10.16.4.32
@@ -1211,7 +1213,9 @@ epicsConfiguration:
       template: "icpdas"
       devtype: icp7060
       devgroup: polarity_reversal
-      opi: "icpdas"      
+      opi: "icpdas"
+      autosync: true
+
       iocparam:
         - name: "server"
           value: 10.16.4.33 # ddeliicp6r6i002.lnf.infn.it # 10.16.4.33
@@ -1223,7 +1227,7 @@ epicsConfiguration:
       template: "agilent-vac"
       devtype: xgs600
       devgroup: vgc
-      autosync: false
+      autosync: true
       
       iocparam:
         - name: "server"
@@ -1280,7 +1284,7 @@ epicsConfiguration:
       template: "agilent-vac"
       devtype: xgs600
       devgroup: vgc
-      autosync: false
+      autosync: true
       
       iocparam:
         - name: "server"
@@ -1330,7 +1334,7 @@ epicsConfiguration:
             devtype: "setpoint"
             opi: "xgs600setpoint"
           
-    - name: "vpcon17"
+    - name: "vpconion17"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL:VAC:VPCON17"
@@ -1354,7 +1358,7 @@ epicsConfiguration:
           channel: 
         - name: "IONP04"
           channel: 3
-    - name: "vpcon19"
+    - name: "vpconion19"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129491"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL:VAC:VPCON19"
@@ -1379,7 +1383,7 @@ epicsConfiguration:
             channel: 2
           - name: "IONP08"
             channel: 3
-    - name: "wgsvpcon01"
+    - name: "wgsvpconion01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111743"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL:VAC:WGS1:VPCON01"
@@ -1403,7 +1407,7 @@ epicsConfiguration:
             channel: 2
           - name: "IONP04"
             channel: 3
-    - name: "wgsvpcon02"
+    - name: "wgsvpconion02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111743"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL:VAC:WGS1:VPCON02"
