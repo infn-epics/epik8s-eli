@@ -21,7 +21,6 @@ epicsConfiguration:
   max_array_bytes: "10000000"
   # conn_tmo: 120
   services:
-    
     gateway:
       charturl: 'https://baltig.infn.it/epics-containers/ca-gateway-chart.git'
       ingress:
@@ -33,6 +32,9 @@ epicsConfiguration:
       template: "gateway"
       autosync: true ## restart automatically on changes
       staticIp: true
+      svcparams:
+        - name: "disconnect_timeout"
+          value: 60
       resources:
             limits:
               cpu: 999m
@@ -42,15 +44,11 @@ epicsConfiguration:
               memory: 1Gi
     pvagateway:
       charturl: 'https://baltig.infn.it/epics-containers/ca-gateway-chart.git'
-      image:
-        repository: baltig.infn.it:4567/epics-containers/docker-pva-gateway
-        tag: "latest"
       ingress:
         enabled: false
       loadbalancer: 10.16.4.203
       template: "pvagateway"
       replicaCount: 1
-      exec: start.sh
       auto_security: true
       
       autosync: true ## restart automatically on changes
