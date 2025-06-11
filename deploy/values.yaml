@@ -552,20 +552,20 @@ epicsConfiguration:
       autosync: false
       nfsMounts:
       - name: data
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/data
+        server: "10.16.4.100"
+        path: /epik8s_data/data
         mountPath: /nfs/data
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: autosave
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/autosave
+        server: "10.16.4.100"
+        path: /epik8s_data/autosave
         mountPath: /nfs/autosave
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: config
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/config
+        server: "10.16.4.100"
+        path: /epik8s_data/config
         mountPath: /nfs/config
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
@@ -647,20 +647,20 @@ epicsConfiguration:
       autosync: false
       nfsMounts:
       - name: data
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/data
+        server: "10.16.4.100"
+        path: /epik8s_data/data
         mountPath: /nfs/data
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: autosave
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/autosave
+        server: "10.16.4.100"
+        path: /epik8s_data/autosave
         mountPath: /nfs/autosave
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: config
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/config
+        server: "10.16.4.100"
+        path: /epik8s_data/config
         mountPath: /nfs/config
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
@@ -857,20 +857,20 @@ epicsConfiguration:
       autosync: false
       nfsMounts:
       - name: data
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/data
+        server: "10.16.4.100"
+        path: /epik8s_data/data
         mountPath: /nfs/data
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: autosave
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/autosave
+        server: "10.16.4.100"
+        path: /epik8s_data/autosave
         mountPath: /nfs/autosave
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: config
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/config
+        server: "10.16.4.100"
+        path: /epik8s_data/config
         mountPath: /nfs/config
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
@@ -1081,20 +1081,20 @@ epicsConfiguration:
       autosync: false
       nfsMounts:
       - name: data
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/data
+        server: "10.16.4.100"
+        path: /epik8s_data/data
         mountPath: /nfs/data
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: autosave
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/autosave
+        server: "10.16.4.100"
+        path: /epik8s_data/autosave
         mountPath: /nfs/autosave
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: config
-        server: "192.168.197.157"
-        path: /data_epik8s/eli/config
+        server: "10.16.4.100"
+        path: /epik8s_data/config
         mountPath: /nfs/config
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
@@ -1139,20 +1139,20 @@ epicsConfiguration:
     #   autosync: false
     #   nfsMounts:
     #   - name: data
-    #     server: "192.168.197.157"
-    #     path: /data_epik8s/eli/data
+    #     server: "10.16.4.100"
+    #     path: /epik8s_data/data
     #     mountPath: /nfs/data
     #     opt: "-o credentials=/etc/smbcredentials"
     #     type: "cifs"
     #   - name: autosave
-    #     server: "192.168.197.157"
-    #     path: /data_epik8s/eli/autosave
+    #     server: "10.16.4.100"
+    #     path: /epik8s_data/autosave
     #     mountPath: /nfs/autosave
     #     opt: "-o credentials=/etc/smbcredentials"
     #     type: "cifs"
     #   - name: config
-    #     server: "192.168.197.157"
-    #     path: /data_epik8s/eli/config
+    #     server: "10.16.4.100"
+    #     path: /epik8s_data/config
     #     mountPath: /nfs/config
     #     opt: "-o credentials=/etc/smbcredentials"
     #     type: "cifs"
@@ -1852,18 +1852,18 @@ opi:
         value: "{{CONFIG}}"
 nfsMounts:
     - name: data
-      server: 192.168.197.157
-      path: /data_epik8s/eli/data
+      server: 10.16.4.100
+      path: /epik8s_data/data
       mountPath: /nfs/data
       opt: "-o nolock"
     - name: autosave
-      server: 192.168.197.157
-      path: /data_epik8s/eli/autosave
+      server: 10.16.4.100
+      path: /epik8s_data/autosave
       mountPath: /nfs/autosave
       opt: "-o nolock"
     - name: config
-      server: 192.168.197.157
-      path: /data_epik8s/eli/config
+      server: 10.16.4.100
+      path: /epik8s_data/config
       mountPath: /nfs/config
       opt: "-o nolock"
     
