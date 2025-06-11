@@ -315,7 +315,7 @@ epicsConfiguration:
         - name: "PLXBPM10"
           channel: 6  
       host: "bdelilibera01.int.eli-np.ro"
-      ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
+      ssh_options: "-o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/sparc-template-sppp"
       scpoptions: "-O"
       exec: "start.sh"
@@ -339,7 +339,7 @@ epicsConfiguration:
         - name: "PLXBPM10"
           channel: 6  
       host: "bdelilibera02.int.eli-np.ro"
-      ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
+      ssh_options: "-o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/sparc-template-sppp"
       scpoptions: "-O"
       exec: "start.sh"
