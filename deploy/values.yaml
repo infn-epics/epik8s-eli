@@ -1721,8 +1721,6 @@ epicsConfiguration:
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2447&objectId=133401"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL"
-      usegateway: true
-
       serial:
         ip: 10.16.4.57
         port: 4005
@@ -1741,33 +1739,33 @@ epicsConfiguration:
         hostid: 1
         jvel: 30
         hvel: 30
-        devices:
-          - axid: 1
-            name: SCN01:MOT01
-            ustep2mm: 684931.506849
-            velo_max: 200
-            jvel: 50
-            hvel: 50
-          - axid: 2
-            name: SCN02:MOT01
-            ustep2mm: 684931.506849
-            velo_max: 200
-          - axid: 3
-            name: SCN03:MOT01
-            ustep2mm: 684931.506849
-            velo_max: 200
-          - axid: 4
-            name: SCN04:MOT01
-            ustep2mm: 684931.506849
-            velo_max: 200
-          - axid: 5
-            name: SCN05:MOT01
-            ustep2mm: 684931.506849
-            velo_max: 200
-          - axid: 6
-            name: SCN06:MOT01
-            ustep2mm: 684931.506849
-            velo_max: 200
+      devices:
+        - axid: 1
+          name: SCN01:MOT01
+          ustep2mm: 684931.506849
+          velo_max: 200
+          jvel: 50
+          hvel: 50
+        - axid: 2
+          name: SCN02:MOT01
+          ustep2mm: 684931.506849
+          velo_max: 200
+        - axid: 3
+          name: SCN03:MOT01
+          ustep2mm: 684931.506849
+          velo_max: 200
+        - axid: 4
+          name: SCN04:MOT01
+          ustep2mm: 684931.506849
+          velo_max: 200
+        - axid: 5
+          name: SCN05:MOT01
+          ustep2mm: 684931.506849
+          velo_max: 200
+        - axid: 6
+          name: SCN06:MOT01
+          ustep2mm: 684931.506849
+          velo_max: 200
     - name: "unimag"
       asset: "https://confluence.infn.it/display/SCS/Magnet+SoftIOC+Devil+Wrapper"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
