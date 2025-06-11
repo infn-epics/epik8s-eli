@@ -17,13 +17,7 @@ epicsConfiguration:
   name: "epics-configuration" # name of existing configMap that set CA parameters
   address_list: ""
 
-# 10.16.4.26 gen-cs-gp09-ioc01.lnf.infn.it
-## modulator
-# plelillrf001.lnf.infn.it
-# plelillrfs001.lnf.infn.it
-# plelillrfs002.lnf.infn.it
-# plelillrfc001.lnf.infn.it
-# mikelinux.lnf.infn.it 
+
   max_array_bytes: "10000000"
   # conn_tmo: 120
   services:
