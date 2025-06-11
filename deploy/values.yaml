@@ -891,7 +891,7 @@ epicsConfiguration:
       devtype: evr230
       template: "mrf-pci-230"
       devgroup: timing
-      host: "plelievr002.int.eli-np.ro" # "10.16.4.25" 
+      host: "10.16.4.25" # "plelievr002.int.eli-np.ro" # "10.16.4.25" 
       workdir: "/opt/codac-4.1/apps/elinp-gp08-ioc06/epik8s-delay"
       exec: "start.sh"
       iocbin: "../bin/linux-x86_64/elinp-gp08-ioc06"
