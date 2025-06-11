@@ -1681,41 +1681,41 @@ epicsConfiguration:
           - name: "QUAD03"
             max: 50
 
-    - name: "motor-tml"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2447&objectId=133401"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:TEST"
-      usegateway: true
+    # - name: "motor-tml"
+    #   asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2447&objectId=133401"
+    #   charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+    #   iocprefix: "LEL:TEST"
+    #   usegateway: true
 
-      serial:
-        ip: 10.16.4.35
-        port: 4001
-        ptty: /var/tmp/ttyV0
-        baud: 9600
-      dataVolume:
-        accessMode: 'ReadWriteOnce' ## until not enabled shared
-        size: 8Mi
+    #   serial:
+    #     ip: 10.16.4.35
+    #     port: 4001
+    #     ptty: /var/tmp/ttyV0
+    #     baud: 9600
+    #   dataVolume:
+    #     accessMode: 'ReadWriteOnce' ## until not enabled shared
+    #     size: 8Mi
       
-      autosync: false ## restart automatically on changes
-      devtype: tml
-      devgroup: motor
-      opi: "tml"
-      template:  "motor"  
-      motor:
-        hostid: 6
-        jvel: 30
-        hvel: 30
-        devices:
-          - axid: 6
-            name: SCN01:MOT01
-            ustep2mm: 684931.506849
-            velo_max: 200
-            jvel: 50
-            hvel: 50
-          - axid: 4
-            name: SCN02:MOT01
-            ustep2mm: 684931.506849
-            velo_max: 200
+    #   autosync: false ## restart automatically on changes
+    #   devtype: tml
+    #   devgroup: motor
+    #   opi: "tml"
+    #   template:  "motor"  
+    #   motor:
+    #     hostid: 6
+    #     jvel: 30
+    #     hvel: 30
+    #     devices:
+    #       - axid: 6
+    #         name: SCN01:MOT01
+    #         ustep2mm: 684931.506849
+    #         velo_max: 200
+    #         jvel: 50
+    #         hvel: 50
+    #       - axid: 4
+    #         name: SCN02:MOT01
+    #         ustep2mm: 684931.506849
+    #         velo_max: 200
            
     - name: "diag-tml"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2447&objectId=133401"
@@ -1738,33 +1738,33 @@ epicsConfiguration:
       opi: "tml"
       template:  "motor"  
       motor:
-        hostid: 4
+        hostid: 1
         jvel: 30
         hvel: 30
         devices:
-          - axid: 4
+          - axid: 1
             name: SCN01:MOT01
             ustep2mm: 684931.506849
             velo_max: 200
             jvel: 50
             hvel: 50
-          - axid: 5
+          - axid: 2
             name: SCN02:MOT01
             ustep2mm: 684931.506849
             velo_max: 200
-          - axid: 12
+          - axid: 3
             name: SCN03:MOT01
             ustep2mm: 684931.506849
             velo_max: 200
-          - axid: 9
+          - axid: 4
             name: SCN04:MOT01
             ustep2mm: 684931.506849
             velo_max: 200
-          - axid: 7
+          - axid: 5
             name: SCN05:MOT01
             ustep2mm: 684931.506849
             velo_max: 200
-          - axid: 13
+          - axid: 6
             name: SCN06:MOT01
             ustep2mm: 684931.506849
             velo_max: 200
