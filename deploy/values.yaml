@@ -1108,7 +1108,7 @@ epicsConfiguration:
       ssh_options: "-o HostKeyAlgorithms=ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
       scpoptions: "-O"
     
-    - name: "plelievg001-evg"
+    - name: "plelievg001"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2441&mode=object&objectId=113217"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL:TIM"
