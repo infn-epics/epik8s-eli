@@ -297,13 +297,13 @@ epicsConfiguration:
       exec: "start.sh"
       #autosync: true ## restart automatically on changes
 
-    - name: "bdeliplxbpm007"
+    - name: "bdelilibera01"
       asset: "https://confluence.infn.it/x/doKBBg"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git' 
       template: "libera-spe"
       devtype: bpm
       devgroup: diag
-      iocprefix: "PLXSPE"
+      iocprefix: "LEL:DIA:BPM01"
       pva: false
       devices:
         - name: "PLXBPM07"
@@ -314,7 +314,31 @@ epicsConfiguration:
           channel: 5
         - name: "PLXBPM10"
           channel: 6  
-      host: "bdsparcplxbpm007.lnf.infn.it"
+      host: "bdelilibera01.int.eli-np.ro"
+      ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
+      workdir: "/opt/sparc-template-sppp"
+      scpoptions: "-O"
+      exec: "start.sh"
+      autosync: false ## restart automatically on changes
+
+    - name: "bdelilibera02"
+      asset: "https://confluence.infn.it/x/doKBBg"
+      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git' 
+      template: "libera-spe"
+      devtype: bpm
+      devgroup: diag
+      iocprefix: "LEL:DIA:BPM02"
+      pva: false
+      devices:
+        - name: "PLXBPM07"
+          channel: 3
+        - name: "PLXBPM08"
+          channel: 4
+        - name: "PLXBPM09"
+          channel: 5
+        - name: "PLXBPM10"
+          channel: 6  
+      host: "bdelilibera02.int.eli-np.ro"
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/sparc-template-sppp"
       scpoptions: "-O"
