@@ -145,7 +145,7 @@ epicsConfiguration:
           accessMode: ReadWriteOnce
       enable_ingress: true
       usegateway: true
-      autosync: true ## restart automatically on changes
+      autosync: false ## restart automatically on changes
       pip:
         - bluesky
         - infn-ophyd-hal
@@ -375,16 +375,16 @@ epicsConfiguration:
       opi: "biltitest"
       devices:
           - name: "HCOR06"
-            id: 1
+            channel: 1
             max: 10
           - name: "VCOR06"
-            id: 2
+            channel: 2
             max: 10
           - name: "HCOR07"
-            id: 3
+            channel: 3
             max: 10
           - name: "VCOR07"
-            id: 4
+            channel: 4
             max: 10
           
     - name: "camerasim"
@@ -1505,22 +1505,22 @@ epicsConfiguration:
       opi: "biltitest"
       devices:
           - name: "HCOR01"
-            id: 1
+            channel: 1
             max: 10
           - name: "VCOR01"
-            id: 2
+            channel: 2
             max: 10
           - name: "HCOR02"
-            id: 3
+            channel: 3
             max: 10
           - name: "VCOR02"
-            id: 4
+            channel: 4
             max: 10
           - name: "HCOR03"
-            id: 5
+            channel: 5
             max: 10
           - name: "VCOR03"
-            id: 6
+            channel: 6
             max: 10
     - name: "sigmaphi-SOL02-SPSU03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111617"
@@ -1600,16 +1600,16 @@ epicsConfiguration:
       opi: "biltitest"
       devices:
           - name: "HCOR04"
-            id: 1
+            channel: 1
             max: 10
           - name: "VCOR04"
-            id: 2
+            channel: 2
             max: 10
           - name: "HCOR05"
-            id: 3
+            channel: 3
             max: 10
           - name: "VCOR05"
-            id: 4
+            channel: 4
             max: 10
     
 
