@@ -463,9 +463,9 @@ epicsConfiguration:
         - name: "gigevision-client"
           annotation: "multus-secondary-net"
       # hostNetwork: true
-      useAffinity: true
-      affinityKey: "gige"
-      affinityValue: "enabled"
+      # useAffinity: true
+      # affinityKey: "gige"
+      # affinityValue: "enabled"
       iocprefix: "LEL:SCN01"
       autosync: false ## restart automatically on changes
       iocinit:
@@ -504,9 +504,9 @@ epicsConfiguration:
         - name: "gigevision-client"
           annotation: "multus-secondary-net"
       # hostNetwork: true
-      useAffinity: true
-      affinityKey: "gige"
-      affinityValue: "enabled"
+      # useAffinity: true
+      # affinityKey: "gige"
+      # affinityValue: "enabled"
       iocprefix: "LEL:SCN02"
       autosync: false ## restart automatically on changes
       iocinit:
@@ -546,9 +546,9 @@ epicsConfiguration:
         - name: "gigevision-client"
           annotation: "multus-secondary-net"
       # hostNetwork: true
-      useAffinity: true
-      affinityKey: "gige"
-      affinityValue: "enabled"
+      # useAffinity: true
+      # affinityKey: "gige"
+      # affinityValue: "enabled"
       iocprefix: "LEL:SCN03"
       autosync: false ## restart automatically on changes
       iocinit:
