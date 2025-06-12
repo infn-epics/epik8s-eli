@@ -994,7 +994,7 @@ epicsConfiguration:
       scpoptions: "-O"
 
     - name: "plelievrkey001"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&mode=object&objectId=119372"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&objectId=119372"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL"
       devtype: evr230
@@ -1635,13 +1635,13 @@ epicsConfiguration:
             channel: 3
             max: 10
           - name: "VCOR02"
-            channel: 4
-            max: 10
-          - name: "HCOR03"
             channel: 5
             max: 10
+          - name: "HCOR03"
+            channel: 7
+            max: 10
           - name: "VCOR03"
-            channel: 6
+            channel: 9
             max: 10
     - name: "sigmaphi-SOL02-SPSU03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111617"
