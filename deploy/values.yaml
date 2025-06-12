@@ -394,7 +394,6 @@ epicsConfiguration:
       devtype: camerasim
       devgroup: diag
       template: "adcamera"
-      targetRevision: 'templates'
       enable_ingress: true
       service:   
         http:
@@ -456,7 +455,6 @@ epicsConfiguration:
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: diag
-      
       template:  "adcamera"
       pva: true
       networks:
@@ -468,13 +466,7 @@ epicsConfiguration:
       # affinityValue: "enabled"
       iocprefix: "LEL:SCN01"
       autosync: false ## restart automatically on changes
-      iocinit:
-        - name: "AcquirePeriod"
-          value: "1"
-        - name: "FrameRate"
-          value: "1"
-        - name: "FrameRateEnable"
-          value: "Yes"
+      
       iocparam:
         - name: "overlay_enable"
           value: false
@@ -486,10 +478,17 @@ epicsConfiguration:
           value: true
         - name: "roi_enable"
           value: false
-      cameras:
+      devices:
         - name: "CAM01"
           CAMERA_ID: Basler-a2A1920-51gmBAS-40458493
           CAMERA_CLASS: Basler-a2A2600-20gmBAS
+          iocinit:
+            - name: "AcquirePeriod"
+              value: "1"
+            - name: "FrameRate"
+              value: "1"
+            - name: "FrameRateEnable"
+              value: "Yes"
         
     - name: "cam02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
@@ -509,13 +508,7 @@ epicsConfiguration:
       # affinityValue: "enabled"
       iocprefix: "LEL:SCN02"
       autosync: false ## restart automatically on changes
-      iocinit:
-        - name: "AcquirePeriod"
-          value: "1"
-        - name: "FrameRate"
-          value: "1"
-        - name: "FrameRateEnable"
-          value: "Yes"
+      
       iocparam:
         - name: "overlay_enable"
           value: false
@@ -527,10 +520,17 @@ epicsConfiguration:
           value: true
         - name: "roi_enable"
           value: false
-      cameras:
+      devices:
         - name: "CAM01"
           CAMERA_ID: Basler-a2A1920-51gmBAS-40458497
           CAMERA_CLASS: Basler-a2A2600-20gmBAS
+          iocinit:
+            - name: "AcquirePeriod"
+              value: "1"
+            - name: "FrameRate"
+              value: "1"
+            - name: "FrameRateEnable"
+              value: "Yes"
 
     
     - name: "cam03"
@@ -551,13 +551,7 @@ epicsConfiguration:
       # affinityValue: "enabled"
       iocprefix: "LEL:SCN03"
       autosync: false ## restart automatically on changes
-      iocinit:
-        - name: "AcquirePeriod"
-          value: "1"
-        - name: "FrameRate"
-          value: "1"
-        - name: "FrameRateEnable"
-          value: "Yes"
+      
       iocparam:
         - name: "overlay_enable"
           value: false
@@ -569,14 +563,18 @@ epicsConfiguration:
           value: true
         - name: "roi_enable"
           value: false
-      cameras:
+      devices:
         - name: "CAM01"
           CAMERA_ID: Basler-a2A1920-51gmBAS-40458491
           CAMERA_CLASS: Basler-a2A2600-20gmBAS
+          iocinit:
+            - name: "AcquirePeriod"
+              value: "1"
+            - name: "FrameRate"
+              value: "1"
+            - name: "FrameRateEnable"
+              value: "Yes"
 
-    
-
-    
 
     - name: "plelievr001-laser-delay"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2441&mode=object&objectId=113215"
