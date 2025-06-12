@@ -1724,13 +1724,13 @@ epicsConfiguration:
             channel: 1
             max: 10
           - name: "VCOR04"
-            channel: 2
-            max: 10
-          - name: "HCOR05"
             channel: 3
             max: 10
+          - name: "HCOR05"
+            channel: 5
+            max: 10
           - name: "VCOR05"
-            channel: 4
+            channel: 7
             max: 10
     
 
