@@ -461,7 +461,7 @@ epicsConfiguration:
       pva: true
       networks:
         - name: "gigevision-client"
-          annotation: "gigevision-network"
+          annotation: "multus-secondary-net"
       # hostNetwork: true
       useAffinity: true
       affinityKey: "gige"
@@ -502,7 +502,7 @@ epicsConfiguration:
       pva: true
       networks:
         - name: "gigevision-client"
-          annotation: "gigevision-network"
+          annotation: "multus-secondary-net"
       # hostNetwork: true
       useAffinity: true
       affinityKey: "gige"
@@ -544,7 +544,7 @@ epicsConfiguration:
       pva: true
       networks:
         - name: "gigevision-client"
-          annotation: "gigevision-network"
+          annotation: "multus-secondary-net"
       # hostNetwork: true
       useAffinity: true
       affinityKey: "gige"
