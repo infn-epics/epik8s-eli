@@ -457,7 +457,7 @@ epicsConfiguration:
       devtype: camera
       devgroup: diag
       
-      template:  "camera"
+      template:  "adcamera"
       pva: true
       networks:
         - name: "gigevision-client"
@@ -498,7 +498,7 @@ epicsConfiguration:
       devtype: camera
       devgroup: diag
       
-      template:  "camera"
+      template:  "adcamera"
       pva: true
       networks:
         - name: "gigevision-client"
@@ -540,7 +540,7 @@ epicsConfiguration:
       devtype: camera
       devgroup: diag
       
-      template:  "camera"
+      template:  "adcamera"
       pva: true
       networks:
         - name: "gigevision-client"
