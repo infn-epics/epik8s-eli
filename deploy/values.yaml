@@ -502,10 +502,7 @@ epicsConfiguration:
       networks:
         - name: "gigevision-client"
           annotation: "multus-secondary-net"
-      # hostNetwork: true
-      # useAffinity: true
-      # affinityKey: "gige"
-      # affinityValue: "enabled"
+      
       iocprefix: "LEL:SCN02"
       autosync: false ## restart automatically on changes
       
@@ -545,10 +542,7 @@ epicsConfiguration:
       networks:
         - name: "gigevision-client"
           annotation: "multus-secondary-net"
-      # hostNetwork: true
-      # useAffinity: true
-      # affinityKey: "gige"
-      # affinityValue: "enabled"
+      
       iocprefix: "LEL:SCN03"
       autosync: false ## restart automatically on changes
       
