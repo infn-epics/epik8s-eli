@@ -306,13 +306,13 @@ epicsConfiguration:
       iocprefix: "LEL:DIA:BPM01"
       pva: false
       devices:
-        - name: "PLXBPM07"
+        - name: "BPM01"
           channel: 3
-        - name: "PLXBPM08"
+        - name: "BPM02"
           channel: 4
-        - name: "PLXBPM09"
+        - name: "BPM03"
           channel: 5
-        - name: "PLXBPM10"
+        - name: "BPM04"
           channel: 6  
       host: "bdelilibera01.int.eli-np.ro"
       ssh_options: "-o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
@@ -330,13 +330,13 @@ epicsConfiguration:
       iocprefix: "LEL:DIA:BPM02"
       pva: false
       devices:
-        - name: "PLXBPM07"
+        - name: "BPM01"
           channel: 3
-        - name: "PLXBPM08"
+        - name: "BPM02"
           channel: 4
-        - name: "PLXBPM09"
+        - name: "BPM03"
           channel: 5
-        - name: "PLXBPM10"
+        - name: "BPM04"
           channel: 6  
       host: "bdelilibera02.int.eli-np.ro"
       ssh_options: "-o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
