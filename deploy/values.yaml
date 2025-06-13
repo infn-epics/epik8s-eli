@@ -1676,7 +1676,7 @@ epicsConfiguration:
     - name: "sigmaphi-SOL02-SPSU05"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111615"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:MAG:SPSU02"
+      iocprefix: "LEL:MAG:SPSU05"
       template:  "sigmaphi"
       devtype: sigmaphi
       devgroup: mag
