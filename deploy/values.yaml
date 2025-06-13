@@ -303,7 +303,7 @@ epicsConfiguration:
       template: "libera-spe"
       devtype: bpm
       devgroup: diag
-      iocprefix: "LEL:DIA:BPM01"
+      iocprefix: "bdelilibera01:LEL:DIA:BPM01"
       pva: false
       devices:
         - name: "BPM01"
