@@ -1506,9 +1506,9 @@ epicsConfiguration:
           channel: 3
 
     - name: "TEMP-VPCON16"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138463"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC:TEMPVPCON16"
+      iocprefix: "LEL:VAC:VPCON16"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vpc
@@ -1531,9 +1531,9 @@ epicsConfiguration:
           channel: 3
 
     - name: "TEMP-VPCON18"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138464"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC:TEMPVPCON18"
+      iocprefix: "LEL:VAC:VPCON18"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vpc
@@ -1556,9 +1556,9 @@ epicsConfiguration:
           channel: 3
 
     - name: "TEMP-VPCON20"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138465"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC:TEMPVPCON20"
+      iocprefix: "LEL:VAC:VPCON20"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vpc
