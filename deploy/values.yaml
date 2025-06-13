@@ -305,6 +305,7 @@ epicsConfiguration:
       devgroup: diag
       iocprefix: "bdelilibera01:LEL:DIA:BPM01"
       pva: false
+      iocbin: "/opt/libera-ioc/bin/liberaIOC"
       devices:
         - name: "BPM01"
           channel: 3
@@ -1522,13 +1523,13 @@ epicsConfiguration:
       opi: "agilent4uhv"
       devices:
         - name: "IONP01"
-          channel: 0
-        - name: "IONP02"
           channel: 1
-        - name: "IONP03"
+        - name: "IONP02"
           channel: 2
-        - name: "IONP04"
+        - name: "IONP03"
           channel: 3
+        - name: "IONP04"
+          channel: 4
 
     - name: "TEMP-VPCON18"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138464"
@@ -1547,13 +1548,13 @@ epicsConfiguration:
       opi: "agilent4uhv"
       devices:
         - name: "IONP01"
-          channel: 0
-        - name: "IONP02"
           channel: 1
-        - name: "IONP03"
+        - name: "IONP02"
           channel: 2
-        - name: "IONP04"
+        - name: "IONP03"
           channel: 3
+        - name: "IONP04"
+          channel: 4
 
     - name: "TEMP-VPCON20"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138465"
@@ -1572,13 +1573,13 @@ epicsConfiguration:
       opi: "agilent4uhv"
       devices:
         - name: "IONP01"
-          channel: 0
-        - name: "IONP02"
           channel: 1
-        - name: "IONP03"
+        - name: "IONP02"
           channel: 2
-        - name: "IONP04"
+        - name: "IONP03"
           channel: 3
+        - name: "IONP04"
+          channel: 4
 
     - name: "vpconion19"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129491"
@@ -1598,13 +1599,13 @@ epicsConfiguration:
       devices:
 
           - name: "IONP05"
-            channel: 0
-          - name: "IONP06"
             channel: 1
-          - name: "IONP07"
+          - name: "IONP06"
             channel: 2
-          - name: "IONP08"
+          - name: "IONP07"
             channel: 3
+          - name: "IONP08"
+            channel: 4
     - name: "wgsvpconion01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111743"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
@@ -1622,13 +1623,13 @@ epicsConfiguration:
       opi: "agilent4uhv"
       devices:
           - name: "IONP01"
-            channel: 0
-          - name: "IONP02"
             channel: 1
-          - name: "IONP03"
+          - name: "IONP02"
             channel: 2
-          - name: "IONP04"
+          - name: "IONP03"
             channel: 3
+          - name: "IONP04"
+            channel: 4
     - name: "wgsvpconion02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111743"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
@@ -1646,13 +1647,13 @@ epicsConfiguration:
       opi: "agilent4uhv"
       devices:
           - name: "IONP05"
-            channel: 0
-          - name: "IONP06"
             channel: 1
-          - name: "IONP07"
+          - name: "IONP06"
             channel: 2
-          - name: "IONP08"
+          - name: "IONP07"
             channel: 3
+          - name: "IONP08"
+            channel: 4
 
     - name: "sigmaphi-SOL01-SPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111614"
