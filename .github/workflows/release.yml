@@ -1,0 +1,36 @@
+name: Release on Tag
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install epik8s-tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install epik8s-tools
+
+      - name: Generate Release Notes
+        run: |
+          epik8s-opigen --yaml deploy/values.yaml --projectdir release-notes-tmp
+          cp release-notes-tmp/README.md RELEASE_NOTES.md
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name }}
+          body_path: RELEASE_NOTES.md
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
