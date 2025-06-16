@@ -6,7 +6,7 @@ stages:
 
 variables:
   # Enable recursive cloning of submodules
-  GIT_SUBMODULE_STRATEGY: recursive
+  # GIT_SUBMODULE_STRATEGY: recursive
   
 before_script:
   # Update pip to the latest version
