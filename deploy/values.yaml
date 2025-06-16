@@ -303,7 +303,7 @@ epicsConfiguration:
       template: "libera-spe"
       devtype: bpm
       devgroup: diag
-      iocprefix: "bdelilibera01:LEL:DIA:BPM01"
+      iocprefix: "LEL:DIA:BPM01"
       pva: false
       iocbin: "/opt/libera-ioc/bin/liberaIOC"
       devices:
@@ -357,37 +357,7 @@ epicsConfiguration:
       gitinit: true
       autosync: false ## restart automatically on changes
       usegateway: false
-    
-    
-    
-    - name: "biltitest-cpsu03"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111616"
-      devtype: bilt-itest
-      template:  "ibilt"
-      devgroup: mag
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      
-      autosync: false ## restart automatically on changes
-      # carepeater: true ## launch ca repeater, this ioc needs it
-      iocprefix: "LEL:MAG:CPSU03"
-      iocparam:
-        - name: "server"
-          value: 10.16.4.49
-      opi: "biltitest"
-      devices:
-          - name: "HCOR06"
-            channel: 1
-            max: 10
-          - name: "VCOR06"
-            channel: 2
-            max: 10
-          - name: "HCOR07"
-            channel: 3
-            max: 10
-          - name: "VCOR07"
-            channel: 4
-            max: 10
-          
+         
     - name: "camerasim"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
@@ -455,16 +425,12 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
-      devgroup: diag
+      devgroup: screen 1
       template:  "adcamera"
       pva: true
       networks:
         - name: "gigevision-client"
           annotation: "multus-secondary-net"
-      # hostNetwork: true
-      # useAffinity: true
-      # affinityKey: "gige"
-      # affinityValue: "enabled"
       iocprefix: "LEL:SCN01"
       autosync: false ## restart automatically on changes
       
@@ -496,8 +462,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
-      devgroup: diag
-      
+      devgroup: screen 2
       template:  "adcamera"
       pva: true
       networks:
@@ -536,7 +501,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
-      devgroup: diag
+      devgroup: screen 3
       
       template:  "adcamera"
       pva: true
@@ -576,7 +541,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
-      devgroup: diag
+      devgroup: screen 4
       
       template:  "adcamera"
       pva: true
@@ -615,7 +580,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
-      devgroup: diag
+      devgroup: screen 5
       
       template:  "adcamera"
       pva: true
@@ -654,7 +619,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
-      devgroup: diag
+      devgroup: screen 6
       
       template:  "adcamera"
       pva: true
@@ -1361,7 +1326,7 @@ epicsConfiguration:
       iocroot: "ICPDAS"
       template: "icpdas"
       devtype: icp7060
-      devgroup: polarity_reversal
+      devgroup: screen 123456
       opi: "icpdas"
       autosync: true
       iocparam:
@@ -1655,13 +1620,41 @@ epicsConfiguration:
           - name: "IONP08"
             channel: 4
 
+    - name: "biltitest-cpsu03"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111616"
+      devtype: bilt-itest
+      template:  "ibilt"
+      devgroup: psu
+      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      
+      autosync: false ## restart automatically on changes
+      # carepeater: true ## launch ca repeater, this ioc needs it
+      iocprefix: "LEL:MAG:CPSU03"
+      iocparam:
+        - name: "server"
+          value: 10.16.4.49
+      opi: "biltitest"
+      devices:
+          - name: "HCOR06"
+            channel: 1
+            max: 10
+          - name: "VCOR06"
+            channel: 2
+            max: 10
+          - name: "HCOR07"
+            channel: 3
+            max: 10
+          - name: "VCOR07"
+            channel: 4
+            max: 10
+     
     - name: "sigmaphi-SOL01-SPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111614"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU01"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: mag
+      devgroup: psu
       
       opi: "sigmaphi"
       iocparam:
@@ -1677,7 +1670,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:SPSU02"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: mag
+      devgroup: psu
       
       iocparam:
         - name: "server"
@@ -1690,7 +1683,7 @@ epicsConfiguration:
     - name: "biltitest-cpsu01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111616"
       devtype: biltitest
-      devgroup: mag
+      devgroup: psu
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       
       autosync: false ## restart automatically on changes
@@ -1726,7 +1719,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:SPSU03"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: mag
+      devgroup: psu
       
       opi: "sigmaphi"
       iocparam:
@@ -1741,7 +1734,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:SPSU04"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: mag
+      devgroup: psu
       
       opi: "sigmaphi"
       iocparam:
@@ -1756,7 +1749,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:SPSU05"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: mag
+      devgroup: psu
       
       opi: "sigmaphi"
       iocparam:
@@ -1772,7 +1765,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:SPSU06"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: mag
+      devgroup: psu
       
       opi: "sigmaphi"
       iocparam:
@@ -1785,7 +1778,7 @@ epicsConfiguration:
     - name: "biltitest-cpsu02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111621"
       devtype: biltitest
-      devgroup: mag
+      devgroup: psu
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       
       autosync: false ## restart automatically on changes
@@ -1821,7 +1814,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:DPSU01"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: mag
+      devgroup: psu
       
       opi: "sigmaphi"
       iocparam:
@@ -1837,7 +1830,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:QPSU01"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: mag
+      devgroup: psu
       
       opi: "sigmaphi"
       iocparam:
@@ -1853,7 +1846,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:QPSU02"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: mag
+      devgroup: psu
       
       opi: "sigmaphi"
       iocparam:
@@ -1869,7 +1862,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:QPSU03"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: mag
+      devgroup: psu
       
       opi: "sigmaphi"
       iocparam:
@@ -1908,26 +1901,32 @@ epicsConfiguration:
           name: SCN01:MOT01
           ustep2mm: 684931.506849
           velo_max: 200
+          devgroup: screen 1
         - axid: 2
           name: SCN02:MOT01
           ustep2mm: 684931.506849
           velo_max: 200
+          devgroup: screen 2
         - axid: 3
           name: SCN03:MOT01
           ustep2mm: 684931.506849
           velo_max: 200
+          devgroup: screen 3
         - axid: 4
           name: SCN04:MOT01
           ustep2mm: 684931.506849
           velo_max: 200
+          devgroup: screen 4
         - axid: 5
           name: SCN05:MOT01
           ustep2mm: 684931.506849
           velo_max: 200
+          devgroup: screen 5
         - axid: 6
           name: SCN06:MOT01
           ustep2mm: 684931.506849
           velo_max: 200
+          devgroup: screen 6
     - name: "unimag"
       asset: "https://confluence.infn.it/display/SCS/Magnet+SoftIOC+Devil+Wrapper"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
