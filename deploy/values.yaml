@@ -1430,42 +1430,42 @@ epicsConfiguration:
             sensor: "I1"
             tcauto: "T3"
             devtype: "img"
-            opi: "xgs600img"
+            opi: "agilentXgs600/agilentXgs600Img.bob"
           - name: "GAUG02:CC"
             sensor: "I2"
             tcauto: "T3"
             devtype: "img"
-            opi: "xgs600img"
+            opi: "agilentXgs600/agilentXgs600Img.bob"
           - name: "GAUG03:CC"
             sensor: "I3"
             tcauto: "T3"
             devtype: "img"
-            opi: "xgs600img"
+            opi: "agilentXgs600/agilentXgs600Img.bob"
           - name: "GAUG04:CC"
             sensor: "I4"
             tcauto: "T3"
             devtype: "img"
-            opi: "xgs600img"          
-          - name: "GAUG01:CC:SP1"
-            sensor: "I1"
-            number: "1"
-            devtype: "setpoint"
-            opi: "xgs600setpoint"
-          - name: "GAUG01:CC:SP2"
-            sensor: "I2"
-            number: "2"
-            devtype: "setpoint"
-            opi: "xgs600setpoint"
-          - name: "GAUG02:CC:SP1"
-            sensor: "I3"
-            number: "1"
-            devtype: "setpoint"
-            opi: "xgs600setpoint"
-          - name: "GAUG02:CC:SP2"
-            sensor: "I4"
-            number: "2"
-            devtype: "setpoint"
-            opi: "xgs600setpoint"
+            opi: "agilentXgs600/agilentXgs600Img.bob"          
+          # - name: "GAUG01:CC:SP1"
+          #   sensor: "I1"
+          #   number: "1"
+          #   devtype: "setpoint"
+          #   opi: "agilentXgs600/agilentXgs600Spt.bob"
+          # - name: "GAUG01:CC:SP2"
+          #   sensor: "I2"
+          #   number: "2"
+          #   devtype: "setpoint"
+          #   opi: "agilentXgs600/agilentXgs600Spt.bob"
+          # - name: "GAUG02:CC:SP1"
+          #   sensor: "I3"
+          #   number: "1"
+          #   devtype: "setpoint"
+          #   opi: "agilentXgs600/agilentXgs600Spt.bob"
+          # - name: "GAUG02:CC:SP2"
+          #   sensor: "I4"
+          #   number: "2"
+          #   devtype: "setpoint"
+          #   opi: "agilentXgs600/agilentXgs600Spt.bob"
           
     - name: "vgcon02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111737"
@@ -1487,42 +1487,42 @@ epicsConfiguration:
             sensor: "I1"
             tcauto: "T3"
             devtype: "img"
-            opi: "xgs600img"
+            opi: "agilentXgs600/agilentXgs600Img.bob"
           - name: "GAUG06:CC"
             sensor: "I2"
             tcauto: "T3"
             devtype: "img"
-            opi: "xgs600img"
+            opi: "agilentXgs600/agilentXgs600Img.bob"
           - name: "GAUG07:CC"
             sensor: "I3"
             tcauto: "T3"
             devtype: "img"
-            opi: "xgs600img"
+            opi: "agilentXgs600/agilentXgs600Img.bob"
           - name: "GAUG08:CC"
             sensor: "I4"
             tcauto: "T3"
             devtype: "img"
-            opi: "xgs600img"
-          - name: "GAUG05:CC:SP1"
-            sensor: "I1"
-            number: "1"
-            devtype: "setpoint"
-            opi: "xgs600setpoint"
-          - name: "GAUG06:CC:SP2"
-            sensor: "I2"
-            number: "2"
-            devtype: "setpoint"
-            opi: "xgs600setpoint"
-          - name: "GAUG07:CC:SP1"
-            sensor: "I3"
-            number: "1"
-            devtype: "setpoint"
-            opi: "xgs600setpoint"
-          - name: "GAUG08:CC:SP2"
-            sensor: "I4"
-            number: "2"
-            devtype: "setpoint"
-            opi: "xgs600setpoint"
+            opi: "agilentXgs600/agilentXgs600Img.bob"
+          # - name: "GAUG05:CC:SP1"
+          #   sensor: "I1"
+          #   number: "1"
+          #   devtype: "setpoint"
+          #   opi: "agilentXgs600/agilentXgs600Spt.bob"
+          # - name: "GAUG06:CC:SP2"
+          #   sensor: "I2"
+          #   number: "2"
+          #   devtype: "setpoint"
+          #   opi: "agilentXgs600/agilentXgs600Spt.bob"
+          # - name: "GAUG07:CC:SP1"
+          #   sensor: "I3"
+          #   number: "1"
+          #   devtype: "setpoint"
+          #   opi: "agilentXgs600/agilentXgs600Spt.bob"
+          # - name: "GAUG08:CC:SP2"
+          #   sensor: "I4"
+          #   number: "2"
+          #   devtype: "setpoint"
+          #   opi: "agilentXgs600/agilentXgs600Spt.bob"
           
     - name: "vpconion17"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
@@ -1538,7 +1538,7 @@ epicsConfiguration:
           value: 10.16.4.57 # scelimxa16001
         - name: "port"
           value: 4002
-      opi: "agilent4uhv"
+      opi: "agilent4uhv/agilent4uhv.bob"
       devices:
         - name: "IONP01"
           channel: 1
@@ -1563,7 +1563,7 @@ epicsConfiguration:
           value: 10.16.4.57 # scelimxa16001
         - name: "port"
           value: 4006
-      opi: "agilent4uhv"
+      opi: "agilent4uhv/agilent4uhv.bob"
       devices:
         - name: "IONP01"
           channel: 1
@@ -1588,7 +1588,7 @@ epicsConfiguration:
           value: 10.16.4.57 # scelimxa16001
         - name: "port"
           value: 4007
-      opi: "agilent4uhv"
+      opi: "agilent4uhv/agilent4uhv.bob"
       devices:
         - name: "IONP01"
           channel: 1
@@ -1613,7 +1613,7 @@ epicsConfiguration:
           value: 10.16.4.57 # scelimxa16001
         - name: "port"
           value: 4008
-      opi: "agilent4uhv"
+      opi: "agilent4uhv/agilent4uhv.bob"
       devices:
         - name: "IONP01"
           channel: 1
@@ -1638,7 +1638,7 @@ epicsConfiguration:
           value: 10.16.4.57 # scelimxa16001
         - name: "port"
           value: 4004
-      opi: "agilent4uhv"
+      opi: "agilent4uhv/agilent4uhv.bob"
       devices:
 
           - name: "IONP05"
@@ -1663,7 +1663,7 @@ epicsConfiguration:
           value: 10.16.4.58 # scelimxa8001
         - name: "port"
           value: 4001
-      opi: "agilent4uhv"
+      opi: "agilent4uhv/agilent4uhv.bob"
       devices:
           - name: "IONP01"
             channel: 1
@@ -1687,7 +1687,7 @@ epicsConfiguration:
           value: 10.16.4.58 # scelimxa8001
         - name: "port"
           value: 4001
-      opi: "agilent4uhv"
+      opi: "agilent4uhv/agilent4uhv.bob"
       devices:
           - name: "IONP05"
             channel: 1
