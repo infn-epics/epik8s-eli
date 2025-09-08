@@ -331,13 +331,13 @@ epicsConfiguration:
       iocprefix: "LEL:DIA:BPM02"
       pva: false
       devices:
-        - name: "BPM01"
+        - name: "BPM05"
           channel: 3
-        - name: "BPM02"
+        - name: "BPM06"
           channel: 4
-        - name: "BPM03"
+        - name: "BPM07"
           channel: 5
-        - name: "BPM04"
+        - name: "BPM08"
           channel: 6  
       host: "bdelilibera02.int.eli-np.ro"
       ssh_options: "-o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
@@ -363,8 +363,8 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camerasim
-      devgroup: diag
       template: "adcamera"
+      devgroup: cam
       enable_ingress: true
       service:   
         http:
@@ -425,7 +425,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
-      devgroup: screen 1
+      devgroup: cam
       template:  "adcamera"
       pva: true
       networks:
@@ -448,7 +448,6 @@ epicsConfiguration:
       devices:
         - name: "CAM01"
           CAMERA_ID: "10.16.4.21" # Basler-a2A1920-51gmBAS-40458493
-          CAMERA_CLASS: Basler-a2A2600-20gmBAS
           iocinit:
             - name: "AcquirePeriod"
               value: "1"
@@ -462,7 +461,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
-      devgroup: screen 2
+      devgroup: cam
       template:  "adcamera"
       pva: true
       networks:
@@ -486,7 +485,7 @@ epicsConfiguration:
       devices:
         - name: "CAM01"
           CAMERA_ID: "10.16.4.22" ## Basler-a2A1920-51gmBAS-40458497
-          CAMERA_CLASS: Basler-a2A2600-20gmBAS
+          
           iocinit:
             - name: "AcquirePeriod"
               value: "1"
@@ -501,7 +500,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
-      devgroup: screen 3
+      devgroup: cam
       
       template:  "adcamera"
       pva: true
@@ -526,7 +525,7 @@ epicsConfiguration:
       devices:
         - name: "CAM01"
           CAMERA_ID: "10.16.4.36" ## Basler-a2A1920-51gmBAS-40458491
-          CAMERA_CLASS: Basler-a2A2600-20gmBAS
+          
           iocinit:
             - name: "AcquirePeriod"
               value: "1"
@@ -541,7 +540,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
-      devgroup: screen 4
+      devgroup: cam
       
       template:  "adcamera"
       pva: true
@@ -566,7 +565,7 @@ epicsConfiguration:
       devices:
         - name: "CAM01"
           CAMERA_ID: "10.16.4.37"  # Basler-a2A1920-51gmBAS-40458491
-          CAMERA_CLASS: Basler-a2A2600-20gmBAS
+          
           iocinit:
             - name: "AcquirePeriod"
               value: "1"
@@ -580,7 +579,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
-      devgroup: screen 5
+      devgroup: cam
       
       template:  "adcamera"
       pva: true
@@ -605,7 +604,7 @@ epicsConfiguration:
       devices:
         - name: "CAM01"
           CAMERA_ID: "10.16.4.38" ## Basler-a2A1920-51gmBAS-40458491
-          CAMERA_CLASS: Basler-a2A2600-20gmBAS
+          
           iocinit:
             - name: "AcquirePeriod"
               value: "1"
@@ -619,8 +618,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
-      devgroup: screen 6
-      
+      devgroup: cam
       template:  "adcamera"
       pva: true
       networks:
@@ -644,7 +642,7 @@ epicsConfiguration:
       devices:
         - name: "CAM01"
           CAMERA_ID: "10.16.4.41" ## Basler-a2A1920-51gmBAS-40458491
-          CAMERA_CLASS: Basler-a2A2600-20gmBAS
+          
           iocinit:
             - name: "AcquirePeriod"
               value: "1"
@@ -1312,7 +1310,7 @@ epicsConfiguration:
       iocroot: "ICPDAS02"
       template: "icpdas"
       devtype: icp7060
-      devgroup: polarity_reversal
+      devgroup: io
       opi: "icpdas"
       autosync: true
       iocparam:
@@ -1326,7 +1324,7 @@ epicsConfiguration:
       iocroot: "ICPDAS"
       template: "icpdas"
       devtype: icp7060
-      devgroup: screen 123456
+      devgroup: io
       opi: "icpdas"
       autosync: true
       iocparam:
@@ -1338,7 +1336,7 @@ epicsConfiguration:
       iocprefix: "LEL:VAC:VGCON01"
       template: "agilent-vac"
       devtype: xgs600
-      devgroup: vgc
+      devgroup: vac
       autosync: true
       
       iocparam:
@@ -1395,7 +1393,7 @@ epicsConfiguration:
       iocprefix: "LEL:VAC:VGCON02"
       template: "agilent-vac"
       devtype: xgs600
-      devgroup: vgc
+      devgroup: vac
       autosync: true
       
       iocparam:
@@ -1452,7 +1450,7 @@ epicsConfiguration:
       iocprefix: "LEL:VAC:VPCON17"
       template: "agilent-vac"
       devtype: 4uhv
-      devgroup: vpc
+      devgroup: vac
       autosync: false
       
       iocparam:
@@ -1477,7 +1475,7 @@ epicsConfiguration:
       iocprefix: "LEL:VAC:VPCON16"
       template: "agilent-vac"
       devtype: 4uhv
-      devgroup: vpc
+      devgroup: vac
       autosync: false
       
       iocparam:
@@ -1502,7 +1500,7 @@ epicsConfiguration:
       iocprefix: "LEL:VAC:VPCON18"
       template: "agilent-vac"
       devtype: 4uhv
-      devgroup: vpc
+      devgroup: vac
       autosync: false
       
       iocparam:
@@ -1527,7 +1525,7 @@ epicsConfiguration:
       iocprefix: "LEL:VAC:VPCON20"
       template: "agilent-vac"
       devtype: 4uhv
-      devgroup: vpc
+      devgroup: vac
       autosync: false
       
       iocparam:
@@ -1552,7 +1550,7 @@ epicsConfiguration:
       iocprefix: "LEL:VAC:VPCON19"
       template: "agilent-vac"
       devtype: 4uhv
-      devgroup: vpc
+      devgroup: vac
       autosync: false
       
       iocparam:
@@ -1577,7 +1575,7 @@ epicsConfiguration:
       iocprefix: "LEL:VAC:WGS1:VPCON01"
       template: "agilent-vac"
       devtype: 4uhv
-      devgroup: vpc
+      devgroup: vac
       autosync: false
       
       iocparam:
@@ -1601,7 +1599,7 @@ epicsConfiguration:
       iocprefix: "LEL:VAC:WGS1:VPCON02"
       template: "agilent-vac"
       devtype: 4uhv
-      devgroup: vpc
+      devgroup: vac
       autosync: false
       
       iocparam:
@@ -1624,7 +1622,7 @@ epicsConfiguration:
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111616"
       devtype: bilt-itest
       template:  "ibilt"
-      devgroup: psu
+      devgroup: mag
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       
       autosync: false ## restart automatically on changes
@@ -1654,7 +1652,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:SPSU01"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: psu
+      devgroup: mag
       
       opi: "sigmaphi"
       iocparam:
@@ -1670,7 +1668,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:SPSU02"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: psu
+      devgroup: mag
       
       iocparam:
         - name: "server"
@@ -1683,7 +1681,7 @@ epicsConfiguration:
     - name: "biltitest-cpsu01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111616"
       devtype: biltitest
-      devgroup: psu
+      devgroup: mag
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       
       autosync: false ## restart automatically on changes
@@ -1719,7 +1717,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:SPSU03"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: psu
+      devgroup: mag
       
       opi: "sigmaphi"
       iocparam:
@@ -1734,7 +1732,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:SPSU04"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: psu
+      devgroup: mag
       
       opi: "sigmaphi"
       iocparam:
@@ -1749,7 +1747,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:SPSU05"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: psu
+      devgroup: mag
       
       opi: "sigmaphi"
       iocparam:
@@ -1765,7 +1763,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:SPSU06"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: psu
+      devgroup: mag
       
       opi: "sigmaphi"
       iocparam:
@@ -1778,7 +1776,7 @@ epicsConfiguration:
     - name: "biltitest-cpsu02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111621"
       devtype: biltitest
-      devgroup: psu
+      devgroup: mag
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       
       autosync: false ## restart automatically on changes
@@ -1814,7 +1812,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:DPSU01"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: psu
+      devgroup: mag
       
       opi: "sigmaphi"
       iocparam:
@@ -1830,7 +1828,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:QPSU01"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: psu
+      devgroup: mag
       
       opi: "sigmaphi"
       iocparam:
@@ -1846,7 +1844,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:QPSU02"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: psu
+      devgroup: mag
       
       opi: "sigmaphi"
       iocparam:
@@ -1862,7 +1860,7 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:QPSU03"
       template:  "sigmaphi"
       devtype: sigmaphi
-      devgroup: psu
+      devgroup: mag
       
       opi: "sigmaphi"
       iocparam:
@@ -1901,32 +1899,27 @@ epicsConfiguration:
           name: SCN01:MOT01
           ustep2mm: 684931.506849
           velo_max: 200
-          devgroup: screen 1
         - axid: 2
           name: SCN02:MOT01
           ustep2mm: 684931.506849
           velo_max: 200
-          devgroup: screen 2
         - axid: 3
           name: SCN03:MOT01
           ustep2mm: 684931.506849
           velo_max: 200
-          devgroup: screen 3
         - axid: 4
           name: SCN04:MOT01
           ustep2mm: 684931.506849
           velo_max: 200
-          devgroup: screen 4
         - axid: 5
           name: SCN05:MOT01
           ustep2mm: 684931.506849
           velo_max: 200
-          devgroup: screen 5
         - axid: 6
           name: SCN06:MOT01
           ustep2mm: 684931.506849
           velo_max: 200
-          devgroup: screen 6
+          
     - name: "unimag"
       asset: "https://confluence.infn.it/display/SCS/Magnet+SoftIOC+Devil+Wrapper"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
