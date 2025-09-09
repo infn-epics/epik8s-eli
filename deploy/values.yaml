@@ -1413,7 +1413,8 @@ epicsConfiguration:
     - name: "vgcon01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111736"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC:VGCON01"
+      iocprefix: "LEL:VAC"
+      iocroot: "VGCON01"
       template: "agilent-vac"
       devtype: xgs600
       devgroup: vac
@@ -1470,7 +1471,8 @@ epicsConfiguration:
     - name: "vgcon02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111737"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC:VGCON02"
+      iocprefix: "LEL:VAC"
+      iocroot: "VGCON02"
       template: "agilent-vac"
       devtype: xgs600
       devgroup: vac
@@ -1527,7 +1529,8 @@ epicsConfiguration:
     - name: "vpconion17"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC:VPCON17"
+      iocprefix: "LEL:VAC"
+      iocroot: "VPCON17"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vac
@@ -1627,7 +1630,8 @@ epicsConfiguration:
     - name: "vpconion19"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129491"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC:VPCON19"
+      iocprefix: "LEL:VAC"
+      iocroot: "VPCON19"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vac
@@ -1652,7 +1656,8 @@ epicsConfiguration:
     - name: "wgsvpconion01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111743"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC:WGS1:VPCON01"
+      iocprefix: "LEL:VAC:WGS1"
+      iocroot: "VPCON01"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vac
@@ -1676,7 +1681,8 @@ epicsConfiguration:
     - name: "wgsvpconion02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111743"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC:WGS1:VPCON02"
+      iocprefix: "LEL:VAC:WGS1"
+      iocroot: "VPCON02"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vac
