@@ -298,7 +298,7 @@ epicsConfiguration:
       #autosync: true ## restart automatically on changes
 
     - name: "bdelilibera01"
-      asset: "https://confluence.infn.it/x/doKBBg"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2459&objectId=134118"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git' 
       template: "libera-spe"
       devtype: bpm
@@ -314,7 +314,8 @@ epicsConfiguration:
         - name: "BPM03"
           channel: 5
         - name: "BPM04"
-          channel: 6  
+          channel: 6
+    
       host: "bdelilibera01.int.eli-np.ro"
       ssh_options: "-o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/sparc-template-sppp"
@@ -323,7 +324,7 @@ epicsConfiguration:
       autosync: false ## restart automatically on changes
 
     - name: "bdelilibera02"
-      asset: "https://confluence.infn.it/x/doKBBg"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2459&objectId=134119"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git' 
       template: "libera-spe"
       devtype: bpm
@@ -444,7 +445,7 @@ epicsConfiguration:
           value: false
       devices:
         - name: "CAM01"
-          CAMERA_ID: "10.16.4.21" # Basler-a2A1920-51gmBAS-40458493
+          id: "10.16.4.21" # Basler-a2A1920-51gmBAS-40458493
           iocinit:
             - name: "AcquirePeriod"
               value: "1"
@@ -481,7 +482,7 @@ epicsConfiguration:
           value: false
       devices:
         - name: "CAM01"
-          CAMERA_ID: "10.16.4.22" ## Basler-a2A1920-51gmBAS-40458497
+          id: "10.16.4.22" ## Basler-a2A1920-51gmBAS-40458497
           
           iocinit:
             - name: "AcquirePeriod"
@@ -521,7 +522,7 @@ epicsConfiguration:
           value: false
       devices:
         - name: "CAM01"
-          CAMERA_ID: "10.16.4.36" ## Basler-a2A1920-51gmBAS-40458491
+          id: "10.16.4.36" ## Basler-a2A1920-51gmBAS-40458491
           
           iocinit:
             - name: "AcquirePeriod"
@@ -561,7 +562,7 @@ epicsConfiguration:
           value: false
       devices:
         - name: "CAM01"
-          CAMERA_ID: "10.16.4.37"  # Basler-a2A1920-51gmBAS-40458491
+          id: "10.16.4.37"  # Basler-a2A1920-51gmBAS-40458491
           
           iocinit:
             - name: "AcquirePeriod"
@@ -600,7 +601,7 @@ epicsConfiguration:
           value: false
       devices:
         - name: "CAM01"
-          CAMERA_ID: "10.16.4.38" ## Basler-a2A1920-51gmBAS-40458491
+          id: "10.16.4.38" ## Basler-a2A1920-51gmBAS-40458491
           
           iocinit:
             - name: "AcquirePeriod"
@@ -638,7 +639,7 @@ epicsConfiguration:
           value: false
       devices:
         - name: "CAM01"
-          CAMERA_ID: "10.16.4.41" ## Basler-a2A1920-51gmBAS-40458491
+          id: "10.16.4.41" ## Basler-a2A1920-51gmBAS-40458491
           
           iocinit:
             - name: "AcquirePeriod"
