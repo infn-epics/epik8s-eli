@@ -376,7 +376,7 @@ epicsConfiguration:
       pva: true
       
       # hostNetwork: true
-      iocprefix: "LEL:CAMERA:SIM"
+      iocprefix: "LEL"
       autosync: false ## restart automatically on changes
       iocinit:
         - name: "AcquirePeriod"
@@ -397,7 +397,7 @@ epicsConfiguration:
         - name: "roi_enable"
           value: true
       devices:
-        - name: "CAM01"
+        - name: "SIM:CAM01"
           iocinit:
           - name: "AcquirePeriod"
             value: "1"
@@ -429,7 +429,7 @@ epicsConfiguration:
       networks:
         - name: "gigevision-client"
           annotation: "multus-secondary-net"
-      iocprefix: "LEL:SCN01"
+      iocprefix: "LEL"
       autosync: false ## restart automatically on changes
       
       iocparam:
@@ -444,7 +444,7 @@ epicsConfiguration:
         - name: "roi_enable"
           value: false
       devices:
-        - name: "CAM01"
+        - name: "SCN01:CAM01"
           id: "10.16.4.21" # Basler-a2A1920-51gmBAS-40458493
           iocinit:
             - name: "AcquirePeriod"
@@ -466,7 +466,7 @@ epicsConfiguration:
         - name: "gigevision-client"
           annotation: "multus-secondary-net"
       
-      iocprefix: "LEL:SCN02"
+      iocprefix: "LEL"
       autosync: false ## restart automatically on changes
       
       iocparam:
@@ -481,7 +481,7 @@ epicsConfiguration:
         - name: "roi_enable"
           value: false
       devices:
-        - name: "CAM01"
+        - name: "SCN02:CAM01"
           id: "10.16.4.22" ## Basler-a2A1920-51gmBAS-40458497
           
           iocinit:
@@ -506,7 +506,7 @@ epicsConfiguration:
         - name: "gigevision-client"
           annotation: "multus-secondary-net"
       
-      iocprefix: "LEL:SCN03"
+      iocprefix: "LEL"
       autosync: false ## restart automatically on changes
       
       iocparam:
@@ -521,7 +521,7 @@ epicsConfiguration:
         - name: "roi_enable"
           value: false
       devices:
-        - name: "CAM01"
+        - name: "SCN03:CAM01"
           id: "10.16.4.36" ## Basler-a2A1920-51gmBAS-40458491
           
           iocinit:
@@ -546,7 +546,7 @@ epicsConfiguration:
         - name: "gigevision-client"
           annotation: "multus-secondary-net"
       
-      iocprefix: "LEL:SCN04"
+      iocprefix: "LEL"
       autosync: false ## restart automatically on changes
       
       iocparam:
@@ -561,7 +561,7 @@ epicsConfiguration:
         - name: "roi_enable"
           value: false
       devices:
-        - name: "CAM01"
+        - name: "SCN04:CAM01"
           id: "10.16.4.37"  # Basler-a2A1920-51gmBAS-40458491
           
           iocinit:
@@ -585,7 +585,7 @@ epicsConfiguration:
         - name: "gigevision-client"
           annotation: "multus-secondary-net"
       
-      iocprefix: "LEL:SCN05"
+      iocprefix: "LEL"
       autosync: false ## restart automatically on changes
       
       iocparam:
@@ -600,7 +600,7 @@ epicsConfiguration:
         - name: "roi_enable"
           value: false
       devices:
-        - name: "CAM01"
+        - name: "SCN05:CAM01"
           id: "10.16.4.38" ## Basler-a2A1920-51gmBAS-40458491
           
           iocinit:
@@ -623,7 +623,7 @@ epicsConfiguration:
         - name: "gigevision-client"
           annotation: "multus-secondary-net"
       
-      iocprefix: "LEL:SCN06"
+      iocprefix: "LEL"
       autosync: false ## restart automatically on changes
       
       iocparam:
@@ -638,7 +638,7 @@ epicsConfiguration:
         - name: "roi_enable"
           value: false
       devices:
-        - name: "CAM01"
+        - name: "SCN06:CAM01"
           id: "10.16.4.41" ## Basler-a2A1920-51gmBAS-40458491
           
           iocinit:
