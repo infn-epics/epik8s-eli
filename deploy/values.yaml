@@ -1555,7 +1555,8 @@ epicsConfiguration:
     - name: "TEMP-VPCON16"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138463"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC:VPCON16"
+      iocprefix: "LEL:VAC"
+      iocroot: "VPCON16"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vac
