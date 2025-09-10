@@ -297,8 +297,8 @@ epicsConfiguration:
       exec: "start.sh"
       #autosync: true ## restart automatically on changes
 
-    - name: "bdelilibera01"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2459&objectId=134118"
+    - name: "bdelilibera03"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2459&objectId=142215"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git' 
       template: "libera-spe"
       devtype: bpm
@@ -316,7 +316,7 @@ epicsConfiguration:
         - name: "BPM04"
           channel: 6
     
-      host: "bdelilibera01.int.eli-np.ro"
+      host: "10.16.4.69" ## "bdelilibera03.int.eli-np.ro" "bdelilibera01.int.eli-np.ro" non va spe
       ssh_options: "-o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/sparc-template-sppp"
       scpoptions: "-O"
