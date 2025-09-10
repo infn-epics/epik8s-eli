@@ -1403,10 +1403,25 @@ epicsConfiguration:
         - name: "server"
           value: 10.16.4.66 # ddeliicp6r6i002.lnf.infn.it # 10.16.4.33
       devices:
-        - name: "CAM"
+        - name: "CAM0"
           devtype: "rly"
           channel: 0
-        
+        - name: "CAM1"
+          devtype: "rly"
+          channel: 1
+        - name: "CAM2"
+          devtype: "rly"
+          channel: 2
+        - name: "CAM3"
+          devtype: "rly"
+          channel: 3
+        - name: "CAM4"
+          devtype: "rly"
+          channel: 4
+        - name: "CAM5"
+          devtype: "rly"
+          channel: 5
+
     - name: "vgcon01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111736"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
