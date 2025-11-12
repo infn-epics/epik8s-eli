@@ -2040,29 +2040,7 @@ cronjobs:
       gitinit: true
       
 applications:
-    - name: "icpdastemp01"
-      image:
-        repository: baltig.infn.it:4567/epics-containers/epics-py-base
-        tag: "latest"
-      namespace: "simulator"
-      gitRepoApp:
-        url: "https://baltig.infn.it/chaos-lnf-control/py-modbus-device-simulator.git"
-        path: .
-        branch: main
-      gitinit: true
-      exec: "pip install --user $USER -r /app/requirements.txt;python /app/modbusDeviceSimulator.py -p 5020 -d icpconet72xx -c /config/config.json"
-      service:
-        type: ClusterIP
-        ports:
-          - name: modbusport
-            port: 502
-            targetport: 5020
-            targetname: modbusport
-            protocol: TCP
-      securityContext:
-            runAsUser: 1000
-            runAsGroup: 1000
-            fsGroup: 1000
+    
       
 
 backend:
@@ -2076,9 +2054,7 @@ backend:
     port: 9200
     protocol: https
     pubcertsecret: elasticsearch-es-http-certs-public #secret containing the public cert
-    authorization:
-      username: elastic
-      password: GJkrSqzVRka9PC7b2N2cHmBM
+    
 
   kafka:
     host: eph-kafka-kafka-brokers
