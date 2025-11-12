@@ -1,0 +1,126 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: epik8s-backend
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/infn-epics/epik8s-backend.git'
+    path: .
+    targetRevision: backend-operators
+    helm:
+      values: |
+        namespace: backend
+        domain: "int.eli-np.ro"
+        ingressClassName: "haproxy"
+        
+        # Elasticsearch Configuration
+        elasticsearch:
+          targetRevision: "3.2.0"
+          version: "8.15.0"
+          replicaCount: 1
+          storage:
+            size: 50Gi
+            classname: "longhorn"
+
+          kibana:
+            version: "8.15.0"
+            enabled: true
+          resources:
+            limits:
+              cpu: 5
+              memory: 4Gi
+            requests:
+              cpu: 1
+              memory: 2Gi
+        
+        # MongoDB Configuration
+        mongo:
+          enabled: true
+          replicaCount: 1
+          storageClassName: "longhorn"
+          repoURL: "https://github.com/infn-epics/epik8s-backend.git"
+          targetRevision: "backend-operators"
+          auth:
+            enabled: false
+          resources:
+            limits:
+              cpu: 2
+              memory: 2Gi
+            requests:
+              cpu: 1
+              memory: 1Gi
+        
+        # Kafka configuration using Strimzi Operator
+        kafka:
+          clusterName: "eph-kafka"
+          version: "4.1.0"
+          replicaCount: 3
+          # External access via LoadBalancer
+          listeners:
+            tls:
+              port: 9093
+            plain:
+              port: 9092
+          externalAccess:
+            type: loadbalancer
+            port: 9094
+            bootstrap:
+              loadBalancerIP: 10.16.4.204
+            brokers:
+              - broker: 0
+                loadBalancerIP: 10.16.4.205
+              - broker: 1
+                loadBalancerIP: 10.16.4.206
+              - broker: 2
+                loadBalancerIP: 10.16.4.207
+                
+          
+          
+          # Storage configuration
+          storage:
+            type: persistent-claim
+            size: 10Gi
+            deleteClaim: false
+          
+          # Kafka resources
+          resources:
+            limits:
+              cpu: 2
+              memory: 4Gi
+            requests:
+              cpu: 1
+              memory: 2Gi
+          
+          # Entity operators
+          entityOperator:
+            enabled: true
+            topicOperator:
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 512Mi
+                requests:
+                  cpu: 200m
+                  memory: 512Mi
+            userOperator:
+              resources:
+                limits:
+                  cpu: 500m
+                  memory: 512Mi
+                requests:
+                  cpu: 200m
+                  memory: 512Mi
+                  
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: backend
+  
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
+    syncOptions:
+      - CreateNamespace=true 
+      - Prune=true

@@ -9,7 +9,8 @@ serviceAccountName: "default"
 ## starting point
 giturl: https://github.com/infn-epics/epik8s-eli.git
 gitrev: devel
-baseIp: "10.96.0.0/13" ## valid IPs is 10.96.0.0/12
+#baseIp: "10.96.0.0/13" ## valid IPs is 10.96.0.0/12
+baseIp: "10.96.240.0/22" ## valid service IPs are 10.43.240.1 to 10.43.243.254
 startIp: 1
 openshift: false
 epik8s_secrets: epik8s-secret
@@ -201,7 +202,8 @@ epicsConfiguration:
       loglevel: DEBUG
       charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
       phoebusservice: "olog"
-      auto_security: true
+      targetRevision: "test-olog-saveandrestore"
+
       enable_ingress: true
       mongodb: "eli-ologAttachments"
       autosync: true ## restart automatically on changes
@@ -213,7 +215,8 @@ epicsConfiguration:
       loglevel: DEBUG
       charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
       phoebusservice: "saveandrestore"
-      auto_security: true
+      targetRevision: "test-olog-saveandrestore"
+
       enable_ingress: true
       mongodb: "eli-saveandrestore"
       autosync: true ## restart automatically on changes
@@ -223,6 +226,8 @@ epicsConfiguration:
       loglevel: DEBUG
       charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
       phoebusservice: "alarmserver"
+      targetRevision: "test-olog-saveandrestore"
+
       auto_security: true
       enable_ingress: true
       mongodb: "eli-ologAttachments"
@@ -236,6 +241,8 @@ epicsConfiguration:
       loglevel: DEBUG
       charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
       phoebusservice: "alarmlogger"
+      targetRevision: "test-olog-saveandrestore"
+
       auto_security: true
       enable_ingress: true
       mongodb: "eli-ologAttachments"
@@ -272,6 +279,8 @@ epicsConfiguration:
       charturl: registry-1.docker.io/bitnamicharts
       targetRevision: '9.21.1'
       chart: mysql
+      image:
+        repository: bitnamilegacy/mysql
       auth:
           rootPassword: "arcappl"
           createDatabase: true
@@ -2061,14 +2070,18 @@ backend:
   mongo:
     host: mongodb
     port: 27017
-    user:
-    pwd:
   elasticsearch:
-    host: elasticsearch
+    host: elasticsearch-es-http
     clusterName: elasticsearch
     port: 9200
+    protocol: https
+    pubcertsecret: elasticsearch-es-http-certs-public #secret containing the public cert
+    authorization:
+      username: elastic
+      password: GJkrSqzVRka9PC7b2N2cHmBM
+
   kafka:
-    host: kafka-headless
+    host: eph-kafka-kafka-brokers
     port: 9092
 
 syncPolicy:
