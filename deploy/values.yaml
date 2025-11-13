@@ -1,10 +1,11 @@
 beamline: eli
 namespace: eli
-domain: ""
 ingressClassName: "haproxy"
 epik8namespace: "int.eli-np.ro"
 targetRevision: "main"
 serviceAccountName: "default"
+ioc_version: "latest" ## the ioc image version to use if not specified in each IOC
+
 # token:
 ## starting point
 giturl: https://github.com/infn-epics/epik8s-eli.git
@@ -364,13 +365,14 @@ epicsConfiguration:
       gitinit: true
       autosync: false ## restart automatically on changes
       usegateway: false
-         
+
     - name: "camerasim"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      image: ghcr.io/infn-epics/infn-epics-ioc-runtime
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'     
       devtype: camerasim
-      template: "adcamera"
       devgroup: cam
+      template: "adcamera"
+      pva: true
       enable_ingress: true
       service:   
         http:
@@ -381,11 +383,8 @@ epicsConfiguration:
       stats_enable: true
       proc_enable: true
       overlay_enable: true
-      pva: true
-      
-      # hostNetwork: true
       iocprefix: "LEL"
-      autosync: false ## restart automatically on changes
+      autosync: true ## restart automatically on changes
       iocinit:
         - name: "AcquirePeriod"
           value: "1"
@@ -405,7 +404,7 @@ epicsConfiguration:
         - name: "roi_enable"
           value: true
       devices:
-        - name: "SIM:CAM01"
+        - name: "SIM01"
           iocinit:
           - name: "AcquirePeriod"
             value: "1"
@@ -422,10 +421,9 @@ epicsConfiguration:
           - name: "PeakWidthY"
             value: "50"
           - name: "PeakVariation"
-            value: "10"
-        
-        
+            value: "10"     
     
+        
     - name: "cam01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
