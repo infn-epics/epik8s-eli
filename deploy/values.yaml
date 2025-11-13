@@ -1423,11 +1423,11 @@ epicsConfiguration:
       template: "agilent-vac"
       devtype: xgs600
       devgroup: vac
-      autosync: true
+      autosync: false
       
       iocparam:
         - name: "server"
-          value: 10.16.4.57 # scelimxa16001
+          value: scelimxa16001.int.eli-np.ro # scelimxa16001
         - name: "port"
           value: 4001
       opi: "agilentXGS"
@@ -1481,7 +1481,7 @@ epicsConfiguration:
       template: "agilent-vac"
       devtype: xgs600
       devgroup: vac
-      autosync: true
+      autosync: false
       
       iocparam:
         - name: "server"
