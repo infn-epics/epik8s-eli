@@ -1671,7 +1671,8 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: scelimxa16001.int.eli-np.ro
+          value: 10.16.4.57
+          # value: scelimxa16001.int.eli-np.ro
         - name: "port"
           value: 4002
       opi: "agilent4uhv/agilent4uhv.bob"
@@ -1696,7 +1697,7 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: scelimxa16001.int.eli-np.ro 
+          value: 10.16.4.57 
         - name: "port"
           value: 4004
       opi: "agilent4uhv/agilent4uhv.bob"
