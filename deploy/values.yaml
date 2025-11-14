@@ -1531,7 +1531,7 @@ epicsConfiguration:
           #   devtype: "setpoint"
           #   opi: "agilentXgs600/agilentXgs600Spt.bob"
           
-    - name: "vpconion17"
+    - name: "vpconion17" ## spenta
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL:VAC"
@@ -1557,6 +1557,134 @@ epicsConfiguration:
         - name: "IONP04"
           channel: 4
 
+    - name: "vpcon4" 
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
+      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      iocprefix: "LEL:VAC"
+      iocroot: "VPCON04"
+      template: "agilent-vac"
+      devtype: 4uhv
+      devgroup: vac
+      autosync: false
+      
+      iocparam:
+        - name: "server"
+          value: scelimxa8001.int.eli-np.ro
+        - name: "port"
+          value: 4004
+      opi: "agilent4uhv/agilent4uhv.bob"
+      devices:
+        - name: "IONP01"
+          channel: 1
+        - name: "IONP02"
+          channel: 2
+        - name: "IONP03"
+          channel: 3
+        - name: "IONP04"
+          channel: 4
+
+    - name: "vpcon5" 
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
+      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      iocprefix: "LEL:VAC"
+      iocroot: "VPCON05"
+      template: "agilent-vac"
+      devtype: 4uhv
+      devgroup: vac
+      autosync: false
+      
+      iocparam:
+        - name: "server"
+          value: scelimxa8001.int.eli-np.ro
+        - name: "port"
+          value: 4008
+      opi: "agilent4uhv/agilent4uhv.bob"
+      devices:
+        - name: "IONP01"
+          channel: 1
+        - name: "IONP02"
+          channel: 2
+        - name: "IONP03"
+          channel: 3
+        - name: "IONP04"
+          channel: 4
+    - name: "vpcon6" 
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
+      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      iocprefix: "LEL:VAC"
+      iocroot: "VPCON06"
+      template: "agilent-vac"
+      devtype: 4uhv
+      devgroup: vac
+      autosync: false
+      
+      iocparam:
+        - name: "server"
+          value: scelimxa8001.int.eli-np.ro
+        - name: "port"
+          value: 4007
+      opi: "agilent4uhv/agilent4uhv.bob"
+      devices:
+        - name: "IONP01"
+          channel: 1
+        - name: "IONP02"
+          channel: 2
+        - name: "IONP03"
+          channel: 3
+        - name: "IONP04"
+          channel: 4
+
+    - name: "vpcon7" 
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
+      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      iocprefix: "LEL:VAC"
+      iocroot: "VPCON07"
+      template: "agilent-vac"
+      devtype: 4uhv
+      devgroup: vac
+      autosync: false
+      
+      iocparam:
+        - name: "server"
+          value: scelimxa8001.int.eli-np.ro
+        - name: "port"
+          value: 4003
+      opi: "agilent4uhv/agilent4uhv.bob"
+      devices:
+        - name: "IONP01"
+          channel: 1
+        - name: "IONP02"
+          channel: 2
+        - name: "IONP03"
+          channel: 3
+        - name: "IONP04"
+          channel: 4
+
+    - name: "vpcon8" 
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
+      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      iocprefix: "LEL:VAC"
+      iocroot: "VPCON07"
+      template: "agilent-vac"
+      devtype: 4uhv
+      devgroup: vac
+      autosync: false
+      
+      iocparam:
+        - name: "server"
+          value: scelimxa8001.int.eli-np.ro
+        - name: "port"
+          value: 4005
+      opi: "agilent4uhv/agilent4uhv.bob"
+      devices:
+        - name: "IONP01"
+          channel: 1
+        - name: "IONP02"
+          channel: 2
+        - name: "IONP03"
+          channel: 3
+        - name: "IONP04"
+          channel: 4           
     # - name: "TEMP-VPCON16"
     #   asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138463"
     #   charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
