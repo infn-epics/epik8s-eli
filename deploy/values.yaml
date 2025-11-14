@@ -1608,7 +1608,7 @@ epicsConfiguration:
         - name: "IONP04"
           channel: 4
 
-    - name: "TEMP-VPCON20"
+    - name: "TEMP-VPCON20" #should be LEL-VAC-VPCON4 or old name LEL-VAC-VPCON10
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138465"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL:VAC:VPCON20"
@@ -1619,9 +1619,9 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          # value: 10.16.4.57 # scelimxa16001
+          value: 10.16.4.57 # scelimxa16001
         - name: "port"
-          # value: 4008
+          value: 4008
       opi: "agilent4uhv/agilent4uhv.bob"
       devices:
         - name: "IONP01"
