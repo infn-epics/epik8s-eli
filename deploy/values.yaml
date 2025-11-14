@@ -1485,7 +1485,7 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: 10.16.4.57 # scelimxa16001
+          value: scelimxa16001.int.eli-np.ro # scelimxa16001
         - name: "port"
           value: 4003
       opi: "agilentXGS"
@@ -1557,56 +1557,56 @@ epicsConfiguration:
         - name: "IONP04"
           channel: 4
 
-    - name: "TEMP-VPCON16"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138463"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC"
-      iocroot: "VPCON16"
-      template: "agilent-vac"
-      devtype: 4uhv
-      devgroup: vac
-      autosync: false
+    # - name: "TEMP-VPCON16"
+    #   asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138463"
+    #   charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+    #   iocprefix: "LEL:VAC"
+    #   iocroot: "VPCON16"
+    #   template: "agilent-vac"
+    #   devtype: 4uhv
+    #   devgroup: vac
+    #   autosync: false
       
-      iocparam:
-        - name: "server"
-          value: 10.16.4.57 # scelimxa16001
-        - name: "port"
-          value: 4006
-      opi: "agilent4uhv/agilent4uhv.bob"
-      devices:
-        - name: "IONP01"
-          channel: 1
-        - name: "IONP02"
-          channel: 2
-        - name: "IONP03"
-          channel: 3
-        - name: "IONP04"
-          channel: 4
+    #   iocparam:
+    #     - name: "server"
+    #       value: scelimxa16001.int.eli-np.ro # scelimxa16001
+    #     - name: "port"
+    #       value: 4006
+    #   opi: "agilent4uhv/agilent4uhv.bob"
+    #   devices:
+    #     - name: "IONP01"
+    #       channel: 1
+    #     - name: "IONP02"
+    #       channel: 2
+    #     - name: "IONP03"
+    #       channel: 3
+    #     - name: "IONP04"
+    #       channel: 4
 
-    - name: "TEMP-VPCON18"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138464"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC:VPCON18"
-      template: "agilent-vac"
-      devtype: 4uhv
-      devgroup: vac
-      autosync: false
+    # - name: "temp-vpcon18"
+    #   asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138464"
+    #   charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+    #   iocprefix: "LEL:VAC:VPCON18"
+    #   template: "agilent-vac"
+    #   devtype: 4uhv
+    #   devgroup: vac
+    #   autosync: false
       
-      iocparam:
-        - name: "server"
-          value: 10.16.4.57 # scelimxa16001
-        - name: "port"
-          value: 4007
-      opi: "agilent4uhv/agilent4uhv.bob"
-      devices:
-        - name: "IONP01"
-          channel: 1
-        - name: "IONP02"
-          channel: 2
-        - name: "IONP03"
-          channel: 3
-        - name: "IONP04"
-          channel: 4
+    #   iocparam:
+    #     - name: "server"
+    #       value: scelimxa16001.int.eli-np.ro # scelimxa16001
+    #     - name: "port"
+    #       value: 4007
+    #   opi: "agilent4uhv/agilent4uhv.bob"
+    #   devices:
+    #     - name: "IONP01"
+    #       channel: 1
+    #     - name: "IONP02"
+    #       channel: 2
+    #     - name: "IONP03"
+    #       channel: 3
+    #     - name: "IONP04"
+    #       channel: 4
 
     - name: "TEMP-VPCON20" #should be LEL-VAC-VPCON4 or old name LEL-VAC-VPCON10
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138465"
@@ -1619,7 +1619,7 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: 10.16.4.57 # scelimxa16001
+          value: scelimxa16001.int.eli-np.ro # scelimxa16001
         - name: "port"
           value: 4008
       opi: "agilent4uhv/agilent4uhv.bob"
@@ -1969,7 +1969,7 @@ epicsConfiguration:
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL"
       serial:
-        ip: 10.16.4.57
+        ip: scelimxa16001.int.eli-np.ro
         port: 4005
         ptty: /var/tmp/ttyV0
         baud: 9600
