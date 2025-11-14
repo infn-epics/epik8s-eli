@@ -1619,9 +1619,9 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: 10.16.4.57 # scelimxa16001
+          # value: 10.16.4.57 # scelimxa16001
         - name: "port"
-          value: 4008
+          # value: 4008
       opi: "agilent4uhv/agilent4uhv.bob"
       devices:
         - name: "IONP01"
@@ -1645,7 +1645,7 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: 10.16.4.57 # scelimxa16001
+          value:  # scelimxa16001
         - name: "port"
           value: 4004
       opi: "agilent4uhv/agilent4uhv.bob"
@@ -1671,7 +1671,7 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: 10.16.4.57 # scelimxa16001
+          value: scelimxa16001.int.eli-np.ro
         - name: "port"
           value: 4002
       opi: "agilent4uhv/agilent4uhv.bob"
@@ -1696,9 +1696,9 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: scelimxa16001.int.eli-np.ro # scelimxa8001
+          value: scelimxa16001.int.eli-np.ro 
         - name: "port"
-          value: 4001
+          value: 4004
       opi: "agilent4uhv/agilent4uhv.bob"
       devices:
           - name: "IONP05"
