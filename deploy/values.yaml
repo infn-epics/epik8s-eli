@@ -2091,7 +2091,24 @@ epicsConfiguration:
             max: 50
 
    
-           
+    - name: "scandicat-mod"
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
+
+      iocprefix: "LEL:MOD:SCAT"
+      template: "scandinova-scandicat-mod"
+      devtype: "ppt"
+      devgroup: "modulator"
+      
+      devices:
+        - name: "MOD01"
+          server: "pwelimod001.int.eli-np.ro"
+        - name: "MOD02"
+          server: "pwelimod002.int.eli-np.ro"
+        - name: "MOD03"
+          server: "pwelimod003.int.eli-np.ro"
+
+
+
     - name: "diag-tml"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2447&objectId=133401"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
