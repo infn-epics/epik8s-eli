@@ -1437,7 +1437,7 @@ epicsConfiguration:
         - name: "server"
           value: 10.16.4.57 # scelimxa16001
         - name: "port"
-          value: 4002
+          value: 4009
       opi: "agilent4uhv"
       devices:
           - name: "IONP01"
