@@ -2102,6 +2102,7 @@ epicsConfiguration:
       devices:
         - name: "MOD01"
           server: "pwelimod001.int.eli-np.ro"
+          asset:
         - name: "MOD02"
           server: "pwelimod002.int.eli-np.ro"
         - name: "MOD03"
@@ -2174,14 +2175,14 @@ epicsConfiguration:
       opi: "unimag"
 
 cronjobs:
-    - name: "chfeeder"
-      image: baltig.infn.it:4567/epics-containers/epics-py-base
-      schedule: "* */12 * * *" # every 5 min ## "0 */12 * * *" ## at 12
-      gitRepoApp:
-        url: "https://baltig.infn.it/infn-epics/channelfinder-service-feeder.git"
-        path: .
-        branch: main
-      gitinit: true
+    # - name: "chfeeder"
+    #   image: baltig.infn.it:4567/epics-containers/epics-py-base
+    #   schedule: "* */12 * * *" # every 5 min ## "0 */12 * * *" ## at 12
+    #   gitRepoApp:
+    #     url: "https://baltig.infn.it/infn-epics/channelfinder-service-feeder.git"
+    #     path: .
+    #     branch: main
+    #   gitinit: true
       
 applications:
     
