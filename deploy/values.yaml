@@ -1707,8 +1707,8 @@ epicsConfiguration:
     - name: "wgsvpconion03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129489"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC"
-      iocroot: "WGS3"
+      iocprefix: "LEL:VAC:WGS2"
+      iocroot: "VPCON03"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vac
@@ -1733,8 +1733,8 @@ epicsConfiguration:
     - name: "wgsvpconion04"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111742"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC"
-      iocroot: "WGS4"
+      iocprefix: "LEL:VAC:WGC02"
+      iocroot: "VPCON04"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vac
