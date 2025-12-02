@@ -2106,7 +2106,8 @@ epicsConfiguration:
           server: "pwelimod002.int.eli-np.ro"
         - name: "MOD03"
           server: "pwelimod003.int.eli-np.ro"
-
+        - name: "MOD04"
+          server: "pwelimod004.int.eli-np.ro"
 
 
     - name: "diag-tml"
