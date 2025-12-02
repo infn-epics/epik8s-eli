@@ -284,7 +284,7 @@ epicsConfiguration:
         - name: httpsrv-nfs
           mountPath: /usr/share/nginx/html
           server: plelinpsto001.int.eli-np.ro
-          path: /data_epik8s/documents/public
+          path: /epik8s_data/documents/public
 
     scanserver: 
       loglevel: DEBUG
@@ -2156,11 +2156,11 @@ cronjobs:
         - name: hugo-docs-nfs
           mountPath: /docsrc
           server: plelinpsto001.int.eli-np.ro
-          path: /data_epik8s/documents
+          path: /epik8s_data/documents
         - name: config
           mountPath: /doc-iocs
           server: plelinpsto001.int.eli-np.ro
-          path: /data_epik8s/config
+          path: /epik8s_data/config
       
 applications:
     
