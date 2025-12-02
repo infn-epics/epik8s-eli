@@ -670,19 +670,19 @@ epicsConfiguration:
       autosync: false
       nfsMounts:
       - name: data
-        server: "10.16.4.100"
+        server: "plelinpsto001.int.eli-np.ro"
         path: /epik8s_data/data
         mountPath: /nfs/data
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: autosave
-        server: "10.16.4.100"
+        server: "plelinpsto001.int.eli-np.ro"
         path: /epik8s_data/autosave
         mountPath: /nfs/autosave
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: config
-        server: "10.16.4.100"
+        server: "plelinpsto001.int.eli-np.ro"
         path: /epik8s_data/config
         mountPath: /nfs/config
         opt: "-o credentials=/etc/smbcredentials"
@@ -765,19 +765,19 @@ epicsConfiguration:
       autosync: false
       nfsMounts:
       - name: data
-        server: "10.16.4.100"
+        server: "plelinpsto001.int.eli-np.ro"
         path: /epik8s_data/data
         mountPath: /nfs/data
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: autosave
-        server: "10.16.4.100"
+        server: "plelinpsto001.int.eli-np.ro"
         path: /epik8s_data/autosave
         mountPath: /nfs/autosave
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: config
-        server: "10.16.4.100"
+        server: "plelinpsto001.int.eli-np.ro"
         path: /epik8s_data/config
         mountPath: /nfs/config
         opt: "-o credentials=/etc/smbcredentials"
@@ -976,19 +976,19 @@ epicsConfiguration:
       autosync: false
       nfsMounts:
       - name: data
-        server: "10.16.4.100"
+        server: "plelinpsto001.int.eli-np.ro"
         path: /epik8s_data/data
         mountPath: /nfs/data
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: autosave
-        server: "10.16.4.100"
+        server: "plelinpsto001.int.eli-np.ro"
         path: /epik8s_data/autosave
         mountPath: /nfs/autosave
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: config
-        server: "10.16.4.100"
+        server: "plelinpsto001.int.eli-np.ro"
         path: /epik8s_data/config
         mountPath: /nfs/config
         opt: "-o credentials=/etc/smbcredentials"
@@ -1200,19 +1200,19 @@ epicsConfiguration:
       autosync: false
       nfsMounts:
       - name: data
-        server: "10.16.4.100"
+        server: "plelinpsto001.int.eli-np.ro"
         path: /epik8s_data/data
         mountPath: /nfs/data
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: autosave
-        server: "10.16.4.100"
+        server: "plelinpsto001.int.eli-np.ro"
         path: /epik8s_data/autosave
         mountPath: /nfs/autosave
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       - name: config
-        server: "10.16.4.100"
+        server: "plelinpsto001.int.eli-np.ro"
         path: /epik8s_data/config
         mountPath: /nfs/config
         opt: "-o credentials=/etc/smbcredentials"
@@ -1258,19 +1258,19 @@ epicsConfiguration:
     #   autosync: false
     #   nfsMounts:
     #   - name: data
-    #     server: "10.16.4.100"
+    #     server: "plelinpsto001.int.eli-np.ro"
     #     path: /epik8s_data/data
     #     mountPath: /nfs/data
     #     opt: "-o credentials=/etc/smbcredentials"
     #     type: "cifs"
     #   - name: autosave
-    #     server: "10.16.4.100"
+    #     server: "plelinpsto001.int.eli-np.ro"
     #     path: /epik8s_data/autosave
     #     mountPath: /nfs/autosave
     #     opt: "-o credentials=/etc/smbcredentials"
     #     type: "cifs"
     #   - name: config
-    #     server: "10.16.4.100"
+    #     server: "plelinpsto001.int.eli-np.ro"
     #     path: /epik8s_data/config
     #     mountPath: /nfs/config
     #     opt: "-o credentials=/etc/smbcredentials"
@@ -2308,17 +2308,17 @@ opi:
         value: "{{CONFIG}}"
 nfsMounts:
     - name: data
-      server: 10.16.4.100
+      server: plelinpsto001.int.eli-np.ro
       path: /epik8s_data/data
       mountPath: /nfs/data
       opt: "-o nolock"
     - name: autosave
-      server: 10.16.4.100
+      server: plelinpsto001.int.eli-np.ro
       path: /epik8s_data/autosave
       mountPath: /nfs/autosave
       opt: "-o nolock"
     - name: config
-      server: 10.16.4.100
+      server: plelinpsto001.int.eli-np.ro
       path: /epik8s_data/config
       mountPath: /nfs/config
       opt: "-o nolock"
