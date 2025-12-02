@@ -1694,7 +1694,31 @@ epicsConfiguration:
     #   devtype: 4uhv
     #   devgroup: vac
     #   autosync: false
+    - name: "wgsvpconion03"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129489"
+      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      iocprefix: "LEL:VAC:WGS3"
+      template: "agilent-vac"
+      devtype: 4uhv
+      devgroup: vac
+      autosync: false
       
+      iocparam:
+        - name: "server"
+          value: scelimxa16001.int.eli-np.ro # scelimxa16001
+        - name: "port"
+          value: 4006
+      opi: "agilent4uhv/agilent4uhv.bob"
+      devices:
+        - name: "IONP01"
+          channel: 1
+        - name: "IONP02"
+          channel: 2
+        - name: "IONP03"
+          channel: 3
+        - name: "IONP04"
+          channel: 4
+
     #   iocparam:
     #     - name: "server"
     #       value: scelimxa16001.int.eli-np.ro # scelimxa16001
@@ -1736,15 +1760,14 @@ epicsConfiguration:
     #     - name: "IONP04"
     #       channel: 4
 
-    - name: "TEMP-VPCON20" #should be LEL-VAC-VPCON4 or old name LEL-VAC-VPCON10
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=138465"
+    - name: "wgsvpconion04"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111742"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      iocprefix: "LEL:VAC:VPCON20"
+      iocprefix: "LEL:VAC:WGS4"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vac
       autosync: false
-      
       iocparam:
         - name: "server"
           value: scelimxa16001.int.eli-np.ro # scelimxa16001
