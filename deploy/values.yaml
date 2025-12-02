@@ -680,7 +680,7 @@ epicsConfiguration:
       devtype: evr230
       template: "mrf-pci-230"
       devgroup: timing
-      host: "10.16.4.24" ## plelievr001
+      host: "10.16.4.62" ## plelievr001
       workdir: "/opt/codac-4.1/apps/elinp-gp06-ioc01/epik8s-laser-delay"
       exec: "start.sh"
       iocbin: "../bin/linux-x86_64/elinp-gp06-ioc01"
