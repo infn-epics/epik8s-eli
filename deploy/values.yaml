@@ -195,7 +195,7 @@ epicsConfiguration:
           url: https://baltig.infn.it/lnf-da-control/eli-epics-opi.git
           path: .
       pvws:
-        host: eli-pws.apps.okd-datest.lnf.infn.it
+        host: eli-pws.int.eli-np.ro
         port: 80
     
 
@@ -267,6 +267,24 @@ epicsConfiguration:
         archive_property_name: archive
         archiver_property_name: archiver
         auto_pause: pvStatus,archive
+    
+    docs:
+      name: "docs"
+      image:
+        repository: "nginx:alpine"
+        pullPolicy: "Always"
+      charturl: https://baltig.infn.it/epics-containers/generic-application-chart.git
+      enable_ingress: true
+      disable: false ##
+      secure: true
+      service:
+        port: 80
+      exec: {} ## default
+      nfsMounts:
+        - name: httpsrv-nfs
+          mountPath: /usr/share/nginx/html
+          server: plelinpsto001.int.eli-np.ro
+          path: /data_epik8s/documents/public
 
     scanserver: 
       loglevel: DEBUG
@@ -2124,14 +2142,34 @@ epicsConfiguration:
       opi: "unimag"
 
 cronjobs:
-    # - name: "chfeeder"
-    #   image: baltig.infn.it:4567/epics-containers/epics-py-base
-    #   schedule: "* */12 * * *" # every 5 min ## "0 */12 * * *" ## at 12
-    #   gitRepoApp:
-    #     url: "https://baltig.infn.it/infn-epics/channelfinder-service-feeder.git"
-    #     path: .
-    #     branch: main
-    #   gitinit: true
+    - name: "hugo-docs"
+      ## schedule every hours
+      schedule: "*/10 * * * *"
+      image:
+        repository: "ghcr.io/hugomods/hugo:debian-nightly"
+        pullPolicy: "Always"
+      charturl: https://baltig.infn.it/epics-containers/generic-application-chart.git
+      gitRepoApp:
+        url: https://github.com/infn-epics/epik8s-elinp-site.git
+        mountPath: /src
+      secure: true
+      exec: |
+        mkdir -p /src/static/reports /src/static/iocinfo
+        cp /docsrc/* /src/static/reports
+        cp /etc/epik8s-beamline.yaml content/control
+        cd /src
+        node /src/tools/iocinfo.js --iocinfo-dir  /doc-iocs/ --opi-dir content/control/epik8s-opi  --control-dir content/control/ --values-file content/control/epik8s-beamline.yaml --services-dir content/services
+        hugo --source /src/ --destination /docsrc/public --minify
+      
+      nfsMounts:
+        - name: hugo-docs-nfs
+          mountPath: /docsrc
+          server: plelinpsto001.int.eli-np.ro
+          path: /data_epik8s/documents
+        - name: config
+          mountPath: /doc-iocs
+          server: plelinpsto001.int.eli-np.ro
+          path: /data_epik8s/config
       
 applications:
     
