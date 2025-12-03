@@ -39,6 +39,30 @@
 		<annunciating>true</annunciating>
 		<description>LEL:VAC:VGCON01:CC06:PRES_RB PRES</description>
 	</pv>
+	<pv name="LEL:VAC::WGS1:VPCON01:IONP01:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:VPCON01:IONP01:PRES_RB</description>
+	</pv>
+	<pv name="LEL:VAC::WGS1:VPCON01:IONP02:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:VPCON01:IONP02:PRES_RB</description>
+	</pv>
+	<pv name="LEL:VAC::WGS1:VPCON01:IONP03:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:VPCON01:IONP03:PRES_RB</description>
+	</pv>
+		<pv name="LEL:VAC::WGS1:VPCON01:IONP04:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:VPCON01:IONP04:PRES_RB</description>
+	</pv>
 	<pv name="LEL:VAC:VPCON04:WGS01IONP01:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
