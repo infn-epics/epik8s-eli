@@ -1263,6 +1263,7 @@ epicsConfiguration:
       ssh_options: "-o HostKeyAlgorithms=ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
       scpoptions: "-O"
 
+
     # - name: "plelievrkey001-adc"
     #   asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&mode=object&objectId=119372"
     #   charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
@@ -2118,20 +2119,20 @@ epicsConfiguration:
           ustep2mm: 684931.506849
           velo_max: 200
           
-    - name: "unimag"
-      asset: "https://confluence.infn.it/display/SCS/Magnet+SoftIOC+Devil+Wrapper"
+    - name: "plcs"
+      asset: ""
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      image: baltig.infn.it:4567/epics-containers/epics-py-base
-      iocprefix: "LEL:MAG"
-      start: "/epics/ioc/config/start.sh" ## if your mynewioc has a start.sh this line must be kept
-      gitinit: true
-      devtype: unimag
-      devgroup: mag
-      iocdir: "unimag"
-      iocparam:
-        - name: "CONFIG"
-          value: "elimagsim.yaml"
-      opi: "unimag"
+      iocprefix: "LEL:PLC"
+      template: "plceli"
+      devgroup: saf
+      autosync: false
+      devices:
+          - name: "MAG"
+            ip: "10.16.4.171"
+            devtype: "magnets"
+          - name: "VAC"
+            ip: "10.16.4.170"
+            devtype: "vac"
 
 cronjobs:
     - name: "hugo-docs"
