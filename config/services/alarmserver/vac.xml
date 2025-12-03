@@ -15,25 +15,25 @@
 		<annunciating>true</annunciating>
 		<description>LEL:VAC:VGCON01:CC09:PRES_RB PRES</description>
 	</pv>
-	<pv name="LEL:VAC:VGCON01:CC01:PRES_RB">
+	<pv name="LEL:VAC:VGCON02:CC01:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
 		<description>LEL:VAC:VGCON01:CC01:PRES_RB PRES</description>
 	</pv>
-	<pv name="LEL:VAC:VGCON01:CC03:PRES_RB">
+	<pv name="LEL:VAC:VGCON02:CC03:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
 		<description>LEL:VAC:VGCON01:CC03:PRES_RB PRES</description>
 	</pv>
-	<pv name="LEL:VAC:VGCON01:CC04:PRES_RB">
+	<pv name="LEL:VAC:VGCON02:CC04:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
 		<description>LEL:VAC:VGCON01:CC04:PRES_RB PRES</description>
 	</pv>
-	<pv name="LEL:VAC:VGCON01:CC06:PRES_RB">
+	<pv name="LEL:VAC:VGCON02:CC06:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
