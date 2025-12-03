@@ -3,600 +3,160 @@
 <!ATTLIST component id ID #IMPLIED>
 ]>
 <component name="VAC" id ="vac">
-	<component name="AC3" id ="component">
-		<pv name="SPARC:VAC:AC3VGA01:IG1:press_RB">
-		<enabled>false</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:AC3VGA01:IG2:press_RB">
-		<enabled>false</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:AC3VGA01:PG1:press_RB">
-		<enabled>false</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:AC3VGA01:PG2:press_RB">
-		<enabled>false</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:AC3VGA02:IG1:press_RB">
-		<enabled>false</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:AC3VGA02:IG2:press_RB">
-		<enabled>false</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:AC3VGA02:PG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:AC3VGA02:PG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:AC3SIP01:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:AC3SIP02:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:AC3SIP03:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:AC3SIP04:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="CMB" id ="component">
-		<pv name="SPARC:VAC:CMBVGA01:IG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:CMBVGA01:IG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:CMBVGA01:PG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:CMBVGA01:PG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="DGL" id ="component">
-		<pv name="SPARC:VAC:DGLVGA01:IG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:DGLVGA01:IG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:DGLVGA01:PG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:DGLVGA01:PG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:DGLSIP01:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:DGLSIP02:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:DGLSIP03:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:DGLSIP04:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="GUN" id ="component">
-		<pv name="SPARC:VAC:GUNVGA01:IG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:GUNVGA01:IG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:GUNVGA01:PG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:GUNVGA01:PG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:GUNVGA02:IG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:GUNVGA02:IG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:GUNVGA02:PG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:GUNVGA02:PG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:GUNSIP00:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:GUNSIP01:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:GUNSIP02:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:GUNSIP03:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="UND" id ="component">
-		<pv name="SPARC:VAC:UN2VGA01:IG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN2VGA01:IG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN2VGA01:PG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN2VGA01:PG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN3VGA01:IG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN3VGA01:IG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN3VGA01:PG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN3VGA01:PG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN4VGA01:IG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN4VGA01:IG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN4VGA01:PG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN4VGA01:PG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN5VGA01:IG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN5VGA01:IG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN5VGA01:PG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UN5VGA01:PG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="UTL" id ="component">
-		<pv name="SPARC:VAC:UTLVGA01:IG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UTLVGA01:IG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UTLVGA01:PG1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UTLVGA01:PG2:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:UTLSIP01:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="AC1" id ="component">
-		<pv name="SPARC:VAC:AC1SIP01:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="AC2" id ="component">
-		<pv name="SPARC:VAC:AC2SIP01:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="BOC" id ="component">
-		<pv name="SPARC:VAC:BOCSIP01:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="KLY" id ="component">
-		<pv name="SPARC:VAC:KLCSIP01:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:KLY1SIP1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:KLY2SIP1:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="PLX" id ="component">
-		<pv name="SPARC:VAC:PLXSIP01:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:PLXSIP02:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="RFD" id ="component">
-		<pv name="SPARC:VAC:RFDSIP01:press_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="UND1" id ="component">
-		<pv name="SPARC:VAC:UN1SIP01:press_RB">
+	<pv name="LEL:VAC:VGCON01:CC08:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="UND2" id ="component">
-		<pv name="SPARC:VAC:UN2SIP01:press_RB">
+		<description>LEL:VAC:VGCON01:CC08:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VGCON01:CC09:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="UND3" id ="component">
-		<pv name="SPARC:VAC:UN3SIP01:press_RB">
+		<description>LEL:VAC:VGCON01:CC09:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VGCON01:CC01:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="UND4" id ="component">
-		<pv name="SPARC:VAC:UN4SIP01:press_RB">
+		<description>LEL:VAC:VGCON01:CC01:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VGCON01:CC03:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="UND5" id ="component">
-		<pv name="SPARC:VAC:UN5SIP01:press_RB">
+		<description>LEL:VAC:VGCON01:CC03:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VGCON01:CC04:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="UND6" id ="component">
-		<pv name="SPARC:VAC:UN6SIP01:press_RB">
+		<description>LEL:VAC:VGCON01:CC04:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VGCON01:CC06:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="W1" id ="component">
-		<pv name="SPARC:VAC:W1ASIP01:press_RB">
+		<description>LEL:VAC:VGCON01:CC06:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON04:WGS01IONP01:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:W1BSIP01:press_RB">
+		<description>LEL:VAC:VPCON04:WGS01IONP01:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON04:WGS01IONP02:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:W1GSIP01:press_RB">
+		<description>LEL:VAC:VPCON04:WGS01IONP02:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON04:WGS01IONP03:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:W1KSIP01:press_RB">
+		<description>LEL:VAC:VPCON04:WGS01IONP03:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON04:WGS01IONP04:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:W1KSIP02:press_RB">
+		<description>LEL:VAC:VPCON04:WGS01IONP04:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON05:WGS01IONP05:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:W1KSIP03:press_RB">
+		<description>LEL:VAC:VPCON05:WGS01IONP05:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON05:WGS01IONP06:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="W2" id ="component">
-		<pv name="SPARC:VAC:W2KSIP01:press_RB">
+		<description>LEL:VAC:VPCON05:WGS01IONP06:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON05:WGS02IONP01:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:W2KSIP02:press_RB">
+		<description>LEL:VAC:VPCON05:WGS02IONP01:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON05:WGS02IONP02:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:W2KSIP03:press_RB">
+		<description>LEL:VAC:VPCON05:WGS02IONP02:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON06:WGS02IONP03:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:W2SSIP01:press_RB">
+		<description>LEL:VAC:VPCON06:WGS02IONP03:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON06:WGS02IONP04:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="WC" id ="component">
-		<pv name="SPARC:VAC:WCSIP01:press_RB">
+		<description>LEL:VAC:VPCON06:WGS02IONP04:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON06:WGS02IONP05:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:WCSIP02:press_RB">
+		<description>LEL:VAC:VPCON06:WGS02IONP05:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON06:WGS03IONP01:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:WCSIP03:press_RB">
+		<description>LEL:VAC:VPCON06:WGS03IONP01:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON07:WGS03IONP02:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:WCSIP04:press_RB">
+		<description>LEL:VAC:VPCON07:WGS03IONP02:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON07:WGS03IONP03:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:WCSIP05:press_RB">
+		<description>LEL:VAC:VPCON07:WGS03IONP03:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON07:WGS03IONP04:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:WCSIP06:press_RB">
+		<description>LEL:VAC:VPCON07:WGS03IONP04:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON07:WGC01IONP01:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:WCSIP07:press_RB">
+		<description>LEL:VAC:VPCON07:WGC01IONP01:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON08:WGC01IONP02:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:WCSLD01:press_RB">
+		<description>LEL:VAC:VPCON08:WGC01IONP02:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON08:WGC01IONP03:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-		<pv name="SPARC:VAC:WCSLD02:press_RB">
+		<description>LEL:VAC:VPCON08:WGC01IONP03:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON08:WGC01IONP04:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
-	<component name="WRF" id ="component">
-		<pv name="SPARC:VAC:WRFDSIP1:press_RB">
+		<description>LEL:VAC:VPCON08:WGC01IONP04:PRES_RB PRES</description>
+	</pv>
+	<pv name="LEL:VAC:VPCON08:WGC01IONP05:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
-		<description>readout Pressure</description>
-		</pv>
-	</component>
+		<description>LEL:VAC:VPCON08:WGC01IONP05:PRES_RB PRES</description>
+	</pv>
 </component>

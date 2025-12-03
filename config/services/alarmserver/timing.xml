@@ -3,36 +3,6 @@
 <!ATTLIST component id ID #IMPLIED>
 ]>
 <component name="Timing" id ="timing">
-    <pv name="MRF01:evg:FCTLink8-Sts">
-        <enabled>true</enabled>
-        <latching>false</latching>
-        <annunciating>true</annunciating>
-        <description>Generator Link 8</description>
-    </pv>
-    <pv name="MRF01:evg:FCTLink1-Sts">
-        <enabled>true</enabled>
-        <latching>false</latching>
-        <annunciating>true</annunciating>
-        <description>Generator Link 1</description>
-    </pv>
-    <pv name="MRF01:evg:FCTLink2-Sts">
-        <enabled>true</enabled>
-        <latching>false</latching>
-        <annunciating>true</annunciating>
-        <description>Generator Link 2</description>
-    </pv>
     
-    <pv name="MRF01:evr1:Pll-Sts">
-        <enabled>true</enabled>
-        <latching>false</latching>
-        <annunciating>true</annunciating>
-        <description>PLL Receiver1 Lock</description>
-    </pv>
-    <pv name="MRF01:evr:Pll-Sts">
-        <enabled>true</enabled>
-        <latching>false</latching>
-        <annunciating>true</annunciating>
-        <description>PLL Receiver0 Lock</description>
-    </pv>
     
 </component>

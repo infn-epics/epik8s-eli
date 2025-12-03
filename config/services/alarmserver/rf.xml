@@ -4,67 +4,7 @@
 ]>
 
 <component name="RF" id ="rf">
-    <component name="LLRF" id ="component">
-        <pv name="SPARC:LLRF1:app:interlock:state">
-            <enabled>true</enabled>
-            <latching>false</latching>
-            <annunciating>true</annunciating>
-            <description>LLRF1 Interlock STATUS</description>
-        </pv>
-        <pv name="SPARC:LLRF2:app:interlock:state">
-            <enabled>true</enabled>
-            <latching>false</latching>
-            <annunciating>true</annunciating>
-            <description>LLRF2 Interlock STATUS</description>
-            <severity>
-                <level value="MAJOR" limit="1"/>
-            </severity>
-        </pv>
-        <pv name="SPARC:LLRF3:app:interlock:state">
-            <enabled>true</enabled>
-            <latching>false</latching>
-            <annunciating>true</annunciating>
-            <description>LLRF3 Interlock STATUS</description>
-        </pv>
-    </component>
-    <component name="Motors" id ="component">
-        <pv name="SPARC:MOT:VITARA01:m0.RBV">
-            <enabled>true</enabled>
-            <latching>false</latching>
-            <annunciating>true</annunciating>
-            <description>VITARA01 readback</description>
-        </pv>
-        
-    </component>
     
-
-    <component name="Pitaya" id ="component">
-
-            <pv name="SR00RPA01:ACQ_STATUS">
-                <enabled>true</enabled>
-                <latching>false</latching>
-                <annunciating>true</annunciating>
-                <description>Pitaya01 Acquire STATUS</description>
-            </pv>
-            <pv name="SR00RPA02:ACQ_STATUS">
-                <enabled>true</enabled>
-                <latching>false</latching>
-                <annunciating>true</annunciating>
-                <description>Pitaya02 Acquire STATUS</description>
-            </pv>
-            <pv name="SR00RPA03:ACQ_STATUS">
-                <enabled>true</enabled>
-                <latching>false</latching>
-                <annunciating>true</annunciating>
-                <description>Pitaya03 Acquire STATUS</description>
-            </pv>
-            <pv name="SR00RPA04:ACQ_STATUS">
-                <enabled>true</enabled>
-                <latching>false</latching>
-                <annunciating>true</annunciating>
-                <description>Pitaya04 Acquire STATUS</description>
-            </pv>
-    </component>
 
 
 </component>

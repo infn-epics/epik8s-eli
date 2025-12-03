@@ -1,10 +1,7 @@
 <?xml version='1.0' encoding='utf8'?>
 
-<config name="Accelerator">
+<config name="eli-Accelerator">
     
-    
-    
-
     <xi:include href="/gitconfig/vac.xml" xpointer="vac" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="/gitconfig/cam.xml" xpointer="camera" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="/gitconfig/timing.xml" xpointer="timing" xmlns:xi="http://www.w3.org/2001/XInclude"/>
