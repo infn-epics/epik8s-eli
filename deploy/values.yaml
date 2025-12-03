@@ -1,7 +1,7 @@
 beamline: eli
 namespace: eli
 ingressClassName: "haproxy"
-epik8namespace: "int.eli-np.ro"
+epik8namespace: "srv.int.eli-np.ro"
 targetRevision: "main"
 serviceAccountName: "default"
 ioc_version: "latest" ## the ioc image version to use if not specified in each IOC
@@ -196,7 +196,7 @@ epicsConfiguration:
           url: https://baltig.infn.it/lnf-da-control/eli-epics-opi.git
           path: .
       pvws:
-        host: eli-pws.int.eli-np.ro
+        host: eli-pws.srv.int.eli-np.ro
         port: 80
     
 
