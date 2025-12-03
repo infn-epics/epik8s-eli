@@ -64,7 +64,8 @@ epicsConfiguration:
               memory: 500Mi
     archiver: 
       charturl: 'https://baltig.infn.it/epics-containers/epics-archiver-chart.git'
-
+      desc: "EPICS Archiver Appliance for ELI-NP"
+      path: "/mgmt/ui/index.html"
       replicaCount: 1
       serviceAccount:
         create: false
@@ -680,7 +681,7 @@ epicsConfiguration:
       devtype: evr230
       template: "mrf-pci-230"
       devgroup: timing
-      host: "10.16.4.62" ## plelievr001
+      host: "plelievr001" ## 
       workdir: "/opt/codac-4.1/apps/elinp-gp06-ioc01/epik8s-laser-delay"
       exec: "start.sh"
       iocbin: "../bin/linux-x86_64/elinp-gp06-ioc01"
@@ -986,7 +987,7 @@ epicsConfiguration:
       devtype: evr230
       template: "mrf-pci-230"
       devgroup: timing
-      host: "10.16.4.25" # "plelievr002.int.eli-np.ro" # "10.16.4.25" 
+      host: "plelievr002" # "10.16.4.25" 
       workdir: "/opt/codac-4.1/apps/elinp-gp08-ioc06/epik8s-delay"
       exec: "start.sh"
       iocbin: "../bin/linux-x86_64/elinp-gp08-ioc06"
