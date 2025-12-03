@@ -229,16 +229,17 @@ epicsConfiguration:
       charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
       phoebusservice: "alarmserver"
       targetRevision: "test-olog-saveandrestore"
-
+      alarm:
+        config: "eli-Accelerator"
+      
+      gitinit: true
+      autosync: false ## restart automatically on changes
+      usegateway: true
       auto_security: true
       enable_ingress: true
       mongodb: "eli-ologAttachments"
-      # alarm:
-      #  config: "Accelerator,AcceleratorCommand,AcceleratorTalk"
-      gitinit: true
-      autosync: true ## restart automatically on changes
-      usegateway: true
-
+     
+    
     alarmlogger: 
       loglevel: DEBUG
       charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
