@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf8'?>
+<!DOCTYPE config [
+<!ATTLIST component id ID #IMPLIED>
+]>
+
+<component name="Io" id="io">
+    <description>IO Systems</description>
+    
+    <pv name="LEL:POLREV:ICPDAS01:FWversion_raw">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>Unresponsive State</description>
+    </pv>
+    <pv name="LEL:POLREV:ICPDAS02:FWversion_raw">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>Unresponsive State</description>
+    </pv>
+    <pv name="LEL:ILLUM:ICPDAS:FWversion_raw">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>Unresponsive State</description>
+    
+    
+<component>

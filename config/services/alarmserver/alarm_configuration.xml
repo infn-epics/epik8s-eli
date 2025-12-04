@@ -8,6 +8,7 @@
     <xi:include href="/gitconfig/rf.xml" xpointer="rf" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="/gitconfig/orbit.xml" xpointer="orbit" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="/gitconfig/magnets.xml" xpointer="magnets" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="/gitconfig/Io.xml" xpointer="Io" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 
 
 
