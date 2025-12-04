@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='utf8'?>
+<!DOCTYPE config [
+<!ATTLIST component id ID #IMPLIED>
+]>
+
+<component name="Plc" id="plc">
+    <description>PLC Systems</description>
+    
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL01:COIL01-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL01 COIL01 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL01:COIL02-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL01 COIL02 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-QUAD02-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>QUAD02 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-QUAD03-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>QUAD03TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-QUAD01-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>QUAD01 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR01-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>HCOR01 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR02-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>HCOR02 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR03-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>HCOR03 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR04-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>HCOR04 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR05-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>HCOR05 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR06-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>HCOR06 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR07-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>HCOR07 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR08-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>HCOR08 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-DIP01-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>DIP01 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL02:COIL01-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL02 COIL01 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL02:COIL02-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL02 COIL02 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL02:COIL03-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL02 COIL03 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL02:COIL04-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL02 COIL04 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL02:COIL05-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL02 COIL05 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL02:COIL06-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL02 COIL06 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL02:COIL07-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL02 COIL07 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL02:COIL08-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL02 COIL08 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL02:COIL09-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL02 COIL09 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL02:COIL10-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>HSOL02 COIL10 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL02:COIL11-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL02 COIL11 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SOL02:COIL12-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SOL02 COIL12 TermoStick Error</description>
+    </pv>
+
+
+
+    <pv name="LEL:PLC:MAG:LEL-MAG-SPSU01:EXT1">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SPSU01 INTERLOCK STATE</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SPSU02:EXT1">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SPSU02 INTERLOCK STATE</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SPSU03:EXT1">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SPSU03 INTERLOCK STATE</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SPSU04:EXT1">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SPSU04 INTERLOCK STATE</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-SPSU05:EXT1">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>SPSU04 INTERLOCK STATE</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-CPSU01:EXT">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>CPSU01 INTERLOCK STATE</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-CPSU02:EXT">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>CPSU02 INTERLOCK STATE</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-CPSU03:EXT">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>CPSU03 INTERLOCK STATE</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-QPSU01:EXT1">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>QOSU01 INTERLOCK STATE</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-QPSU02:EXT1">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>QPSU02 INTERLOCK STATE</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-QPSU03:EXT1">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>QPSU03 INTERLOCK STATE</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-DPSU01:EXT1">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>DPSU01 INTERLOCK STATE</description>
+    </pv>
+
+
+    <!-- Water Flow Errors -->
+
+
+    <pv name="LEL:PLC:MAG:M1-SCU-6">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>M1 SCU 6 Water Flow Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:M1-SCU-7">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>M1 SCU 7 Water Flow Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:M2-SCU-4">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>M2 SCU 4 Water Flow Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:M2-SCU-2">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>M2 SCU 2 Water Flow Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:M2-SCU-3">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>M2 SCU 3 Water Flow Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:M2-SCU-5">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>M2 SCU 5 Water Flow Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:M4-SCU-1">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>M4 SCU 1 Water Flow Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:M4A-SCU-8">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>M4A SCU 8 Water Flow Error</description>
+    </pv>
+
+</component>    
