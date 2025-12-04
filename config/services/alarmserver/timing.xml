@@ -2,7 +2,7 @@
 <!DOCTYPE config [
 <!ATTLIST component id ID #IMPLIED>
 ]>
-<component name="TIMING" id="timing">
+<component name="Timing" id="timing">
     <automated_action>
         <details>mailto:giovanni.franzini@lnf.infn.it</details>
         <title>Alarm on Timing</title>
