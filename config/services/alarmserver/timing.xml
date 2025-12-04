@@ -2,7 +2,78 @@
 <!DOCTYPE config [
 <!ATTLIST component id ID #IMPLIED>
 ]>
+<component name="TIMING" id="vac">
+    <automated_action>
+        <details>mailto:giovanni.franzini@lnf.infn.it</details>
+        <title>Alarm on Timing</title>
+        <delay>60</delay>
+    </automated_action>
 <component name="Timing" id ="timing">
-    
-    
+    <pv name="LEL:MOD:SCAT:MOD01:STATE_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:MOD:SCAT:MOD01:STATE_RB</description>
+	</pv>
+    <pv name="LEL:MOD:SCAT:MOD02:STATE_RB">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL:MOD:SCAT:MOD02:STATE_RB</description>
+    </pv>
+    <pv name="LEL:MOD:SCAT:MOD03:STATE_RB">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL:MOD:SCAT:MOD03:STATE_RB</description>
+    </pv>
+    <pv name="LEL:MOD:SCAT:MOD04:STATE_RB">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL:MOD:SCAT:MOD04:STATE_RB</description>
+    </pv>
+    <!-- fine moduletors state rb -->
+    <pv name="LEL:TIM:EVR-CAM:Link-Sts">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL:TIM:EVR-CAM:Link-Sts</description>
+    </pv>
+    <pv name="LEL:TIM:EVR-BPMCAM:Link-Sts">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL:TIM:EVR-BPMCAM:Link-Sts</description>
+    </pv>
+    <pv name="LEL:TIM:EVR-ADC:Link-Sts">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL:TIM:EVR-ADC:Link-Sts</description>
+    </pv>
+    <pv name="LEL:TIM:EVR-LAS:Link-Sts">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL:TIM:EVR-LAS:Link-Sts</description>
+    </pv>
+    <pv name="LEL:TIM:EVR-LLRF:Link-Sts">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL:TIM:EVR-LLRF:Link-Sts</description>
+    </pv>
+    <pv name="LEL:TIM:EVR-RFD:Link-Sts">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL:TIM:EVR-RFD:Link-Sts</description>
+    </pv>
+    <pv name="LEL:TIM:EVR-RFM:Link-Sts">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL:TIM:EVR-RFM:Link-Sts</description>
+    </pv>
 </component>
