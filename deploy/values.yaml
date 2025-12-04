@@ -1797,15 +1797,23 @@ epicsConfiguration:
           - name: "HCOR06"
             channel: 1
             max: 10
+            zones:
+              - M4
           - name: "VCOR06"
             channel: 2
             max: 10
+            zones:
+              - M4
           - name: "HCOR07"
             channel: 3
             max: 10
+            zones:
+              - M4
           - name: "VCOR07"
             channel: 4
             max: 10
+            zones:
+              - M4
      
     - name: "sigmaphi-SOL01-SPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111614"
@@ -1822,6 +1830,8 @@ epicsConfiguration:
       devices:
           - name: "SOL01:COIL01"
             max: 176
+            zones:
+              - M1 
 
     - name: "sigmaphi-SOL01-SPSU02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111615"
@@ -1838,6 +1848,8 @@ epicsConfiguration:
       devices:
           - name: "SOL01:COIL02"
             max: 176
+            zones:
+              - M1
 
     - name: "biltitest-cpsu01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111616"
@@ -1857,21 +1869,33 @@ epicsConfiguration:
           - name: "HCOR01"
             channel: 1
             max: 10
+            zones:
+              - M1
           - name: "VCOR01"
             channel: 2
             max: 10
+            zones:
+              - M1
           - name: "HCOR02"
             channel: 3
             max: 10
+            zones:
+              - M2
           - name: "VCOR02"
             channel: 5
             max: 10
+            zones:
+              - M2
           - name: "HCOR03"
             channel: 7
             max: 10
+            zones:
+              - M2
           - name: "VCOR03"
             channel: 9
             max: 10
+            zones:
+              - M2
     - name: "sigmaphi-SOL02-SPSU03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111617"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
@@ -1887,6 +1911,8 @@ epicsConfiguration:
       devices:
           - name: "SOL02:COIL0103"
             max: 176
+            zones:
+              - M2
     - name: "sigmaphi-SOL02-SPSU04"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111618"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
@@ -1902,6 +1928,8 @@ epicsConfiguration:
       devices:
           - name: "SOL02:COIL0406"
             max: 176
+            zones:
+              - M2
     - name: "sigmaphi-SOL02-SPSU05"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111615"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
@@ -1917,6 +1945,8 @@ epicsConfiguration:
       devices:
           - name: "SOL02:COIL0709"
             max: 176
+            zones:
+              - M2
 
     - name: "sigmaphi-SOL02-SPSU06"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111620"
@@ -1933,6 +1963,8 @@ epicsConfiguration:
       devices:
           - name: "SOL02:COIL1012"
             max: 176
+            zones:
+              - M2
 
     - name: "biltitest-cpsu02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111621"
@@ -1952,15 +1984,23 @@ epicsConfiguration:
           - name: "HCOR04"
             channel: 1
             max: 10
+            zones:
+              - M3
           - name: "VCOR04"
             channel: 3
             max: 10
+            zones:
+              - M3
           - name: "HCOR05"
             channel: 5
             max: 10
+            zones:
+              - M3
           - name: "VCOR05"
             channel: 7
             max: 10
+            zones:
+              - M3
     
 
     - name: "sigmaphi-DPSU01"
@@ -1978,6 +2018,8 @@ epicsConfiguration:
       devices:
           - name: "DIP01"
             max: 138
+            zones:
+              - M4
 
     - name: "sigmaphi-QPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111623"
@@ -1994,6 +2036,8 @@ epicsConfiguration:
       devices:
           - name: "QUAD01"
             max: 50
+            zones:
+              - M4
     
     - name: "sigmaphi-QPSU02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111624"
@@ -2010,6 +2054,8 @@ epicsConfiguration:
       devices:
           - name: "QUAD02"
             max: 50
+            zones:
+              - M4
 
     - name: "sigmaphi-QPSU03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111625"
@@ -2026,6 +2072,8 @@ epicsConfiguration:
       devices:
           - name: "QUAD03"
             max: 50
+            zones:
+              - M4
 
    
     - name: "scandicat-mod"
