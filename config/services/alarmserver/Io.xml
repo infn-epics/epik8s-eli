@@ -23,6 +23,5 @@
         <latching>false</latching>
         <annunciating>true</annunciating>
         <description>Unresponsive State</description>
-    
-    
-<component>
+    </pv>
+</component>
