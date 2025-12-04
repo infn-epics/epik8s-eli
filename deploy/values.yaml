@@ -1321,12 +1321,12 @@ epicsConfiguration:
       template: "icpdas"
       devtype: icp7060
       devgroup: io
-      opi: "icpdas"
+      opi: "icpdas-opi/icp7060.bob"
       autosync: true
 
       iocparam:
         - name: "server"
-          value: 10.16.4.32 # ddeliicp6r6i001.lnf.infn.it #10.16.4.32
+          value: "ddeliicp6r6i001.int.eli-np.ro" # 10.16.4.32 # ddeliicp6r6i001.lnf.infn.it #10.16.4.32
       devices:
         - name: "MAG01POS"
           devtype: "rly"
@@ -1374,11 +1374,11 @@ epicsConfiguration:
       template: "icpdas"
       devtype: icp7060
       devgroup: io
-      opi: "icpdas"
+      opi: "icpdas-opi/icp7060.bob"
       autosync: true
       iocparam:
         - name: "server"
-          value: 10.16.4.33 # ddeliicp6r6i002.lnf.infn.it # 10.16.4.33
+          value: "ddeliicp6r6i002.int.eli-np.ro" # ddeliicp6r6i002.lnf.infn.it # 10.16.4.33
       devices:
         - name: "MAG04POS"
           devtype: "rly"
@@ -1425,11 +1425,11 @@ epicsConfiguration:
       template: "icpdas"
       devtype: icp7060
       devgroup: io
-      opi: "icpdas"
+      opi: "icpdas-opi/icp7267.bob"
       autosync: true
       iocparam:
         - name: "server"
-          value: 10.16.4.66 # ddeliicp6r6i002.lnf.infn.it # 10.16.4.33
+          value: "ddeliicpillum001.int.eli-np.ro" #10.16.4.66 
       devices:
         - name: "CAMILLUM"
           devtype: "rly"
@@ -1791,8 +1791,8 @@ epicsConfiguration:
       iocprefix: "LEL:MAG:CPSU03"
       iocparam:
         - name: "server"
-          value: 10.16.4.49
-      opi: "biltitest"
+          value: "lel-mag-cpsu03.int.eli-np.ro" #10.16.4.49
+      opi: "biltitest/biltitest.bob"
       devices:
           - name: "HCOR06"
             channel: 1
@@ -1815,10 +1815,10 @@ epicsConfiguration:
       devtype: sigmaphi
       devgroup: mag
       
-      opi: "sigmaphi"
+      opi: "sigmaphi/sigmaPhiStart.bob"
       iocparam:
         - name: "server"
-          value: 10.16.4.45
+          value: "lel-mag-spsu01.int.eli-np.ro" # 10.16.4.45
       devices:
           - name: "SOL01:COIL01"
             max: 176
@@ -1833,8 +1833,8 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: 10.16.4.40
-      opi: "sigmaphi"
+          value: "lel-mag-spsu02.int.eli-np.ro" # 10.16.4.40
+      opi: "sigmaphi/sigmaPhiStart.bob"
       devices:
           - name: "SOL01:COIL02"
             max: 176
@@ -1851,8 +1851,8 @@ epicsConfiguration:
       template:  "ibilt"
       iocparam:
         - name: "server"
-          value: 10.16.4.48
-      opi: "biltitest"
+          value: "lel-mag-cpsu01.int.eli-np.ro" # 10.16.4.48
+      opi: "biltitest/biltitest.bob"
       devices:
           - name: "HCOR01"
             channel: 1
@@ -1880,10 +1880,10 @@ epicsConfiguration:
       devtype: sigmaphi
       devgroup: mag
       
-      opi: "sigmaphi"
+      opi: "sigmaphi/sigmaPhiStart.bob"
       iocparam:
         - name: "server"
-          value: 10.16.4.46
+          value: "lel-mag-spsu03.int.eli-np.ro." # 10.16.4.46
       devices:
           - name: "SOL02:COIL0103"
             max: 176
@@ -1895,10 +1895,10 @@ epicsConfiguration:
       devtype: sigmaphi
       devgroup: mag
       
-      opi: "sigmaphi"
+      opi: "sigmaphi/sigmaPhiStart.bob"
       iocparam:
         - name: "server"
-          value: 10.16.4.46
+          value: "lel-mag-spsu04.int.eli-np.ro" # 10.16.4.47
       devices:
           - name: "SOL02:COIL0406"
             max: 176
@@ -1910,10 +1910,10 @@ epicsConfiguration:
       devtype: sigmaphi
       devgroup: mag
       
-      opi: "sigmaphi"
+      opi: "sigmaphi/sigmaPhiStart.bob"
       iocparam:
         - name: "server"
-          value: 10.16.4.42
+          value: "lel-mag-spsu05.int.eli-np.ro" # 10.16.4.42
       devices:
           - name: "SOL02:COIL0709"
             max: 176
@@ -1926,10 +1926,10 @@ epicsConfiguration:
       devtype: sigmaphi
       devgroup: mag
       
-      opi: "sigmaphi"
+      opi: "sigmaphi/sigmaPhiStart.bob"
       iocparam:
         - name: "server"
-          value: 10.16.4.43
+          value: "lel-mag-spsu06.int.eli-np.ro" # 10.16.4.43
       devices:
           - name: "SOL02:COIL1012"
             max: 176
@@ -1946,8 +1946,8 @@ epicsConfiguration:
       template:  "ibilt"
       iocparam:
         - name: "server"
-          value: 10.16.4.44
-      opi: "biltitest"
+          value: "lel-mag-cpsu02.int.eli-np.ro" # 10.16.4.44
+      opi: "biltitest/biltitest.bob"
       devices:
           - name: "HCOR04"
             channel: 1
@@ -1963,10 +1963,6 @@ epicsConfiguration:
             max: 10
     
 
-    
-
-    
-
     - name: "sigmaphi-DPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111626"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
@@ -1975,10 +1971,10 @@ epicsConfiguration:
       devtype: sigmaphi
       devgroup: mag
       
-      opi: "sigmaphi"
+      opi: "sigmaphi/sigmaPhiStart.bob"
       iocparam:
         - name: "server"
-          value: 10.16.4.53
+          value: "lel-mag-dpsu01.int.eli-np.ro" # 10.16.4.53
       devices:
           - name: "DIP01"
             max: 138
@@ -1991,10 +1987,10 @@ epicsConfiguration:
       devtype: sigmaphi
       devgroup: mag
       
-      opi: "sigmaphi"
+      opi: "sigmaphi/sigmaPhiStart.bob"
       iocparam:
         - name: "server"
-          value: 10.16.4.50
+          value: "lel-mag-qpsu01.int.eli-np.ro" # 10.16.4.50
       devices:
           - name: "QUAD01"
             max: 50
@@ -2007,10 +2003,10 @@ epicsConfiguration:
       devtype: sigmaphi
       devgroup: mag
       
-      opi: "sigmaphi"
+      opi: "sigmaphi/sigmaPhiStart.bob"
       iocparam:
         - name: "server"
-          value: 10.16.4.51
+          value: "lel-mag-qpsu02.int.eli-np.ro" #10.16.4.51
       devices:
           - name: "QUAD02"
             max: 50
@@ -2023,10 +2019,10 @@ epicsConfiguration:
       devtype: sigmaphi
       devgroup: mag
       
-      opi: "sigmaphi"
+      opi: "sigmaphi/sigmaPhiStart.bob"
       iocparam:
         - name: "server"
-          value: 10.16.4.52
+          value: "lel-mag-qpsu03.int.eli-np.ro" # 10.16.4.52
       devices:
           - name: "QUAD03"
             max: 50
