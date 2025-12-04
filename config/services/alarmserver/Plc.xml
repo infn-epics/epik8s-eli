@@ -78,7 +78,7 @@
         <annunciating>true</annunciating>
         <description>HCOR07 TermoStick Error</description>
     </pv>
-    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR08-TS">
+    <pv name="LEL:PLC:MAG:LEL-MAG-VCOR04A-TS">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
