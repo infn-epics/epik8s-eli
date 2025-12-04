@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='utf8'?>
+<!DOCTYPE config [
+<!ATTLIST component id ID #IMPLIED>
+]>
+
+<component name="Magnets" id="magnets">
+    <!-- <automated_action>
+        <details>mailto:andrea.michelotti@lnf.infn.it</details>
+        <title>Alarm on Magnet Subsystem</title>
+        <delay>60</delay>
+    </automated_action> -->
+
+        <description>Power Supplies</description>
+        
+        <pv name="LEL:MAG:CPSU03:HCOR06:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>HCOR06 STATE </description>
+        </pv>
+        <pv name="LEL:MAG:CPSU03:VCOR06:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>VCOR06 STATE</description>
+        </pv>
+        
+        <pv name="LEL:MAG:CPSU03:HCOR07:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>HCOR07 STATE</description>
+        </pv>
+        <pv name="LEL:MAG:CPSU03:VCOR07:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>VCOR07 STATE</description>
+        </pv>
+        
+        <pv name="LEL:MAG:SPSU01:SOL01:COIL01:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>SOL01 COIL01 STATE</description>
+        </pv>
+        <pv name="LEL:MAG:SPSU02:SOL01:COIL02:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>SOL01 COIL02 STATE</description>
+        </pv>
+        
+        <pv name="LEL:MAG:CPSU01:HCOR01:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>HCOR01 STATE</description>
+        </pv>
+        <pv name="LEL:MAG:CPSU01:VCOR01:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>CPSU01 VCOR01 STATE</description>
+        </pv>
+        <pv name="LEL:MAG:CPSU01:HCOR02:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>HCOR02 STATE</description>
+        </pv>
+
+        <pv name="LEL:MAG:CPSU01:VCOR02:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>VCOR02 STATE</description>
+        </pv>
+        <pv name="LEL:MAG:CPSU01:HCOR03:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>HCOR03 STATE</description>
+        </pv>
+        
+        <pv name="LEL:MAG:CPSU01:VCOR03:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>VCOR03 STATE</description>
+        </pv>
+        <pv name="LEL:MAG:SPSU03:SOL02:COIL0103:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>SOL02 COIL0103 STATE</description>
+        </pv>
+        
+        <pv name="LEL:MAG:SPSU04:SOL02:COIL0406:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>SOL02 COIL0406 STATE</description>
+        </pv>
+        <pv name="LEL:MAG:SPSU05:SOL02:COIL0709:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>SOL02 COIL0709 STATE</description>
+        </pv>
+        
+        <pv name="LEL:MAG:SPSU06:SOL02:COIL1012:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>SOL02 COIL1012 STATE</description>
+        </pv>
+        <pv name="LEL:MAG:CPSU02:HCOR04:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>HCOR04 STATE</description>
+        </pv>
+        <pv name="LEL:MAG:CPSU02:VCOR04:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>VCOR04 STATE</description>
+        </pv>
+        <pv name="LEL:MAG:CPSU02:HCOR05:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>HCOR05 STATE</description>
+        </pv>
+        
+        <pv name="LEL:MAG:CPSU02:VCOR05:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>VCOR05 STATE</description>
+        </pv>
+        <pv name="LEL:MAG:DPSU01:DIP01:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>DIP01 STATE</description>
+        </pv>
+        
+        <pv name="LEL:MAG:QPSU01:QUAD01:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>AC1 H Corrector 1A State</description>
+        </pv>
+        <pv name="LEL:MAG:QPSU02:QUAD02:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>QUAD01 STATE</description>
+        </pv>
+        
+        <pv name="LEL:MAG:QPSU03:QUAD03:STATE_RB">
+            <enabled>true</enabled>
+            <latching>false</latching>
+            <annunciating>true</annunciating>
+            <description>QUAD03 STATE</description>
+        </pv>
+</component>

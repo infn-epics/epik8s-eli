@@ -3,6 +3,7 @@
 <!ATTLIST component id ID #IMPLIED>
 ]>
 <component name="VAC" id ="vac">
+	<!-- inizio vgcon01/01 -->
 	<pv name="LEL:VAC:VGCON01:CC08:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
@@ -39,30 +40,99 @@
 		<annunciating>true</annunciating>
 		<description>LEL:VAC:VGCON01:CC06:PRES_RB PRES</description>
 	</pv>
-	<pv name="LEL:VAC::WGS1:VPCON01:IONP01:PRES_RB">
+	<!-- fine vgcon01/02 -->
+	<pv name="LEL:VAC:WGS1:VPCON01:IONP01:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
 		<description>LEL:VAC:VPCON01:IONP01:PRES_RB</description>
 	</pv>
-	<pv name="LEL:VAC::WGS1:VPCON01:IONP02:PRES_RB">
+	<pv name="LEL:VAC:WGS1:VPCON01:IONP02:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
 		<description>LEL:VAC:VPCON01:IONP02:PRES_RB</description>
 	</pv>
-	<pv name="LEL:VAC::WGS1:VPCON01:IONP03:PRES_RB">
+	<pv name="LEL:VAC:WGS1:VPCON01:IONP03:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
 		<description>LEL:VAC:VPCON01:IONP03:PRES_RB</description>
 	</pv>
-		<pv name="LEL:VAC::WGS1:VPCON01:IONP04:PRES_RB">
+		<pv name="LEL:VAC:WGS1:VPCON01:IONP04:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
 		<annunciating>true</annunciating>
 		<description>LEL:VAC:VPCON01:IONP04:PRES_RB</description>
 	</pv>
+	<pv name="LEL:VAC:WGS1:VPCON02:IONP05:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:WGS1:VPCON02:IONP05:PRES_RB</description>
+	</pv>
+	<pv name="LEL:VAC:WGS1:VPCON02:IONP06:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:WGS1:VPCON02:IONP06:PRES_RB</description>
+	</pv>
+	<pv name="LEL:VAC:WGS1:VPCON02:IONP07:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:WGS1:VPCON02:IONP07:PRES_RB</description>
+	</pv>
+	<pv name="LEL:VAC:WGS1:VPCON02:IONP08:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:WGS1:VPCON02:IONP08:PRES_RB</description>
+	</pv>
+	<!-- fine vpcon01/02 -->
+	<pv name="LEL:VAC:WGS2:VPCON03:IONP09:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:WGS2:VPCON03:IONP09:PRES_RB</description>
+	</pv>
+	<pv name="LEL:VAC:WGS2:VPCON03:IONP10:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:WGS2:VPCON03:IONP10:PRES_RB</description>
+	</pv>
+	<pv name="LEL:VAC:WGS2:VPCON03:IONP11:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:WGS2:VPCON03:IONP11:PRES_RB</description>
+	</pv>
+	<pv name="LEL:VAC:WGS2:VPCON03:IONP12:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:WGS2:VPCON03:IONP12:PRES_RB</description>
+	</pv>
+	<pv name="LEL:VAC:WGC02:VPCON04:IONP13:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:WGS2:VPCON04:IONP13:PRES_RB</description>
+	</pv>
+	<pv name="LEL:VAC:WGC02:VPCON04:IONP14:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:WGS2:VPCON04:IONP14:PRES_RB</description>
+	</pv>
+	<pv name="LEL:VAC:WGC02:VPCON04:IONP15:PRES_RB">
+		<enabled>true</enabled>
+		<latching>false</latching>
+		<annunciating>true</annunciating>
+		<description>LEL:VAC:WGS2:VPCON04:IONP15:PRES_RB</description>
+	</pv>
+	<!-- fine vpcon03/04 -->
 	<pv name="LEL:VAC:VPCON04:WGS01IONP01:PRES_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
