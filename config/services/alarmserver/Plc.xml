@@ -78,12 +78,61 @@
         <annunciating>true</annunciating>
         <description>HCOR07 TermoStick Error</description>
     </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR04A-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>HCOR04A TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR01-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>VCOR01 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR02-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>VCOR02 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR03-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>VCOR03 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR04-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>VCOR04 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-VCOR05-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>VCOR05 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-VCOR06-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>VCOR06 TermoStick Error</description>
+    </pv>
+    <pv name="LEL:PLC:MAG:LEL-MAG-VCOR07-TS">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>VCOR07 TermoStick Error</description>
+    </pv>
     <pv name="LEL:PLC:MAG:LEL-MAG-VCOR04A-TS">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
-        <description>HCOR08 TermoStick Error</description>
+        <description>VCOR04A TermoStick Error</description>
     </pv>
+
     <pv name="LEL:PLC:MAG:LEL-MAG-DIP01-TS">
         <enabled>true</enabled>
         <latching>false</latching>
