@@ -346,7 +346,7 @@ epicsConfiguration:
         - name: "BPM04"
           channel: 6
     
-      host: "10.16.4.69" ## "bdelilibera03.int.eli-np.ro" "bdelilibera01.int.eli-np.ro" non va spe
+      host: "bdelilibera03.int.eli-np.ro" # "10.16.4.69" ## "" "bdelilibera01.int.eli-np.ro" non va spe
       ssh_options: "-o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/sparc-template-sppp"
       scpoptions: "-O"
