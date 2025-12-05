@@ -380,7 +380,7 @@ epicsConfiguration:
       iocprefix: "LEL:ORBIT"
       devtype: softioc
       devgroup: diag
-      start: "/epics/ioc/config/start.sh"
+      start: "start.sh"
       gitinit: true
       autosync: false ## restart automatically on changes
       usegateway: false
