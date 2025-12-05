@@ -11,13 +11,31 @@
         <annunciating>true</annunciating>
         <description>BPM01 Single pass (bdelilibera03) </description>
     </pv>
+    <pv name="LEL:DIA:BPM01:BPM01:spe.y">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>BPM01 Single pass (bdelilibera03) </description>
+    </pv>
     <pv name="LEL:DIA:BPM01:BPM02:spe.y">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
         <description>BPM02 Single pass (bdelilibera03)</description>
     </pv>
+    <pv name="LEL:DIA:BPM01:BPM02:spe.x">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>BPM02 Single pass (bdelilibera03)</description>
+    </pv>
     <pv name="LEL:DIA:BPM01:BPM03:spe.x">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>BPM03 Single pass (bdelilibera03) </description>
+    </pv>
+    <pv name="LEL:DIA:BPM01:BPM03:spe.y">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
@@ -30,11 +48,36 @@
         <annunciating>true</annunciating>
         <description>BPM04 Single pass (bdelilibera03)</description>
     </pv>
+    <pv name="LEL:DIA:BPM01:BPM04:spe.y">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>BPM04 Single pass (bdelilibera03)</description>
+    </pv>
 
     <pv name="LEL:DIA:BPM02:BPM05:spe.x">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
         <description>BPM05 Single pass (bdelilibera02)</description>
+    </pv>
+    <pv name="LEL:DIA:BPM02:BPM05:spe.y">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>BPM05 Single pass (bdelilibera02)</description>
+    </pv>
+
+    <pv name="LEL:ORBIT:y">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL ORBIT Y application</description>
+    </pv>
+    <pv name="LEL:ORBIT:x">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL ORBIT X application</description>
     </pv>
 </component>
