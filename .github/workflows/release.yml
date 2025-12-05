@@ -50,6 +50,8 @@ jobs:
       
 
       - name: Run Ansible playbook
+        env:
+          ELI_UPDATE: ${{ secrets.ELI_UPDATE }}
         run: |
           cd opi/ansible
 
