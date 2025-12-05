@@ -1,0 +1,34 @@
+{
+    "prefix":"SPARC:ORBIT",
+    "collect":[
+    {
+        "pvname":"x",
+        "src":["LEL:DIA:BPM01:BPM01:spe.x","LEL:DIA:BPM01:BPM02:spe.x","LEL:DIA:BPM01:BPM03:spe.x","LEL:DIA:BPM01:BPM04:spe.x","LEL:DIA:BPM02:BPM05:spe.x"],
+        "coeff":1.0,
+        "type":"float",
+        "update":1000
+    },
+    {
+        "pvname":"y",
+        "src":["LEL:DIA:BPM01:BPM01:spe.y","LEL:DIA:BPM01:BPM02:spe.y","LEL:DIA:BPM01:BPM03:spe.y","LEL:DIA:BPM01:BPM04:spe.y","LEL:DIA:BPM02:BPM05:spe.y"],
+        "coeff":1.0,
+        "type":"float",
+        "update":1000
+    },
+    {
+        "pvname":"coord",
+        "const":[0,1000,2000,3000,4000],
+        "update":0
+    },
+    {
+        "pvname":"bpm",
+        "type": "string",
+        "const":["BPM01","BPM02","BPM03","BPM04","BPM05"],
+        "update":0
+    }
+
+
+]
+}
+
+
