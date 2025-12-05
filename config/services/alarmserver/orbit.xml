@@ -3,5 +3,38 @@
 <!ATTLIST component id ID #IMPLIED>
 ]>
 <component name="Orbit" id ="orbit">
-   
+   <description>BPM Systems</description>
+    
+    <pv name="LEL:DIA:BPM01:BPM01:spe.x">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>BPM01 Single pass (bdelilibera03) </description>
+    </pv>
+    <pv name="LEL:DIA:BPM01:BPM02:spe.y">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>BPM02 Single pass (bdelilibera03)</description>
+    </pv>
+    <pv name="LEL:DIA:BPM01:BPM03:spe.x">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>BPM03 Single pass (bdelilibera03) </description>
+    </pv>
+
+    <pv name="LEL:DIA:BPM01:BPM04:spe.x">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>BPM04 Single pass (bdelilibera03)</description>
+    </pv>
+
+    <pv name="LEL:DIA:BPM02:BPM05:spe.x">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>BPM05 Single pass (bdelilibera02)</description>
+    </pv>
 </component>

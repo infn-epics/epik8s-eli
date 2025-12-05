@@ -10,6 +10,7 @@
     <xi:include href="/gitconfig/magnets.xml" xpointer="magnets" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="/gitconfig/Io.xml" xpointer="io" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="/gitconfig/Plc.xml" xpointer="plc" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="/gitconfig/orbit.xml" xpointer="orbit" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 
 
 
