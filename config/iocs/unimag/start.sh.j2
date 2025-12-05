@@ -1,7 +1,0 @@
-#!/bin/bash
-script_dir=$(dirname "$0")
-cd $script_dir
-echo "Starting {{iocname}} : $EPICS_CA_ADDR_LIST"
-pip install -r ./scripts/requirements.txt
-
-python ./scripts/unimag.py {{CONFIG}} --csv {{config_dir}}/CONFIG.csv

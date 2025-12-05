@@ -1,8 +1,0 @@
-menu(liberaBOOL) {
-    choice(liberaBOOL_False, "false")
-    choice(liberaBOOL_True,  "true")
-}
-
-recordtype(libera) {
-    include "liberaCommon.dbd" 
-}

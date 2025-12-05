@@ -1,6 +1,0 @@
-#############################################
-## User provided environment variables     ##
-#############################################
-
-epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES", "6291472")
-
