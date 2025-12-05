@@ -39,13 +39,15 @@ jobs:
     container:
       image: alpine/ansible:2.18.6
     steps:
+      - name: Install sshpass and git
+        run: apk add sshpass git
+
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - name: Install sshpass
-        run: apk add sshpass
+      
 
       - name: Run Ansible playbook
         run: |
