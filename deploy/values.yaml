@@ -1436,11 +1436,11 @@ epicsConfiguration:
           channel: 0
         
 
-    - name: "vgcon01"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111736"
+    - name: "vgcon02"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111737"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL:VAC"
-      iocroot: "VGCON01"
+      iocroot: "VGCON02"
       template: "agilent-vac"
       devtype: xgs600
       devgroup: vac
@@ -1485,11 +1485,11 @@ epicsConfiguration:
           #   devtype: "setpoint"
           #   opi: "agilentXgs600/agilentXgs600Spt.bob"
           
-    - name: "vgcon02"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111737"
+    - name: "vgcon01"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111736"
       charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
       iocprefix: "LEL:VAC"
-      iocroot: "VGCON02"
+      iocroot: "VGCON01"
       template: "agilent-vac"
       devtype: xgs600
       devgroup: vac
