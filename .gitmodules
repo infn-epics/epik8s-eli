@@ -1,9 +1,6 @@
 [submodule "config/iocs/orbit/scripts"]
 	path = config/iocs/orbit/scripts
 	url = https://baltig.infn.it/infn-epics/py-ioc-collector.git
-[submodule "config/iocs/flags-ch1/scripts"]
-	path = config/iocs/flags-ch1/scripts
-	url = https://baltig.infn.it/infn-epics/pymotflag.git
 [submodule "config/iocs/klyloop/scripts"]
 	path = config/iocs/klyloop/scripts
 	url = https://baltig.infn.it/lnf-da-control/klystron-loop-soft-ioc.git
@@ -19,6 +16,3 @@
 [submodule "opi"]
 	path = opi
 	url = ../eli-epics-opi.git
-[submodule "config/iocs/unimag/scripts"]
-	path = config/iocs/unimag/scripts
-	url = https://baltig.infn.it/infn-epics/unimag.git
