@@ -84,25 +84,25 @@
         <annunciating>true</annunciating>
         <description>HCOR04A TermoStick Error</description>
     </pv>
-    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR01-TS">
+    <pv name="LEL:PLC:MAG:LEL-MAG-VCOR01-TS">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
         <description>VCOR01 TermoStick Error</description>
     </pv>
-    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR02-TS">
+    <pv name="LEL:PLC:MAG:LEL-MAG-VCOR02-TS">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
         <description>VCOR02 TermoStick Error</description>
     </pv>
-    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR03-TS">
+    <pv name="LEL:PLC:MAG:LEL-MAG-VCOR03-TS">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
         <description>VCOR03 TermoStick Error</description>
     </pv>
-    <pv name="LEL:PLC:MAG:LEL-MAG-HCOR04-TS">
+    <pv name="LEL:PLC:MAG:LEL-MAG-VCOR04-TS">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
