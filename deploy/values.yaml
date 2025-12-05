@@ -315,7 +315,7 @@ epicsConfiguration:
   iocs:
     - name: "llrf01"
       asset: "https://confluence.infn.it/x/doKBBg"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       template:  "libera-llrf"
       devtype: llrf
       devgroup: rf
@@ -329,7 +329,7 @@ epicsConfiguration:
 
     - name: "bdelilibera03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2459&objectId=142215"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git' 
+      charturl: 'https://github.com/infn-epics/ioc-chart.git' 
       template: "libera-spe"
       devtype: bpm
       devgroup: diag
@@ -355,7 +355,7 @@ epicsConfiguration:
 
     - name: "bdelilibera02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2459&objectId=134119"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git' 
+      charturl: 'https://github.com/infn-epics/ioc-chart.git' 
       template: "libera-spe"
       devtype: bpm
       devgroup: diag
@@ -375,9 +375,8 @@ epicsConfiguration:
       autosync: false ## restart automatically on changes
 
     - name: "orbit"
-      asset: "https://confluence.infn.it/x/nYD8DQ"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
-      image: baltig.infn.it:4567/epics-containers/epics-py-base
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
+      image: ghcr.io/infn-epics/epics-py-base
       iocprefix: "LEL:ORBIT"
       devtype: softioc
       devgroup: diag
@@ -446,7 +445,7 @@ epicsConfiguration:
         
     - name: "cam01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: cam
@@ -482,7 +481,7 @@ epicsConfiguration:
         
     - name: "cam02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&mode=object&objectId=126656"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: cam
@@ -521,7 +520,7 @@ epicsConfiguration:
     
     - name: "cam03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&mode=object&objectId=128741"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: cam
@@ -561,7 +560,7 @@ epicsConfiguration:
 
     - name: "cam04"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&mode=object&objectId=128742"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: cam
@@ -600,7 +599,7 @@ epicsConfiguration:
 
     - name: "cam05"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&mode=object&objectId=128743"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: cam
@@ -639,7 +638,7 @@ epicsConfiguration:
     
     - name: "cam06"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&mode=object&objectId=128744"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: cam
@@ -677,7 +676,7 @@ epicsConfiguration:
     
     - name: "plelievr001-laser-delay"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2441&mode=object&objectId=113215"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:TIM"
       devtype: evr230
       template: "mrf-pci-230"
@@ -772,7 +771,7 @@ epicsConfiguration:
     
     - name: "plelievr002-rf-delay"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2441&mode=object&objectId=133675"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:TIM"
       devtype: evr230
       template: "mrf-pci-230"
@@ -983,7 +982,7 @@ epicsConfiguration:
 
     - name: "plelievrkey001"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&objectId=119372"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL"
       devtype: evr230
       template: "mrf-pci-230"
@@ -1207,7 +1206,7 @@ epicsConfiguration:
     
     - name: "plelievg001"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2441&mode=object&objectId=113217"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:TIM"
       devtype: evg230
       template: "mrf-pci-230"
@@ -1267,7 +1266,7 @@ epicsConfiguration:
 
     # - name: "plelievrkey001-adc"
     #   asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&mode=object&objectId=119372"
-    #   charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+    #   charturl: 'https://github.com/infn-epics/ioc-chart.git'
     #   devtype: m9210
     #   devgroup: adc
     #   host: "10.16.4.25"
@@ -1315,7 +1314,7 @@ epicsConfiguration:
 
     - name: "polrev-icpdas01"
       asset: "https://servicedesk.infn.it/secure/insight/assets/LNFELINP-134115"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:POLREV"
       iocroot: "ICPDAS01"
       template: "icpdas"
@@ -1368,7 +1367,7 @@ epicsConfiguration:
 
     - name: "polrev-icpdas02"
       asset: "https://servicedesk.infn.it/secure/insight/assets/LNFELINP-134116"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:POLREV"
       iocroot: "ICPDAS02"
       template: "icpdas"
@@ -1419,7 +1418,7 @@ epicsConfiguration:
 
     - name: "illuminatore"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2453&objectId=126786"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:ILLUM"
       iocroot: "ICPDAS"
       template: "icpdas"
@@ -1438,7 +1437,7 @@ epicsConfiguration:
 
     - name: "vgcon02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111737"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
       iocroot: "VGCON02"
       template: "agilent-vac"
@@ -1487,7 +1486,7 @@ epicsConfiguration:
           
     - name: "vgcon01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111736"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
       iocroot: "VGCON01"
       template: "agilent-vac"
@@ -1525,7 +1524,7 @@ epicsConfiguration:
           
     # - name: "vpconion17" ## spenta
     #   asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
-    #   charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+    #   charturl: 'https://github.com/infn-epics/ioc-chart.git'
     #   iocprefix: "LEL:VAC"
     #   iocroot: "VPCON17"
     #   template: "agilent-vac"
@@ -1551,7 +1550,7 @@ epicsConfiguration:
 
     - name: "vpcon4" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
       iocroot: "VPCON04"
       template: "agilent-vac"
@@ -1577,7 +1576,7 @@ epicsConfiguration:
 
     - name: "vpcon5" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
       iocroot: "VPCON05"
       template: "agilent-vac"
@@ -1602,7 +1601,7 @@ epicsConfiguration:
           channel: 4
     - name: "vpcon6" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
       iocroot: "VPCON06"
       template: "agilent-vac"
@@ -1628,7 +1627,7 @@ epicsConfiguration:
 
     - name: "vpcon7" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
       iocroot: "VPCON07"
       template: "agilent-vac"
@@ -1654,7 +1653,7 @@ epicsConfiguration:
 
     - name: "vpcon8" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
       iocroot: "VPCON08"
       template: "agilent-vac"
@@ -1680,7 +1679,7 @@ epicsConfiguration:
 
     - name: "wgsvpconion03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129489"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC:WGS2"
       iocroot: "VPCON03"
       template: "agilent-vac"
@@ -1706,7 +1705,7 @@ epicsConfiguration:
 
     - name: "wgsvpconion04"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111742"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC:WGC02"
       iocroot: "VPCON04"
       template: "agilent-vac"
@@ -1729,7 +1728,7 @@ epicsConfiguration:
 
     - name: "wgsvpconion01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111743"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC:WGS1"
       iocroot: "VPCON01"
       template: "agilent-vac"
@@ -1755,7 +1754,7 @@ epicsConfiguration:
 
     - name: "wgsvpconion02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111743"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC:WGS1"
       iocroot: "VPCON02"
       template: "agilent-vac"
@@ -1784,7 +1783,7 @@ epicsConfiguration:
       devtype: bilt-itest
       template:  "ibilt"
       devgroup: mag
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       
       autosync: false ## restart automatically on changes
       # carepeater: true ## launch ca repeater, this ioc needs it
@@ -1817,7 +1816,7 @@ epicsConfiguration:
      
     - name: "sigmaphi-SOL01-SPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111614"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU01"
       template:  "sigmaphi"
       devtype: sigmaphi
@@ -1835,7 +1834,7 @@ epicsConfiguration:
 
     - name: "sigmaphi-SOL01-SPSU02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111615"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU02"
       template:  "sigmaphi"
       devtype: sigmaphi
@@ -1855,7 +1854,7 @@ epicsConfiguration:
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111616"
       devtype: biltitest
       devgroup: mag
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       
       autosync: false ## restart automatically on changes
       # carepeater: true ## launch ca repeater, this ioc needs it
@@ -1898,7 +1897,7 @@ epicsConfiguration:
               - M2
     - name: "sigmaphi-SOL02-SPSU03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111617"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU03"
       template:  "sigmaphi"
       devtype: sigmaphi
@@ -1915,7 +1914,7 @@ epicsConfiguration:
               - M2
     - name: "sigmaphi-SOL02-SPSU04"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111618"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU04"
       template:  "sigmaphi"
       devtype: sigmaphi
@@ -1932,7 +1931,7 @@ epicsConfiguration:
               - M2
     - name: "sigmaphi-SOL02-SPSU05"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111615"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU05"
       template:  "sigmaphi"
       devtype: sigmaphi
@@ -1950,7 +1949,7 @@ epicsConfiguration:
 
     - name: "sigmaphi-SOL02-SPSU06"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111620"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU06"
       template:  "sigmaphi"
       devtype: sigmaphi
@@ -1970,7 +1969,7 @@ epicsConfiguration:
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111621"
       devtype: biltitest
       devgroup: mag
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       
       autosync: false ## restart automatically on changes
       # carepeater: true ## launch ca repeater, this ioc needs it
@@ -2005,7 +2004,7 @@ epicsConfiguration:
 
     - name: "sigmaphi-DPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111626"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:DPSU01"
       template:  "sigmaphi"
       devtype: sigmaphi
@@ -2023,7 +2022,7 @@ epicsConfiguration:
 
     - name: "sigmaphi-QPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111623"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:QPSU01"
       template:  "sigmaphi"
       devtype: sigmaphi
@@ -2041,7 +2040,7 @@ epicsConfiguration:
     
     - name: "sigmaphi-QPSU02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111624"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:QPSU02"
       template:  "sigmaphi"
       devtype: sigmaphi
@@ -2059,7 +2058,7 @@ epicsConfiguration:
 
     - name: "sigmaphi-QPSU03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111625"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:QPSU03"
       template:  "sigmaphi"
       devtype: sigmaphi
@@ -2098,7 +2097,7 @@ epicsConfiguration:
 
     - name: "diag-tml"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2447&objectId=133401"
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL"
       serial:
         ip: scelimxa16001.int.eli-np.ro
@@ -2146,7 +2145,7 @@ epicsConfiguration:
           
     - name: "plcs"
       asset: ""
-      charturl: 'https://baltig.infn.it/epics-containers/ioc-chart.git'
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:PLC"
       template: "plceli"
       devgroup: saf
