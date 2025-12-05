@@ -52,4 +52,7 @@ jobs:
       - name: Run Ansible playbook
         run: |
           cd opi/ansible
+          ping plelico004.int.eli-np.ro
+          ping plelico003.int.eli-np.ro
+
           ansible-playbook -i hosts.yml configure-consoles.yml
