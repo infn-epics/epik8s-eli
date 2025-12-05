@@ -34,3 +34,20 @@ jobs:
           body_path: RELEASE_NOTES.md
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  deploy:
+    runs-on: [self-hosted, k8s]
+    container:
+      image: alpine/ansible:2.16.1
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Install sshpass
+        run: apk add sshpass
+
+      - name: Run Ansible playbook
+        run: |
+          cd opi/ansible
+          ansible-playbook -i hosts.yml configure-consoles.yml
