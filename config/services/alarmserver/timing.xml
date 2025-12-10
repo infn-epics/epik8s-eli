@@ -8,34 +8,6 @@
         <title>Alarm on Timing</title>
         <delay>60</delay>
     </automated_action>
-<!-- <component name="Timing" id ="timing">
-    <description>Timing Alarm Controller Readings</description>
-     -->
-    <pv name="LEL:MOD:SCAT:MOD01:STATE_RB">
-		<enabled>true</enabled>
-		<latching>false</latching>
-		<annunciating>true</annunciating>
-		<description>LEL:MOD:SCAT:MOD01:STATE_RB</description>
-	</pv>
-    <pv name="LEL:MOD:SCAT:MOD02:STATE_RB">
-        <enabled>true</enabled>
-        <latching>false</latching>
-        <annunciating>true</annunciating>
-        <description>LEL:MOD:SCAT:MOD02:STATE_RB</description>
-    </pv>
-    <pv name="LEL:MOD:SCAT:MOD03:STATE_RB">
-        <enabled>true</enabled>
-        <latching>false</latching>
-        <annunciating>true</annunciating>
-        <description>LEL:MOD:SCAT:MOD03:STATE_RB</description>
-    </pv>
-    <pv name="LEL:MOD:SCAT:MOD04:STATE_RB">
-        <enabled>true</enabled>
-        <latching>false</latching>
-        <annunciating>true</annunciating>
-        <description>LEL:MOD:SCAT:MOD04:STATE_RB</description>
-    </pv>
-    <!-- fine moduletors state rb -->
     <pv name="LEL:TIM:EVR-CAM:Link-Sts">
         <enabled>true</enabled>
         <latching>false</latching>
