@@ -2,12 +2,7 @@
 <!DOCTYPE config [
 <!ATTLIST component id ID #IMPLIED>
 ]>
-<component name="modulator" id="modulator">
-    <automated_action>
-        <details>mailto:giovanni.franzini@lnf.infn.it</details>
-        <title>Alarm on Timing</title>
-        <delay>60</delay>
-    </automated_action>
+<component name="Modulator" id="modulatori">
     <pv name="LEL:MOD:SCAT:MOD01:STATE_RB">
 		<enabled>true</enabled>
 		<latching>false</latching>
