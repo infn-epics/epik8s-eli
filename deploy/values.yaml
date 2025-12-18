@@ -333,7 +333,7 @@ epicsConfiguration:
       devtype: llrf
       devgroup: rf
       iocprefix: "LEL-RF-LLRF02"
-      host: "plelillrfs002.int.eli-np.ro" # "plelillrfs002"
+      host: "10.16.4.55" # "plelillrfs002"
       scpoptions: "-O"
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
@@ -346,7 +346,7 @@ epicsConfiguration:
       devtype: llrf
       devgroup: rf
       iocprefix: "LEL-RF-LLRF03"
-      host: "plelillrf001.int.eli-np.ro" # "plelillrfc001"
+      host: "10.16.4.31" # "plelillrfc001"
       scpoptions: "-O"
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
@@ -359,7 +359,7 @@ epicsConfiguration:
       devtype: llrf
       devgroup: rf
       iocprefix: "LEL-RF-LLRF04"
-      host: "plelillrfc001.int.eli-np.ro" # "plelillrfc004"
+      host: "10.16.4.56" # "plelillrfc004"
       scpoptions: "-O"
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
