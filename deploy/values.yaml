@@ -319,12 +319,42 @@ epicsConfiguration:
       template:  "libera-llrf"
       devtype: llrf
       devgroup: rf
-      iocprefix: "LEL-RF-LLRF03"
-      host: "10.16.4.31" # "plelillrf001"
+      iocprefix: "LEL-RF-LLRF01"
+      host: "plelillrf001.int.eli-np.ro" # "plelillrf001"
       scpoptions: "-O"
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
       exec: "start.sh"
+
+    - name: "llrfc01"
+      asset: "https://confluence.infn.it/x/doKBBg"
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
+      template:  "libera-llrf"
+      devtype: llrf
+      devgroup: rf
+      iocprefix: "LEL-RF-LLRFC01"
+      host: "plelillrfc001.int.eli-np.ro" # "plelillrf001"
+      scpoptions: "-O"
+      ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
+      workdir: "/opt/epik8s-eli"
+      exec: "start.sh"
+    
+    
+
+    - name: "llrfs01"
+      asset: "https://confluence.infn.it/x/doKBBg"
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
+      template:  "libera-llrf"
+      devtype: llrf
+      devgroup: rf
+      iocprefix: "LEL-RF-LLRFS01"
+      host: "plelillrfs002.int.eli-np.ro" # "plelillrf001"
+      scpoptions: "-O"
+      ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
+      workdir: "/opt/epik8s-eli"
+      exec: "start.sh"
+    
+
       #autosync: true ## restart automatically on changes
 
     - name: "bdelilibera03"
