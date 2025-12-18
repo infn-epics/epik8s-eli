@@ -339,7 +339,7 @@ epicsConfiguration:
       workdir: "/opt/epik8s-eli"
       exec: "start.sh"
 
-    - name: "llrfc01"
+    - name: "llrf03"
       asset: "https://confluence.infn.it/x/doKBBg"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       template:  "libera-llrf"
@@ -359,7 +359,7 @@ epicsConfiguration:
       devtype: llrf
       devgroup: rf
       iocprefix: "LEL-RF-LLRF04"
-      host: "plelillrfc001.int.eli-np.ro" # "plelillrfs004"
+      host: "plelillrfc001.int.eli-np.ro" # "plelillrfc004"
       scpoptions: "-O"
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
