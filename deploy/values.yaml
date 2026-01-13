@@ -325,6 +325,11 @@ epicsConfiguration:
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
       exec: "start.sh"
+      devices:
+        - name: "ad1"
+          channel: 3
+        - name: "ad2"
+          channel: 4
 
     - name: "llrf02"
       asset: "https://confluence.infn.it/x/doKBBg"
@@ -338,6 +343,11 @@ epicsConfiguration:
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
       exec: "start.sh"
+      devices:
+        - name: "ad1"
+          channel: 3
+        - name: "ad2"
+          channel: 4
 
     - name: "llrf03"
       asset: "https://confluence.infn.it/x/doKBBg"
@@ -351,6 +361,11 @@ epicsConfiguration:
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
       exec: "start.sh"
+      devices:
+        - name: "ad1"
+          channel: 3
+        - name: "ad2"
+          channel: 4
 
     - name: "llrf04"
       asset: "https://confluence.infn.it/x/doKBBg"
@@ -364,6 +379,11 @@ epicsConfiguration:
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
       exec: "start.sh"
+      devices:
+        - name: "ad1"
+          channel: 3
+        - name: "ad2"
+          channel: 4
     
       #autosync: true ## restart automatically on changes
 
