@@ -1303,6 +1303,22 @@ epicsConfiguration:
             func: 0
             devtype: evg230
             iocinit:
+              - name: "TrigEvt0-Enable-Sel"
+                value: "0"
+              - name: "TrigEvt1-Enable-Sel"
+                value: "0"
+              - name: "TrigEvt2-Enable-Sel"
+                value: "0"
+              - name: "TrigEvt3-Enable-Sel"
+                value: "0"
+              - name: "TrigEvt4-Enable-Sel"
+                value: "0"
+              - name: "TrigEvt5-Enable-Sel"
+                value: "0"
+              - name: "TrigEvt6-Enable-Sel"
+                value: "0"
+              - name: "TrigEvt7-Enable-Sel"
+                value: "0"  
               - name: "EvtClk-Source-Sel" ## Event Clock, external (MHz)
                 value: "RF"
               - name: "EvtClk-RFDiv-SP" # Divider of Event Clock frequency
