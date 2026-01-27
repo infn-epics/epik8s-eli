@@ -356,7 +356,7 @@ epicsConfiguration:
       devtype: llrf
       devgroup: rf
       iocprefix: "LEL-RF-LLRF03"
-      host: "10.16.4.31" # "plelillrfc001"
+      host: "10.16.4.31" # plelillrf001.int.eli-np.ro
       scpoptions: "-O"
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
@@ -374,7 +374,7 @@ epicsConfiguration:
       devtype: llrf
       devgroup: rf
       iocprefix: "LEL-RF-LLRF04"
-      host: "10.16.4.56" # "plelillrfc004"
+      host: "10.16.4.56" # plelillrfc001.int.eli-np.ro
       scpoptions: "-O"
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
@@ -1517,11 +1517,13 @@ epicsConfiguration:
             tcauto: "T3"
             devtype: "img"
             opi: "agilentXgs600/agilentXgs600Img.bob"
+            zones: M4
           - name: "CC09"
             sensor: "I2"
             tcauto: "T3"
             devtype: "img"
             opi: "agilentXgs600/agilentXgs600Img.bob"
+            zones: M4
                     
           # - name: "GAUG01:CC:SP1"
           #   sensor: "I1"
@@ -1553,7 +1555,6 @@ epicsConfiguration:
       devtype: xgs600
       devgroup: vac
       autosync: false
-      
       iocparam:
         - name: "server"
           value: scelimxa16001.int.eli-np.ro # scelimxa16001
@@ -1566,21 +1567,25 @@ epicsConfiguration:
             tcauto: "T3"
             devtype: "img"
             opi: "agilentXgs600/agilentXgs600Img.bob"
+            zones: M1
           - name: "CC03"
             sensor: "I2"
             tcauto: "T3"
             devtype: "img"
             opi: "agilentXgs600/agilentXgs600Img.bob"
+            zones: M1
           - name: "CC04"
             sensor: "I3"
             tcauto: "T3"
             devtype: "img"
             opi: "agilentXgs600/agilentXgs600Img.bob"
+            zones: M1
           - name: "CC06"
             sensor: "I4"
             tcauto: "T3"
             devtype: "img"
             opi: "agilentXgs600/agilentXgs600Img.bob"
+            zones: M3
           
     # - name: "vpconion17" ## spenta
     #   asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
@@ -1617,7 +1622,7 @@ epicsConfiguration:
       devtype: 4uhv
       devgroup: vac
       autosync: false
-      
+      zones: WGS01
       iocparam:
         - name: "server"
           value: scelimxa8001.int.eli-np.ro
@@ -1653,12 +1658,20 @@ epicsConfiguration:
       devices:
         - name: "WGS01IONP05"
           channel: 1
+          zones: WGS01
+
         - name: "WGS01IONP06"
           channel: 2
+          zones: WGS01
+
         - name: "WGS02IONP01"
           channel: 3
+          zones: WGS02
+
         - name: "WGS02IONP02"
           channel: 4
+          zones: WGS02
+
     - name: "vpcon6" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
@@ -1678,12 +1691,16 @@ epicsConfiguration:
       devices:
         - name: "WGS02IONP03"
           channel: 1
+          zones: WGS02
         - name: "WGS02IONP04"
           channel: 2
+          zones: WGS02
         - name: "WGS02IONP05"
           channel: 3
+          zones: WGS02
         - name: "WGS03IONP01"
           channel: 4
+          zones: WGS03
 
     - name: "vpcon7" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
@@ -1704,12 +1721,16 @@ epicsConfiguration:
       devices:
         - name: "WGS03IONP02"
           channel: 1
+          zones: WGS03
         - name: "WGS03IONP03"
           channel: 2
+          zones: WGS03
         - name: "WGS03IONP04"
           channel: 3
+          zones: WGS03
         - name: "WGC01IONP01"
           channel: 4
+          zones: WGC01
 
     - name: "vpcon8" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
@@ -1730,23 +1751,26 @@ epicsConfiguration:
       devices:
         - name: "WGC01IONP02"
           channel: 1
+          zones: WGC01
         - name: "WGC01IONP03"
           channel: 2
+          zones: WGC01
         - name: "WGC01IONP04"
           channel: 3
+          zones: WGC01
         - name: "WGC01IONP05"
-          channel: 4           
+          channel: 4
+          zones: WGC01        
 
-    - name: "wgsvpconion03"
+    - name: "vpcon03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129489"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
-      iocprefix: "LEL:VAC:WGS2"
+      iocprefix: "LEL:VAC"
       iocroot: "VPCON03"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vac
       autosync: false
-      
       iocparam:
         - name: "server"
           value: scelimxa16001.int.eli-np.ro # scelimxa16001
@@ -1756,22 +1780,27 @@ epicsConfiguration:
       devices:
         - name: "IONP12"
           channel: 1
+          zones: M4
         - name: "IONP11"
           channel: 2
+          zones: M4
         - name: "IONP10"
           channel: 3
+          zones: M4
         - name: "IONP09"
           channel: 4
+          zones: M3
 
-    - name: "wgsvpconion04"
+    - name: "vpcon04"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111742"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
-      iocprefix: "LEL:VAC:WGC02"
+      iocprefix: "LEL:VAC"
       iocroot: "VPCON04"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vac
       autosync: false
+      zones: M4
       iocparam:
         - name: "server"
           value: scelimxa16001.int.eli-np.ro # scelimxa16001
@@ -1786,16 +1815,16 @@ epicsConfiguration:
         - name: "IONP15"
           channel: 3
 
-    - name: "wgsvpconion01"
+    - name: "vpcon01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111743"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
-      iocprefix: "LEL:VAC:WGS1"
+      iocprefix: "LEL:VAC"
       iocroot: "VPCON01"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vac
       autosync: false
-      
+      zones: M1
       iocparam:
         - name: "server"
           value: scelimxa16001.int.eli-np.ro
@@ -1812,16 +1841,15 @@ epicsConfiguration:
           - name: "IONP04"
             channel: 4
 
-    - name: "wgsvpconion02"
+    - name: "vpcon02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111743"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
-      iocprefix: "LEL:VAC:WGS1"
+      iocprefix: "LEL:VAC"
       iocroot: "VPCON02"
       template: "agilent-vac"
       devtype: 4uhv
       devgroup: vac
       autosync: false
-      
       iocparam:
         - name: "server"
           value: scelimxa16001.int.eli-np.ro 
@@ -1831,12 +1859,16 @@ epicsConfiguration:
       devices:
           - name: "IONP05"
             channel: 1
+            zones: M2
           - name: "IONP06"
             channel: 2
+            zones: M2
           - name: "IONP07"
             channel: 3
+            zones: M3
           - name: "IONP08"
             channel: 4
+            zones: M3
 
     - name: "biltitest-cpsu03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111616"
@@ -2146,13 +2178,32 @@ epicsConfiguration:
       devices:
         - name: "MOD01"
           server: "pwelimod001.int.eli-np.ro"
-          asset:
+          iocinit:
+            - name: FILPS:CURR_SP
+              value: 30
+            - name: PLS:WDTH_SET_RB
+              value: 2.5
         - name: "MOD02"
           server: "pwelimod002.int.eli-np.ro"
+          iocinit:
+            - name: FILPS:CURR_SP
+              value: 30
+            - name: PLS:WDTH_SET_RB
+              value: 2.5
         - name: "MOD03"
           server: "pwelimod003.int.eli-np.ro"
+          iocinit:
+            - name: FILPS:CURR_SP
+              value: 31
+            - name: PLS:WDTH_SET_RB
+              value: 2.5
         - name: "MOD04"
           server: "pwelimod004.int.eli-np.ro"
+          iocinit:
+            - name: FILPS:CURR_SP
+              value: 19.50
+            - name: PLS:WDTH_SET_RB
+              value: 2.4
 
 
     - name: "diag-tml"
