@@ -1587,31 +1587,49 @@ epicsConfiguration:
             opi: "agilentXgs600/agilentXgs600Img.bob"
             zones: M3
           
-    # - name: "vpconion17" ## spenta
-    #   asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
-    #   charturl: 'https://github.com/infn-epics/ioc-chart.git'
-    #   iocprefix: "LEL:VAC"
-    #   iocroot: "VPCON17"
-    #   template: "agilent-vac"
-    #   devtype: 4uhv
-    #   devgroup: vac
-    #   autosync: false
-      
-    #   iocparam:
-    #     - name: "server"
-    #       value: scelimxa8001.int.eli-np.ro
-    #     - name: "port"
-    #       value: 4006
-    #   opi: "agilent4uhv/agilent4uhv.bob"
-    #   devices:
-    #     - name: "IONP01"
-    #       channel: 1
-    #     - name: "IONP02"
-    #       channel: 2
-    #     - name: "IONP03"
-    #       channel: 3
-    #     - name: "IONP04"
-    #       channel: 4
+    - name: "chiller-smc" 
+      asset: "https://confluence.infn.it/display/LDCG/ICP-23-0032"
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
+      template: "smc"
+      devtype: smc
+      devgroup: cool
+      iocprefix: "LEL:CHL"
+      opi: "smc/Chiller-smc-hecr.bob"
+      devices:
+        - name: "GUN"
+          server: scelimxa16001.int.eli-np.ro
+          port: 4013
+          nocheckconn: 1
+          zones: GUN
+          iocinit:
+            - name: "TEMP_SETPT_SP"
+              value: 32.40
+        - name: "ACC01"
+          server: scelimxa16001.int.eli-np.ro
+          port: 4014
+          nocheckconn: 1
+          zones: M1
+          iocinit:
+            - name: "TEMP_SETPT_SP"
+              value: 33.4
+        - name: "ACC02"
+          server: scelimxa16001.int.eli-np.ro
+          port: 4015
+          nocheckconn: 1
+          zones: M2
+          iocinit:
+            - name: "TEMP_SETPT_SP"
+              value: 34.5
+        - name: "ACC03"
+          server: scelimxa16001.int.eli-np.ro
+          port: 4016
+          nocheckconn: 1
+          zones: M3
+          iocinit:
+            - name: "TEMP_SETPT_SP"
+              value: 35.6
+        
+
 
     - name: "vpcon4" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
