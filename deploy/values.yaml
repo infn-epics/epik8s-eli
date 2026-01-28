@@ -978,7 +978,7 @@ epicsConfiguration:
                 value: "62.08"
               - name: "Ena-Sel"
                 value: "Enabled"
-          - name: "EVR-RFD" ##
+          - name: "EVR-LLRF" ##
             bus: 9
             slot: 14
             func: 0
