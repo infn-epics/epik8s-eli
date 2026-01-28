@@ -862,7 +862,7 @@ epicsConfiguration:
         opt: "-o credentials=/etc/smbcredentials"
         type: "cifs"
       devices:
-          - name: "EVR-LLRF" ## RFD
+          - name: "EVR-RFD" ## RFD
             bus: 9
             slot: 10
             func: 0
@@ -920,7 +920,7 @@ epicsConfiguration:
                 value: "62.08"
               - name: "Ena-Sel"
                 value: "Enabled"
-          - name: "EVR-RFD" ## RFM
+          - name: "EVR-RFM" ## RFM
             bus: 9
             slot: 12
             func: 0
@@ -978,7 +978,7 @@ epicsConfiguration:
                 value: "62.08"
               - name: "Ena-Sel"
                 value: "Enabled"
-          - name: "EVR-RFM" ##
+          - name: "EVR-RFD" ##
             bus: 9
             slot: 14
             func: 0
