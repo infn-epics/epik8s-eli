@@ -199,31 +199,97 @@ epicsConfiguration:
         host: eli-pws.srv.int.eli-np.ro
         port: 80
     
+    webolog:
+      name: "webolog"
+      image:
+        repository: "ghcr.io/infn-epics/phoebus-olog-web-client"
+        tag: "latest"
+        pullPolicy: "Always"
+      charturl: https://baltig.infn.it/epics-containers/generic-application-chart.git
+      enable_ingress: true
+      disable: false ##
+      env:
+        - name: VITE_APP_LEVEL_VALUES
+          value: "[\"Urgent\",\"Suggestion\",\"Info\",\"Request\",\"Problem\"]"
+        - name: VITE_APP_DEFAULT_LEVEL
+          value: "Info"
+        - name: VITE_APP_BASE_URL
+          value: "https://eli-webolog.srv.int.eli-np.ro/Olog"
+        - name: VITE_REACT_APP_USE_KEYCLOAK
+          value: true
+        - name: VITE_AUTH_CLIENT_ID
+          value: camunda
+        - name: VITE_AUTH_ENDPOINT
+          value: "https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/auth"
+        - name: VITE_AUTH_ENDPOINT_LOGOUT
+          value: "https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/logout"
+        - name: VITE_AUTH_ENDPOINT_TOKEN
+          value: "https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/token"
+        - name: VITE_AUTH_ENDPOINT_REDIRECT_URI
+          value: "https://eli-webolog.srv.int.eli-np.ro"
+        - name: VITE_AUTH_SCOPE
+          value: openid
 
+      exec: |
+        echo "VITE_APP_BASE_URL=$(VITE_APP_BASE_URL)" > .env
+        echo "VITE_APP_LOGBOOK_NAME=INFN BTF Logbook" >> .env
+        echo "VITE_AUTH_CLIENT_ID=camunda" >> .env
+        echo "VITE_AUTH_ENDPOINT=https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/auth" >> .env
+        echo "VITE_AUTH_ENDPOINT_LOGOUT=https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/logout" >> .env
+        echo "VITE_AUTH_ENDPOINT_TOKEN=https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/token" >> .env
+        echo "VITE_AUTH_ENDPOINT_REDIRECT_URI=https://eli-webolog.srv.int.eli-np.ro" >> .env
+        echo "VITE_AUTH_SCOPE=openid" >> .env
+        echo "VITE_APP_OAUTH2_ENABLED=false" >> .env
+        cat .env
+        npm ci
+        npm run build --force
+        serve -l 3000 -s build
+      securityContext:
+            runAsUser: 1000
+            runAsGroup: 1000
+      service:
+        ports:
+          - name: webolog
+            port: 80
+            targetport: 3000
+            targetname: webolog
+            protocol: TCP
     olog: 
+      name: "olog"
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       phoebusservice: "olog"
-      targetRevision: "test-olog-saveandrestore"
+      enable_ingress: true
+      mongodb: "eli-ologAttachments"
+      disable: false ##      
+      targetRevision: "main"
+      service:
+        loglevel: "DEBUG"
+      cors:
+        origins: "https://eli-webolog.srv.int.eli-np.ro"
+      user: epics
+      password: epics
+      oauth2:
+        enabled: false
+        
+      ldap:
+        enable: false  
+        base:
+          dn: "ou=People,dc=infn,dc=it"
+
+    saveandrestore: 
+      name: "saveandrestore"
+      loglevel: DEBUG
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
+      phoebusservice: "saveandrestore"
+      targetRevision: "main"
 
       enable_ingress: true
       mongodb: "eli-ologAttachments"
-      autosync: true ## restart automatically on changes
-      service:
-        loglevel: "INFO"
+      disable: false ##
       usegateway: true
 
-    saveandrestore: 
-      loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
-      phoebusservice: "saveandrestore"
-      targetRevision: "test-olog-saveandrestore"
-
-      enable_ingress: true
-      mongodb: "eli-saveandrestore"
-      autosync: true ## restart automatically on changes
-      service:
-        loglevel: "DEBUG"
+    
     alarmserver: 
       loglevel: DEBUG
       charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
