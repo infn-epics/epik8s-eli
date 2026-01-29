@@ -1653,7 +1653,7 @@ epicsConfiguration:
       devtype: polyscience
       devgroup: cool
       iocprefix: "LEL:CHL"
-      opi: "polyscience/Chiller-polyscience-hecr.bob"
+      opi: "polyscience/Chiller-polyscience.bob"
       devices:
         - name: "MOD"
           server: scelimxa8001.int.eli-np.ro
