@@ -2290,7 +2290,8 @@ epicsConfiguration:
    
     - name: "scandicat-mod"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
-      image: ghcr.io/infn-epics/infn-epics-ioc-runtime:v26.1.28b3
+      # image: ghcr.io/infn-epics/infn-epics-ioc-runtime:v26.1.28b3 ## used for conditioning
+      
       iocprefix: "LEL:MOD:SCAT"
       template: "scandinova-scandicat-mod"
       devtype: "ppt"
