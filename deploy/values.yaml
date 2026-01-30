@@ -2295,7 +2295,10 @@ epicsConfiguration:
       template: "scandinova-scandicat-mod"
       devtype: "ppt"
       devgroup: "modulator"
-      
+      pls_width_max: 5      # → PLS_WDTH_SP_HOPR
+      i_max: 30             # → FILPS_CURR_SP_HOPR  
+      pres_warn: 8000       # → IONPMP_HIGH
+      pres_alarm: 9000      # → IONPMP_HIHI
       devices:
         - name: "MOD01"
           server: "pwelimod001.int.eli-np.ro"

@@ -1,0 +1,1703 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 29,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGC02:VPCON04:IONP13:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGC02:VPCON04:IONP14:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGC02:VPCON04:IONP15:PRES"
+        }
+      ],
+      "title": "wgsvpconion04 PRES",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGS2:VPCON03:IONP12:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGS2:VPCON03:IONP11:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGS2:VPCON03:IONP10:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGS2:VPCON03:IONP09:PRES"
+        }
+      ],
+      "title": "wgsvpconion03 PRES",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGS1:VPCON02:IONP05:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGS1:VPCON02:IONP06:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGS1:VPCON02:IONP07:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGS1:VPCON02:IONP08:PRES"
+        }
+      ],
+      "title": "wgsvpconion02 PRES",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGS1:VPCON01:IONP01:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGS1:VPCON01:IONP02:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGS1:VPCON01:IONP03:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:WGS1:VPCON01:IONP04:PRES"
+        }
+      ],
+      "title": "wgsvpconion01 PRES",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON08:WGC01IONP02:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON08:WGC01IONP03:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON08:WGC01IONP04:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON08:WGC01IONP05:PRES"
+        }
+      ],
+      "title": "vpcon08 PRES",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON07:WGS03IONP02:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON07:WGS03IONP03:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON07:WGS03IONP04:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON07:WGC01IONP01:PRES"
+        }
+      ],
+      "title": "vpcon07 PRES",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 24
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON06:WGS02IONP03:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON06:WGS02IONP04:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON06:WGS02IONP05:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON06:WGS03IONP01:PRES"
+        }
+      ],
+      "title": "vpcon06 PRES",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON05:WGS01IONP05:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON05:WGS01IONP06:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON05:WGS02IONP02:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON05:WGS02IONP01:PRES"
+        }
+      ],
+      "title": "vpcon05 PRES",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 32
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON04:WGS01IONP01:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON04:WGS01IONP02:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON04:WGS01IONP03:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON04:WGS01IONP04:PRES"
+        }
+      ],
+      "title": "vpcon04 PRES",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 32
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VGCON02:CC01:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VGCON02:CC03:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VGCON02:CC04:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VGCON02:CC06:PRES"
+        }
+      ],
+      "title": "vgcon02 PRES",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 40
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VGCON01:CC08:PRES"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VGCON01:CC09:PRES"
+        }
+      ],
+      "title": "Vacuum",
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "refresh": "5s",
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Vacuum",
+  "uid": "b2f5a28a-7adb-412a-b39e-063d2f3eac4f",
+  "version": 30
+}
