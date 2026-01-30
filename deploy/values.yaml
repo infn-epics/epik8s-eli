@@ -2299,13 +2299,16 @@ epicsConfiguration:
       devices:
         - name: "MOD01"
           server: "pwelimod001.int.eli-np.ro"
+          v_max: 1200
           iocinit:
             - name: FILPS:CURR_SP
               value: 30
             - name: PLS:WDTH_SET_RB
               value: 2.5
+          
         - name: "MOD02"
           server: "pwelimod002.int.eli-np.ro"
+          v_max: 1200
           iocinit:
             - name: FILPS:CURR_SP
               value: 30
@@ -2313,6 +2316,7 @@ epicsConfiguration:
               value: 2.5
         - name: "MOD03"
           server: "pwelimod003.int.eli-np.ro"
+          v_max: 1200
           iocinit:
             - name: FILPS:CURR_SP
               value: 31
@@ -2320,6 +2324,7 @@ epicsConfiguration:
               value: 2.5
         - name: "MOD04"
           server: "pwelimod004.int.eli-np.ro"
+          v_max: 1270
           iocinit:
             - name: FILPS:CURR_SP
               value: 19.50
