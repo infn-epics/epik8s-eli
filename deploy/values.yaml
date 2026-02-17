@@ -1711,7 +1711,17 @@ epicsConfiguration:
             - name: "TEMP_SETPT_SP"
               value: 35.6
         
-
+    - name: "mps-a"
+      template: "ssrip-mps"
+      devtype: mps
+      devgroup: mps
+      iocprefix: "RUF-MPS-A-001"
+      iocparam:
+        - name: "server"
+          value: "10.16.4.230"
+        - name: "port"
+          value: 502
+    
     - name: "chiller-poly-roof" 
       asset: "https://confluence.infn.it/display/LDCG/ICP-23-0032"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
@@ -2318,6 +2328,9 @@ epicsConfiguration:
               value: 30
             - name: PLS:WDTH_SET_RB
               value: 2.5
+            - name: FILPS:CURR_SP.DRVH
+              value: 30
+
         - name: "MOD03"
           server: "pwelimod003.int.eli-np.ro"
           v_max: 1200
@@ -2326,6 +2339,9 @@ epicsConfiguration:
               value: 31
             - name: PLS:WDTH_SET_RB
               value: 2.5
+            - name: FILPS:CURR_SP.DRVH
+              value: 31
+
         - name: "MOD04"
           server: "pwelimod004.int.eli-np.ro"
           v_max: 1270
@@ -2334,6 +2350,8 @@ epicsConfiguration:
               value: 19.50
             - name: PLS:WDTH_SET_RB
               value: 2.4
+            - name: FILPS:CURR_SP.DRVH
+              value: 20
 
 
     - name: "diag-tml"
