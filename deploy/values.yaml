@@ -1713,6 +1713,8 @@ epicsConfiguration:
         
     - name: "mps-a"
       template: "ssrip-mps"
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
+
       devtype: mps
       devgroup: mps
       iocprefix: "RUF-MPS-A-001"
