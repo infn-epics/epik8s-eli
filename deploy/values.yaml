@@ -1754,7 +1754,7 @@ epicsConfiguration:
           suffix: ":PRES_RB"
           tsh: "2E-7"
         - name: "WGS03IONP01"
-          prefix: "LEL:VAC:VPCON07:"
+          prefix: "LEL:VAC:VPCON06:"
           suffix: ":PRES_RB"
           tsh: "2E-7"
         - name: "WGS03IONP02"
