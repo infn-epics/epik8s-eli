@@ -3,4 +3,4 @@ script_dir=$(dirname "$0")
 cd $script_dir
 echo "Starting {{iocname}} dir: $script_dir"
 ls -latr ./scripts
-python ./scripts/eli_rf_conditioning_softIOC.py -c eli_rf_conditioning.json.j2 --pvout {{config_dir}}/pvlist.txt
+python ./scripts/eli_rf_conditioning_softIOC.py -c eli_rf_conditioning.json --pvout {{config_dir}}/pvlist.txt
