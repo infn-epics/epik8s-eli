@@ -91,6 +91,8 @@ def main(prefix_rf_conditioning: str, prefix_LLRF: str):
                 pv_val = caget(
                     prefix_pumps.get()[i] + vacuum_pumps.get()[i] + suffix_pumps.get()[i]
                 )
+                if pv_val > 0.01:
+                    continue
                 if pv_val > vacuum_tsh.get()[i]:
                     vac_id_trigger = i + 1
                 elif pv_val > vacuum_tsh.get()[i] * vac_threshold_reenable.get():
@@ -145,6 +147,7 @@ def main(prefix_rf_conditioning: str, prefix_LLRF: str):
 
             #wf_sources = wf_source_suffix.get()
             wf_sources = [prefix_LLRF + s for s in wf_source_suffix.get()]
+            wf_master = list(caget(wf_sources[2]))
             wf_sel = int(wf_source_sel.get())
             wf_refresh_pvs = [prefix_LLRF + s for s in wf_source_refresh_rate.get()]
             caput(wf_refresh_pvs[wf_sel], ".1 second")
@@ -190,8 +193,10 @@ def main(prefix_rf_conditioning: str, prefix_LLRF: str):
                     end_idx = i - 1
                     break
 
-            sig_max = max(abs(wf_curr[i]) for i in range(start_idx, end_idx + 1))
+            #sig_max = max(abs(wf_curr[i]) for i in range(start_idx, end_idx + 1))
 
+            sig_max = max(abs(wf_master[i]) for i in range(start_idx, end_idx + 1))
+            
             # Initial mask creation: store first valid pulse and define tolerance bands
             if wf_prev_valid.get() == 0:
                 if sig_max < wf_min_valid_amp:
