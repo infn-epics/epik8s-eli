@@ -147,7 +147,7 @@ def main(prefix_rf_conditioning: str, prefix_LLRF: str):
 
             #wf_sources = wf_source_suffix.get()
             wf_sources = [prefix_LLRF + s for s in wf_source_suffix.get()]
-            wf_master = ((prefix_LLRF + ":ad1:ch3:amp_average_s.AVERAGE")**2)/100
+            wf_master = (caget(prefix_LLRF + ":ad1:ch3:amp_average_s.AVERAGE"))**2/100
             wf_sel = int(wf_source_sel.get())
             wf_refresh_pvs = [prefix_LLRF + s for s in wf_source_refresh_rate.get()]
             caput(wf_refresh_pvs[wf_sel], ".1 second")
