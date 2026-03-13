@@ -1669,6 +1669,79 @@ epicsConfiguration:
             opi: "agilentXgs600/agilentXgs600Img.bob"
             zones: M3
 
+    - name: "rf-conditioning-gun"
+      asset: "https://confluence.infn.it/x/nYD8DQ"
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
+      image: ghcr.io/infn-epics/epics-py-base
+      iocprefix: "SSRIP:RF:CONDITIONING01"
+      iocdir: "rf-conditioning"
+      pump:
+        - name: "VPCON01:IONP01"
+          prefix: "LEL:VAC:"
+          suffix: ":PRES_RB"
+          tsh: "1E-8"
+        - name: "VPCON01:IONP02"
+          prefix: "LEL:VAC:"
+          suffix: ":PRES_RB"
+          tsh: "1E-8"
+        - name: "VPCON01:IONP03"
+          prefix: "LEL:VAC:"
+          suffix: ":PRES_RB"
+          tsh: "1E-8"
+        - name: "VPCON01:IONP04"
+          prefix: "LEL:VAC:"
+          suffix: ":PRES_RB"
+          tsh: "1E-8"
+        - name: "WGS01IONP01"
+          prefix: "LEL:VAC:VPCON04:"
+          suffix: ":PRES_RB"
+          tsh: "1E-8"
+        - name: "WGS01IONP02"
+          prefix: "LEL:VAC:VPCON04:"
+          suffix: ":PRES_RB"
+          tsh: "1E-8"
+        - name: "WGS01IONP03"
+          prefix: "LEL:VAC:VPCON04:"
+          suffix: ":PRES_RB"
+          tsh: "1E-8"
+        - name: "WGS01IONP04"
+          prefix: "LEL:VAC:VPCON04:"
+          suffix: ":PRES_RB"
+          tsh: "1E-8"
+        - name: "WGS01IONP05"
+          prefix: "LEL:VAC:VPCON04:"
+          suffix: ":PRES_RB"
+          tsh: "1E-8"
+        - name: "WGS01IONP06"
+          prefix: "LEL:VAC:VPCON04:"
+          suffix: ":PRES_RB"
+          tsh: "1E-8"
+      iocparam:
+        - name: "llrf_prefix"
+          value: "LEL-RF-LLRF01"
+        - name: "init_counter_intlk"
+          value: "5"
+        - name: "init_intlk_hyst"
+          value: "0.95"
+        - name: "init_raise_wait"
+          value: "1"
+        - name: "init_raise_step"
+          value: "50"
+        - name: "init_source_sel"
+          value: "0"
+        - name: "init_mask_percent"
+          value: "30"
+        - name: "init_offset_curs_us"
+          value: "2.664"
+        - name: "init_duration_curs_us"
+          value: "0.04"
+      devtype: softioc
+      devgroup: rf
+      start: "start.sh"
+      gitinit: true
+      autosync: false ## restart automatically on changes
+      usegateway: false
+
     - name: "rf-conditioning-s1"
       asset: "https://confluence.infn.it/x/nYD8DQ"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
@@ -1794,7 +1867,7 @@ epicsConfiguration:
       gitinit: true
       autosync: false ## restart automatically on changes
       usegateway: false
-    
+
     - name: "chiller-smc" 
       asset: "https://confluence.infn.it/display/LDCG/ICP-23-0032"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
