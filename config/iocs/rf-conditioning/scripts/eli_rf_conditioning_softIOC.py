@@ -6,6 +6,13 @@ from cothread.catools import caget, caput
 import time
 import os
 
+def safe_caget(pv, timeout=0.3):
+    try:
+        return caget(pv, timeout=timeout)
+    except Exception as e:
+        pumps_status.set(f"[WARNING] caget failed for {pv}: {e}")
+        return None
+
 # ============================================================================
 # Configuration Loading
 # ============================================================================
@@ -55,9 +62,11 @@ def main(prefix_rf_conditioning: str, prefix_LLRF: str):
     wf_intlk_holdoff_s = 10.0
     wf_intlk_time = None
     feedback_ch = None
-
+    missing_counts = [0] * len(vacuum_pumps.get())
+    MAX_MISSING = 50   # 5 secondi
+    
     while True:
-
+        all_pumps_ok = True 
         # --- Waveform interlock hold-off timer management
         if wf_intlk_time is not None:
             elapsed = time.time() - wf_intlk_time
@@ -92,29 +101,37 @@ def main(prefix_rf_conditioning: str, prefix_LLRF: str):
             vac_id_reenable = 0
 
             for i in range(len(vacuum_pumps.get())):
-                pv_val = caget(
-                    prefix_pumps.get()[i] + vacuum_pumps.get()[i] + suffix_pumps.get()[i]
-                )
+
+                pv_name = prefix_pumps.get()[i] + vacuum_pumps.get()[i] + suffix_pumps.get()[i]
+                pv_val = safe_caget(pv_name)
+
+                if pv_val is None:
+                    missing_counts[i] += 1
+                    pumps_status.set(f"[WARNING] {pv_name} ({missing_counts[i]}) missing")
+                    all_pumps_ok = False  # found a problem
+                    if missing_counts[i] < MAX_MISSING:
+                        continue
+                    else:
+                        pumps_status.set(f"[ERROR] {pv_name} disconnected")
+                        vac_id_trigger = i + 1
+                        continue
+                else:
+                    missing_counts[i] = 0
+
                 if pv_val > 0.01:
+                    all_pumps_ok = False  # consider nominal >0.01 as "not fully ready" if needed
                     continue
                 if pv_val > vacuum_tsh.get()[i]:
                     vac_id_trigger = i + 1
+                    all_pumps_ok = False
                 elif pv_val > vacuum_tsh.get()[i] * vac_threshold_reenable.get():
                     vac_id_reenable = i + 1
+                    all_pumps_ok = False
 
-            # Trigger vacuum interlock when pressure exceeds threshold
-            if vac_id_trigger != 0 and not vacuum_over_tsh:
-                power_raise_status.set(0)
-                llrf_fbk_level = caget(prefix_LLRF + ":vm:dsp:sp_amp:power")
-                caput(prefix_LLRF + ":app:rf_ctrl", "0")
-                conditioning_setpoint.set(llrf_fbk_level * 1e-6 * intlk_hysteresis.get())
-                last_intlk_source.set(vacuum_pumps.get()[vac_id_trigger - 1])
-                last_intlk_datetime.set(str(time.time()))
+            # at the very end of the same loop
+            if all_pumps_ok:
+                pumps_status.set("All pumps connected")
 
-                # Reset waveform mask to prevent contamination of vacuum interlock record
-                wf_prev_valid.set(0)
-                wf_interlock.set(0)
-                vacuum_over_tsh = True
 
             # Re-enable RF when pressure returns below hysteresis threshold
             elif vac_id_trigger == 0 and vacuum_over_tsh:
