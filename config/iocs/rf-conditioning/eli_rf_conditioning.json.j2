@@ -1,6 +1,7 @@
 {
     "prefix_rf_conditioning":"{{iocprefix}}",
     "prefix_LLRF":"{{llrf_prefix}}",
+    "feedback_ch":"{{feedback_ch}}",
     "pv_to_build":
     [
     {
@@ -12,6 +13,11 @@
         "pvname":"CONDITIONING_SETPOINT",
         "type":"aOut",
         "init_value":"0"
+    },
+    {
+        "pvname": "PUMPS_STATUS",
+        "type": "stringIn",
+        "init_value": "NONE"
     },
     {
         "pvname":"CONDITIONING_TARGET",
