@@ -1747,6 +1747,8 @@ epicsConfiguration:
           value: "2.664"
         - name: "init_duration_curs_us"
           value: "0.04"
+        - name: "feedback_ch"
+          value: "3"
       devtype: softioc
       devgroup: rf
       start: "start.sh"
@@ -1808,6 +1810,8 @@ epicsConfiguration:
           value: "2.664"
         - name: "init_duration_curs_us"
           value: "0.04"
+        - name: "feedback_ch"
+          value: "3"
       devtype: softioc
       devgroup: rf
       start: "start.sh"
@@ -1873,6 +1877,8 @@ epicsConfiguration:
           value: "2.664"
         - name: "init_duration_curs_us"
           value: "0.04"
+        - name: "feedback_ch"
+          value: "3"
       devtype: softioc
       devgroup: rf
       start: "start.sh"
@@ -1954,6 +1960,8 @@ epicsConfiguration:
           value: "2.664"
         - name: "init_duration_curs_us"
           value: "0.04"
+        - name: "feedback_ch"
+          value: "3"
       devtype: softioc
       devgroup: rf
       start: "start.sh"

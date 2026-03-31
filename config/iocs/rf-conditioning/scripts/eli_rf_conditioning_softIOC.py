@@ -26,6 +26,7 @@ with open(args.conf, 'r') as f:
 
 prefix_rf_conditioning = config.get('prefix_rf_conditioning')
 prefix_LLRF = config.get('prefix_LLRF')
+feedback_ch=config.get('feedback_ch')
 
 # ============================================================================
 # PV Creation
@@ -55,18 +56,17 @@ softioc.iocInit()
 # Main Control Loop
 # ============================================================================
 def main(prefix_rf_conditioning: str, prefix_LLRF: str):
-
     loop_period = 0.1
     vacuum_over_tsh = False
     last_wf_sel = None
     wf_intlk_holdoff_s = 10.0
     wf_intlk_time = None
-    feedback_ch = None
     missing_counts = [0] * len(vacuum_pumps.get())
     MAX_MISSING = 50   # 5 secondi
-    
+
     while True:
         all_pumps_ok = True 
+
         # --- Waveform interlock hold-off timer management
         if wf_intlk_time is not None:
             elapsed = time.time() - wf_intlk_time
@@ -132,6 +132,19 @@ def main(prefix_rf_conditioning: str, prefix_LLRF: str):
             if all_pumps_ok:
                 pumps_status.set("All pumps connected")
 
+            # Trigger vacuum interlock when pressure exceeds threshold
+            if vac_id_trigger != 0 and not vacuum_over_tsh:
+                power_raise_status.set(0)
+                llrf_fbk_level = caget(prefix_LLRF + ":vm:dsp:sp_amp:power")
+                caput(prefix_LLRF + ":app:rf_ctrl", "0")
+                conditioning_setpoint.set(llrf_fbk_level * 1e-6 * intlk_hysteresis.get())
+                last_intlk_source.set(vacuum_pumps.get()[vac_id_trigger - 1])
+                last_intlk_datetime.set(str(time.time()))
+
+                # Reset waveform mask to prevent contamination of vacuum interlock record
+                wf_prev_valid.set(0)
+                wf_interlock.set(0)
+                vacuum_over_tsh = True
 
             # Re-enable RF when pressure returns below hysteresis threshold
             elif vac_id_trigger == 0 and vacuum_over_tsh:
@@ -142,16 +155,28 @@ def main(prefix_rf_conditioning: str, prefix_LLRF: str):
                     caput(prefix_LLRF + ":vm:dsp:pi_amp:loop_closed", "1")
                     vacuum_over_tsh = False
 
-            # --- Automatic power ramping during conditioning
-            if (power_raise_status.get() and 
-                caget(prefix_LLRF + ":vm:dsp:sp_amp:power") <= conditioning_target.get() * 1e6):
-                
+            current = caget(prefix_LLRF + ":vm:dsp:sp_amp:power")
+            step = power_raise_step.get() * 1e3
+            target = conditioning_target.get() * 1e6
+
+            if power_raise_status.get() and current < target:
+
                 if (raise_count.get() % (power_raise_wait.get() * 600) == 0 and raise_count.get() != 0):
-                    llrf_fbk_level = caget(prefix_LLRF + ":vm:dsp:sp_amp:power")
+
+                    remaining = target - current
+                    step_to_apply = min(step, remaining)
+
+                    new_power = current + step_to_apply
+
                     caput(
                         prefix_LLRF + ":vm:dsp:sp_amp:power",
-                        str(llrf_fbk_level + power_raise_step.get() * 1e3)
+                        str(new_power)
                     )
+
+                    # Stop power raise if target reached
+                    if new_power >= target:
+                        power_raise_status.set(0)
+
                     raise_count.set(0)
 
                 raise_count.set(raise_count.get() + 1)
@@ -168,7 +193,7 @@ def main(prefix_rf_conditioning: str, prefix_LLRF: str):
 
             #wf_sources = wf_source_suffix.get()
             wf_sources = [prefix_LLRF + s for s in wf_source_suffix.get()]
-            feedback_ch=3
+
             fbk_amp_pv = f"{prefix_LLRF}:ad1:ch{feedback_ch}:amp_average_s.AVERAGE"
             wf_master = (caget(fbk_amp_pv))**2 / 100
             
