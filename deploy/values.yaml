@@ -17,7 +17,7 @@ openshift: false
 epik8s_secrets: epik8s-secret
 epicsConfiguration:
   name: "epics-configuration" # name of existing configMap that set CA parameters
-  address_list: ""
+  address_list: "10.16.2.150 "
 
 
   max_array_bytes: "10000000"
