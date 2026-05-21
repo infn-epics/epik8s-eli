@@ -382,7 +382,7 @@ epicsConfiguration:
     - name: "llrf01"
       asset: "https://confluence.infn.it/x/doKBBg"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
-      template:  "libera-llrf"
+      template:  "libera-llrf2"
       devtype: llrf
       devgroup: rf
       iocprefix: "LEL-RF-LLRF01"
@@ -400,11 +400,11 @@ epicsConfiguration:
     - name: "llrf02"
       asset: "https://confluence.infn.it/x/doKBBg"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
-      template:  "libera-llrf"
+      template:  "libera-llrf2"
       devtype: llrf
       devgroup: rf
       iocprefix: "LEL-RF-LLRF02"
-      host: "10.16.4.55" # "plelillrfs002"
+      host: "plelillrfs002.int.eli-np.ro" # "10.16.4.55" # "plelillrfs002"
       scpoptions: "-O"
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
@@ -418,11 +418,11 @@ epicsConfiguration:
     - name: "llrf03"
       asset: "https://confluence.infn.it/x/doKBBg"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
-      template:  "libera-llrf"
+      template:  "libera-llrf2"
       devtype: llrf
       devgroup: rf
       iocprefix: "LEL-RF-LLRF03"
-      host: "10.16.4.31" # plelillrf001.int.eli-np.ro
+      host: "plelillrf001.int.eli-np.ro" # "10.16.4.31" # plelillrf001.int.eli-np.ro
       scpoptions: "-O"
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
@@ -436,11 +436,11 @@ epicsConfiguration:
     - name: "llrf04"
       asset: "https://confluence.infn.it/x/doKBBg"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
-      template:  "libera-llrf"
+      template:  "libera-llrf2"
       devtype: llrf
       devgroup: rf
       iocprefix: "LEL-RF-LLRF04"
-      host: "10.16.4.56" # plelillrfc001.int.eli-np.ro
+      host: "plelillrfc001.int.eli-np.ro" # "10.16.4.56" # plelillrfc001.int.eli-np.ro
       scpoptions: "-O"
       ssh_options: "-o PubkeyAcceptedKeyTypes=+ssh-rsa"
       workdir: "/opt/epik8s-eli"
