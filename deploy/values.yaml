@@ -2678,7 +2678,7 @@ epicsConfiguration:
         hostid: 1
         velo: 200
         bvelo: 200
-        vbase: 200
+        vbas: 200
       devices:
         - axid: 1
           name: SCN01:MOT01
