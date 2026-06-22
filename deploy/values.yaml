@@ -2676,6 +2676,8 @@ epicsConfiguration:
       template: "motor"  
       motor:
         hostid: 1
+        velo: 200
+        bvelo: 200
       devices:
         - axid: 1
           name: SCN01:MOT01
