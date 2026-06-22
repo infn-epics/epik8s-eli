@@ -2673,11 +2673,9 @@ epicsConfiguration:
       devtype: technosoft-asyn
       devgroup: motor
       opi: "tml"
-      template:  "motor"  
+      template: "motor"  
       motor:
         hostid: 1
-        jvel: 200
-        hvel: 200
       devices:
         - axid: 1
           name: SCN01:MOT01
