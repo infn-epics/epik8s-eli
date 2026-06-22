@@ -2670,7 +2670,7 @@ epicsConfiguration:
         size: 8Mi
       
       autosync: false ## restart automatically on changes
-      devtype: tml
+      devtype: technosoft-asyn
       devgroup: motor
       opi: "tml"
       template:  "motor"  
@@ -2681,28 +2681,21 @@ epicsConfiguration:
       devices:
         - axid: 1
           name: SCN01:MOT01
-          ustep2mm: 684931.506849
-          velo_max: 200
+          
         - axid: 2
           name: SCN02:MOT01
-          ustep2mm: 684931.506849
-          velo_max: 200
+          
         - axid: 3
           name: SCN03:MOT01
-          ustep2mm: 684931.506849
-          velo_max: 200
+          
         - axid: 4
           name: SCN04:MOT01
-          ustep2mm: 684931.506849
-          velo_max: 200
+         
         - axid: 5
           name: SCN05:MOT01
-          ustep2mm: 684931.506849
-          velo_max: 200
+          
         - axid: 6
           name: SCN06:MOT01
-          ustep2mm: 684931.506849
-          velo_max: 200
           
     - name: "plcs"
       asset: ""
