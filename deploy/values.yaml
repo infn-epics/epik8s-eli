@@ -2034,7 +2034,7 @@ epicsConfiguration:
       opi: "polyscience/Chiller-polyscience.bob"
       devices:
         - name: "MOD"
-          server: scelimxa8001.int.eli-np.ro
+          server: scelimxa16002.int.eli-np.ro 
           port: 4001
           nocheckconn: 1
           zones: |
@@ -2058,7 +2058,7 @@ epicsConfiguration:
       zones: WGS01
       iocparam:
         - name: "server"
-          value: scelimxa8001.int.eli-np.ro
+          value: scelimxa16002.int.eli-np.ro 
         - name: "port"
           value: 4004
       opi: "agilent4uhv/agilent4uhv.bob"
@@ -2084,7 +2084,7 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: scelimxa8001.int.eli-np.ro
+          value: scelimxa16002.int.eli-np.ro 
         - name: "port"
           value: 4008
       opi: "agilent4uhv/agilent4uhv.bob"
@@ -2117,7 +2117,7 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: scelimxa8001.int.eli-np.ro
+          value: scelimxa16002.int.eli-np.ro 
         - name: "port"
           value: 4007
       opi: "agilent4uhv/agilent4uhv.bob"
@@ -2147,7 +2147,7 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: scelimxa8001.int.eli-np.ro
+          value: scelimxa16002.int.eli-np.ro 
         - name: "port"
           value: 4003
       opi: "agilent4uhv/agilent4uhv.bob"
@@ -2177,7 +2177,7 @@ epicsConfiguration:
       
       iocparam:
         - name: "server"
-          value: scelimxa8001.int.eli-np.ro
+          value: scelimxa16002.int.eli-np.ro 
         - name: "port"
           value: 4005
       opi: "agilent4uhv/agilent4uhv.bob"
