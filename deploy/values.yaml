@@ -1110,7 +1110,7 @@ epicsConfiguration:
     - name: "plelievrkey001"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&objectId=119372"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
-      image: ghcr.io/infn-epics/infn-epics-ioc-runtime:v26.6.22b1
+      # image: ghcr.io/infn-epics/infn-epics-ioc-runtime:v26.6.22b1
       iocprefix: "LEL"
       devtype: evr230
       template: "mrf-pci-230"
