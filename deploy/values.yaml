@@ -589,7 +589,7 @@ epicsConfiguration:
         - name: "stats_enable"
           value: true
         - name: "proc_enable"
-          value: false
+          value: true
         - name: "tiff_enable"
           value: true
         - name: "roi_enable"
