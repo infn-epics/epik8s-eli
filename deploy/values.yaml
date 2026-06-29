@@ -283,7 +283,8 @@ epicsConfiguration:
       charturl: https://github.com/infn-epics/phoebus-services-chart.git
       phoebusservice: "saveandrestore"
       targetRevision: "main"
-
+      saveandrestore:
+        image: "ghcr.io/infn-epics/phoebus/service-save-and-restore"
       enable_ingress: true
       mongodb: "eli-ologAttachments"
       disable: false ##
