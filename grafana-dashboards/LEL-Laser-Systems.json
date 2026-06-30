@@ -1,0 +1,3699 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "LEL Laser System Monitoring - Energy, Centroid, Pointing Angle, States",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": 49,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 100,
+      "panels": [],
+      "title": "System States Overview",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Current state of all laser subsystems (0=OFF, 1=ON, 2=FAULT)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "OFF"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "ON"
+                },
+                "2": {
+                  "color": "orange",
+                  "index": 2,
+                  "text": "FAULT"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "orange",
+                "value": 2
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "FF Compressor",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_COMPRESSOR_STATE"
+        },
+        {
+          "alias": "FF MP1",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:FF_MP1_STATE"
+        },
+        {
+          "alias": "FF OSC",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-LASER:FF_OSC_STATE"
+        },
+        {
+          "alias": "NF MP1",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-LASER:NF_MP1_STATE"
+        },
+        {
+          "alias": "NF Regen",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "E",
+          "target": "LEL-LASER:NF_REGEN_STATE"
+        },
+        {
+          "alias": "NF Terra",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "F",
+          "target": "LEL-LASER:NF_TERRA_STATE"
+        }
+      ],
+      "title": "System States",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 101,
+      "panels": [],
+      "title": "Laser Energies",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Current energy readout for all laser stages with mini-trend",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 10,
+        "x": 0,
+        "y": 6
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "FF OSC Energy",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_OSC_ENERGY"
+        },
+        {
+          "alias": "NF MP1 Energy",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:NF_MP1_ENERGY"
+        },
+        {
+          "alias": "NF Regen Energy",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-LASER:NF_REGEN_ENERGY"
+        },
+        {
+          "alias": "NF Terra Energy",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-LASER:NF_TERRA_ENERGY"
+        }
+      ],
+      "title": "Energy - Current Values",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Energy trend for all laser stages",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 14,
+        "x": 10,
+        "y": 6
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "FF OSC",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_OSC_ENERGY"
+        },
+        {
+          "alias": "NF MP1",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:NF_MP1_ENERGY"
+        },
+        {
+          "alias": "NF Regen",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-LASER:NF_REGEN_ENERGY"
+        },
+        {
+          "alias": "NF Terra",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-LASER:NF_TERRA_ENERGY"
+        }
+      ],
+      "title": "Energy Trend",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 14
+      },
+      "id": 102,
+      "panels": [],
+      "title": "Far Field - Oscillator (FF_OSC)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_OSC system state",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "OFF"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "ON"
+                },
+                "2": {
+                  "color": "orange",
+                  "index": 2,
+                  "text": "FAULT"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "orange",
+                "value": 2
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 15
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "State",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_OSC_STATE"
+        }
+      ],
+      "title": "FF_OSC State",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_OSC energy current value",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 15
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Energy",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_OSC_ENERGY"
+        }
+      ],
+      "title": "FF_OSC Energy",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_OSC user-defined reference position (X, Y)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "text",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 15
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Ref X",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_OSC_USER_REF_X"
+        },
+        {
+          "alias": "Ref Y",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:FF_OSC_USER_REF_Y"
+        }
+      ],
+      "title": "FF_OSC User Ref",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_OSC beam centroid X and Y positions over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Centroid (px)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 15
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Centroid X",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_OSC_CENTROID_X"
+        },
+        {
+          "alias": "Centroid Y",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:FF_OSC_CENTROID_Y"
+        }
+      ],
+      "title": "FF_OSC Centroid X & Y",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_OSC beam pointing angle over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": true,
+            "axisColorMode": "text",
+            "axisLabel": "Angle",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 19
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Pointing Angle",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_OSC_POINTING_ANGLE"
+        }
+      ],
+      "title": "FF_OSC Pointing Angle",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 23
+      },
+      "id": 103,
+      "panels": [],
+      "title": "Far Field - MP1 (FF_MP1)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_MP1 system state",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "OFF"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "ON"
+                },
+                "2": {
+                  "color": "orange",
+                  "index": 2,
+                  "text": "FAULT"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "orange",
+                "value": 2
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 24
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "State",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_MP1_STATE"
+        }
+      ],
+      "title": "FF_MP1 State",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_MP1 user-defined reference position (X, Y)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "text",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 24
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Ref X",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_MP1_USER_REF_X"
+        },
+        {
+          "alias": "Ref Y",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:FF_MP1_USER_REF_Y"
+        }
+      ],
+      "title": "FF_MP1 User Ref",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_MP1 beam centroid X and Y positions over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Centroid (px)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 24
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Centroid X",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_MP1_CENTROID_X"
+        },
+        {
+          "alias": "Centroid Y",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:FF_MP1_CENTROID_Y"
+        }
+      ],
+      "title": "FF_MP1 Centroid X & Y",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_MP1 beam pointing angle over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": true,
+            "axisColorMode": "text",
+            "axisLabel": "Angle",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 28
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Pointing Angle",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_MP1_POINTING_ANGLE"
+        }
+      ],
+      "title": "FF_MP1 Pointing Angle",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 32
+      },
+      "id": 104,
+      "panels": [],
+      "title": "Far Field - Compressor (FF_COMPRESSOR)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_COMPRESSOR system state",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "OFF"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "ON"
+                },
+                "2": {
+                  "color": "orange",
+                  "index": 2,
+                  "text": "FAULT"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "orange",
+                "value": 2
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 33
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "State",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_COMPRESSOR_STATE"
+        }
+      ],
+      "title": "FF_COMPRESSOR State",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_COMPRESSOR user-defined reference position (X, Y)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "text",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 33
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Ref X",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_COMPRESSOR_USER_REF_X"
+        },
+        {
+          "alias": "Ref Y",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:FF_COMPRESSOR_USER_REF_Y"
+        }
+      ],
+      "title": "FF_COMPRESSOR User Ref",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_COMPRESSOR beam centroid X and Y positions over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Centroid (px)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 33
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Centroid X",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_COMPRESSOR_CENTROID_X"
+        },
+        {
+          "alias": "Centroid Y",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:FF_COMPRESSOR_CENTROID_Y"
+        }
+      ],
+      "title": "FF_COMPRESSOR Centroid X & Y",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "FF_COMPRESSOR beam pointing angle over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": true,
+            "axisColorMode": "text",
+            "axisLabel": "Angle",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 37
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Pointing Angle",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:FF_COMPRESSOR_POINTING_ANGLE"
+        }
+      ],
+      "title": "FF_COMPRESSOR Pointing Angle",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 41
+      },
+      "id": 105,
+      "panels": [],
+      "title": "Near Field - Regen (NF_REGEN)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_REGEN system state",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "OFF"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "ON"
+                },
+                "2": {
+                  "color": "orange",
+                  "index": 2,
+                  "text": "FAULT"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "orange",
+                "value": 2
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 42
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "State",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_REGEN_STATE"
+        }
+      ],
+      "title": "NF_REGEN State",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_REGEN energy current value",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 42
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Energy",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_REGEN_ENERGY"
+        }
+      ],
+      "title": "NF_REGEN Energy",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_REGEN user-defined reference position (X, Y)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "text",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 42
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Ref X",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_REGEN_USER_REF_X"
+        },
+        {
+          "alias": "Ref Y",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:NF_REGEN_USER_REF_Y"
+        }
+      ],
+      "title": "NF_REGEN User Ref",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_REGEN beam centroid X and Y positions over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Centroid (px)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 42
+      },
+      "id": 20,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Centroid X",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_REGEN_CENTROID_X"
+        },
+        {
+          "alias": "Centroid Y",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:NF_REGEN_CENTROID_Y"
+        }
+      ],
+      "title": "NF_REGEN Centroid X & Y",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_REGEN energy trend",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 46
+      },
+      "id": 21,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "NF_REGEN Energy",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_REGEN_ENERGY"
+        }
+      ],
+      "title": "NF_REGEN Energy Trend",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 50
+      },
+      "id": 106,
+      "panels": [],
+      "title": "Near Field - MP1 (NF_MP1)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_MP1 system state",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "OFF"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "ON"
+                },
+                "2": {
+                  "color": "orange",
+                  "index": 2,
+                  "text": "FAULT"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "orange",
+                "value": 2
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 51
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "State",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_MP1_STATE"
+        }
+      ],
+      "title": "NF_MP1 State",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_MP1 energy current value",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 51
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Energy",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_MP1_ENERGY"
+        }
+      ],
+      "title": "NF_MP1 Energy",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_MP1 user-defined reference position (X, Y)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "text",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 51
+      },
+      "id": 24,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Ref X",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_MP1_USER_REF_X"
+        },
+        {
+          "alias": "Ref Y",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:NF_MP1_USER_REF_Y"
+        }
+      ],
+      "title": "NF_MP1 User Ref",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_MP1 beam centroid X and Y positions over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Centroid (px)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 51
+      },
+      "id": 25,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Centroid X",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_MP1_CENTROID_X"
+        },
+        {
+          "alias": "Centroid Y",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:NF_MP1_CENTROID_Y"
+        }
+      ],
+      "title": "NF_MP1 Centroid X & Y",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_MP1 energy trend",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 55
+      },
+      "id": 26,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "NF_MP1 Energy",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_MP1_ENERGY"
+        }
+      ],
+      "title": "NF_MP1 Energy Trend",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 59
+      },
+      "id": 107,
+      "panels": [],
+      "title": "Near Field - Terra (NF_TERRA)",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_TERRA system state",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "OFF"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "ON"
+                },
+                "2": {
+                  "color": "orange",
+                  "index": 2,
+                  "text": "FAULT"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "orange",
+                "value": 2
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 0,
+        "y": 60
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "State",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_TERRA_STATE"
+        }
+      ],
+      "title": "NF_TERRA State",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_TERRA energy current value",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 4,
+        "y": 60
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Energy",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_TERRA_ENERGY"
+        }
+      ],
+      "title": "NF_TERRA Energy",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_TERRA user-defined reference position (X, Y)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "text",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "text"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 4,
+        "x": 8,
+        "y": 60
+      },
+      "id": 29,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Ref X",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_TERRA_USER_REF_X"
+        },
+        {
+          "alias": "Ref Y",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:NF_TERRA_USER_REF_Y"
+        }
+      ],
+      "title": "NF_TERRA User Ref",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_TERRA beam centroid X and Y positions over time",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Centroid (px)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 60
+      },
+      "id": 30,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Centroid X",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_TERRA_CENTROID_X"
+        },
+        {
+          "alias": "Centroid Y",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-LASER:NF_TERRA_CENTROID_Y"
+        }
+      ],
+      "title": "NF_TERRA Centroid X & Y",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "NF_TERRA energy trend",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 64
+      },
+      "id": 31,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "NF_TERRA Energy",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-LASER:NF_TERRA_ENERGY"
+        }
+      ],
+      "title": "NF_TERRA Energy Trend",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Laser Delays",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 68
+      },
+      "id": 45,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "CAM -LAser",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:TIM:EVR-LAS:Pul0-Delay-SP"
+        },
+        {
+          "alias": "10Hz Delay",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:TIM:EVR-LAS:Pul1-Delay-SP"
+        },
+        {
+          "alias": "100Hz delay",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:TIM:EVR-LAS:Pul2-Delay-SP"
+        }
+      ],
+      "title": "Pulse Delay & Width Trend",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 76
+      },
+      "id": 108,
+      "panels": [],
+      "title": "EVR-LAS Laser Event Receiver - Health & Diagnostics",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Event Receiver link, PLL lock, enable and time-valid status",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 77
+      },
+      "id": 32,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Link",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL:TIM:EVR-LAS:Link-Sts"
+        },
+        {
+          "alias": "PLL",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL:TIM:EVR-LAS:Pll-Sts"
+        },
+        {
+          "alias": "Enable",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL:TIM:EVR-LAS:Ena-Sel"
+        },
+        {
+          "alias": "Time Valid",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL:TIM:EVR-LAS:Time-Valid-Sts"
+        }
+      ],
+      "title": "EVR-LAS Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "SFP receive power level, system clock readback, and blink event code",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 77
+      },
+      "id": 33,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "SFP RX Pwr",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL:TIM:EVR-LAS:SFP-Pwr-RX-I"
+        },
+        {
+          "alias": "Clock",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL:TIM:EVR-LAS:Time-Clock-I"
+        },
+        {
+          "alias": "Evt Blink",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL:TIM:EVR-LAS:Evt-Blink0-SP"
+        }
+      ],
+      "title": "EVR-LAS RF & Clock",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "HW/SW overflow and RX link error counters - rising values indicate timing issues",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "counts",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 77
+      },
+      "id": 34,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "HW Overflow",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL:TIM:EVR-LAS:Cnt-HwOflw-I"
+        },
+        {
+          "alias": "Link Timeout",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL:TIM:EVR-LAS:Cnt-LinkTimo-I"
+        },
+        {
+          "alias": "RX Errors",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL:TIM:EVR-LAS:Cnt-RxErr-I"
+        },
+        {
+          "alias": "SW Overflow",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL:TIM:EVR-LAS:Cnt-SwOflw-I"
+        }
+      ],
+      "title": "EVR-LAS Error Counters",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Clock prescaler divisors and resulting output rates (PS0, PS1, PS2)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 81
+      },
+      "id": 35,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "PS0 Div",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL:TIM:EVR-LAS:PS0-Div-SP"
+        },
+        {
+          "alias": "PS0 Rate",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL:TIM:EVR-LAS:PS0-Rate-I"
+        },
+        {
+          "alias": "PS1 Div",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL:TIM:EVR-LAS:PS1-Div-SP"
+        },
+        {
+          "alias": "PS1 Rate",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL:TIM:EVR-LAS:PS1-Rate-I"
+        },
+        {
+          "alias": "PS2 Div",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "E",
+          "target": "LEL:TIM:EVR-LAS:PS2-Div-SP"
+        },
+        {
+          "alias": "PS2 Rate",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "F",
+          "target": "LEL:TIM:EVR-LAS:PS2-Rate-I"
+        }
+      ],
+      "title": "EVR-LAS Prescalers",
+      "type": "stat"
+    }
+  ],
+  "preload": false,
+  "refresh": "5s",
+  "schemaVersion": 41,
+  "tags": [
+    "Laser",
+    "ELI",
+    "LEL"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "LEL Laser Systems",
+  "uid": "9a637ae3-5bb7-44a8-bc63-6935f9b2f70b",
+  "version": 3
+}
