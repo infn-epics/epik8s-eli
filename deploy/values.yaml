@@ -2717,6 +2717,18 @@ epicsConfiguration:
             ip: "10.16.4.170"
             devtype: "vac"
 
+    - name: "calculation"
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
+      image: ghcr.io/infn-epics/epics-py-base
+      iocprefix: "LEL:CALC:ENERRGY"
+      iocdir: "calculation"
+      devtype: softioc
+      devgroup: diag
+      start: "start.sh"
+      gitinit: true
+      autosync: false
+      usegateway: false
+
 cronjobs:
     - name: "hugo-docs"
       ## schedule every hours
