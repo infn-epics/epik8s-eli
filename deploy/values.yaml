@@ -2720,7 +2720,7 @@ epicsConfiguration:
     - name: "calculation"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/epics-py-base
-      iocprefix: "LEL:CALC:ENERRGY"
+      iocprefix: "LEL:CALC"
       iocdir: "calculation"
       devtype: softioc
       devgroup: diag
