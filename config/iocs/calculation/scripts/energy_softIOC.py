@@ -59,8 +59,7 @@ with open(args.conf, "r") as f:
     config = json.load(f)
 
 prefix = config.get("prefix_energy", "ELI:ENERGY")
-dipole_current_pv = config.get("dipole_current_pv", "")  # external PV or ""
-default_i_dip = float(config.get("default_i_dip", 65.0))
+dipole_current_pv = config.get("dipole_current_pv", "")  # external RB PV on the PS IOC
 default_angle = float(config.get("bending_angle_deg", 24.0))
 loop_period = float(config.get("loop_period_s", 1.0))
 
@@ -69,22 +68,19 @@ loop_period = float(config.get("loop_period_s", 1.0))
 # ---------------------------------------------------------------------------
 builder.SetDeviceName(prefix)
 
-# Inputs / setpoints
-i_dip_sp = builder.aOut(
-    "LEL:MAG:DPSU01:DIP01:CURRENT_SP",
-    initial_value=default_i_dip,
-    EGU="A",
-    PREC=2,
-    DESC="Dipole current setpoint",
-)
-
-# Read-only outputs
 k1_pv = builder.aIn(
     "K1",
     initial_value=K1,
     EGU="Tm/A",
     PREC=6,
     DESC="Dipole calibration constant",
+)
+i_dip_pv = builder.aIn(
+    "I_DIP",
+    initial_value=0.0,
+    EGU="A",
+    PREC=2,
+    DESC="Dipole current (mirrored from PS IOC)",
 )
 p_pv = builder.aIn(
     "P",
@@ -100,13 +96,6 @@ e_kin_pv = builder.aIn(
     PREC=4,
     DESC="Beam kinetic energy",
 )
-i_dip_rb = builder.aIn(
-    "LEL:MAG:DPSU01:DIP01:CURRENT_RB",
-    initial_value=default_i_dip,
-    EGU="A",
-    PREC=2,
-    DESC="Dipole current used in calculation",
-)
 
 builder.LoadDatabase()
 softioc.iocInit()
@@ -119,18 +108,16 @@ def main():
     k1_pv.set(K1)
 
     while True:
-        # Resolve dipole current
-        if dipole_current_pv:
-            try:
-                i_dip = float(caget(dipole_current_pv, timeout=0.5))
-            except Exception:
-                i_dip = i_dip_sp.get()
-        else:
-            i_dip = i_dip_sp.get()
+        try:
+            i_dip = float(caget(dipole_current_pv, timeout=0.5))
+        except Exception as e:
+            print(f"## caget {dipole_current_pv} failed: {e}")
+            cothread.Sleep(loop_period)
+            continue
 
         p, e_kin = compute_energy(i_dip, default_angle)
 
-        # i_dip_rb.set(i_dip)
+        i_dip_pv.set(i_dip)
         p_pv.set(p)
         e_kin_pv.set(e_kin)
 
