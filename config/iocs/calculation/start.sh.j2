@@ -2,4 +2,4 @@
 script_dir=$(dirname "$0")
 cd $script_dir
 echo "Starting {{iocname}} : $EPICS_CA_ADDR_LIST"
-python ./scripts/energy_softIOC.py -c energy.json
+python ./scripts/energy_softIOC.py -c energy.json --pvout {{config_dir}}/pvlist.txt

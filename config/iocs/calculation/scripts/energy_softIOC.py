@@ -11,6 +11,7 @@ from softioc import softioc, builder
 import numpy as np
 import json
 import argparse
+import os
 import cothread
 from cothread.catools import caget
 
@@ -51,6 +52,7 @@ def compute_energy(i_dip: float, bending_angle_deg: float):
 # ---------------------------------------------------------------------------
 parser = argparse.ArgumentParser()
 parser.add_argument("-c", "--conf", required=True, default="energy.json")
+parser.add_argument("-p", "--pvout", required=False, default="pvlist.txt", help="Output PV list file")
 args = parser.parse_args()
 
 with open(args.conf, "r") as f:
@@ -136,4 +138,14 @@ def main():
 
 
 cothread.Spawn(main)
+
+softioc.dbl()
+
+with open(args.pvout, "w") as f:
+    old_stdout = os.dup(1)
+    os.dup2(f.fileno(), 1)
+    softioc.dbl()
+    os.dup2(old_stdout, 1)
+    os.close(old_stdout)
+
 softioc.interactive_ioc(globals())
