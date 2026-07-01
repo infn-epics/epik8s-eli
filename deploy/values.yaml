@@ -2307,42 +2307,6 @@ epicsConfiguration:
             channel: 4
             zones: M3
 
-    - name: "biltitest-cpsu03"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111616"
-      devtype: bilt-itest
-      template:  "ibilt"
-      devgroup: mag
-      charturl: 'https://github.com/infn-epics/ioc-chart.git'
-      
-      autosync: false ## restart automatically on changes
-      # carepeater: true ## launch ca repeater, this ioc needs it
-      iocprefix: "LEL:MAG:CPSU03"
-      iocparam:
-        - name: "server"
-          value: "lel-mag-cpsu03.int.eli-np.ro" #10.16.4.49
-      opi: "biltitest/biltitest.bob"
-      devices:
-          - name: "HCOR06"
-            channel: 1
-            max: 10
-            zones:
-              - M4
-          - name: "VCOR06"
-            channel: 2
-            max: 10
-            zones:
-              - M4
-          - name: "HCOR07"
-            channel: 3
-            max: 10
-            zones:
-              - M4
-          - name: "VCOR07"
-            channel: 4
-            max: 10
-            zones:
-              - M4
-     
     - name: "sigmaphi-SOL01-SPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111614"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
@@ -2359,8 +2323,7 @@ epicsConfiguration:
           - name: "SOL01:COIL01"
             max: 176
             zones:
-              - M1 
-
+              - M1
     - name: "sigmaphi-SOL01-SPSU02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111615"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
@@ -2424,6 +2387,7 @@ epicsConfiguration:
             max: 10
             zones:
               - M2
+
     - name: "sigmaphi-SOL02-SPSU03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111617"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
@@ -2493,7 +2457,6 @@ epicsConfiguration:
             max: 176
             zones:
               - M2
-
     - name: "biltitest-cpsu02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111621"
       devtype: biltitest
@@ -2529,25 +2492,45 @@ epicsConfiguration:
             max: 10
             zones:
               - M3
-    
 
-    - name: "sigmaphi-DPSU01"
-      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111626"
-      charturl: 'https://github.com/infn-epics/ioc-chart.git'
-      iocprefix: "LEL:MAG:DPSU01"
-      template:  "sigmaphi"
-      devtype: sigmaphi
+    - name: "biltitest-cpsu03"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111616"
+      devtype: bilt-itest
+      template:  "ibilt"
       devgroup: mag
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
       
-      opi: "sigmaphi/sigmaPhiStart.bob"
+      autosync: false ## restart automatically on changes
+      # carepeater: true ## launch ca repeater, this ioc needs it
+      iocprefix: "LEL:MAG:CPSU03"
       iocparam:
         - name: "server"
-          value: "lel-mag-dpsu01.int.eli-np.ro" # 10.16.4.53
+          value: "lel-mag-cpsu03.int.eli-np.ro" #10.16.4.49
+      opi: "biltitest/biltitest.bob"
       devices:
-          - name: "DIP01"
-            max: 138
+          - name: "HCOR06"
+            channel: 1
+            max: 10
             zones:
               - M4
+          - name: "VCOR06"
+            channel: 2
+            max: 10
+            zones:
+              - M4
+          - name: "HCOR07"
+            channel: 3
+            max: 10
+            zones:
+              - M4
+          - name: "VCOR07"
+            channel: 4
+            max: 10
+            zones:
+              - M4
+     
+
+    
 
     - name: "sigmaphi-QPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111623"
@@ -2603,7 +2586,23 @@ epicsConfiguration:
             zones:
               - M4
 
-   
+    - name: "sigmaphi-DPSU01"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111626"
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
+      iocprefix: "LEL:MAG:DPSU01"
+      template:  "sigmaphi"
+      devtype: sigmaphi
+      devgroup: mag
+      
+      opi: "sigmaphi/sigmaPhiStart.bob"
+      iocparam:
+        - name: "server"
+          value: "lel-mag-dpsu01.int.eli-np.ro" # 10.16.4.53
+      devices:
+          - name: "DIP01"
+            max: 138
+            zones:
+              - M4
     - name: "scandicat-mod"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       # image: ghcr.io/infn-epics/infn-epics-ioc-runtime:v26.1.28b3 ## used for conditioning
