@@ -6,6 +6,7 @@ targetRevision: "main"
 serviceAccountName: "default"
 ioc_version: "latest" ## the ioc image version to use if not specified in each IOC
 
+## rigol camera pulita http://10.16.4.81/ 
 # token:
 ## starting point
 giturl: https://github.com/infn-epics/epik8s-eli.git
