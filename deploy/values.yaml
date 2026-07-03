@@ -520,7 +520,7 @@ epicsConfiguration:
       charturl: 'https://github.com/infn-epics/ioc-chart.git'     
       devtype: camerasim
       devgroup: cam
-      template: "adcamera2"
+      template: "adcamera"
       pva: true
       enable_ingress: true
       service:   
@@ -579,7 +579,7 @@ epicsConfiguration:
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: cam
-      template:  "adcamera2"
+      template:  "adcamera"
       pva: true
       networks:
         - name: "gigevision-client"
