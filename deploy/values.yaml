@@ -615,7 +615,7 @@ epicsConfiguration:
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: cam
-      template:  "adcamera2"
+      template:  "adcamera"
       pva: true
       networks:
         - name: "gigevision-client"
@@ -626,15 +626,15 @@ epicsConfiguration:
       
       iocparam:
         - name: "overlay_enable"
-          value: false
+          value: true
         - name: "stats_enable"
           value: true
         - name: "proc_enable"
-          value: false
+          value: true
         - name: "tiff_enable"
           value: true
         - name: "roi_enable"
-          value: false
+          value: true
       devices:
         - name: "SCN02:CAM01"
           id: "10.16.4.22" ## Basler-a2A1920-51gmBAS-40458497
@@ -655,7 +655,7 @@ epicsConfiguration:
       devtype: camera
       devgroup: cam
       
-      template:  "adcamera2"
+      template:  "adcamera"
       pva: true
       networks:
         - name: "gigevision-client"
@@ -666,15 +666,15 @@ epicsConfiguration:
       
       iocparam:
         - name: "overlay_enable"
-          value: false
+          value: true
         - name: "stats_enable"
           value: true
         - name: "proc_enable"
-          value: false
+          value: true
         - name: "tiff_enable"
           value: true
         - name: "roi_enable"
-          value: false
+          value: true
       devices:
         - name: "SCN03:CAM01"
           id: "10.16.4.36" ## Basler-a2A1920-51gmBAS-40458491
@@ -695,7 +695,7 @@ epicsConfiguration:
       devtype: camera
       devgroup: cam
       
-      template:  "adcamera2"
+      template:  "adcamera"
       pva: true
       networks:
         - name: "gigevision-client"
@@ -706,15 +706,15 @@ epicsConfiguration:
       
       iocparam:
         - name: "overlay_enable"
-          value: false
+          value: true
         - name: "stats_enable"
           value: true
         - name: "proc_enable"
-          value: false
+          value: true
         - name: "tiff_enable"
           value: true
         - name: "roi_enable"
-          value: false
+          value: true
       devices:
         - name: "SCN04:CAM01"
           id: "10.16.4.37"  # Basler-a2A1920-51gmBAS-40458491
@@ -734,7 +734,7 @@ epicsConfiguration:
       devtype: camera
       devgroup: cam
       
-      template:  "adcamera2"
+      template:  "adcamera"
       pva: true
       networks:
         - name: "gigevision-client"
@@ -745,15 +745,15 @@ epicsConfiguration:
       
       iocparam:
         - name: "overlay_enable"
-          value: false
+          value: true
         - name: "stats_enable"
           value: true
         - name: "proc_enable"
-          value: false
+          value: true
         - name: "tiff_enable"
           value: true
         - name: "roi_enable"
-          value: false
+          value: true
       devices:
         - name: "SCN05:CAM01"
           id: "10.16.4.38" ## Basler-a2A1920-51gmBAS-40458491
@@ -772,7 +772,7 @@ epicsConfiguration:
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
       devtype: camera
       devgroup: cam
-      template:  "adcamera2"
+      template:  "adcamera"
       pva: true
       networks:
         - name: "gigevision-client"
@@ -783,15 +783,15 @@ epicsConfiguration:
       
       iocparam:
         - name: "overlay_enable"
-          value: false
+          value: true
         - name: "stats_enable"
           value: true
         - name: "proc_enable"
-          value: false
+          value: true
         - name: "tiff_enable"
           value: true
         - name: "roi_enable"
-          value: false
+          value: true
       devices:
         - name: "SCN06:CAM01"
           id: "10.16.4.41" ## Basler-a2A1920-51gmBAS-40458491
