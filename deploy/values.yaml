@@ -2322,7 +2322,9 @@ epicsConfiguration:
           value: "lel-mag-spsu01.int.eli-np.ro" # 10.16.4.45
       devices:
           - name: "SOL01:COIL01"
-            max: 176
+            ps:
+              current:
+                max: 176
             zones:
               - M1
     - name: "sigmaphi-SOL01-SPSU02"
@@ -2339,7 +2341,9 @@ epicsConfiguration:
       opi: "sigmaphi/sigmaPhiStart.bob"
       devices:
           - name: "SOL01:COIL02"
-            max: 176
+            ps:
+              current:
+                max: 176
             zones:
               - M1
 
@@ -2357,35 +2361,32 @@ epicsConfiguration:
         - name: "server"
           value: "lel-mag-cpsu01.int.eli-np.ro" # 10.16.4.48
       opi: "biltitest/biltitest.bob"
+      ps:
+        current:
+          max: 10
       devices:
           - name: "HCOR01"
             channel: 1
-            max: 10
             zones:
               - M1
           - name: "VCOR01"
             channel: 2
-            max: 10
             zones:
               - M1
           - name: "HCOR02"
             channel: 3
-            max: 10
             zones:
               - M2
           - name: "VCOR02"
             channel: 5
-            max: 10
             zones:
               - M2
           - name: "HCOR03"
             channel: 7
-            max: 10
             zones:
               - M2
           - name: "VCOR03"
             channel: 9
-            max: 10
             zones:
               - M2
 
@@ -2403,7 +2404,9 @@ epicsConfiguration:
           value: "lel-mag-spsu03.int.eli-np.ro." # 10.16.4.46
       devices:
           - name: "SOL02:COIL0103"
-            max: 176
+            ps:
+              current:
+                max: 176
             zones:
               - M2
     - name: "sigmaphi-SOL02-SPSU04"
@@ -2420,7 +2423,9 @@ epicsConfiguration:
           value: "lel-mag-spsu04.int.eli-np.ro" # 10.16.4.47
       devices:
           - name: "SOL02:COIL0406"
-            max: 176
+            ps:
+              current:
+                max: 176
             zones:
               - M2
     - name: "sigmaphi-SOL02-SPSU05"
@@ -2437,7 +2442,9 @@ epicsConfiguration:
           value: "lel-mag-spsu05.int.eli-np.ro" # 10.16.4.42
       devices:
           - name: "SOL02:COIL0709"
-            max: 176
+            ps:
+              current:
+                max: 176
             zones:
               - M2
 
@@ -2455,7 +2462,9 @@ epicsConfiguration:
           value: "lel-mag-spsu06.int.eli-np.ro" # 10.16.4.43
       devices:
           - name: "SOL02:COIL1012"
-            max: 176
+            ps:
+              current:
+                max: 176
             zones:
               - M2
     - name: "biltitest-cpsu02"
@@ -2472,25 +2481,24 @@ epicsConfiguration:
         - name: "server"
           value: "lel-mag-cpsu02.int.eli-np.ro" # 10.16.4.44
       opi: "biltitest/biltitest.bob"
+      ps:
+        current:
+          max: 10
       devices:
           - name: "HCOR04"
             channel: 1
-            max: 10
             zones:
               - M3
           - name: "VCOR04"
             channel: 3
-            max: 10
             zones:
               - M3
           - name: "HCOR05"
             channel: 5
-            max: 10
             zones:
               - M3
           - name: "VCOR05"
             channel: 7
-            max: 10
             zones:
               - M3
 
@@ -2508,25 +2516,24 @@ epicsConfiguration:
         - name: "server"
           value: "lel-mag-cpsu03.int.eli-np.ro" #10.16.4.49
       opi: "biltitest/biltitest.bob"
+      ps:
+        current:
+          max: 10
       devices:
           - name: "HCOR06"
             channel: 1
-            max: 10
             zones:
               - M4
           - name: "VCOR06"
             channel: 2
-            max: 10
             zones:
               - M4
           - name: "HCOR07"
             channel: 3
-            max: 10
             zones:
               - M4
           - name: "VCOR07"
             channel: 4
-            max: 10
             zones:
               - M4
      
@@ -2547,7 +2554,9 @@ epicsConfiguration:
           value: "lel-mag-qpsu01.int.eli-np.ro" # 10.16.4.50
       devices:
           - name: "QUAD01"
-            max: 50
+            ps:
+              current:
+                max: 50
             zones:
               - M4
     
@@ -2565,7 +2574,9 @@ epicsConfiguration:
           value: "lel-mag-qpsu02.int.eli-np.ro" #10.16.4.51
       devices:
           - name: "QUAD02"
-            max: 50
+            ps:
+              current:
+                max: 50
             zones:
               - M4
 
@@ -2583,7 +2594,9 @@ epicsConfiguration:
           value: "lel-mag-qpsu03.int.eli-np.ro" # 10.16.4.52
       devices:
           - name: "QUAD03"
-            max: 50
+            ps:
+              current:
+                max: 50
             zones:
               - M4
 
@@ -2601,7 +2614,9 @@ epicsConfiguration:
           value: "lel-mag-dpsu01.int.eli-np.ro" # 10.16.4.53
       devices:
           - name: "DIP01"
-            max: 138
+            ps:
+              current:
+                max: 138
             zones:
               - M4
     - name: "scandicat-mod"
