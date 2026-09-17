@@ -1,3 +1,5 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/infn-epics/ibek-templates/refs/heads/main/schemas/beamline.schema.json
+
 beamline: eli
 namespace: eli
 ingressClassName: "haproxy"
@@ -1149,12 +1151,12 @@ epicsConfiguration:
             dev: "PCI::INSTR0"
             buffer: 2059
             eventpv: ":Event-1-Cnt-I"
-            iocinit:
+            iocinit: []
           - name: "DIA:FCT02"
             devtype: "m9210"
             dev: "PCI::INSTR1"
             buffer: 2059
-            iocinit:
+            iocinit: []
           - name: "TIM:EVR-BPMCAM"
             devtype: evr230
             bus: 9
@@ -2042,11 +2044,11 @@ epicsConfiguration:
           server: scelimxa16002.int.eli-np.ro 
           port: 4001
           nocheckconn: 1
-          zones: |
-            WGS01
-            WGS02
-            WGS03
-            WGC01
+          zones:
+            - WGS01
+            - WGS02
+            - WGS03
+            - WGC01
           iocinit:
             - name: "TEMP_SETPT_SP"
               value: 32.40
@@ -2690,7 +2692,7 @@ epicsConfiguration:
       
       autosync: false ## restart automatically on changes
       devtype: technosoft-asyn
-      devgroup: motor
+      devgroup: mot
       opi: "tml"
       template: "motor"  
       motor:
