@@ -385,7 +385,8 @@ epicsConfiguration:
         name: "default"
   
   iocs:
-    - name: "llrf01"
+    llrf01:
+      name: "llrf01"
       asset: "https://confluence.infn.it/x/doKBBg"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       template:  "libera-llrf2"
@@ -403,7 +404,8 @@ epicsConfiguration:
         - name: "ad2"
           channel: 4
 
-    - name: "llrf02"
+    llrf02:
+      name: "llrf02"
       asset: "https://confluence.infn.it/x/doKBBg"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       template:  "libera-llrf2"
@@ -421,7 +423,8 @@ epicsConfiguration:
         - name: "ad2"
           channel: 4
 
-    - name: "llrf03"
+    llrf03:
+      name: "llrf03"
       asset: "https://confluence.infn.it/x/doKBBg"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       template:  "libera-llrf2"
@@ -439,7 +442,8 @@ epicsConfiguration:
         - name: "ad2"
           channel: 4
 
-    - name: "llrf04"
+    llrf04:
+      name: "llrf04"
       asset: "https://confluence.infn.it/x/doKBBg"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       template:  "libera-llrf2"
@@ -459,7 +463,8 @@ epicsConfiguration:
     
       #autosync: true ## restart automatically on changes
 
-    - name: "bdelilibera03"
+    bdelilibera03:
+      name: "bdelilibera03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2459&objectId=142215"
       charturl: 'https://github.com/infn-epics/ioc-chart.git' 
       template: "libera-spe"
@@ -485,7 +490,8 @@ epicsConfiguration:
       exec: "start.sh"
       autosync: false ## restart automatically on changes
 
-    - name: "bdelilibera02"
+    bdelilibera02:
+      name: "bdelilibera02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2459&objectId=134119"
       charturl: 'https://github.com/infn-epics/ioc-chart.git' 
       template: "libera-spe"
@@ -506,7 +512,8 @@ epicsConfiguration:
       exec: "start.sh"
       autosync: false ## restart automatically on changes
 
-    - name: "orbit"
+    orbit:
+      name: "orbit"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/epics-py-base
       iocprefix: "LEL:ORBIT"
@@ -517,7 +524,8 @@ epicsConfiguration:
       autosync: false ## restart automatically on changes
       usegateway: false
 
-    - name: "camerasim"
+    camerasim:
+      name: "camerasim"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'     
       devtype: camerasim
@@ -575,7 +583,8 @@ epicsConfiguration:
             value: "10"     
     
         
-    - name: "cam01"
+    cam01:
+      name: "cam01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
@@ -611,7 +620,8 @@ epicsConfiguration:
             - name: "FrameRateEnable"
               value: "Yes"
         
-    - name: "cam02"
+    cam02:
+      name: "cam02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&mode=object&objectId=126656"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
@@ -650,7 +660,8 @@ epicsConfiguration:
               value: "Yes"
 
     
-    - name: "cam03"
+    cam03:
+      name: "cam03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&mode=object&objectId=128741"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
@@ -690,7 +701,8 @@ epicsConfiguration:
               value: "Yes"
 
 
-    - name: "cam04"
+    cam04:
+      name: "cam04"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&mode=object&objectId=128742"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
@@ -729,7 +741,8 @@ epicsConfiguration:
             - name: "FrameRateEnable"
               value: "Yes"
 
-    - name: "cam05"
+    cam05:
+      name: "cam05"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&mode=object&objectId=128743"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
@@ -768,7 +781,8 @@ epicsConfiguration:
             - name: "FrameRateEnable"
               value: "Yes"
     
-    - name: "cam06"
+    cam06:
+      name: "cam06"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&mode=object&objectId=128744"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/infn-epics-ioc-runtime
@@ -806,7 +820,8 @@ epicsConfiguration:
             - name: "FrameRateEnable"
               value: "Yes"
     
-    - name: "plelievr001-laser-delay"
+    plelievr001-laser-delay:
+      name: "plelievr001-laser-delay"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2441&mode=object&objectId=113215"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:TIM"
@@ -901,7 +916,8 @@ epicsConfiguration:
       ssh_options: "-o HostKeyAlgorithms=ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
       scpoptions: "-O"
     
-    - name: "plelievr002-rf-delay"
+    plelievr002-rf-delay:
+      name: "plelievr002-rf-delay"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2441&mode=object&objectId=133675"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:TIM"
@@ -1112,7 +1128,8 @@ epicsConfiguration:
       ssh_options: "-o HostKeyAlgorithms=ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
       scpoptions: "-O"
 
-    - name: "plelievrkey001"
+    plelievrkey001:
+      name: "plelievrkey001"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2446&objectId=119372"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       # image: ghcr.io/infn-epics/infn-epics-ioc-runtime:v26.6.22b1
@@ -1337,7 +1354,8 @@ epicsConfiguration:
       ssh_options: "-o HostKeyAlgorithms=ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
       scpoptions: "-O"
     
-    - name: "plelievg001"
+    plelievg001:
+      name: "plelievg001"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2441&mode=object&objectId=113217"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:TIM"
@@ -1461,7 +1479,8 @@ epicsConfiguration:
     #   ssh_options: "-o HostKeyAlgorithms=ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa"
     #   scpoptions: "-O"
 
-    - name: "polrev-icpdas01"
+    polrev-icpdas01:
+      name: "polrev-icpdas01"
       asset: "https://servicedesk.infn.it/secure/insight/assets/LNFELINP-134115"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:POLREV"
@@ -1514,7 +1533,8 @@ epicsConfiguration:
           channel: 5
 
 
-    - name: "polrev-icpdas02"
+    polrev-icpdas02:
+      name: "polrev-icpdas02"
       asset: "https://servicedesk.infn.it/secure/insight/assets/LNFELINP-134116"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:POLREV"
@@ -1565,7 +1585,8 @@ epicsConfiguration:
           devtype: "di"
           channel: 5
 
-    - name: "illuminatore"
+    illuminatore:
+      name: "illuminatore"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2453&objectId=126786"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:ILLUM"
@@ -1584,7 +1605,8 @@ epicsConfiguration:
           channel: 0
         
 
-    - name: "vgcon02"
+    vgcon02:
+      name: "vgcon02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111737"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
@@ -1635,7 +1657,8 @@ epicsConfiguration:
           #   devtype: "setpoint"
           #   opi: "agilentXgs600/agilentXgs600Spt.bob"
           
-    - name: "vgcon01"
+    vgcon01:
+      name: "vgcon01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111736"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
@@ -1676,7 +1699,8 @@ epicsConfiguration:
             opi: "agilentXgs600/agilentXgs600Img.bob"
             zones: M3
 
-    - name: "rf-conditioning-gun"
+    rf-conditioning-gun:
+      name: "rf-conditioning-gun"
       asset: "https://confluence.infn.it/x/nYD8DQ"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/epics-py-base
@@ -1763,7 +1787,8 @@ epicsConfiguration:
       autosync: false ## restart automatically on changes
       usegateway: false
 
-    - name: "rf-conditioning-s1"
+    rf-conditioning-s1:
+      name: "rf-conditioning-s1"
       asset: "https://confluence.infn.it/x/nYD8DQ"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/epics-py-base
@@ -1826,7 +1851,8 @@ epicsConfiguration:
       autosync: false ## restart automatically on changes
       usegateway: false
 
-    - name: "rf-conditioning-s2"
+    rf-conditioning-s2:
+      name: "rf-conditioning-s2"
       asset: "https://confluence.infn.it/x/nYD8DQ"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/epics-py-base
@@ -1893,7 +1919,8 @@ epicsConfiguration:
       autosync: false ## restart automatically on changes
       usegateway: false
 
-    - name: "rf-conditioning-c1"
+    rf-conditioning-c1:
+      name: "rf-conditioning-c1"
       asset: "https://confluence.infn.it/x/nYD8DQ"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/epics-py-base
@@ -1976,7 +2003,8 @@ epicsConfiguration:
       autosync: false ## restart automatically on changes
       usegateway: false
 
-    - name: "chiller-smc" 
+    chiller-smc:
+      name: "chiller-smc" 
       asset: "https://confluence.infn.it/display/LDCG/ICP-23-0032"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       template: "smc"
@@ -2018,7 +2046,8 @@ epicsConfiguration:
             - name: "TEMP_SETPT_SP"
               value: 35.6
         
-    - name: "mps-a"
+    mps-a:
+      name: "mps-a"
       template: "ssrip-mps"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
 
@@ -2031,7 +2060,8 @@ epicsConfiguration:
         - name: "port"
           value: 502
     
-    - name: "chiller-poly-roof" 
+    chiller-poly-roof:
+      name: "chiller-poly-roof" 
       asset: "https://confluence.infn.it/display/LDCG/ICP-23-0032"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       template: "polyscience"
@@ -2053,7 +2083,8 @@ epicsConfiguration:
             - name: "TEMP_SETPT_SP"
               value: 32.40
         
-    - name: "vpcon4" 
+    vpcon4:
+      name: "vpcon4" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
@@ -2079,7 +2110,8 @@ epicsConfiguration:
         - name: "WGS01IONP04"
           channel: 4
 
-    - name: "vpcon5" 
+    vpcon5:
+      name: "vpcon5" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
@@ -2112,7 +2144,8 @@ epicsConfiguration:
           channel: 4
           zones: WGS02
 
-    - name: "vpcon6" 
+    vpcon6:
+      name: "vpcon6" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
@@ -2142,7 +2175,8 @@ epicsConfiguration:
           channel: 4
           zones: WGS03
 
-    - name: "vpcon7" 
+    vpcon7:
+      name: "vpcon7" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
@@ -2172,7 +2206,8 @@ epicsConfiguration:
           channel: 4
           zones: WGC01
 
-    - name: "vpcon8" 
+    vpcon8:
+      name: "vpcon8" 
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129492"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
@@ -2202,7 +2237,8 @@ epicsConfiguration:
           channel: 4
           zones: WGC01        
 
-    - name: "vpcon03"
+    vpcon03:
+      name: "vpcon03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=129489"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
@@ -2231,7 +2267,8 @@ epicsConfiguration:
           channel: 4
           zones: M3
 
-    - name: "vpcon04"
+    vpcon04:
+      name: "vpcon04"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111742"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
@@ -2255,7 +2292,8 @@ epicsConfiguration:
         - name: "IONP15"
           channel: 3
 
-    - name: "vpcon01"
+    vpcon01:
+      name: "vpcon01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111743"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
@@ -2281,7 +2319,8 @@ epicsConfiguration:
           - name: "IONP04"
             channel: 4
 
-    - name: "vpcon02"
+    vpcon02:
+      name: "vpcon02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2505&objectId=111743"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:VAC"
@@ -2310,7 +2349,8 @@ epicsConfiguration:
             channel: 4
             zones: M3
 
-    - name: "sigmaphi-SOL01-SPSU01"
+    sigmaphi-SOL01-SPSU01:
+      name: "sigmaphi-SOL01-SPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111614"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU01"
@@ -2329,7 +2369,8 @@ epicsConfiguration:
                 max: 176
             zones:
               - M1
-    - name: "sigmaphi-SOL01-SPSU02"
+    sigmaphi-SOL01-SPSU02:
+      name: "sigmaphi-SOL01-SPSU02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111615"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU02"
@@ -2349,7 +2390,8 @@ epicsConfiguration:
             zones:
               - M1
 
-    - name: "biltitest-cpsu01"
+    biltitest-cpsu01:
+      name: "biltitest-cpsu01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111616"
       devtype: biltitest
       devgroup: mag
@@ -2392,7 +2434,8 @@ epicsConfiguration:
             zones:
               - M2
 
-    - name: "sigmaphi-SOL02-SPSU03"
+    sigmaphi-SOL02-SPSU03:
+      name: "sigmaphi-SOL02-SPSU03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111617"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU03"
@@ -2411,7 +2454,8 @@ epicsConfiguration:
                 max: 176
             zones:
               - M2
-    - name: "sigmaphi-SOL02-SPSU04"
+    sigmaphi-SOL02-SPSU04:
+      name: "sigmaphi-SOL02-SPSU04"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111618"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU04"
@@ -2430,7 +2474,8 @@ epicsConfiguration:
                 max: 176
             zones:
               - M2
-    - name: "sigmaphi-SOL02-SPSU05"
+    sigmaphi-SOL02-SPSU05:
+      name: "sigmaphi-SOL02-SPSU05"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111615"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU05"
@@ -2450,7 +2495,8 @@ epicsConfiguration:
             zones:
               - M2
 
-    - name: "sigmaphi-SOL02-SPSU06"
+    sigmaphi-SOL02-SPSU06:
+      name: "sigmaphi-SOL02-SPSU06"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111620"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:SPSU06"
@@ -2469,7 +2515,8 @@ epicsConfiguration:
                 max: 176
             zones:
               - M2
-    - name: "biltitest-cpsu02"
+    biltitest-cpsu02:
+      name: "biltitest-cpsu02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111621"
       devtype: biltitest
       devgroup: mag
@@ -2504,7 +2551,8 @@ epicsConfiguration:
             zones:
               - M3
 
-    - name: "biltitest-cpsu03"
+    biltitest-cpsu03:
+      name: "biltitest-cpsu03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111616"
       devtype: bilt-itest
       template:  "ibilt"
@@ -2542,7 +2590,8 @@ epicsConfiguration:
 
     
 
-    - name: "sigmaphi-QPSU01"
+    sigmaphi-QPSU01:
+      name: "sigmaphi-QPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111623"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:QPSU01"
@@ -2562,7 +2611,8 @@ epicsConfiguration:
             zones:
               - M4
     
-    - name: "sigmaphi-QPSU02"
+    sigmaphi-QPSU02:
+      name: "sigmaphi-QPSU02"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111624"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:QPSU02"
@@ -2582,7 +2632,8 @@ epicsConfiguration:
             zones:
               - M4
 
-    - name: "sigmaphi-QPSU03"
+    sigmaphi-QPSU03:
+      name: "sigmaphi-QPSU03"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111625"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:QPSU03"
@@ -2602,7 +2653,8 @@ epicsConfiguration:
             zones:
               - M4
 
-    - name: "sigmaphi-DPSU01"
+    sigmaphi-DPSU01:
+      name: "sigmaphi-DPSU01"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2457&mode=object&objectId=111626"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:MAG:DPSU01"
@@ -2621,7 +2673,8 @@ epicsConfiguration:
                 max: 138
             zones:
               - M4
-    - name: "scandicat-mod"
+    scandicat-mod:
+      name: "scandicat-mod"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       # image: ghcr.io/infn-epics/infn-epics-ioc-runtime:v26.1.28b3 ## used for conditioning
       
@@ -2677,7 +2730,8 @@ epicsConfiguration:
               value: 20
 
 
-    - name: "diag-tml"
+    diag-tml:
+      name: "diag-tml"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2447&objectId=133401"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL"
@@ -2719,7 +2773,8 @@ epicsConfiguration:
         - axid: 6
           name: SCN06:MOT01
           
-    - name: "plcs"
+    plcs:
+      name: "plcs"
       asset: ""
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL:PLC"
@@ -2734,7 +2789,8 @@ epicsConfiguration:
             ip: "10.16.4.170"
             devtype: "vac"
 
-    - name: "calculation"
+    calculation:
+      name: "calculation"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       image: ghcr.io/infn-epics/epics-py-base
       iocprefix: "LEL:CALC"

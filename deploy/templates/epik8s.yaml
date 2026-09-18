@@ -10,7 +10,7 @@ spec:
   source:
     repoURL: 'https://github.com/infn-epics/epik8s-chart.git'
     path: .
-    targetRevision: {{ .Values.targetRevision }}
+    targetRevision: "ioclist-to-iocmap" # TODO: revert to {{ .Values.targetRevision }} once merged to epik8s-chart main
     helm:
       values: |
           {{- toYaml .Values | nindent 12 }}
