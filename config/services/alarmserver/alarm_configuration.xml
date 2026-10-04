@@ -1,17 +1,15 @@
 <?xml version='1.0' encoding='utf8'?>
 
-<config name="Accelerator">
+<config name="eli-Accelerator">
     
-    
-    
-
     <xi:include href="/gitconfig/vac.xml" xpointer="vac" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="/gitconfig/cam.xml" xpointer="camera" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="/gitconfig/timing.xml" xpointer="timing" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="/gitconfig/rf.xml" xpointer="rf" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="/gitconfig/orbit.xml" xpointer="orbit" xmlns:xi="http://www.w3.org/2001/XInclude"/>
-
-
-
+    <xi:include href="/gitconfig/magnets.xml" xpointer="magnets" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="/gitconfig/Io.xml" xpointer="io" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="/gitconfig/Plc.xml" xpointer="plc" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="/gitconfig/modulatori.xml" xpointer="modulatori" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 
 </config>

@@ -8,7 +8,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://baltig.infn.it/lnf-da-control/epik8s-eli.git'
+    repoURL: 'https://github.com/infn-epics/epik8s-eli.git'
     path: deploy
     targetRevision: devel
     helm:

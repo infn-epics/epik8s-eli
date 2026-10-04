@@ -1,0 +1,4253 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 31,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 28,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:IONPMP:R_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:IONPMP:R_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:IONPMP:R_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:IONPMP:R_RB"
+        }
+      ],
+      "title": "IONPUMP (nA)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 27,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:SOLPS:TEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:SOLPS:TEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:SOLPS:TEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:SOLPS:TEMP_RB"
+        }
+      ],
+      "title": "SOLENOID TEMPERATURE ",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 25,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:CLL:OUTLETTEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:CLL:OUTLETTEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:CLL:OUTLETTEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:CLL:OUTLETTEMP_RB"
+        }
+      ],
+      "title": "COLLECTOR OUTLET TEMP",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 17
+      },
+      "id": 24,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:CLL:INLETTEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:CLL:INLETTEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:CLL:INLETTEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:CLL:INLETTEMP_RB"
+        }
+      ],
+      "title": "COLLECTROR INLET TEMPERATURE ",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 17
+      },
+      "id": 23,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:KLY:BODYFLOW_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:KLY:BODYFLOW_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:KLY:BODYFLOW_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:KLY:BODYFLOW_RB"
+        }
+      ],
+      "title": "KLYSTRON BODY WATER FLOW",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 25
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:KLY:OUTLETTEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:KLY:OUTLETTEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:KLY:OUTLETTEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:KLY:OUTLETTEMP_RB"
+        }
+      ],
+      "title": "KLYSTRON OUTLET TEMP",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 25
+      },
+      "id": 22,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:IONPMP:R_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:IONPMP:R_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:IONPMP:R_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:IONPMP:R_RB"
+        }
+      ],
+      "title": "ION PUMP CONTROLLER",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 33
+      },
+      "id": 21,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:OIL:LVL_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:OIL:LVL_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:OIL:LVL_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:OIL:LVL_RB"
+        }
+      ],
+      "title": "TRANSFORMER TANK OIL LEVEL",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 33
+      },
+      "id": 20,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:OIL:TEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:OIL:TEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:OIL:TEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:OIL:TEMP_RB"
+        }
+      ],
+      "title": "TRANSFORMER TANK OIL TEMPERATURE",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 41
+      },
+      "id": 19,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:SOLPS:TEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:SOLPS:TEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:SOLPS:TEMP_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:SOLPS:TEMP_RB"
+        }
+      ],
+      "title": "SOLENOID 1 TEMPERATURE",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 41
+      },
+      "id": 18,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:SOLPS:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:SOLPS:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:SOLPS:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:SOLPS:VOLT_RB"
+        }
+      ],
+      "title": "SOLENOID 1 VOLT",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 49
+      },
+      "id": 17,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:SOLPS:CURR_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:SOLPS:CURR_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:SOLPS:CURR_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:SOLPS:CURR_RB"
+        }
+      ],
+      "title": "SOLENOID 1 CURRENT",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 49
+      },
+      "id": 16,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:FILPS:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:FILPS:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:FILPS:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:FILPS:VOLT_RB"
+        }
+      ],
+      "title": "FILAMENT VOLT",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 57
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:FILPS:CURR_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:FILPS:CURR_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:FILPS:CURR_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:FILPS:CURR_RB"
+        }
+      ],
+      "title": "FILAMENT CURRENT",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 57
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:FILPS:CURR_SET_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:FILPS:CURR_SET_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:FILPS:CURR_SET_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:FILPS:CURR_SET_RB"
+        }
+      ],
+      "title": "SET CURRENT READBACK",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 65
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:FILPS:CURR_SP"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:FILPS:CURR_SP"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:FILPS:CURR_SP"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:FILPS:CURR_SP"
+        }
+      ],
+      "title": "SET CURRENT",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 65
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:PLS:REPR_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:PLS:REPR_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:PLS:REPR_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:PLS:REPR_RB"
+        }
+      ],
+      "title": "PULSE REPETITION RATE",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 73
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:PLS:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:PLS:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:PLS:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:PLS:VOLT_RB"
+        }
+      ],
+      "title": "PULSE VOLT",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 73
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:PLS:CURR_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:PLS:CURR_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:PLS:CURR_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:PLS:CURR_RB"
+        }
+      ],
+      "title": "PULSE CURRENT",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 81
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:PLS:WDTH_SET_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:PLS:WDTH_SET_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:PLS:WDTH_SET_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:PLS:WDTH_SET_RB"
+        }
+      ],
+      "title": "PULSE WIDTH READ BACK",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 81
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:PLS:WDTH_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:PLS:WDTH_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:PLS:WDTH_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:PLS:WDTH_RB"
+        }
+      ],
+      "title": "PULSE WIDTH",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 89
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:PLS:WDTH_SP"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:PLS:WDTH_SP"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:PLS:WDTH_SP"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:PLS:WDTH_SP"
+        }
+      ],
+      "title": "PULSE WIDTH SET POINT",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 89
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:CCPS3:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:CCPS3:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:CCPS3:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:CCPS3:VOLT_RB"
+        }
+      ],
+      "title": "CCPS3 VOLT READBACK",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 97
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:CCPS2:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:CCPS2:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:CCPS2:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:CCPS2:VOLT_RB"
+        }
+      ],
+      "title": "CCPS2 VOLT READBACK",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 97
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:CCPS1:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:CCPS1:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:CCPS1:VOLT_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:CCPS1:VOLT_RB"
+        }
+      ],
+      "title": "CPPS1 VOLT READBACK",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 105
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:CCPS:VOLT_SET_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:CCPS:VOLT_SET_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:CCPS:VOLT_SET_RB"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:CCPS:VOLT_SET_RB"
+        }
+      ],
+      "title": "SET VOLTAGE READBACK",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 105
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:CCPS:V_SP"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:CCPS:V_SP"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:CCPS:V_SP"
+        },
+        {
+          "alias": "",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:CCPS:V_SP"
+        }
+      ],
+      "title": "SET VOLTAGE",
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "schemaVersion": 41,
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-30m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Modulatori",
+  "uid": "f6e4dd4b-8129-43ef-a96b-9e583637e675",
+  "version": 44
+}

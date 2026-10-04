@@ -1,5 +1,0 @@
-epicsEnvSet("IOC","iocRedPitayaTest")
-epicsEnvSet("TOP","/root/redpitaya-ioc")
-epicsEnvSet("ASYN","/epics/modules/asyn")
-epicsEnvSet("EPICS_BASE","/epics/epics-base")
-

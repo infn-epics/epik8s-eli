@@ -1,0 +1,2192 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "RF LLRF Systems monitoring - Status, Power, Phase, PI Controller, System Health",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 100,
+      "panels": [],
+      "title": "📡 LLRF Systems - Status Overview",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "RF Control state for all LLRF systems (ON/OFF)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "red",
+                  "index": 0,
+                  "text": "OFF"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "ON"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 1
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 RF",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:app:rf_ctrl"
+        },
+        {
+          "alias": "LLRF02 RF",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:app:rf_ctrl"
+        },
+        {
+          "alias": "LLRF03 RF",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:app:rf_ctrl"
+        },
+        {
+          "alias": "LLRF04 RF",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:app:rf_ctrl"
+        }
+      ],
+      "title": "RF Control Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Interlock state for all LLRF systems",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "OK"
+                },
+                "1": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "INTLK"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 1
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 Interlock",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:app:interlock:state"
+        },
+        {
+          "alias": "LLRF02 Interlock",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:app:interlock:state"
+        },
+        {
+          "alias": "LLRF03 Interlock",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:app:interlock:state"
+        },
+        {
+          "alias": "LLRF04 Interlock",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:app:interlock:state"
+        }
+      ],
+      "title": "Interlock Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Amplitude Loop Closed status",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "yellow",
+                  "index": 0,
+                  "text": "OPEN"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "CLOSED"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "yellow"
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 1
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 Amp Loop",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:vm:dsp:pi_amp:loop_closed"
+        },
+        {
+          "alias": "LLRF02 Amp Loop",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:vm:dsp:pi_amp:loop_closed"
+        },
+        {
+          "alias": "LLRF03 Amp Loop",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:vm:dsp:pi_amp:loop_closed"
+        },
+        {
+          "alias": "LLRF04 Amp Loop",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:vm:dsp:pi_amp:loop_closed"
+        }
+      ],
+      "title": "Amplitude Loop Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Phase Loop Closed status",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "yellow",
+                  "index": 0,
+                  "text": "OPEN"
+                },
+                "1": {
+                  "color": "green",
+                  "index": 1,
+                  "text": "CLOSED"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "yellow"
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 1
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 Phase Loop",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:vm:dsp:pi_ph:loop_closed"
+        },
+        {
+          "alias": "LLRF02 Phase Loop",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:vm:dsp:pi_ph:loop_closed"
+        },
+        {
+          "alias": "LLRF03 Phase Loop",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:vm:dsp:pi_ph:loop_closed"
+        },
+        {
+          "alias": "LLRF04 Phase Loop",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:vm:dsp:pi_ph:loop_closed"
+        }
+      ],
+      "title": "Phase Loop Status",
+      "type": "stat"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 5
+      },
+      "id": 200,
+      "panels": [],
+      "title": "⚡ Power & Phase - Setpoints and Feedforward",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Power Setpoint for all LLRF systems",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Power (dBm)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "unit": "dBm",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 6
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": ["lastNotNull", "min", "max"],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 SP",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:vm:dsp:sp_amp:power"
+        },
+        {
+          "alias": "LLRF02 SP",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:vm:dsp:sp_amp:power"
+        },
+        {
+          "alias": "LLRF03 SP",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:vm:dsp:sp_amp:power"
+        },
+        {
+          "alias": "LLRF04 SP",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:vm:dsp:sp_amp:power"
+        }
+      ],
+      "title": "Power Setpoints",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Phase Setpoint for all LLRF systems",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Phase (deg)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "unit": "degree",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 6
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": ["lastNotNull", "min", "max"],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 SP",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:vm:dsp:sp_ph:phase"
+        },
+        {
+          "alias": "LLRF02 SP",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:vm:dsp:sp_ph:phase"
+        },
+        {
+          "alias": "LLRF03 SP",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:vm:dsp:sp_ph:phase"
+        },
+        {
+          "alias": "LLRF04 SP",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:vm:dsp:sp_ph:phase"
+        }
+      ],
+      "title": "Phase Setpoints",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Feedforward Power for all LLRF systems",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Power (dBm)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "unit": "dBm",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 14
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": ["lastNotNull", "min", "max"],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 FF",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:vm:dsp:ff_amp:power"
+        },
+        {
+          "alias": "LLRF02 FF",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:vm:dsp:ff_amp:power"
+        },
+        {
+          "alias": "LLRF03 FF",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:vm:dsp:ff_amp:power"
+        },
+        {
+          "alias": "LLRF04 FF",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:vm:dsp:ff_amp:power"
+        }
+      ],
+      "title": "Feedforward Power",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Feedforward Phase for all LLRF systems",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Phase (deg)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "unit": "degree",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 14
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": ["lastNotNull", "min", "max"],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 FF",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:vm:dsp:ff_ph:phase"
+        },
+        {
+          "alias": "LLRF02 FF",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:vm:dsp:ff_ph:phase"
+        },
+        {
+          "alias": "LLRF03 FF",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:vm:dsp:ff_ph:phase"
+        },
+        {
+          "alias": "LLRF04 FF",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:vm:dsp:ff_ph:phase"
+        }
+      ],
+      "title": "Feedforward Phase",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 22
+      },
+      "id": 300,
+      "panels": [],
+      "title": "🎛️ PI Controller Gains",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Amplitude PI Controller Kp (Proportional Gain)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Kp",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 23
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": ["lastNotNull", "min", "max"],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 Amp Kp",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:vm:dsp:pi_amp:kp"
+        },
+        {
+          "alias": "LLRF02 Amp Kp",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:vm:dsp:pi_amp:kp"
+        },
+        {
+          "alias": "LLRF03 Amp Kp",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:vm:dsp:pi_amp:kp"
+        },
+        {
+          "alias": "LLRF04 Amp Kp",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:vm:dsp:pi_amp:kp"
+        }
+      ],
+      "title": "Amplitude PI - Kp",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Amplitude PI Controller Ki (Integral Gain)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Ki",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 23
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": ["lastNotNull", "min", "max"],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 Amp Ki",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:vm:dsp:pi_amp:ki"
+        },
+        {
+          "alias": "LLRF02 Amp Ki",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:vm:dsp:pi_amp:ki"
+        },
+        {
+          "alias": "LLRF03 Amp Ki",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:vm:dsp:pi_amp:ki"
+        },
+        {
+          "alias": "LLRF04 Amp Ki",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:vm:dsp:pi_amp:ki"
+        }
+      ],
+      "title": "Amplitude PI - Ki",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Phase PI Controller Kp (Proportional Gain)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Kp",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 31
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": ["lastNotNull", "min", "max"],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 Phase Kp",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:vm:dsp:pi_ph:kp"
+        },
+        {
+          "alias": "LLRF02 Phase Kp",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:vm:dsp:pi_ph:kp"
+        },
+        {
+          "alias": "LLRF03 Phase Kp",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:vm:dsp:pi_ph:kp"
+        },
+        {
+          "alias": "LLRF04 Phase Kp",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:vm:dsp:pi_ph:kp"
+        }
+      ],
+      "title": "Phase PI - Kp",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Phase PI Controller Ki (Integral Gain)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Ki",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 31
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": ["lastNotNull", "min", "max"],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 Phase Ki",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:vm:dsp:pi_ph:ki"
+        },
+        {
+          "alias": "LLRF02 Phase Ki",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:vm:dsp:pi_ph:ki"
+        },
+        {
+          "alias": "LLRF03 Phase Ki",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:vm:dsp:pi_ph:ki"
+        },
+        {
+          "alias": "LLRF04 Phase Ki",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:vm:dsp:pi_ph:ki"
+        }
+      ],
+      "title": "Phase PI - Ki",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 39
+      },
+      "id": 400,
+      "panels": [],
+      "title": "💻 System Health - IOC & Fans",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "CPU usage for all LLRF IOCs",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "CPU %",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "unit": "percent",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 70
+              },
+              {
+                "color": "red",
+                "value": 90
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 40
+      },
+      "id": 13,
+      "options": {
+        "legend": {
+          "calcs": ["lastNotNull", "min", "max", "mean"],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 CPU",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:ioc:cpu"
+        },
+        {
+          "alias": "LLRF02 CPU",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:ioc:cpu"
+        },
+        {
+          "alias": "LLRF03 CPU",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:ioc:cpu"
+        },
+        {
+          "alias": "LLRF04 CPU",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:ioc:cpu"
+        }
+      ],
+      "title": "IOC CPU Usage",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Free memory for all LLRF IOCs",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Memory (MB)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "unit": "decmbytes",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 40
+      },
+      "id": 14,
+      "options": {
+        "legend": {
+          "calcs": ["lastNotNull", "min", "max"],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 Free Mem",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:ioc:free_mem"
+        },
+        {
+          "alias": "LLRF02 Free Mem",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF02:ioc:free_mem"
+        },
+        {
+          "alias": "LLRF03 Free Mem",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF03:ioc:free_mem"
+        },
+        {
+          "alias": "LLRF04 Free Mem",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF04:ioc:free_mem"
+        }
+      ],
+      "title": "IOC Free Memory",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "LLRF01 Fan speeds (6 fans)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "RPM",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "line"
+            }
+          },
+          "mappings": [],
+          "unit": "rotrpm",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "green",
+                "value": 1000
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 48
+      },
+      "id": 15,
+      "options": {
+        "legend": {
+          "calcs": ["lastNotNull", "min", "max"],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "Left Front",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:fans:left_front"
+        },
+        {
+          "alias": "Left Middle",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF01:fans:left_middle"
+        },
+        {
+          "alias": "Left Rear",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF01:fans:left_rear"
+        },
+        {
+          "alias": "Right Front",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF01:fans:right_front"
+        },
+        {
+          "alias": "Right Middle",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "E",
+          "target": "LEL-RF-LLRF01:fans:right_middle"
+        },
+        {
+          "alias": "Right Rear",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "F",
+          "target": "LEL-RF-LLRF01:fans:right_rear"
+        }
+      ],
+      "title": "LLRF01 Fan Speeds",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Board Health Status (0=OK, >0=Error)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "OK"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "from": 1,
+                "result": {
+                  "color": "red",
+                  "index": 1,
+                  "text": "ERROR"
+                },
+                "to": 1000
+              },
+              "type": "range"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 48
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": ["lastNotNull"],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "value_and_name",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "LLRF01 AD1 Health",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "refId": "A",
+          "target": "LEL-RF-LLRF01:ad1:info:health_status"
+        },
+        {
+          "alias": "LLRF01 AD2 Health",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "B",
+          "target": "LEL-RF-LLRF01:ad2:info:health_status"
+        },
+        {
+          "alias": "LLRF01 VM Health",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "C",
+          "target": "LEL-RF-LLRF01:vm:info:health_status"
+        },
+        {
+          "alias": "LLRF01 TCM Health",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "D",
+          "target": "LEL-RF-LLRF01:tcm:info:health_status"
+        },
+        {
+          "alias": "LLRF02 AD1 Health",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "E",
+          "target": "LEL-RF-LLRF02:ad1:info:health_status"
+        },
+        {
+          "alias": "LLRF02 VM Health",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "F",
+          "target": "LEL-RF-LLRF02:vm:info:health_status"
+        },
+        {
+          "alias": "LLRF03 AD1 Health",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "G",
+          "target": "LEL-RF-LLRF03:ad1:info:health_status"
+        },
+        {
+          "alias": "LLRF04 AD1 Health",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "refId": "H",
+          "target": "LEL-RF-LLRF04:ad1:info:health_status"
+        }
+      ],
+      "title": "Board Health Status",
+      "type": "stat"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": ["RF", "LLRF", "ELI"],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "RF LLRF Systems",
+  "uid": null,
+  "version": 1,
+  "weekStart": ""
+}

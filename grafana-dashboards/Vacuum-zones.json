@@ -1,0 +1,2079 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Vacuum monitoring organized by zones - M1, M2, M3, M4, WGS01, WGS02, WGS03, WGC01 ",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": 35,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 108,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "ModulatorS1",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD01:IONPMP:R_RB"
+        },
+        {
+          "alias": "ModulatorS2",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD02:IONPMP:R_RB"
+        },
+        {
+          "alias": "ModulatorS3",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD03:IONPMP:R_RB"
+        },
+        {
+          "alias": "ModulatorC1",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:MOD:SCAT:MOD04:IONPMP:R_RB"
+        }
+      ],
+      "title": "Modulator IONPUMPs (nA)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 104,
+      "panels": [],
+      "title": "🟣 Zone WGS01 - Ion Pumps",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Ion Pumps WGS01IONP01-06 in Zone WGS01 (01-04 via VPCON04, 05-06 via VPCON05)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Pressure",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1e-7
+              },
+              {
+                "color": "red",
+                "value": 0.00001
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 7
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "WGS01IONP01",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON04:WGS01IONP01:PRES_RB"
+        },
+        {
+          "alias": "WGS01IONP02",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON04:WGS01IONP02:PRES_RB"
+        },
+        {
+          "alias": "WGS01IONP03",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON04:WGS01IONP03:PRES_RB"
+        },
+        {
+          "alias": "WGS01IONP04",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON04:WGS01IONP04:PRES_RB"
+        },
+        {
+          "alias": "WGS01IONP05",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "E",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON05:WGS01IONP05:PRES_RB"
+        },
+        {
+          "alias": "WGS01IONP06",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "F",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON05:WGS01IONP06:PRES_RB"
+        }
+      ],
+      "title": "WGS01 - Ion Pumps (VPCON04/05)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 15
+      },
+      "id": 100,
+      "panels": [],
+      "title": "🔵 Zone M1 - Ion Pumps & Cold Cathode Gauges",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Ion Pumps IONP01-04 in Zone M1 (via VPCON01)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Pressure (bar)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1e-7
+              },
+              {
+                "color": "red",
+                "value": 0.00001
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 16
+      },
+      "id": 1,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "IONP01",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON01:IONP01:PRES_RB"
+        },
+        {
+          "alias": "IONP02",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON01:IONP02:PRES_RB"
+        },
+        {
+          "alias": "IONP03",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON01:IONP03:PRES_RB"
+        },
+        {
+          "alias": "IONP04",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON01:IONP04:PRES_RB"
+        }
+      ],
+      "title": "M1 - Ion Pumps (VPCON01)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Cold Cathode Gauges CC01, CC03, CC04 in Zone M1 (via VGCON01)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Pressure (bar)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1e-7
+              },
+              {
+                "color": "red",
+                "value": 0.00001
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 16
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "CC01",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VGCON01:CC01:PRES_RB"
+        },
+        {
+          "alias": "CC03",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VGCON01:CC03:PRES_RB"
+        },
+        {
+          "alias": "CC04",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VGCON01:CC04:PRES_RB"
+        }
+      ],
+      "title": "M1 - Cold Cathode Gauges (VGCON01)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 105,
+      "panels": [],
+      "title": "🟤 Zone WGS02 - Ion Pumps",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Ion Pumps WGS02IONP01-05 in Zone WGS02 (01-02 via VPCON05, 03-05 via VPCON06)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Pressure (bar)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1e-7
+              },
+              {
+                "color": "red",
+                "value": 0.00001
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 25
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "WGS02IONP01",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON05:WGS02IONP01:PRES_RB"
+        },
+        {
+          "alias": "WGS02IONP02",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON05:WGS02IONP02:PRES_RB"
+        },
+        {
+          "alias": "WGS02IONP03",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON06:WGS02IONP03:PRES_RB"
+        },
+        {
+          "alias": "WGS02IONP04",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON06:WGS02IONP04:PRES_RB"
+        },
+        {
+          "alias": "WGS02IONP05",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "E",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON06:WGS02IONP05:PRES_RB"
+        }
+      ],
+      "title": "WGS02 - Ion Pumps (VPCON05/06)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 33
+      },
+      "id": 101,
+      "panels": [],
+      "title": "🟢 Zone M2 - Ion Pumps",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Ion Pumps IONP05-06 in Zone M2 (via VPCON02)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Pressure (bar)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1e-7
+              },
+              {
+                "color": "red",
+                "value": 0.00001
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 34
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "IONP05",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON02:IONP05:PRES_RB"
+        },
+        {
+          "alias": "IONP06",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON02:IONP06:PRES_RB"
+        }
+      ],
+      "title": "M2 - Ion Pumps (VPCON02)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 42
+      },
+      "id": 106,
+      "panels": [],
+      "title": "⚪ Zone WGS03 - Ion Pumps",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Ion Pumps WGS03IONP01-04 in Zone WGS03 (01 via VPCON06, 02-04 via VPCON07)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Pressure (bar)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1e-7
+              },
+              {
+                "color": "red",
+                "value": 0.00001
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 43
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "WGS03IONP01",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON06:WGS03IONP01:PRES_RB"
+        },
+        {
+          "alias": "WGS03IONP02",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON07:WGS03IONP02:PRES_RB"
+        },
+        {
+          "alias": "WGS03IONP03",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON07:WGS03IONP03:PRES_RB"
+        },
+        {
+          "alias": "WGS03IONP04",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON07:WGS03IONP04:PRES_RB"
+        }
+      ],
+      "title": "WGS03 - Ion Pumps (VPCON06/07)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 51
+      },
+      "id": 102,
+      "panels": [],
+      "title": "🟡 Zone M3 - Ion Pumps & Cold Cathode Gauges",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Ion Pumps IONP07-09 in Zone M3 (IONP07-08 via VPCON02, IONP09 via VPCON03)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Pressure (bar)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1e-7
+              },
+              {
+                "color": "red",
+                "value": 0.00001
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 52
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "IONP07",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON02:IONP07:PRES_RB"
+        },
+        {
+          "alias": "IONP08",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON02:IONP08:PRES_RB"
+        },
+        {
+          "alias": "IONP09",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON03:IONP09:PRES_RB"
+        }
+      ],
+      "title": "M3 - Ion Pumps (VPCON02/03)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Cold Cathode Gauge CC06 in Zone M3 (via VGCON01)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Pressure (bar)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1e-7
+              },
+              {
+                "color": "red",
+                "value": 0.00001
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 52
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "CC06",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VGCON01:CC06:PRES_RB"
+        }
+      ],
+      "title": "M3 - Cold Cathode Gauges (VGCON01)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 60
+      },
+      "id": 107,
+      "panels": [],
+      "title": "⚫ Zone WGC01 - Ion Pumps",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Ion Pumps WGC01IONP01-05 in Zone WGC01 (01 via VPCON07, 02-05 via VPCON08)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Pressure (bar)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1e-7
+              },
+              {
+                "color": "red",
+                "value": 0.00001
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 61
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "WGC01IONP01",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON07:WGC01IONP01:PRES_RB"
+        },
+        {
+          "alias": "WGC01IONP02",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON08:WGC01IONP02:PRES_RB"
+        },
+        {
+          "alias": "WGC01IONP03",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON08:WGC01IONP03:PRES_RB"
+        },
+        {
+          "alias": "WGC01IONP04",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON08:WGC01IONP04:PRES_RB"
+        },
+        {
+          "alias": "WGC01IONP05",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "E",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON08:WGC01IONP05:PRES_RB"
+        }
+      ],
+      "title": "WGC01 - Ion Pumps (VPCON07/08)",
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 69
+      },
+      "id": 103,
+      "panels": [],
+      "title": "🔴 Zone M4 - Ion Pumps & Cold Cathode Gauges",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Ion Pumps IONP10-15 in Zone M4 (IONP10-12 via VPCON03, IONP13-15 via VPCON04)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Pressure (bar)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1e-7
+              },
+              {
+                "color": "red",
+                "value": 0.00001
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 70
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "IONP10",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON03:IONP10:PRES_RB"
+        },
+        {
+          "alias": "IONP11",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON03:IONP11:PRES_RB"
+        },
+        {
+          "alias": "IONP12",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "C",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON03:IONP12:PRES_RB"
+        },
+        {
+          "alias": "IONP13",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "D",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON04:IONP13:PRES_RB"
+        },
+        {
+          "alias": "IONP14",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "E",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON04:IONP14:PRES_RB"
+        },
+        {
+          "alias": "IONP15",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "F",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VPCON04:IONP15:PRES_RB"
+        }
+      ],
+      "title": "M4 - Ion Pumps (VPCON03/04)",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "sasaki77-archiverappliance-datasource",
+        "uid": "af5w71l5ys5c0c"
+      },
+      "description": "Cold Cathode Gauges CC08-09 in Zone M4 (via VGCON02)",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Pressure (bar)",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "smooth",
+            "lineWidth": 2,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "yellow",
+                "value": 1e-7
+              },
+              {
+                "color": "red",
+                "value": 0.00001
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 70
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [
+            "lastNotNull",
+            "min",
+            "max"
+          ],
+          "displayMode": "table",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "multi",
+          "sort": "desc"
+        }
+      },
+      "pluginVersion": "12.0.1+security-01",
+      "targets": [
+        {
+          "alias": "CC08",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "live": false,
+          "operator": "",
+          "refId": "A",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VGCON02:CC08:PRES_RB"
+        },
+        {
+          "alias": "CC09",
+          "aliasPattern": "",
+          "datasource": {
+            "type": "sasaki77-archiverappliance-datasource",
+            "uid": "af5w71l5ys5c0c"
+          },
+          "functions": [],
+          "hide": false,
+          "live": false,
+          "operator": "",
+          "refId": "B",
+          "regex": false,
+          "stream": false,
+          "strmCap": "",
+          "strmInt": "",
+          "target": "LEL:VAC:VGCON02:CC09:PRES_RB"
+        }
+      ],
+      "title": "M4 - Cold Cathode Gauges (VGCON02)",
+      "type": "timeseries"
+    }
+  ],
+  "preload": false,
+  "refresh": "5s",
+  "schemaVersion": 41,
+  "tags": [
+    "vacuum",
+    "eli",
+    "zones"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "browser",
+  "title": "Vacuum - By Zones",
+  "uid": "vacuum-zones-dashboard",
+  "version": 16
+}

@@ -2,37 +2,52 @@
 <!DOCTYPE config [
 <!ATTLIST component id ID #IMPLIED>
 ]>
-<component name="Timing" id ="timing">
-    <pv name="MRF01:evg:FCTLink8-Sts">
+<component name="Timing" id="timing">
+    <automated_action>
+        <details>mailto:giovanni.franzini@lnf.infn.it</details>
+        <title>Alarm on Timing</title>
+        <delay>60</delay>
+    </automated_action>
+    <pv name="LEL:TIM:EVR-CAM:Link-Sts">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
-        <description>Generator Link 8</description>
+        <description>LEL:TIM:EVR-CAM:Link-Sts</description>
     </pv>
-    <pv name="MRF01:evg:FCTLink1-Sts">
+    <pv name="LEL:TIM:EVR-BPMCAM:Link-Sts">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
-        <description>Generator Link 1</description>
+        <description>LEL:TIM:EVR-BPMCAM:Link-Sts</description>
     </pv>
-    <pv name="MRF01:evg:FCTLink2-Sts">
+    <pv name="LEL:TIM:EVR-ADC:Link-Sts">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
-        <description>Generator Link 2</description>
+        <description>LEL:TIM:EVR-ADC:Link-Sts</description>
     </pv>
-    
-    <pv name="MRF01:evr1:Pll-Sts">
+    <pv name="LEL:TIM:EVR-LAS:Link-Sts">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
-        <description>PLL Receiver1 Lock</description>
+        <description>LEL:TIM:EVR-LAS:Link-Sts</description>
     </pv>
-    <pv name="MRF01:evr:Pll-Sts">
+    <pv name="LEL:TIM:EVR-LLRF:Link-Sts">
         <enabled>true</enabled>
         <latching>false</latching>
         <annunciating>true</annunciating>
-        <description>PLL Receiver0 Lock</description>
+        <description>LEL:TIM:EVR-LLRF:Link-Sts</description>
     </pv>
-    
+    <pv name="LEL:TIM:EVR-RFD:Link-Sts">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL:TIM:EVR-RFD:Link-Sts</description>
+    </pv>
+    <pv name="LEL:TIM:EVR-RFM:Link-Sts">
+        <enabled>true</enabled>
+        <latching>false</latching>
+        <annunciating>true</annunciating>
+        <description>LEL:TIM:EVR-RFM:Link-Sts</description>
+    </pv>
 </component>

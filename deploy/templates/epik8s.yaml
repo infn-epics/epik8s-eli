@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{.Values.beamline}}-deploy-all
+  namespace: argocd
+  labels:
+    deploy: {{ .Values.beamline }}
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/infn-epics/epik8s-chart.git'
+    path: .
+    targetRevision: "ioclist-to-iocmap" # TODO: revert to {{ .Values.targetRevision }} once merged to epik8s-chart main
+    helm:
+      values: |
+          {{- toYaml .Values | nindent 12 }}
+
+  destination:
+    server: 'https://kubernetes.default.svc'
+    {{- if .Values.namespace }}
+    namespace: {{.Values.namespace}}
+
+    {{- else }}
+    namespace: {{.Values.beamline}}
+    {{- end}}
+  syncPolicy:
+    automated:
+      prune: true  # Optional: Automatically remove resources not specified in Helm chart
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true 
+      - Prune=true
