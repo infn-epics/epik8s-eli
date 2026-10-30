@@ -217,7 +217,7 @@ epicsConfiguration:
         - name: VITE_APP_DEFAULT_LEVEL
           value: "Info"
         - name: VITE_APP_BASE_URL
-          value: "https://eli-olog.srv.int.eli-np.ro/Olog"
+          value: "http://eli-olog.srv.int.eli-np.ro/Olog"
         - name: VITE_REACT_APP_USE_KEYCLOAK
           value: true
         - name: VITE_AUTH_CLIENT_ID
@@ -234,17 +234,18 @@ epicsConfiguration:
           value: openid
 
       # Same node-server image and build as BTF. No AAI at ELI: OAuth2 stays off,
-      # users sign in to Olog with the basic-auth account.
+      # users sign in to Olog with the basic-auth account. The ELI ingresses
+      # serve plain HTTP only, so Olog is reached over http:// and ws://.
       exec: |
         rm -rf .package-lock.json .env .env.production .env.local node_modules env* build
         echo "=== Creating .env.production file ==="
         cat > .env.production <<'ENVEOF'
-        VITE_APP_BASE_URL=https://eli-olog.srv.int.eli-np.ro/Olog
+        VITE_APP_BASE_URL=http://eli-olog.srv.int.eli-np.ro/Olog
         VITE_APP_LOGBOOK_NAME=ELI-NP Logbook
         VITE_APP_OAUTH2_ENABLED=false
         VITE_APP_LEVEL_VALUES=["Urgent","Suggestion","Info","Request","Problem"]
         VITE_APP_DEFAULT_LEVEL=Info
-        VITE_APP_WEBSOCKET_BASE_URL=wss://eli-olog.srv.int.eli-np.ro/Olog/web-socket
+        VITE_APP_WEBSOCKET_BASE_URL=ws://eli-olog.srv.int.eli-np.ro/Olog/web-socket
         ENVEOF
         echo "=== .env.production contents ==="
         cat .env.production
@@ -281,7 +282,7 @@ epicsConfiguration:
       service:
         loglevel: "DEBUG"
       cors:
-        origins: "https://eli-webolog.srv.int.eli-np.ro"
+        origins: "http://eli-webolog.srv.int.eli-np.ro"
       user: epics
       password: epics
       oauth2:
