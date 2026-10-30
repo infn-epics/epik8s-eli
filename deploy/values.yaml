@@ -205,7 +205,7 @@ epicsConfiguration:
     webolog:
       name: "webolog"
       image:
-        repository: "ghcr.io/infn-epics/phoebus-olog-web-client"
+        repository: "ghcr.io/infn-epics/phoebus-olog-web-client-node-server"
         tag: "latest"
         pullPolicy: "Always"
       charturl: https://baltig.infn.it/epics-containers/generic-application-chart.git
@@ -217,7 +217,7 @@ epicsConfiguration:
         - name: VITE_APP_DEFAULT_LEVEL
           value: "Info"
         - name: VITE_APP_BASE_URL
-          value: "https://eli-webolog.srv.int.eli-np.ro/Olog"
+          value: "https://eli-olog.srv.int.eli-np.ro/Olog"
         - name: VITE_REACT_APP_USE_KEYCLOAK
           value: true
         - name: VITE_AUTH_CLIENT_ID
@@ -233,19 +233,25 @@ epicsConfiguration:
         - name: VITE_AUTH_SCOPE
           value: openid
 
+      # Same node-server image and build as BTF. No AAI at ELI: OAuth2 stays off,
+      # users sign in to Olog with the basic-auth account.
       exec: |
-        echo "VITE_APP_BASE_URL=$(VITE_APP_BASE_URL)" > .env
-        echo "VITE_APP_LOGBOOK_NAME=INFN BTF Logbook" >> .env
-        echo "VITE_AUTH_CLIENT_ID=camunda" >> .env
-        echo "VITE_AUTH_ENDPOINT=https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/auth" >> .env
-        echo "VITE_AUTH_ENDPOINT_LOGOUT=https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/logout" >> .env
-        echo "VITE_AUTH_ENDPOINT_TOKEN=https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/token" >> .env
-        echo "VITE_AUTH_ENDPOINT_REDIRECT_URI=https://eli-webolog.srv.int.eli-np.ro" >> .env
-        echo "VITE_AUTH_SCOPE=openid" >> .env
-        echo "VITE_APP_OAUTH2_ENABLED=false" >> .env
-        cat .env
+        rm -rf .package-lock.json .env .env.production .env.local node_modules env* build
+        echo "=== Creating .env.production file ==="
+        cat > .env.production <<'ENVEOF'
+        VITE_APP_BASE_URL=https://eli-olog.srv.int.eli-np.ro/Olog
+        VITE_APP_LOGBOOK_NAME=ELI-NP Logbook
+        VITE_APP_OAUTH2_ENABLED=false
+        VITE_APP_LEVEL_VALUES=["Urgent","Suggestion","Info","Request","Problem"]
+        VITE_APP_DEFAULT_LEVEL=Info
+        VITE_APP_WEBSOCKET_BASE_URL=wss://eli-olog.srv.int.eli-np.ro/Olog/web-socket
+        ENVEOF
+        echo "=== .env.production contents ==="
+        cat .env.production
         npm ci
-        npm run build --force
+        npm run build
+        echo "=== Verifying build (should NOT find localhost:3000) ==="
+        grep -r "localhost:3000" build/ && echo "ERROR: localhost:3000 still in build!" || echo "OK: No localhost:3000 found"
         serve -l 3000 -s build
       securityContext:
             runAsUser: 1000
@@ -266,6 +272,12 @@ epicsConfiguration:
       mongodb: "eli-ologAttachments"
       disable: false ##      
       targetRevision: "main"
+      # INFN build of phoebus-olog branch infn/2026-10, as BTF and SPARC. It adds
+      # per-logbook permissions and grants signed-in users nothing by default.
+      olog:
+        image: "ghcr.io/infn-epics/org-phoebus-service-olog:infn-2026-10"
+        # Every signed-in user (here the basic-auth account) reads and writes every logbook
+        authenticatedPermissions: "READ,WRITE"
       service:
         loglevel: "DEBUG"
       cors:
@@ -287,7 +299,10 @@ epicsConfiguration:
       phoebusservice: "saveandrestore"
       targetRevision: "main"
       saveandrestore:
-        image: "ghcr.io/infn-epics/phoebus/service-save-and-restore"
+        # Pinned to the INFN build BTF and SPARC run (untagged = latest moved to it
+        # and crash-looped). A Spring Boot 4 image: jackson3 is required.
+        image: "ghcr.io/infn-epics/phoebus/service-save-and-restore:infn-2026-10"
+        jackson3: true
       enable_ingress: true
       mongodb: "eli-ologAttachments"
       disable: false ##
