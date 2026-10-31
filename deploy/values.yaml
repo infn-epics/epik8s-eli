@@ -264,7 +264,14 @@ epicsConfiguration:
           -e 's/import\.meta\.env\.VITE_APP_OAUTH2_ENABLED === "true"/false/g' \
           -e 's/import\.meta\.env\.VITE_APP_OAUTH2_ENABLED/false/g'
         sed -i 's/autoRefreshToken: true,/autoRefreshToken: true, autoLogin: false,/' src/views/App.jsx
-        grep -rn "OAUTH2_ENABLED\|autoLogin" src | grep -v "\.test\." || true
+        # Search, logbooks and log views wait for isAuthenticated, which is set
+        # only by an OAuth2 token: with classic login, signed in = a user in the
+        # store (API calls and attachments already use the Olog session cookie).
+        sed -i \
+          -e 's/import { useDispatch } from "react-redux";/import { useDispatch, useSelector } from "react-redux";/' \
+          -e 's/const isAuthenticated = !!authState\.token .*;/const isAuthenticated = !!useSelector((state) => state.auth.user);/' \
+          src/auth/authContext.jsx
+        grep -rn "OAUTH2_ENABLED\|autoLogin\|const isAuthenticated" src | grep -v "\.test\." || true
         npm ci
         npm run build
         echo "=== Verifying build (should NOT find localhost:3000) ==="
