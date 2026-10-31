@@ -236,6 +236,11 @@ epicsConfiguration:
       # Same node-server image and build as BTF. No AAI at ELI: OAuth2 stays off,
       # users sign in to Olog with the basic-auth account. The ELI ingresses
       # serve plain HTTP only, so Olog is reached over http:// and ws://.
+      # This client switches to OAuth2 whenever VITE_APP_OAUTH2_ENABLED is
+      # non-empty ("false" included) and always mounts the OAuth2 provider, which
+      # needs a client id and endpoints and logs in on load. So the sources are
+      # patched to classic login before the build, the provider gets autoLogin
+      # off, and the AUTH values are placeholders it never contacts.
       exec: |
         rm -rf .package-lock.json .env .env.production .env.local node_modules env* build
         echo "=== Creating .env.production file ==="
@@ -243,12 +248,23 @@ epicsConfiguration:
         VITE_APP_BASE_URL=http://eli-olog.srv.int.eli-np.ro/Olog
         VITE_APP_LOGBOOK_NAME=ELI-NP Logbook
         VITE_APP_OAUTH2_ENABLED=false
+        VITE_APP_AUTH_CLIENT_ID=webolog
+        VITE_APP_AUTH_ENDPOINT=http://eli-webolog.srv.int.eli-np.ro/
+        VITE_APP_AUTH_ENDPOINT_TOKEN=http://eli-webolog.srv.int.eli-np.ro/
+        VITE_APP_AUTH_ENDPOINT_REDIRECT_URI=http://eli-webolog.srv.int.eli-np.ro
         VITE_APP_LEVEL_VALUES=["Urgent","Suggestion","Info","Request","Problem"]
         VITE_APP_DEFAULT_LEVEL=Info
         VITE_APP_WEBSOCKET_BASE_URL=ws://eli-olog.srv.int.eli-np.ro/Olog/web-socket
         ENVEOF
         echo "=== .env.production contents ==="
         cat .env.production
+        echo "=== Forcing classic (username/password) login ==="
+        grep -rl "VITE_APP_OAUTH2_ENABLED" src | xargs sed -i \
+          -e 's/import\.meta\.env\.VITE_APP_OAUTH2_ENABLED === "false"/true/g' \
+          -e 's/import\.meta\.env\.VITE_APP_OAUTH2_ENABLED === "true"/false/g' \
+          -e 's/import\.meta\.env\.VITE_APP_OAUTH2_ENABLED/false/g'
+        sed -i 's/autoRefreshToken: true,/autoRefreshToken: true, autoLogin: false,/' src/views/App.jsx
+        grep -rn "OAUTH2_ENABLED\|autoLogin" src | grep -v "\.test\." || true
         npm ci
         npm run build
         echo "=== Verifying build (should NOT find localhost:3000) ==="
