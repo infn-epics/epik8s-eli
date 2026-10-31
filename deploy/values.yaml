@@ -218,20 +218,6 @@ epicsConfiguration:
           value: "Info"
         - name: VITE_APP_BASE_URL
           value: "http://eli-olog.srv.int.eli-np.ro/Olog"
-        - name: VITE_REACT_APP_USE_KEYCLOAK
-          value: true
-        - name: VITE_AUTH_CLIENT_ID
-          value: camunda
-        - name: VITE_AUTH_ENDPOINT
-          value: "https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/auth"
-        - name: VITE_AUTH_ENDPOINT_LOGOUT
-          value: "https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/logout"
-        - name: VITE_AUTH_ENDPOINT_TOKEN
-          value: "https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/token"
-        - name: VITE_AUTH_ENDPOINT_REDIRECT_URI
-          value: "https://eli-webolog.srv.int.eli-np.ro"
-        - name: VITE_AUTH_SCOPE
-          value: openid
 
       # Same node-server image and build as BTF. No AAI at ELI: OAuth2 stays off,
       # users sign in to Olog with the basic-auth account. The ELI ingresses
