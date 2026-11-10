@@ -120,7 +120,7 @@ epicsConfiguration:
 
     console: 
         replicaCount: 1
-        charturl: https://baltig.infn.it/epics-containers/epics-console-chart.git
+        charturl: https://github.com/infn-epics/console-chart.git
         enable_ingress: true
         gitpath: opi
         resources:
@@ -159,7 +159,7 @@ epicsConfiguration:
 
     webalarm: 
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       image:
         repository: baltig.infn.it:4567/epics-containers/phoebus-web-docker
       phoebusservice: "webalarm"
@@ -172,7 +172,7 @@ epicsConfiguration:
 
     pws: 
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       image:
         repository: baltig.infn.it:4567/epics-containers/phoebus-web-docker
       phoebusservice: "pvws"
@@ -185,7 +185,7 @@ epicsConfiguration:
     
     dbwr: 
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       image:
         repository: baltig.infn.it:4567/epics-containers/phoebus-web-docker
       phoebusservice: "dbwr"
@@ -208,7 +208,7 @@ epicsConfiguration:
         repository: "ghcr.io/infn-epics/phoebus-olog-web-client-node-server"
         tag: "latest"
         pullPolicy: "Always"
-      charturl: https://baltig.infn.it/epics-containers/generic-application-chart.git
+      charturl: https://github.com/infn-epics/generic-application-chart.git
       enable_ingress: true
       disable: false ##
       env:
@@ -323,7 +323,7 @@ epicsConfiguration:
     
     alarmserver: 
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       phoebusservice: "alarmserver"
       targetRevision: "test-olog-saveandrestore"
       alarm:
@@ -339,7 +339,7 @@ epicsConfiguration:
     
     alarmlogger: 
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       phoebusservice: "alarmlogger"
       targetRevision: "test-olog-saveandrestore"
 
@@ -372,7 +372,7 @@ epicsConfiguration:
       image:
         repository: "nginx:alpine"
         pullPolicy: "Always"
-      charturl: https://baltig.infn.it/epics-containers/generic-application-chart.git
+      charturl: https://github.com/infn-epics/generic-application-chart.git
       enable_ingress: true
       disable: false ##
       secure: true
@@ -387,7 +387,7 @@ epicsConfiguration:
 
     scanserver: 
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       phoebusservice: "scanserver"
       auto_security: true
       enable_ingress: true
@@ -410,6 +410,14 @@ epicsConfiguration:
         name: "default"
   
   iocs:
+
+    # --- Moxa NPort web-console monitor/control IOCs (serial-converter-moxa) ---
+    # Read-only monitoring (dryrun: 1), as in BTF. Admin credentials come from
+    # /.ssh/moxa_netrc (epik8s-secret, via epik8s-platform/secrets-moxa/apply-moxa-secret.sh).
+    # pollperiod 5 s to keep the console session load light on production serial servers.
+    nport-mxa16001: { name: nport-mxa16001, template: moxaNport, iocprefix: "ELI:MOXA:N01", server: scelimxa16001.int.eli-np.ro, devgroup: net, devtype: moxaNport, nports: 16, pollperiod: 5, dryrun: 1 }
+    nport-mxa16002: { name: nport-mxa16002, template: moxaNport, iocprefix: "ELI:MOXA:N02", server: scelimxa16002.int.eli-np.ro, devgroup: net, devtype: moxaNport, nports: 16, pollperiod: 5, dryrun: 1 }
+
     llrf01:
       name: "llrf01"
       asset: "https://confluence.infn.it/x/doKBBg"
@@ -2871,6 +2879,9 @@ epicsConfiguration:
           
         - axid: 6
           name: SCN06:MOT01
+
+        - axid: 7
+          name: SCN07:MOT01
           
     plcs:
       name: "plcs"
@@ -2908,7 +2919,7 @@ cronjobs:
       image:
         repository: "ghcr.io/hugomods/hugo:debian-nightly"
         pullPolicy: "Always"
-      charturl: https://baltig.infn.it/epics-containers/generic-application-chart.git
+      charturl: https://github.com/infn-epics/generic-application-chart.git
       gitRepoApp:
         url: https://github.com/infn-epics/epik8s-elinp-site.git
         mountPath: /src
