@@ -36,7 +36,7 @@ epicsConfiguration:
       auto_security: true
       template: "gateway"
       autosync: true ## restart automatically on changes
-      staticIp: true
+      keepOnDelete: true
       svcparams:
         - name: "disconnect_timeout"
           value: 60
@@ -57,7 +57,7 @@ epicsConfiguration:
       auto_security: true
       
       autosync: true ## restart automatically on changes
-      staticIp: true
+      keepOnDelete: true
       resources:
             limits:
               cpu: 999m
@@ -2920,9 +2920,37 @@ epicsConfiguration:
         - axid: 6
           name: SCN06:MOT01
 
+        # - axid: 7
+        #   name: SCN07:MOT01
+
+
+    diag-tml7:
+      name: "diag-tml7"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2447&objectId=133401"
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
+      iocprefix: "LEL"
+      # direct TCP to the Moxa (raw TCP server), as BTF/SPARC; no socat tty bridge
+      server: scelimxa1002.int.eli-np.ro
+      port: 4001
+      dataVolume:
+        accessMode: 'ReadWriteOnce' ## until not enabled shared
+        size: 8Mi
+      
+      autosync: false ## restart automatically on changes
+      devtype: technosoft-asyn
+      devgroup: mot
+      opi: "tml"
+      template: "motor"  
+      motor:
+        hostid: 7
+        velo: 200
+        bvelo: 200
+        vbas: 200
+      devices:
+        
+
         - axid: 7
-          name: SCN07:MOT01
-          
+          name: SCN07:MOT01      
     plcs:
       name: "plcs"
       asset: ""
