@@ -47,7 +47,7 @@
               <actions execute_as_one="true">
                 <action type="write_pv">
                   <description>WritePV</description>
-                  <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
+                  <pv_name>pva://$(DEVICE):$(CAM):Acquire</pv_name>
                   <value>0</value>
                 </action>
               </actions>
@@ -76,14 +76,14 @@
                   <exp bool_exp="pv0==0">
                     <value>false</value>
                   </exp>
-                  <pv_name>$(DEVICE):$(CAM):Acquire_RBV</pv_name>
+                  <pv_name>pva://$(DEVICE):$(CAM):Acquire_RBV</pv_name>
                 </rule>
               </rules>
               <tooltip></tooltip>
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update Template</name>
-              <pv_name>$(DEVICE):$(CAM):DetectorState_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):DetectorState_RBV</pv_name>
               <x>80</x>
               <width>163</width>
               <foreground_color>
@@ -109,17 +109,17 @@
               <actions execute_as_one="true">
                 <action type="write_pv">
                   <description>WritePV</description>
-                  <pv_name>$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
+                  <pv_name>pva://$(DEVICE):$(CAM):ArrayCallbacks</pv_name>
                   <value>1</value>
                 </action>
                 <action type="write_pv">
                   <description>Write PV</description>
-                  <pv_name>$(DEVICE):$(CAM):ArrayCounter</pv_name>
+                  <pv_name>pva://$(DEVICE):$(CAM):ArrayCounter</pv_name>
                   <value>0</value>
                 </action>
                 <action type="write_pv">
                   <description>WritePV</description>
-                  <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
+                  <pv_name>pva://$(DEVICE):$(CAM):Acquire</pv_name>
                   <value>1</value>
                 </action>
               </actions>
@@ -147,7 +147,7 @@
                   <exp bool_exp="pv0==0">
                     <value>true</value>
                   </exp>
-                  <pv_name>$(DEVICE):$(CAM):Acquire_RBV</pv_name>
+                  <pv_name>pva://$(DEVICE):$(CAM):Acquire_RBV</pv_name>
                 </rule>
               </rules>
               <tooltip></tooltip>
@@ -177,7 +177,7 @@
             </widget>
             <widget type="combo" version="2.0.0">
               <name>Combo</name>
-              <pv_name>$(DEVICE):$(CAM):ImageMode</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):ImageMode</pv_name>
               <x>80</x>
               <y>30</y>
               <width>135</width>
@@ -194,7 +194,7 @@
             </widget>
             <widget type="led" version="2.0.0">
               <name>LED_1</name>
-              <pv_name>$(DEVICE):$(CAM):Acquire</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):Acquire</pv_name>
               <x>220</x>
               <y>30</y>
               <width>30</width>
@@ -238,7 +238,7 @@
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update Template_1</name>
-              <pv_name>$(DEVICE):$(CAM):ArrayCounter_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):ArrayCounter_RBV</pv_name>
               <x>60</x>
               <width>190</width>
               <height>28</height>
@@ -262,7 +262,7 @@
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update Template_2</name>
-              <pv_name>$(DEVICE):$(CAM):ArrayRate_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):ArrayRate_RBV</pv_name>
               <x>60</x>
               <y>35</y>
               <width>80</width>
@@ -378,7 +378,7 @@
             </widget>
             <widget type="spinner" version="2.0.0">
               <name>Spinner Template_5</name>
-              <pv_name>$(DEVICE):$(CAM):Gain</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):Gain</pv_name>
               <y>30</y>
               <width>90</width>
               <height>30</height>
@@ -404,7 +404,7 @@ Limits: [320,1000]</tooltip>
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update_1</name>
-              <pv_name>=1000*'$(DEVICE):$(CAM):AcquireTime_RBV'</pv_name>
+              <pv_name>=1000*'pva://$(DEVICE):$(CAM):AcquireTime_RBV'</pv_name>
               <x>104</x>
               <y>80</y>
               <height>30</height>
@@ -425,7 +425,7 @@ Limits: [320,1000]</tooltip>
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update_2</name>
-              <pv_name>$(DEVICE):$(CAM):Gain_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):Gain_RBV</pv_name>
               <x>104</x>
               <y>30</y>
               <height>30</height>
@@ -471,7 +471,7 @@ from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
 source_value=PVUtil.getDouble(pvs[0])/1000;
 pvs[1].write(source_value);]]></text>
                   <pv_name>loc://expTime_ms(0)</pv_name>
-                  <pv_name trigger="false">$(DEVICE):$(CAM):AcquireTime</pv_name>
+                  <pv_name trigger="false">pva://$(DEVICE):$(CAM):AcquireTime</pv_name>
                 </script>
               </scripts>
               <tooltip>$(pv_name)
@@ -491,7 +491,7 @@ Limits: [0.014-0.039]</tooltip>
             <transparent>true</transparent>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update_9</name>
-              <pv_name>$(DEVICE):$(CAM):MaxSizeX_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):MaxSizeX_RBV</pv_name>
               <x>110</x>
               <width>60</width>
               <height>30</height>
@@ -509,7 +509,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update_11</name>
-              <pv_name>$(DEVICE):$(CAM):ArraySizeX_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):ArraySizeX_RBV</pv_name>
               <x>110</x>
               <y>40</y>
               <width>60</width>
@@ -558,7 +558,7 @@ Limits: [0.014-0.039]</tooltip>
             <transparent>true</transparent>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update_8</name>
-              <pv_name>$(DEVICE):$(CAM):Model_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):Model_RBV</pv_name>
               <x>90</x>
               <width>160</width>
               <height>30</height>
@@ -568,7 +568,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update_13</name>
-              <pv_name>$(DEVICE):$(CAM):Manufacturer_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):Manufacturer_RBV</pv_name>
               <x>10</x>
               <width>70</width>
               <height>30</height>
@@ -579,7 +579,7 @@ Limits: [0.014-0.039]</tooltip>
           </widget>
           <widget type="textupdate" version="2.0.0">
             <name>Text Update_12</name>
-            <pv_name>$(DEVICE):$(CAM):ArraySizeY_RBV</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):ArraySizeY_RBV</pv_name>
             <x>198</x>
             <y>373</y>
             <width>60</width>
@@ -589,7 +589,7 @@ Limits: [0.014-0.039]</tooltip>
           </widget>
           <widget type="textupdate" version="2.0.0">
             <name>Text Update_10</name>
-            <pv_name>$(DEVICE):$(CAM):MaxSizeY_RBV</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):MaxSizeY_RBV</pv_name>
             <x>198</x>
             <y>333</y>
             <width>60</width>
@@ -635,7 +635,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update_3</name>
-              <pv_name>$(DEVICE):$(CAM):PixelFormat_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):PixelFormat_RBV</pv_name>
               <x>120</x>
               <y>20</y>
               <width>110</width>
@@ -655,7 +655,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="combo" version="2.0.0">
               <name>Combo_1</name>
-              <pv_name>$(DEVICE):$(CAM):PixelFormat</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):PixelFormat</pv_name>
               <y>20</y>
               <width>110</width>
               <foreground_color>
@@ -690,7 +690,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="combo" version="2.0.0">
               <name>menu #24</name>
-              <pv_name>$(DEVICE):$(CAM):TriggerMode</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):TriggerMode</pv_name>
               <x>68</x>
               <width>92</width>
               <height>20</height>
@@ -702,7 +702,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>text update #27</name>
-              <pv_name>$(DEVICE):$(CAM):TriggerMode_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):TriggerMode_RBV</pv_name>
               <x>170</x>
               <y>1</y>
               <width>63</width>
@@ -725,7 +725,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="combo" version="2.0.0">
               <name>menu #34</name>
-              <pv_name>$(DEVICE):$(CAM):TriggerSource</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):TriggerSource</pv_name>
               <x>68</x>
               <y>27</y>
               <width>92</width>
@@ -738,7 +738,7 @@ Limits: [0.014-0.039]</tooltip>
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>text update #37</name>
-              <pv_name>$(DEVICE):$(CAM):TriggerSource_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):TriggerSource_RBV</pv_name>
               <x>170</x>
               <y>27</y>
               <width>63</width>
@@ -925,7 +925,7 @@ else:
           </widget>
           <widget type="checkbox" version="2.0.0">
             <name>Check Box_3</name>
-            <pv_name>$(DEVICE):$(CAM):GC_ReverseX</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):GC_ReverseX</pv_name>
             <label>ReverseX</label>
             <x>18</x>
             <y>193</y>
@@ -933,7 +933,7 @@ else:
           </widget>
           <widget type="checkbox" version="2.0.0">
             <name>Check Box_4</name>
-            <pv_name>$(DEVICE):$(CAM):GC_ReverseY</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):GC_ReverseY</pv_name>
             <label>ReverseY</label>
             <x>138</x>
             <y>193</y>
@@ -975,11 +975,11 @@ else:
             <actions>
               <action type="write_pv">
                 <description>Write PV</description>
-                <pv_name>$(DEVICE):$(CAM):ARResetCamera</pv_name>
+                <pv_name>pva://$(DEVICE):$(CAM):ARResetCamera</pv_name>
                 <value>1</value>
               </action>
             </actions>
-            <pv_name>$(DEVICE):$(CAM):ARResetCamera</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):ARResetCamera</pv_name>
             <text>CAM RESET</text>
             <x>18</x>
             <y>382</y>
@@ -1027,7 +1027,7 @@ else:
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update</name>
-              <pv_name>$(DEVICE):$(CAM):TIFF1:FilePath_RBV</pv_name>
+              <pv_name>ca://$(DEVICE):$(CAM):TIFF1:FilePath_RBV</pv_name>
               <x>1</x>
               <y>78</y>
               <width>220</width>
@@ -1058,7 +1058,7 @@ else:
               <script file="Scripts/MakeFolder.py">
                 <pv_name trigger="false">loc://save_folder</pv_name>
                 <pv_name>loc://folder_created</pv_name>
-                <pv_name trigger="false">$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
+                <pv_name trigger="false">ca://$(DEVICE):$(CAM):TIFF1:FilePath</pv_name>
               </script>
             </scripts>
           </widget>
@@ -1097,7 +1097,7 @@ else:
             <transparent>true</transparent>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update_6</name>
-              <pv_name>$(DEVICE):$(CAM):TIFF1:Capture_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):TIFF1:Capture_RBV</pv_name>
               <x>160</x>
               <y>30</y>
               <width>90</width>
@@ -1107,7 +1107,7 @@ else:
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update_7</name>
-              <pv_name>$(DEVICE):$(CAM):TIFF1:WriteStatus</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):TIFF1:WriteStatus</pv_name>
               <x>160</x>
               <y>70</y>
               <width>90</width>
@@ -1117,7 +1117,7 @@ else:
             </widget>
             <widget type="spinner" version="2.0.0">
               <name>NumImages</name>
-              <pv_name>$(DEVICE):$(CAM):TIFF1:NumCapture</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):TIFF1:NumCapture</pv_name>
               <y>30</y>
               <width>80</width>
               <height>30</height>
@@ -1127,7 +1127,7 @@ else:
             </widget>
             <widget type="textupdate" version="2.0.0">
               <name>Text Update_5</name>
-              <pv_name>$(DEVICE):$(CAM):TIFF1:NumCaptured_RBV</pv_name>
+              <pv_name>pva://$(DEVICE):$(CAM):TIFF1:NumCaptured_RBV</pv_name>
               <x>90</x>
               <y>30</y>
               <width>60</width>
@@ -1170,7 +1170,7 @@ else:
                   <exp bool_exp="pv0 ==0">
                     <value>false</value>
                   </exp>
-                  <pv_name>$(DEVICE):$(CAM):TIFF1:FilePathExists_RBV</pv_name>
+                  <pv_name>pva://$(DEVICE):$(CAM):TIFF1:FilePathExists_RBV</pv_name>
                 </rule>
               </rules>
               <scripts>
@@ -1182,7 +1182,7 @@ else:
           </widget>
           <widget type="led" version="2.0.0">
             <name>FolderExist</name>
-            <pv_name>$(DEVICE):$(CAM):TIFF1:FilePathExists_RBV</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):TIFF1:FilePathExists_RBV</pv_name>
             <x>238</x>
             <y>103</y>
             <width>25</width>
@@ -1282,14 +1282,14 @@ else:
     <height>70</height>
     <widget type="bool_button" version="2.0.0">
       <name>Boolean Button</name>
-      <pv_name>$(CAMLIGHT):RLY_SP</pv_name>
+      <pv_name>pva://$(CAMLIGHT):RLY_SP</pv_name>
       <x>62</x>
       <y>1</y>
       <width>70</width>
     </widget>
     <widget type="led" version="2.0.0">
       <name>LED_3</name>
-      <pv_name>$(CAMLIGHT):RLY_RB</pv_name>
+      <pv_name>pva://$(CAMLIGHT):RLY_RB</pv_name>
       <x>12</x>
       <width>30</width>
       <height>30</height>

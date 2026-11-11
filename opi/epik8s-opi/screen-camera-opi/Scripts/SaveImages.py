@@ -8,27 +8,31 @@ mycam = widget.getEffectiveMacros().getValue("CAM")
 start_save = PVUtil.getDouble(pvs[0])
 
 if start_save==1 and mydev and mycam:
-    prefx=mydev+':'+mycam+":TIFF1:"
+    # Scalars go over PVA; the char-waveform strings (FileName, FileTemplate)
+    # stay on CA, since PVA delivers them as byte arrays.
+    prefx="pva://"+mydev+':'+mycam+":TIFF1:"
+    prefx_ca="ca://"+mydev+':'+mycam+":TIFF1:"
+    TMO=3000  # ms; 100 ms was too short for a first connection
     #start acquire
-    pv00=PVUtil.createPV(mydev+':'+mycam+":Acquire",100)
+    pv00=PVUtil.createPV("pva://"+mydev+':'+mycam+":Acquire",TMO)
     pv00.setValue(1)
-    pv0=PVUtil.createPV(prefx+"FileName",100)
+    pv0=PVUtil.createPV(prefx_ca+"FileName",TMO)
     pv0.setValue("img")
-    pv1=PVUtil.createPV(prefx+"FileNumber",100)
+    pv1=PVUtil.createPV(prefx+"FileNumber",TMO)
     pv1.setValue(0)
-    pv2=PVUtil.createPV(prefx+"AutoIncrement",100)
+    pv2=PVUtil.createPV(prefx+"AutoIncrement",TMO)
     pv2.setValue(1)
-    pv3=PVUtil.createPV(prefx+"FileTemplate",100)
+    pv3=PVUtil.createPV(prefx_ca+"FileTemplate",TMO)
     pv3.setValue("%s%s%3.3d.tiff")
-    pv4=PVUtil.createPV(prefx+"FileWriteMode",100)
-    pv4.setValue("Capture")
-    pv5=PVUtil.createPV(prefx+"AutoSave",100)
+    pv4=PVUtil.createPV(prefx+"FileWriteMode",TMO)
+    pv4.setValue(1)  # FileWriteMode: 0=Single 1=Capture 2=Stream
+    pv5=PVUtil.createPV(prefx+"AutoSave",TMO)
     pv5.setValue(0)
-    pv6=PVUtil.createPV(prefx+"Capture",100)
-    pv7=PVUtil.createPV(prefx+"Capture_RBV",100)
-    pv8=PVUtil.createPV(prefx+"NumCapture_RBV",100)
-    pv9=PVUtil.createPV(prefx+"NumCaptured_RBV",100)
-    pv10=PVUtil.createPV(prefx+"WriteFile",100)
+    pv6=PVUtil.createPV(prefx+"Capture",TMO)
+    pv7=PVUtil.createPV(prefx+"Capture_RBV",TMO)
+    pv8=PVUtil.createPV(prefx+"NumCapture_RBV",TMO)
+    pv9=PVUtil.createPV(prefx+"NumCaptured_RBV",TMO)
+    pv10=PVUtil.createPV(prefx+"WriteFile",TMO)
     nimg=PVUtil.getInt(pv8);
     max_attempts=20*nimg
     Thread.sleep(500)

@@ -72,13 +72,13 @@
         <exp bool_exp="pv0&lt;1">
           <value>false</value>
         </exp>
-        <pv_name>$(DEVICE):$(CAM):Stats1:ComputeCentroid_RBV</pv_name>
+        <pv_name>pva://$(DEVICE):$(CAM):Stats1:ComputeCentroid_RBV</pv_name>
       </rule>
       <rule name="centroidVvisible" prop_id="rois[2].visible" out_exp="false">
         <exp bool_exp="pv0&lt;1">
           <value>false</value>
         </exp>
-        <pv_name>$(DEVICE):$(CAM):Stats1:ComputeCentroid_RBV</pv_name>
+        <pv_name>pva://$(DEVICE):$(CAM):Stats1:ComputeCentroid_RBV</pv_name>
       </rule>
     </rules>
     <limits_from_pv>true</limits_from_pv>
@@ -108,7 +108,7 @@
         <visible>true</visible>
         <interactive>false</interactive>
         <x_pv>=0</x_pv>
-        <y_pv>='$(DEVICE):$(CAM):Stats1:CentroidY_RBV'-1</y_pv>
+        <y_pv>='pva://$(DEVICE):$(CAM):Stats1:CentroidY_RBV'-1</y_pv>
         <width_pv>=100000</width_pv>
         <height_pv>=2</height_pv>
         <file></file>
@@ -121,7 +121,7 @@
         </color>
         <visible>true</visible>
         <interactive>false</interactive>
-        <x_pv>='$(DEVICE):$(CAM):Stats1:CentroidX_RBV'-1</x_pv>
+        <x_pv>='pva://$(DEVICE):$(CAM):Stats1:CentroidX_RBV'-1</x_pv>
         <y_pv>=0</y_pv>
         <width_pv>=2</width_pv>
         <height_pv>=100000</height_pv>
@@ -175,10 +175,10 @@ pvs[5].write(y)]]></text>
             <pv_name>loc://roi_y</pv_name>
             <pv_name>loc://roi_w</pv_name>
             <pv_name>loc://roi_h</pv_name>
-            <pv_name>$(DEVICE):$(CAM):MinX</pv_name>
-            <pv_name>$(DEVICE):$(CAM):MinY</pv_name>
-            <pv_name>$(DEVICE):$(CAM):SizeX</pv_name>
-            <pv_name>$(DEVICE):$(CAM):SizeY</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):MinX</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):MinY</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):SizeX</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):SizeY</pv_name>
           </script>
         </action>
       </actions>
@@ -217,10 +217,10 @@ pvs[4].write(0)
 pvs[5].write(0)
 pvs[6].write(100000)
 pvs[7].write(100000)]]></text>
-            <pv_name>$(DEVICE):$(CAM):MinX</pv_name>
-            <pv_name>$(DEVICE):$(CAM):MinY</pv_name>
-            <pv_name>$(DEVICE):$(CAM):SizeX</pv_name>
-            <pv_name>$(DEVICE):$(CAM):SizeY</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):MinX</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):MinY</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):SizeX</pv_name>
+            <pv_name>pva://$(DEVICE):$(CAM):SizeY</pv_name>
             <pv_name>loc://roi_x</pv_name>
             <pv_name>loc://roi_y</pv_name>
             <pv_name>loc://roi_w</pv_name>
@@ -260,7 +260,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>MinX_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):MinX_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):MinX_RBV</pv_name>
       <x>16</x>
       <y>98</y>
       <width>60</width>
@@ -275,7 +275,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>MinY_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):MinY_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):MinY_RBV</pv_name>
       <x>98</x>
       <y>98</y>
       <width>60</width>
@@ -290,7 +290,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>SizeX_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):SizeX_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):SizeX_RBV</pv_name>
       <x>180</x>
       <y>98</y>
       <width>60</width>
@@ -305,7 +305,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>SizeY_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):SizeY_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):SizeY_RBV</pv_name>
       <x>262</x>
       <y>98</y>
       <width>54</width>
@@ -334,7 +334,7 @@ pvs[7].write(100000)]]></text>
     <transparent>true</transparent>
     <widget type="checkbox" version="2.0.0">
       <name>EnableStats</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:EnableCallbacks</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:EnableCallbacks</pv_name>
       <label>Enable Plugin</label>
       <x>0</x>
       <y>0</y>
@@ -342,7 +342,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="checkbox" version="2.0.0">
       <name>ComputeStatistics</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:ComputeStatistics</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:ComputeStatistics</pv_name>
       <label>Compute Statistics</label>
       <x>150</x>
       <y>0</y>
@@ -350,7 +350,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="checkbox" version="2.0.0">
       <name>ComputeCentroid</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:ComputeCentroid</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:ComputeCentroid</pv_name>
       <label>Compute Centroid</label>
       <x>0</x>
       <y>26</y>
@@ -366,7 +366,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textentry" version="3.0.0">
       <name>CentroidThreshold</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:CentroidThreshold</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:CentroidThreshold</pv_name>
       <x>242</x>
       <y>26</y>
       <width>70</width>
@@ -382,7 +382,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>MinValue_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:MinValue_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:MinValue_RBV</pv_name>
       <x>30</x>
       <y>58</y>
       <width>60</width>
@@ -397,7 +397,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>MaxValue_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:MaxValue_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:MaxValue_RBV</pv_name>
       <x>130</x>
       <y>58</y>
       <width>60</width>
@@ -412,7 +412,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>MeanValue_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:MeanValue_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:MeanValue_RBV</pv_name>
       <x>238</x>
       <y>58</y>
       <width>74</width>
@@ -427,7 +427,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Sigma_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:Sigma_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:Sigma_RBV</pv_name>
       <x>38</x>
       <y>84</y>
       <width>60</width>
@@ -442,7 +442,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Total_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:Total_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:Total_RBV</pv_name>
       <x>136</x>
       <y>84</y>
       <width>80</width>
@@ -457,7 +457,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>Net_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:Net_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:Net_RBV</pv_name>
       <x>252</x>
       <y>84</y>
       <width>60</width>
@@ -493,7 +493,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>CentroidX_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:CentroidX_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:CentroidX_RBV</pv_name>
       <x>20</x>
       <y>0</y>
       <width>80</width>
@@ -508,7 +508,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>CentroidY_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:CentroidY_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:CentroidY_RBV</pv_name>
       <x>180</x>
       <y>0</y>
       <width>80</width>
@@ -523,7 +523,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>SigmaX_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:SigmaX_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:SigmaX_RBV</pv_name>
       <x>60</x>
       <y>28</y>
       <width>80</width>
@@ -538,7 +538,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>SigmaY_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:SigmaY_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:SigmaY_RBV</pv_name>
       <x>220</x>
       <y>28</y>
       <width>80</width>
@@ -553,7 +553,7 @@ pvs[7].write(100000)]]></text>
     </widget>
     <widget type="textupdate" version="2.0.0">
       <name>SigmaXY_RBV</name>
-      <pv_name>$(DEVICE):$(CAM):Stats1:SigmaXY_RBV</pv_name>
+      <pv_name>pva://$(DEVICE):$(CAM):Stats1:SigmaXY_RBV</pv_name>
       <x>60</x>
       <y>56</y>
       <width>80</width>
