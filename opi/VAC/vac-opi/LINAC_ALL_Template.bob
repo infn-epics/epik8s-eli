@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-04-30 16:03:04 by georg-->
+<!--Saved on 2026-11-11 18:47:16 by georg-->
 <display version="2.0.0">
   <name>vacuum_display_$(LCID)</name>
   <width>600</width>
@@ -31,9 +31,16 @@
     <macros>
       <LINAC>ALL</LINAC>
     </macros>
-    <file>../../img/20260422. Vacuum LINAC Layout_ALL_1980_353.png</file>
+    <file>../../img/20261111. Vacuum LINAC Layout_ALL.png</file>
     <width>1337</width>
     <height>237</height>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Background IONP10 label cover</name>
+    <x>921</x><y>5</y><width>70</width><height>14</height>
+    <background_color><color red="255" green="255" blue="255" /></background_color>
+    <line_color><color red="255" green="255" blue="255" /></line_color>
+    <line_width>0</line_width>
   </widget>
   <widget type="group" version="3.0.0">
     <name>M1</name>
@@ -64,8 +71,8 @@
     <widget type="label" version="2.0.0">
       <name>Label_1</name>
       <text>VAC-GAUCC01</text>
-      <x>1</x>
-      <y>27</y>
+      <x>-2</x>
+      <y>17</y>
       <width>68</width>
       <height>10</height>
       <font>
@@ -73,50 +80,27 @@
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
     <widget type="label" version="2.0.0">
       <name>Label_2</name>
       <text>VAC-IONP01</text>
-      <y>125</y>
-      <width>55</width>
+      <y>154</y>
+      <width>60</width>
       <height>10</height>
       <font>
         <font family="Liberation Sans" style="BOLD" size="9.0">
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+    <x>-2</x>
+  </widget>
     <widget type="label" version="2.0.0">
       <name>Label_3</name>
       <text>VAC-IONP02</text>
-      <x>152</x>
-      <y>149</y>
-      <width>70</width>
-      <height>10</height>
-      <font>
-        <font family="Liberation Sans" style="BOLD" size="9.0">
-        </font>
-      </font>
-      <transparent>false</transparent>
-    </widget>
-    <widget type="label" version="2.0.0">
-      <name>Label_4</name>
-      <text>VAC-IONP04</text>
-      <x>260</x>
-      <y>151</y>
-      <width>58</width>
-      <height>10</height>
-      <font>
-        <font family="Liberation Sans" style="BOLD" size="9.0">
-        </font>
-      </font>
-      <transparent>false</transparent>
-    </widget>
-    <widget type="label" version="2.0.0">
-      <name>Label_6</name>
-      <text>VAC-GAUCC03</text>
-      <x>231</x>
-      <y>51</y>
+      <x>146</x>
+      <y>160</y>
       <width>68</width>
       <height>10</height>
       <font>
@@ -124,12 +108,41 @@
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>VAC-IONP04</text>
+      <x>265</x>
+      <y>151</y>
+      <width>68</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+      <visible>false</visible>
+  </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>VAC-GAUCC03</text>
+      <x>215</x>
+      <y>26</y>
+      <width>68</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+      <visible>true</visible>
+  </widget>
     <widget type="textupdate" version="2.0.0">
       <name>VAC-GAUCC04</name>
       <pv_name>LEL:VAC:VGCON01:CC04:PRES</pv_name>
       <x>284</x>
-      <y>14</y>
+      <y>27</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -153,8 +166,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP03</name>
       <pv_name>LEL:VAC:VPCON01:IONP03:PRES</pv_name>
-      <x>208</x>
-      <y>13</y>
+      <x>205</x>
+      <y>6</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -194,8 +207,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-GAUCC03</name>
       <pv_name>LEL:VAC:VGCON01:CC03:PRES</pv_name>
-      <x>231</x>
-      <y>62</y>
+      <x>215</x>
+      <y>36</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -219,7 +232,7 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP01</name>
       <pv_name>LEL:VAC:VPCON01:IONP01:PRES</pv_name>
-      <y>136</y>
+      <y>165</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -239,12 +252,13 @@
         </script>
       </scripts>
       <border_width>1</border_width>
-    </widget>
+      <x>-2</x>
+  </widget>
     <widget type="textupdate" version="2.0.0">
       <name>VAC-GAUCC01</name>
       <pv_name>LEL:VAC:VGCON01:CC01:PRES</pv_name>
-      <x>1</x>
-      <y>37</y>
+      <x>-2</x>
+      <y>28</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -268,8 +282,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP02</name>
       <pv_name>LEL:VAC:VPCON01:IONP02:PRES</pv_name>
-      <x>152</x>
-      <y>160</y>
+      <x>146</x>
+      <y>170</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -293,7 +307,7 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP04</name>
       <pv_name>LEL:VAC:VPCON01:IONP04:PRES</pv_name>
-      <x>258</x>
+      <x>265</x>
       <y>162</y>
       <width>60</width>
       <height>15</height>
@@ -318,8 +332,8 @@
     <widget type="label" version="2.0.0">
       <name>Label_7</name>
       <text>VAC-GAUCC04</text>
-      <x>282</x>
-      <y>3</y>
+      <x>284</x>
+      <y>16</y>
       <width>68</width>
       <height>10</height>
       <font>
@@ -327,20 +341,22 @@
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
     <widget type="label" version="2.0.0">
       <name>Label_5</name>
       <text>VAC-IONP03</text>
-      <x>208</x>
-      <y>2</y>
-      <width>58</width>
+      <x>205</x>
+      <y>-4</y>
+      <width>68</width>
       <height>10</height>
       <font>
         <font family="Liberation Sans" style="BOLD" size="9.0">
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
     <widget type="rectangle" version="2.0.0">
       <name>Health indicator M1</name>
       <y>202</y>
@@ -395,8 +411,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP05</name>
       <pv_name>LEL:VAC:VPCON02:IONP05:PRES</pv_name>
-      <x>80</x>
-      <y>196</y>
+      <x>63</x>
+      <y>185</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -420,8 +436,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP06</name>
       <pv_name>LEL:VAC:VPCON02:IONP06:PRES</pv_name>
-      <x>142</x>
-      <y>196</y>
+      <x>135</x>
+      <y>185</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -445,29 +461,31 @@
     <widget type="label" version="2.0.0">
       <name>Label_8</name>
       <text>VAC-IONP05</text>
-      <x>87</x>
-      <y>185</y>
-      <width>55</width>
+      <x>63</x>
+      <y>174</y>
+      <width>68</width>
       <height>10</height>
       <font>
         <font family="Liberation Sans" style="BOLD" size="9.0">
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
     <widget type="label" version="2.0.0">
       <name>Label_9</name>
       <text>VAC-IONP06</text>
-      <x>146</x>
-      <y>185</y>
-      <width>55</width>
+      <x>135</x>
+      <y>174</y>
+      <width>68</width>
       <height>10</height>
       <font>
         <font family="Liberation Sans" style="BOLD" size="9.0">
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
     <widget type="rectangle" version="2.0.0">
       <name>Health indicator M2</name>
       <x>19</x>
@@ -516,8 +534,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-GAUCC06</name>
       <pv_name>LEL:VAC:VGCON01:CC06:PRES</pv_name>
-      <x>104</x>
-      <y>63</y>
+      <x>102</x>
+      <y>33</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -541,8 +559,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP07</name>
       <pv_name>LEL:VAC:VPCON02:IONP07:PRES</pv_name>
-      <x>77</x>
-      <y>16</y>
+      <x>73</x>
+      <y>7</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -566,8 +584,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP08</name>
       <pv_name>LEL:VAC:VPCON02:IONP08:PRES</pv_name>
-      <x>99</x>
-      <y>183</y>
+      <x>102</x>
+      <y>172</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -591,8 +609,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP09</name>
       <pv_name>LEL:VAC:VPCON03:IONP09:PRES</pv_name>
-      <x>190</x>
-      <y>183</y>
+      <x>187</x>
+      <y>172</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -616,21 +634,8 @@
     <widget type="label" version="2.0.0">
       <name>Label_10</name>
       <text>VAC-IONP07</text>
-      <x>77</x>
-      <y>4</y>
-      <width>55</width>
-      <height>10</height>
-      <font>
-        <font family="Liberation Sans" style="BOLD" size="9.0">
-        </font>
-      </font>
-      <transparent>false</transparent>
-    </widget>
-    <widget type="label" version="2.0.0">
-      <name>Label_11</name>
-      <text>VAC-GAUCC06</text>
-      <x>104</x>
-      <y>51</y>
+      <x>73</x>
+      <y>-3</y>
       <width>68</width>
       <height>10</height>
       <font>
@@ -638,33 +643,50 @@
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_11</name>
+      <text>VAC-GAUCC06</text>
+      <x>102</x>
+      <y>22</y>
+      <width>68</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+      <visible>true</visible>
+  </widget>
     <widget type="label" version="2.0.0">
       <name>Label_12</name>
       <text>VAC-IONP08</text>
-      <x>104</x>
-      <y>172</y>
-      <width>55</width>
+      <x>102</x>
+      <y>161</y>
+      <width>68</width>
       <height>10</height>
       <font>
         <font family="Liberation Sans" style="BOLD" size="9.0">
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
     <widget type="label" version="2.0.0">
       <name>Label_13</name>
-      <text>VAC-IONP08</text>
-      <x>189</x>
-      <y>171</y>
-      <width>55</width>
+      <text>VAC-IONP09</text>
+      <x>187</x>
+      <y>161</y>
+      <width>60</width>
       <height>10</height>
       <font>
         <font family="Liberation Sans" style="BOLD" size="9.0">
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
     <widget type="rectangle" version="2.0.0">
       <name>Health indicator M3</name>
       <y>204</y>
@@ -718,8 +740,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP12</name>
       <pv_name>LEL:VAC:VPCON03:IONP12:PRES</pv_name>
-      <x>197</x>
-      <y>180</y>
+      <x>186</x>
+      <y>173</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -744,7 +766,7 @@
       <name>VAC-IONP13</name>
       <pv_name>LEL:VAC:VPCON04:IONP13:PRES</pv_name>
       <x>167</x>
-      <y>40</y>
+      <y>67</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -768,8 +790,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP14</name>
       <pv_name>LEL:VAC:VPCON04:IONP14:PRES</pv_name>
-      <x>232</x>
-      <y>76</y>
+      <x>246</x>
+      <y>88</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -793,8 +815,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP10</name>
       <pv_name>LEL:VAC:VPCON03:IONP10:PRES</pv_name>
-      <x>99</x>
-      <y>16</y>
+      <x>5</x>
+      <y>11</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -818,34 +840,36 @@
     <widget type="label" version="2.0.0">
       <name>Label_14</name>
       <text>VAC-IONP11</text>
-      <x>128</x>
-      <y>170</y>
-      <width>55</width>
+      <x>118</x>
+      <y>163</y>
+      <width>68</width>
       <height>10</height>
       <font>
         <font family="Liberation Sans" style="BOLD" size="9.0">
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
     <widget type="label" version="2.0.0">
       <name>Label_15</name>
       <text>VAC-IONP12</text>
-      <x>197</x>
-      <y>169</y>
-      <width>55</width>
+      <x>186</x>
+      <y>163</y>
+      <width>68</width>
       <height>10</height>
       <font>
         <font family="Liberation Sans" style="BOLD" size="9.0">
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
     <widget type="textupdate" version="2.0.0">
       <name>VAC-GAUCC08</name>
       <pv_name>LEL:VAC:VGCON02:CC08:PRES</pv_name>
-      <x>102</x>
-      <y>40</y>
+      <x>98</x>
+      <y>11</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -869,47 +893,8 @@
     <widget type="label" version="2.0.0">
       <name>Label_16</name>
       <text>VAC-IONP14</text>
-      <x>237</x>
-      <y>64</y>
-      <width>55</width>
-      <height>10</height>
-      <font>
-        <font family="Liberation Sans" style="BOLD" size="9.0">
-        </font>
-      </font>
-      <transparent>false</transparent>
-    </widget>
-    <widget type="label" version="2.0.0">
-      <name>Label_17</name>
-      <text>VAC-IONP13</text>
-      <x>174</x>
-      <y>58</y>
-      <width>55</width>
-      <height>10</height>
-      <font>
-        <font family="Liberation Sans" style="BOLD" size="9.0">
-        </font>
-      </font>
-      <transparent>false</transparent>
-    </widget>
-    <widget type="label" version="2.0.0">
-      <name>Label_18</name>
-      <text>VAC-IONP10</text>
-      <x>98</x>
-      <y>4</y>
-      <width>55</width>
-      <height>10</height>
-      <font>
-        <font family="Liberation Sans" style="BOLD" size="9.0">
-        </font>
-      </font>
-      <transparent>false</transparent>
-    </widget>
-    <widget type="label" version="2.0.0">
-      <name>Label_19</name>
-      <text>VAC-GAUCC08</text>
-      <x>101</x>
-      <y>79</y>
+      <x>246</x>
+      <y>77</y>
       <width>68</width>
       <height>10</height>
       <font>
@@ -917,12 +902,55 @@
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_17</name>
+      <text>VAC-IONP13</text>
+      <x>167</x>
+      <y>56</y>
+      <width>68</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+      <visible>true</visible>
+  </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_18</name>
+      <text>VAC-IONP10</text>
+      <x>5</x>
+      <y>0</y>
+      <width>60</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+      <visible>true</visible>
+  </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_19</name>
+      <text>VAC-GAUCC08</text>
+      <x>98</x>
+      <y>0</y>
+      <width>60</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+      <visible>true</visible>
+  </widget>
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP11</name>
       <pv_name>LEL:VAC:VPCON03:IONP11:PRES</pv_name>
-      <x>129</x>
-      <y>182</y>
+      <x>118</x>
+      <y>173</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -946,8 +974,8 @@
     <widget type="textupdate" version="2.0.0">
       <name>VAC-IONP15</name>
       <pv_name>LEL:VAC:VPCON04:IONP15:PRES</pv_name>
-      <x>423</x>
-      <y>46</y>
+      <x>422</x>
+      <y>37</y>
       <width>60</width>
       <height>15</height>
       <font>
@@ -971,16 +999,17 @@
     <widget type="label" version="2.0.0">
       <name>Label_20</name>
       <text>VAC-IONP15</text>
-      <x>426</x>
-      <y>32</y>
-      <width>55</width>
+      <x>422</x>
+      <y>27</y>
+      <width>68</width>
       <height>10</height>
       <font>
         <font family="Liberation Sans" style="BOLD" size="9.0">
         </font>
       </font>
       <transparent>false</transparent>
-    </widget>
+      <visible>true</visible>
+  </widget>
     <widget type="rectangle" version="2.0.0">
       <name>Health indicator M4_A</name>
       <x>358</x>
