@@ -2884,11 +2884,9 @@ epicsConfiguration:
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2447&objectId=133401"
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL"
-      serial:
-        ip: scelimxa16001.int.eli-np.ro
-        port: 4005
-        ptty: /var/tmp/ttyV0
-        baud: 9600
+      # direct TCP to the Moxa (raw TCP server), as BTF/SPARC; no socat tty bridge
+      server: scelimxa16001.int.eli-np.ro
+      port: 4005
       dataVolume:
         accessMode: 'ReadWriteOnce' ## until not enabled shared
         size: 8Mi
