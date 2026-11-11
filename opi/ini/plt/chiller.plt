@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databrowser>
-  <title></title>
+  <title>ELI chillers</title>
   <show_toolbar>true</show_toolbar>
   <update_period>3.0</update_period>
   <scroll_step>5</scroll_step>
@@ -25,37 +25,36 @@
   <axes>
     <axis>
       <visible>true</visible>
-      <name>Value 1</name>
-      <use_axis_name>false</use_axis_name>
-      <use_trace_names>true</use_trace_names>
+      <name>Temperature [°C]</name>
+      <use_axis_name>true</use_axis_name>
+      <use_trace_names>false</use_trace_names>
       <right>false</right>
       <color>
         <red>0</red>
         <green>0</green>
         <blue>0</blue>
       </color>
-      <min>-260.0</min>
-      <max>52.0</max>
-      <grid>false</grid>
-      <autoscale>false</autoscale>
+      <min>20.0</min>
+      <max>45.0</max>
+      <grid>true</grid>
+      <autoscale>true</autoscale>
       <log_scale>false</log_scale>
     </axis>
-   
   </axes>
   <annotations>
   </annotations>
   <pvlist>
     <pv>
-      <display_name>CHLBOC02</display_name>
+      <display_name>Chiller GUN</display_name>
       <visible>true</visible>
-      <name>SPARC:CHL:CHLBOC02:TEMP_RB</name>
+      <name>LEL:CHL:GUN:TEMP_RB</name>
       <axis>0</axis>
       <color>
         <red>255</red>
         <green>0</green>
         <blue>0</blue>
       </color>
-      <trace_type>AREA</trace_type>
+      <trace_type>LINE</trace_type>
       <linewidth>2</linewidth>
       <line_style>SOLID</line_style>
       <point_type>NONE</point_type>
@@ -71,16 +70,16 @@
       </archive>
     </pv>
     <pv>
-      <display_name>CHLSLS01</display_name>
+      <display_name>Chiller ACC01</display_name>
       <visible>true</visible>
-      <name>SPARC:CHL:CHLSLS01:TEMP_RB</name>
-      <axis>1</axis>
+      <name>LEL:CHL:ACC01:TEMP_RB</name>
+      <axis>0</axis>
       <color>
         <red>0</red>
-        <green>255</green>
+        <green>160</green>
         <blue>0</blue>
       </color>
-      <trace_type>AREA</trace_type>
+      <trace_type>LINE</trace_type>
       <linewidth>2</linewidth>
       <line_style>SOLID</line_style>
       <point_type>NONE</point_type>
@@ -96,16 +95,16 @@
       </archive>
     </pv>
     <pv>
-      <display_name>CHLRFD01</display_name>
+      <display_name>Chiller ACC02</display_name>
       <visible>true</visible>
-      <name>SPARC:CHL:CHLRFD01:TEMP_RB</name>
-      <axis>1</axis>
+      <name>LEL:CHL:ACC02:TEMP_RB</name>
+      <axis>0</axis>
       <color>
         <red>0</red>
         <green>0</green>
         <blue>255</blue>
       </color>
-      <trace_type>AREA</trace_type>
+      <trace_type>LINE</trace_type>
       <linewidth>2</linewidth>
       <line_style>SOLID</line_style>
       <point_type>NONE</point_type>
@@ -121,16 +120,16 @@
       </archive>
     </pv>
     <pv>
-      <display_name>SPARC:CHL:CHLBOC01:TEMP_RB</display_name>
+      <display_name>Chiller ACC03</display_name>
       <visible>true</visible>
-      <name>SPARC:CHL:CHLBOC01:TEMP_RB</name>
-      <axis>1</axis>
+      <name>LEL:CHL:ACC03:TEMP_RB</name>
+      <axis>0</axis>
       <color>
         <red>255</red>
         <green>127</green>
         <blue>0</blue>
       </color>
-      <trace_type>AREA</trace_type>
+      <trace_type>LINE</trace_type>
       <linewidth>2</linewidth>
       <line_style>SOLID</line_style>
       <point_type>NONE</point_type>
@@ -146,91 +145,16 @@
       </archive>
     </pv>
     <pv>
-      <display_name>CHLGUN01</display_name>
+      <display_name>Chiller MOD (roof)</display_name>
       <visible>true</visible>
-      <name>SPARC:CHL:CHLGUN01:TEMP_RB</name>
-      <axis>1</axis>
-      <color>
-        <red>0</red>
-        <green>255</green>
-        <blue>127</blue>
-      </color>
-      <trace_type>AREA</trace_type>
-      <linewidth>2</linewidth>
-      <line_style>SOLID</line_style>
-      <point_type>NONE</point_type>
-      <point_size>2</point_size>
-      <waveform_index>0</waveform_index>
-      <period>0.0</period>
-      <ring_size>5000</ring_size>
-      <request>OPTIMIZED</request>
-      <archive>
-        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
-        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
-        <key>1</key>
-      </archive>
-    </pv>
-    <pv>
-      <display_name>CHLAC301</display_name>
-      <visible>true</visible>
-      <name>SPARC:CHL:CHLAC301:TEMP_RB</name>
-      <axis>1</axis>
+      <name>LEL:CHL:MOD:TEMP_RB</name>
+      <axis>0</axis>
       <color>
         <red>127</red>
         <green>0</green>
         <blue>255</blue>
       </color>
-      <trace_type>AREA</trace_type>
-      <linewidth>2</linewidth>
-      <line_style>SOLID</line_style>
-      <point_type>NONE</point_type>
-      <point_size>2</point_size>
-      <waveform_index>0</waveform_index>
-      <period>0.0</period>
-      <ring_size>5000</ring_size>
-      <request>OPTIMIZED</request>
-      <archive>
-        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
-        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
-        <key>1</key>
-      </archive>
-    </pv>
-    <pv>
-      <display_name>CHLAC101</display_name>
-      <visible>true</visible>
-      <name>SPARC:CHL:CHLAC101:TEMP_RB</name>
-      <axis>1</axis>
-      <color>
-        <red>255</red>
-        <green>255</green>
-        <blue>0</blue>
-      </color>
-      <trace_type>AREA</trace_type>
-      <linewidth>2</linewidth>
-      <line_style>SOLID</line_style>
-      <point_type>NONE</point_type>
-      <point_size>2</point_size>
-      <waveform_index>0</waveform_index>
-      <period>0.0</period>
-      <ring_size>5000</ring_size>
-      <request>OPTIMIZED</request>
-      <archive>
-        <name>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</name>
-        <url>pbraw://eli-archiver.srv.int.eli-np.ro/retrieval</url>
-        <key>1</key>
-      </archive>
-    </pv>
-    <pv>
-      <display_name>CHLAC201</display_name>
-      <visible>true</visible>
-      <name>SPARC:CHL:CHLAC201:TEMP_RB</name>
-      <axis>1</axis>
-      <color>
-        <red>0</red>
-        <green>255</green>
-        <blue>255</blue>
-      </color>
-      <trace_type>AREA</trace_type>
+      <trace_type>LINE</trace_type>
       <linewidth>2</linewidth>
       <line_style>SOLID</line_style>
       <point_type>NONE</point_type>

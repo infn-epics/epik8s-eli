@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Saved on 2026-04-18 22:29:58 by georg-->
 <display version="2.0.0">
   <name>rf_demo</name>
-  <width>1300</width>
-  <height>2000</height>
+  <width>1740</width>
+  <height>740</height>
   <widget type="group" version="3.0.0">
     <name>chiller</name>
     <macros>
