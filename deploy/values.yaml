@@ -138,7 +138,8 @@ epicsConfiguration:
         usegateway: true
 
     notebook: 
-      charturl: https://baltig.infn.it/epics-containers/jupyter-chart.git
+      # github copy of the baltig chart: init and notebook images come from ghcr
+      charturl: https://github.com/infn-epics/jupyter-chart.git
       replicaCount: 1
       gitRepoConfig:
         url: https://baltig.infn.it/lnf-da-control/ecs-jupyter-control.git
