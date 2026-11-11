@@ -130,6 +130,19 @@
             <height>130</height>
             <resize>1</resize>
           </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Embedded Display_28</name>
+            <macros>
+              <P>LEL</P>
+              <R>SCN07:MOT01</R>
+            </macros>
+            <file>common/motor-tml/flag-simple.bob</file>
+            <x>1198</x>
+            <y>247</y>
+            <width>160</width>
+            <height>130</height>
+            <resize>1</resize>
+          </widget>
         </children>
       </tab>
       <tab>
@@ -651,7 +664,6 @@ else:
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
     </font>
-    <active_tab>1</active_tab>
     <tab_height>25</tab_height>
   </widget>
 </display>
