@@ -131,9 +131,9 @@ epicsConfiguration:
               cpu: 1000m
               memory: 1Gi
         gitRepoConfig:
-          url: https://baltig.infn.it/lnf-da-control/epik8s-eli.git
+          url: https://github.com/infn-epics/epik8s-eli.git
           path: opi
-          branch: master
+          branch: devel
         autosync: true ## restart automatically on changes
         usegateway: true
 
@@ -173,8 +173,6 @@ epicsConfiguration:
     pws: 
       loglevel: DEBUG
       charturl: https://github.com/infn-epics/phoebus-services-chart.git
-      image:
-        repository: baltig.infn.it:4567/epics-containers/phoebus-web-docker
       phoebusservice: "pvws"
       auto_security: true
       enable_ingress: true
@@ -186,8 +184,6 @@ epicsConfiguration:
     dbwr: 
       loglevel: DEBUG
       charturl: https://github.com/infn-epics/phoebus-services-chart.git
-      image:
-        repository: baltig.infn.it:4567/epics-containers/phoebus-web-docker
       phoebusservice: "dbwr"
       auto_security: true
       enable_ingress: true
@@ -325,7 +321,7 @@ epicsConfiguration:
       loglevel: DEBUG
       charturl: https://github.com/infn-epics/phoebus-services-chart.git
       phoebusservice: "alarmserver"
-      targetRevision: "test-olog-saveandrestore"
+      targetRevision: "main"
       alarm:
         config: "eli-Accelerator"
       
@@ -341,20 +337,28 @@ epicsConfiguration:
       loglevel: DEBUG
       charturl: https://github.com/infn-epics/phoebus-services-chart.git
       phoebusservice: "alarmlogger"
-      targetRevision: "test-olog-saveandrestore"
+      targetRevision: "main"
 
       auto_security: true
       enable_ingress: true
       mongodb: "eli-ologAttachments"
       alarm:
-        config: "Accelerator"
-        topics: "Accelerato,ALARM,CONFIGS"
+        config: "eli-Accelerator"
+        topics: "eli-Accelerator,ALARM,CONFIGS"
       autosync: true ## restart automatically on changes
 
     channelfinder: 
+      name: channelfinder
       autosync: true ## restart automatically on changes
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/channelfinder-chart.git
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
+      phoebusservice: channelfinder
+      channelfinderFeeder:
+        image: ghcr.io/infn-epics/channelfinder-service-feeder:2.1.5
+      image:
+        repository: ghcr.io/infn-epics/channelfinderservice
+        tag: latest
+        pullPolicy: Always
       auto_security: true
       enable_ingress: true
       mongodb: "eli-channelfinder"
@@ -392,6 +396,7 @@ epicsConfiguration:
       auto_security: true
       enable_ingress: true
       mongodb: "eli-ologAttachments"
+      disable: true ## image only on baltig registry, unreachable from ELI
     mysql: 
       name: mysql
       charturl: registry-1.docker.io/bitnamicharts
