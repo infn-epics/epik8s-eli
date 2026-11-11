@@ -2930,7 +2930,7 @@ epicsConfiguration:
       charturl: 'https://github.com/infn-epics/ioc-chart.git'
       iocprefix: "LEL"
       # direct TCP to the Moxa (raw TCP server), as BTF/SPARC; no socat tty bridge
-      server: scelimxa1002.int.eli-np.ro
+      server: scelimxa1001.int.eli-np.ro # ex menlo 115 8 1 ## scelimxa1002.int.eli-np.ro non si connette
       port: 4001
       dataVolume:
         accessMode: 'ReadWriteOnce' ## until not enabled shared
