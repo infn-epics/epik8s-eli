@@ -359,7 +359,7 @@ epicsConfiguration:
         repository: ghcr.io/infn-epics/channelfinderservice
         tag: latest
         pullPolicy: Always
-      auto_security: true
+      # no auto_security: as uid 1000 the start script cannot write /app/truststore.jks
       enable_ingress: true
       mongodb: "eli-channelfinder"
       aa:
@@ -857,7 +857,43 @@ epicsConfiguration:
               value: "1"
             - name: "FrameRateEnable"
               value: "Yes"
-    
+    cam07:
+      name: "cam07"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
+      image: ghcr.io/infn-epics/infn-epics-ioc-runtime
+      devtype: camera
+      devgroup: cam
+      template:  "adcamera"
+      pva: true
+      networks:
+        - name: "gigevision-client"
+          annotation: "multus-secondary-net"
+      iocprefix: "LEL"
+      autosync: false ## restart automatically on changes
+      
+      iocparam:
+        - name: "overlay_enable"
+          value: true
+        - name: "stats_enable"
+          value: true
+        - name: "proc_enable"
+          value: true
+        - name: "tiff_enable"
+          value: true
+        - name: "roi_enable"
+          value: true
+      devices:
+        - name: "SCN07:CAM01"
+          id: "10.16.4.28" # 
+          iocinit:
+            - name: "AcquirePeriod"
+              value: "1"
+            - name: "FrameRate"
+              value: "1"
+            - name: "FrameRateEnable"
+              value: "Yes"
+              
     plelievr001-laser-delay:
       name: "plelievr001-laser-delay"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2441&mode=object&objectId=113215"
