@@ -1,0 +1,22 @@
+---
+# handlers file for dafne-epics-control
+- name: Reload Systemd
+  ansible.builtin.systemd:
+      daemon_reload: yes
+      
+- name: Update MIME database
+  command: update-mime-database /usr/share/mime
+
+- name: Update APT cache
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Restart systemd-timesyncd
+  ansible.builtin.systemd:
+    name: systemd-timesyncd
+    state: restarted
+
+- name: Restart chrony
+  ansible.builtin.systemd:
+    name: "{{ chrony_service_name }}"
+    state: restarted

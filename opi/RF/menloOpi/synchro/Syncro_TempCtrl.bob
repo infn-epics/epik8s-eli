@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-06-06 20:26:00 by andreamichelotti-->
+<display version="2.0.0">
+  <width>625</width>
+  <height>267</height>
+  <background_color>
+    <color name="IO Grid" red="215" green="215" blue="215">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_1</name>
+    <text>Set Temp.</text>
+    <x>80</x>
+    <y>45</y>
+    <width>79</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <tooltip>Set target temperature</tooltip>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_2</name>
+    <text>Temp. RBV</text>
+    <x>217</x>
+    <y>45</y>
+    <width>86</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <tooltip>Target temperature readback value</tooltip>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_3</name>
+    <text>Temp. Dev.</text>
+    <x>360</x>
+    <y>45</y>
+    <width>88</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <tooltip>Temperature deviation</tooltip>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container Template</name>
+    <macros>
+      <TC>0</TC>
+    </macros>
+    <file>Syncro_TempCtrlSingle.opi</file>
+    <y>63</y>
+    <width>625</width>
+    <height>41</height>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container Template_1</name>
+    <macros>
+      <TC>1</TC>
+    </macros>
+    <file>Syncro_TempCtrlSingle.opi</file>
+    <y>103</y>
+    <width>625</width>
+    <height>41</height>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container Template_2</name>
+    <macros>
+      <TC>2</TC>
+    </macros>
+    <file>Syncro_TempCtrlSingle.opi</file>
+    <y>143</y>
+    <width>625</width>
+    <height>41</height>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container Template_3</name>
+    <macros>
+      <TC>3</TC>
+    </macros>
+    <file>Syncro_TempCtrlSingle.opi</file>
+    <y>183</y>
+    <width>625</width>
+    <height>41</height>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2_1</name>
+    <x>10</x>
+    <y>5</y>
+    <width>606</width>
+    <height>25</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <y>12</y>
+      <width>604</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_124</name>
+      <text>Temperature Controllers</text>
+      <x>166</x>
+      <width>272</width>
+      <height>25</height>
+      <font>
+        <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+    </widget>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Linking Container Template_4</name>
+    <macros>
+      <TC>4</TC>
+    </macros>
+    <file>Syncro_TempCtrlSingle.opi</file>
+    <y>223</y>
+    <width>625</width>
+    <height>41</height>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_4</name>
+    <text>Monitor Temp.</text>
+    <x>495</x>
+    <y>45</y>
+    <width>114</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <tooltip>Monitor temperature</tooltip>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+</display>

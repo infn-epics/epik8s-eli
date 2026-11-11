@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-04-18 20:43:34 by georg-->
+<display version="2.0.0">
+  <name>rf_demo</name>
+  <width>1400</width>
+  <height>990</height>
+  <widget type="embedded" version="2.0.0">
+    <name>Navigation Tabs</name>
+    <file>RF/eli-rf-opi/main.bob</file>
+    <x>50</x>
+    <width>1330</width>
+    <height>740</height>
+    <resize>1</resize>
+  </widget>
+</display>

@@ -3012,45 +3012,46 @@ syncPolicy:
       - CreateNamespace=true 
       - Prune=true
 
+## OPIs live in this repo (opi/, no submodules, see VENDORED.md)
 opi:
   camera:
-    url: https://baltig.infn.it/infn-epics/camera-opi.git
-    main: Camera_Main.bob
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: opi/common/camera/Camera_Main.bob
     macro:
       - name: "DEVICE"
         value: "{{iocprefix}}"
       - name: "CAM"
         value: "{{iocroot}}"
   icpdas:
-    url: https://baltig.infn.it/infn-epics/icpdas-opi.git
-    main: "{{devtype}}.bob"
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: "opi/epik8s-opi/uniio-opi/icpdas-opi/{{devtype}}.bob"
     macro:
       - name: "P"
         value: "{{iocprefix}}"
       - name: "R"
         value: "{{iocroot}}"
   agilentXGS:
-    url: https://baltig.infn.it/infn-epics/vac-opi.git
-    main: "agilentXgs600/agilentXgs600Ctlr.bob"
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: "opi/epik8s-opi/univac-opi/agilentXgs600/agilentXgs600Ctlr.bob"
     macro:
       - name: "P"
         value: "{{iocprefix}}"
 
   agilent4uhv:
-    url: https://baltig.infn.it/infn-epics/vac-opi.git
-    main: "agilent4uhv/agilent4uhv.bob"
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: "opi/epik8s-opi/univac-opi/agilent4uhv/agilent4uhv.bob"
     macro:
       - name: "P"
         value: "{{iocprefix}}"
   sigmaphi:
-    url: https://baltig.infn.it/infn-epics/mag-opi.git
-    main: "sigmaphi/sigmaphi.bob"
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: "opi/epik8s-opi/unimag-opi/sigmaphi/sigmaPhiStart.bob"
     macro:
       - name: "P"
         value: "{{iocprefix}}"
   biltitest:
-    url: https://baltig.infn.it/infn-epics/mag-opi.git
-    main: "biltitest/biltitest.bob"
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: "opi/epik8s-opi/unimag-opi/biltitest/biltitest.bob"
     macro:
       - name: "P"
         value: "{{iocprefix}}"
@@ -3064,8 +3065,8 @@ opi:
       - name: "M"
         value: "m0"
   tml:
-    url: https://baltig.infn.it/infn-epics/motor-tml-opi.git
-    main: TML.bob
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: opi/common/motor-tml/TML.bob
     macro:
       - name: "PREFIX"
         value: "{{iocprefix}}"
@@ -3073,8 +3074,8 @@ opi:
         value: "{{CONFIG}}"
 
   unimag:
-    url: https://baltig.infn.it/infn-epics/unimag.git
-    main: opi/unimag.bob
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: opi/epik8s-opi/unimag-opi/unimag.bob
     macro:
       - name: "TITLE"
         value: "Unimag {{beamline}}"

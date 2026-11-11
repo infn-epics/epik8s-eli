@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>timing_demo</name>
+  <width>1800</width>
+  <height>820</height>
+  <widget type="group" version="3.0.0">
+    <name>Timing Delay</name>
+    <macros>
+      <P>LEL:TIM</P>
+    </macros>
+    <width>1220</width>
+    <height>350</height>
+    <widget type="navtabs" version="2.0.0">
+      <name>Timing Delay Nav</name>
+      <tabs>
+        <tab>
+          <name>BPM &amp; CAMs</name>
+          <file>timing/mrf230-opi/delay-app.bob</file>
+          <macros>
+            <R>EVR-BPMCAM</R>
+            <TITLE>BPM &amp; CAM 0-1 Delays</TITLE>
+          </macros>
+          <group_name>Diag 1</group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
+        </tab>
+        <tab>
+          <name>CAM</name>
+          <file>timing/mrf230-opi/delay-app.bob</file>
+          <macros>
+            <R>EVR-CAM</R>
+            <TITLE>Cam 2-6 Timing Delay</TITLE>
+          </macros>
+          <group_name></group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
+        </tab>
+        <tab>
+          <name>ADC</name>
+          <file>timing/mrf230-opi/delay-app.bob</file>
+          <macros>
+            <R>EVR-ADC</R>
+            <TITLE>ADC Timing Delay</TITLE>
+          </macros>
+          <group_name></group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
+        </tab>
+        <tab>
+          <name>Laser</name>
+          <file>timing/mrf230-opi/delay-app.bob</file>
+          <macros>
+            <R>EVR-LAS</R>
+            <TITLE>Laser Delays</TITLE>
+          </macros>
+          <group_name></group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
+        </tab>
+        <tab>
+          <name>LLRF</name>
+          <file>timing/mrf230-opi/delay-app.bob</file>
+          <macros>
+            <R>EVR-LLRF</R>
+            <TITLE>LLRF Timing Delays</TITLE>
+          </macros>
+          <group_name></group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
+        </tab>
+        <tab>
+          <name>RF Driver</name>
+          <file>timing/mrf230-opi/delay-app.bob</file>
+          <macros>
+            <R>EVR-RFD</R>
+            <TITLE>RF Driver Delays</TITLE>
+          </macros>
+          <group_name></group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
+        </tab>
+        <tab>
+          <name>RF Modulator</name>
+          <file>timing/mrf230-opi/delay-app.bob</file>
+          <macros>
+            <R>EVR-RFM</R>
+            <TITLE>Modulator Delays</TITLE>
+          </macros>
+          <group_name></group_name>
+          <selected_color>
+            <color red="236" green="236" blue="236">
+            </color>
+          </selected_color>
+          <deselected_color>
+            <color red="200" green="200" blue="200">
+            </color>
+          </deselected_color>
+        </tab>
+      </tabs>
+      <x>5</x>
+      <y>7</y>
+      <width>1180</width>
+      <height>305</height>
+      <direction>0</direction>
+      <tab_height>25</tab_height>
+      <selected_color>
+        <color red="153" green="179" blue="255">
+        </color>
+      </selected_color>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Generator</name>
+      <actions>
+        <action type="open_display">
+          <description>Generator</description>
+          <file>timing/mrf230-opi/evg-230.bob</file>
+          <macros>
+            <R>TMG</R>
+            <TITLE>Master Timing Generator</TITLE>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Generator</text>
+      <x>782</x>
+      <y>5</y>
+      <width>110</width>
+      <height>25</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <tooltip>Save current configuration to file</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Delay Snapshot</name>
+    <macros>
+      <P>LEL:TIM</P>
+    </macros>
+    <x>1225</x>
+    <y>5</y>
+    <width>220</width>
+    <height>105</height>
+    <style>1</style>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Header_2_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color name="Header_2_Background" red="114" green="159" blue="207">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Group_Background" red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <widget type="action_button" version="3.0.0">
+      <name>SaveAllDelaysBtn</name>
+      <actions>
+        <action type="execute">
+          <description>Save all delays</description>
+          <script file="scripts/SaveAllDelays.py">
+          </script>
+        </action>
+      </actions>
+      <text>Save All Delays</text>
+      <x>10</x>
+      <y>18</y>
+      <width>198</width>
+      <height>25</height>
+      <tooltip>Save Delay-SP and Width-SP for all EVR tabs to a CSV file</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>RestoreAllDelaysBtn</name>
+      <actions>
+        <action type="execute">
+          <description>Restore all delays</description>
+          <script file="scripts/RestoreAllDelays.py">
+          </script>
+        </action>
+      </actions>
+      <text>Restore All Delays</text>
+      <x>10</x>
+      <y>48</y>
+      <width>198</width>
+      <height>25</height>
+      <tooltip>Load a CSV snapshot, review differences, then restore all delays</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Modulators</name>
+    <macros>
+      <P>LEL:MOD:SCAT</P>
+      <OPI>epik8s-opi/unimod-opi/scandicat-opi/ScandinovaRFMod_Main.bob</OPI>
+    </macros>
+    <y>360</y>
+    <width>614</width>
+    <height>226</height>
+    <transparent>true</transparent>
+    <widget type="template" version="2.0.0">
+      <name>Template/Instance1</name>
+      <file>epik8s-opi/unimod-opi/unimod_channel.bob</file>
+      <instances>
+        <instance>
+          <macros>
+            <R>MOD01</R>
+            <NAME>MODS1</NAME>
+            <DEVICE>$(P):$(R)</DEVICE>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <R>MOD02</R>
+            <NAME>MODS2</NAME>
+            <DEVICE>$(P):$(R)</DEVICE>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <R>MOD03</R>
+            <NAME>MODS3</NAME>
+            <DEVICE>$(P):$(R)</DEVICE>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <R>MOD04</R>
+            <NAME>MODC</NAME>
+            <DEVICE>$(P):$(R)</DEVICE>
+          </macros>
+        </instance>
+      </instances>
+      <x>24</x>
+      <y>18</y>
+      <width>510</width>
+      <height>162</height>
+    </widget>
+  </widget>
+</display>

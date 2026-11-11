@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-02-17 15:18:56 by beatr-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>1172</width>
+  <height>568</height>
+  <widget type="xyplot" version="3.0.0">
+    <name>waveforms 1</name>
+    <x>10</x>
+    <y>10</y>
+    <width>370</width>
+    <height>270</height>
+    <title>$(TITLE1)</title>
+    <show_toolbar>true</show_toolbar>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+
+power_array=[]
+power_W=PVUtil.getDoubleArray(pvs[0])
+for element in power_W: 
+	power_W=element/1e3
+	power_array.append(power_W)
+PVUtil.writePV(str(pvs[1]), power_array,1)]]></text>
+        <pv_name>$(LLRF_NAME):$(SIGNAL1):power_remote.POWER</pv_name>
+        <pv_name trigger="false">loc://$(power1)</pv_name>
+      </script>
+    </scripts>
+    <x_axis>
+      <title>Time [μs]</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>10.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Power [kW]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>1.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="26" green="51" blue="153">
+          </color>
+        </color>
+      </y_axis>
+      <y_axis>
+        <title>Phase [deg]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-200.0</minimum>
+        <maximum>200.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>true</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="230" green="128" blue="77">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+        <y_pv>loc://$(power1)</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="26" green="51" blue="153">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>$(traces[1].y_pv)</name>
+        <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+        <y_pv>$(LLRF_NAME):$(SIGNAL1):amp_phase.PHASE_REMOTE</y_pv>
+        <err_pv></err_pv>
+        <axis>1</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="230" green="128" blue="77">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>waveforms 2</name>
+    <x>400</x>
+    <y>10</y>
+    <width>370</width>
+    <height>270</height>
+    <title>$(TITLE2)</title>
+    <show_toolbar>true</show_toolbar>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+
+power_array=[]
+power_W=PVUtil.getDoubleArray(pvs[0])
+for element in power_W: 
+	power_MW=element/1e6
+	power_array.append(power_MW)
+PVUtil.writePV(str(pvs[1]), power_array,1)]]></text>
+        <pv_name>$(LLRF_NAME):$(SIGNAL2):power_remote.POWER</pv_name>
+        <pv_name trigger="false">loc://$(power2)</pv_name>
+      </script>
+    </scripts>
+    <x_axis>
+      <title>Time [μs]</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>10.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Power [MW]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>1.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="26" green="51" blue="153">
+          </color>
+        </color>
+      </y_axis>
+      <y_axis>
+        <title>Phase [deg]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-200.0</minimum>
+        <maximum>200.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>true</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="230" green="128" blue="77">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+        <y_pv>loc://$(power2)</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="26" green="51" blue="153">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>$(traces[1].y_pv)</name>
+        <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+        <y_pv>$(LLRF_NAME):$(SIGNAL2):amp_phase.PHASE_REMOTE</y_pv>
+        <err_pv></err_pv>
+        <axis>1</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="230" green="128" blue="77">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>waveforms 3</name>
+    <x>792</x>
+    <y>10</y>
+    <width>370</width>
+    <height>270</height>
+    <title>$(TITLE3)</title>
+    <show_toolbar>true</show_toolbar>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+
+power_array=[]
+power_W=PVUtil.getDoubleArray(pvs[0])
+for element in power_W: 
+	power_MW=element/1e6
+	power_array.append(power_MW)
+PVUtil.writePV(str(pvs[1]), power_array,1)]]></text>
+        <pv_name>$(LLRF_NAME):$(SIGNAL3):power_remote.POWER</pv_name>
+        <pv_name trigger="false">loc://$(power3)</pv_name>
+      </script>
+    </scripts>
+    <x_axis>
+      <title>Time [μs]</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>10.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Power [MW]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>1.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="26" green="51" blue="153">
+          </color>
+        </color>
+      </y_axis>
+      <y_axis>
+        <title>Phase [deg]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-200.0</minimum>
+        <maximum>200.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>true</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="230" green="128" blue="77">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+        <y_pv>loc://$(power3)</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="26" green="51" blue="153">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>$(traces[1].y_pv)</name>
+        <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+        <y_pv>$(LLRF_NAME):$(SIGNAL3):amp_phase.PHASE_REMOTE</y_pv>
+        <err_pv></err_pv>
+        <axis>1</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="230" green="128" blue="77">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>waveforms 4</name>
+    <x>10</x>
+    <y>288</y>
+    <width>370</width>
+    <height>270</height>
+    <title>$(TITLE4)</title>
+    <show_toolbar>true</show_toolbar>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+
+power_array=[]
+power_W=PVUtil.getDoubleArray(pvs[0])
+for element in power_W: 
+	power_MW=element/1e6
+	power_array.append(power_MW)
+PVUtil.writePV(str(pvs[1]), power_array,1)]]></text>
+        <pv_name>$(LLRF_NAME):$(SIGNAL4):power_remote.POWER</pv_name>
+        <pv_name trigger="false">loc://$(power4)</pv_name>
+      </script>
+    </scripts>
+    <x_axis>
+      <title>Time [μs]</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>10.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Power [MW]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>1.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="26" green="51" blue="153">
+          </color>
+        </color>
+      </y_axis>
+      <y_axis>
+        <title>Phase [deg]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-200.0</minimum>
+        <maximum>200.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>true</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="230" green="128" blue="77">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+        <y_pv>loc://$(power4)</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="26" green="51" blue="153">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>$(traces[1].y_pv)</name>
+        <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+        <y_pv>$(LLRF_NAME):$(SIGNAL4):amp_phase.PHASE_REMOTE</y_pv>
+        <err_pv></err_pv>
+        <axis>1</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="230" green="128" blue="77">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>waveforms 5</name>
+    <x>400</x>
+    <y>288</y>
+    <width>370</width>
+    <height>270</height>
+    <title>$(TITLE5)</title>
+    <show_toolbar>true</show_toolbar>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+
+power_array=[]
+power_W=PVUtil.getDoubleArray(pvs[0])
+for element in power_W: 
+	power_MW=element/1e6
+	power_array.append(power_MW)
+PVUtil.writePV(str(pvs[1]), power_array,1)]]></text>
+        <pv_name>$(LLRF_NAME):$(SIGNAL5):power_remote.POWER</pv_name>
+        <pv_name trigger="false">loc://$(power5)</pv_name>
+      </script>
+    </scripts>
+    <x_axis>
+      <title>Time [μs]</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>10.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Power [MW]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>1.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="26" green="51" blue="153">
+          </color>
+        </color>
+      </y_axis>
+      <y_axis>
+        <title>Phase [deg]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-200.0</minimum>
+        <maximum>200.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>true</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="230" green="128" blue="77">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+        <y_pv>loc://$(power5)</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="26" green="51" blue="153">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>$(traces[1].y_pv)</name>
+        <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+        <y_pv>$(LLRF_NAME):$(SIGNAL5):amp_phase.PHASE_REMOTE</y_pv>
+        <err_pv></err_pv>
+        <axis>1</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="230" green="128" blue="77">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>waveforms 6</name>
+    <x>792</x>
+    <y>288</y>
+    <width>370</width>
+    <height>270</height>
+    <title>$(TITLE6)</title>
+    <show_toolbar>true</show_toolbar>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+
+power_array=[]
+power_W=PVUtil.getDoubleArray(pvs[0])
+for element in power_W: 
+	power_MW=element/1e6
+	power_array.append(power_MW)
+PVUtil.writePV(str(pvs[1]), power_array,1)]]></text>
+        <pv_name>$(LLRF_NAME):$(SIGNAL6):power_remote.POWER</pv_name>
+        <pv_name trigger="false">loc://$(power6)</pv_name>
+      </script>
+    </scripts>
+    <x_axis>
+      <title>Time [μs]</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>10.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Power [MW]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>1.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="26" green="51" blue="153">
+          </color>
+        </color>
+      </y_axis>
+      <y_axis>
+        <title>Phase [deg]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-200.0</minimum>
+        <maximum>200.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>true</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="230" green="128" blue="77">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+        <y_pv>loc://$(power6)</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="26" green="51" blue="153">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>$(traces[1].y_pv)</name>
+        <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+        <y_pv>$(LLRF_NAME):$(SIGNAL6):amp_phase.PHASE_REMOTE</y_pv>
+        <err_pv></err_pv>
+        <axis>1</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="230" green="128" blue="77">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+</display>

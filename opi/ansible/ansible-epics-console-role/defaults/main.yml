@@ -1,0 +1,65 @@
+---
+proxy_url: ""
+proxy_port: ""
+phoebus_home: /phoebus
+phoebus_version: 4.7.4-INFN
+# phoebus_url: Override download URL (optional)
+# If not set, automatically selects:
+#   - GitHub releases for versions like v26.2.13b1 (matches vX.X.X pattern)
+#   - Binary server for other versions like 4.7.4-INFN
+# Explicit example: "https://github.com/infn-epics/phoebus/releases/download/v26.2.13b1/phoebus-5.0.3-SNAPSHOT-linux.tar.gz"
+phoebus_url: ""
+phoebus_logback_config: "{{ phoebus_home }}/logback.xml"
+phoebus_options: "" # "-logging {{ phoebus_home }}/logging.properties"
+git_repo_token: "" # set from GIT_REPO_TOKEN, never commit it
+phoebus_baltig_build: '586527'
+java_bin: 'java'
+java_version: "17"  # Java version to install (17 or 21)
+phoebus_icon: "{{ phoebus_home }}/css-512x512.png"
+opi_path: "{{ phoebus_home }}/opi"
+phoebus_bin: "{{ phoebus_home }}/bin/phoebus" ## created shell scripts to call phoebus
+
+# Default phoebus settings file - fallback to PHOEBUSINI env var if not set in opi_repos
+default_phoebus_ini: "{{ lookup('env', 'PHOEBUSINI') | default('', true) }}"
+
+## example
+# phoebus_opis_repos: [{url: "https://oauth2:{{git_repo_token}}@baltig.infn.it/lnf-da-control/dafne-epics-opi.git",dest: "dafne"},{url: "https://oauth2:{{git_repo_token}}@baltig.infn.it/lnf-da-control/sparc-epics-opi.git",dest: "sparc"}]
+phoebus_opis_repos: []
+# "sparc/Launcher.bob"
+opi_repos:
+          # - url: "https://github.com/infn-epics/eli-epics-opi.git"
+          #   dest: "eli"
+          #   opi_main: Launcher.bob
+          #   opi_settings: settings_template.ini
+          #   default: true
+          #   opi_user: eliuser 
+
+opi_git_update: true  # Set to false to skip git clone/update of OPI repositories
+
+python_version: "3.12"  # Python version to install
+python_env_path: "py-epics-env"  # Path for the virtual environment
+python_libraries:
+  - pyepics
+  - pvapy
+  - numpy
+  - scipy
+  - pandas
+  - pcaspy
+  - softioc
+  - cothread
+
+
+nfsMounts:
+    - name: 
+      server: 
+      path:
+      mountPath:
+      opt:
+
+dnsnames:
+    - name: ''
+      ip: ''
+
+# List of NTP server hostnames to configure on the console (systemd-timesyncd on
+# Debian/Ubuntu, chrony on RedHat/Suse). Leave empty to skip NTP configuration.
+ntpServers: []

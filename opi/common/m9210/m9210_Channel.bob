@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-06-19 10:43:30 by georg-->
+<display version="2.0.0">
+  <width>300</width>
+  <height>400</height>
+  <background_color>
+    <color name="IO Grid" red="215" green="215" blue="215">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2_1</name>
+    <x>8</x>
+    <y>5</y>
+    <width>290</width>
+    <height>25</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <y>12</y>
+      <width>285</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_124</name>
+      <text>Channel $(CHAN)</text>
+      <x>85</x>
+      <width>116</width>
+      <height>25</height>
+      <font>
+        <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_1</name>
+    <text>Impedance</text>
+    <x>3</x>
+    <y>165</y>
+    <width>59</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_2</name>
+    <text>Offset</text>
+    <x>43</x>
+    <y>205</y>
+    <width>32</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template</name>
+    <pv_name>$(DEVICE):AI$(CHAN):OFS_SP</pv_name>
+    <x>102</x>
+    <y>202</y>
+    <width>88</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from java.lang import Thread, Runnable
+
+if len(pvs) > 0 and pvs[0] is not None:
+    trigger_pv_name = pvs[0].getName() 
+
+    # Split name by colons
+    pv_parts = trigger_pv_name.split(":")
+    
+    # If the 4th part is an Analog Input (like AI0, AI1), drop it to get the core card base
+    if "AI" in pv_parts[3]:
+        base_channel_prefix = ":".join(pv_parts[0:3]) # Yields "LEL:DIA:FCT01"
+    else:
+        base_channel_prefix = ":".join(pv_parts[0:4])
+        
+    dynamic_msgs_pv = base_channel_prefix + ":MSGS"
+
+    class AsyncOffsetCycle(Runnable):
+        def __init__(self, msgs_target):
+            self.msgs_target = msgs_target
+        def run(self):
+            try:
+                print("Attempting to write OFF to: " + self.msgs_target)
+                PVUtil.writePV(self.msgs_target, "OFF", 5000) 
+                Thread.sleep(400)
+                print("Attempting to write ON to: " + self.msgs_target)
+                PVUtil.writePV(self.msgs_target, "ON", 5000)
+                print("Offset cycle completed successfully.")
+            except Exception as e:
+                print("Dynamic Offset Reset Error: " + str(e))
+
+    print("Targeting PV: " + str(dynamic_msgs_pv))
+    Thread(AsyncOffsetCycle(dynamic_msgs_pv)).start()
+else:
+    print("Script Error: No valid PVs attached.")
+]]></text>
+        <pv_name>$(DEVICE):AI$(CHAN):OFS_SP</pv_name>
+      </script>
+    </scripts>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_1</name>
+    <pv_name>$(DEVICE):AI$(CHAN):RNG_SP</pv_name>
+    <x>102</x>
+    <y>242</y>
+    <width>88</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from java.lang import Thread, Runnable
+
+# 1. Dynamically read the current widget's underlying PV name
+trigger_pv_name = pvs[0].getName() # e.g., "LEL:DIA:FCT01:RNG_SP" or "LEL:DIA:FCT02:RNG_SP"
+
+
+# 2. Reconstruct the target path for this specific device space
+pv_parts = trigger_pv_name.split(":")
+base_channel_prefix = ":".join(pv_parts[0:3]) 
+dynamic_msgs_pv = base_channel_prefix + ":MSGS"
+
+class AsyncRangeCycle(Runnable):
+    def __init__(self, msgs_target):
+        self.msgs_target = msgs_target
+    def run(self):
+        try:
+            # Cycle only the local channel driver
+            PVUtil.writePV(self.msgs_target, "OFF", 5000)
+            Thread.sleep(400)
+            PVUtil.writePV(self.msgs_target, "ON", 5000)
+        except Exception as e:
+            print("Dynamic Range Reset Error: " + str(e))
+
+Thread(AsyncRangeCycle(dynamic_msgs_pv)).start()]]></text>
+        <pv_name>$(DEVICE):AI$(CHAN):RNG_SP</pv_name>
+      </script>
+    </scripts>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_3</name>
+    <text>Range</text>
+    <x>41</x>
+    <y>245</y>
+    <width>34</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_5</name>
+    <pv_name>$(DEVICE):AI$(CHAN):STAT</pv_name>
+    <x>101</x>
+    <y>45</y>
+    <width>190</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_6</name>
+    <text>Coupling</text>
+    <x>22</x>
+    <y>125</y>
+    <width>48</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo</name>
+    <pv_name>$(DEVICE):AI$(CHAN):IMPD_SP</pv_name>
+    <x>97</x>
+    <y>159</y>
+    <width>99</width>
+    <height>32</height>
+    <font>
+      <font family="Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Combo_1</name>
+    <pv_name>$(DEVICE):AI$(CHAN):ACDC_SP</pv_name>
+    <x>97</x>
+    <y>119</y>
+    <width>99</width>
+    <height>32</height>
+    <font>
+      <font family="Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_13</name>
+    <text>Status</text>
+    <x>41</x>
+    <y>49</y>
+    <width>33</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_14</name>
+    <text>Set</text>
+    <x>135</x>
+    <y>95</y>
+    <width>17</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_13</name>
+    <pv_name>$(DEVICE):AI$(CHAN):CTR</pv_name>
+    <x>161</x>
+    <y>326</y>
+    <width>130</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_14</name>
+    <pv_name>$(DEVICE):AI$(CHAN):CTRA</pv_name>
+    <x>161</x>
+    <y>366</y>
+    <width>130</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_8</name>
+    <pv_name>$(DEVICE):AI$(CHAN):ACDC_RB</pv_name>
+    <x>201</x>
+    <y>121</y>
+    <width>90</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_7</name>
+    <pv_name>$(DEVICE):AI$(CHAN):IMPD_SP</pv_name>
+    <x>201</x>
+    <y>161</y>
+    <width>90</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_4</name>
+    <pv_name>$(DEVICE):AI$(CHAN):OFS_RB</pv_name>
+    <x>201</x>
+    <y>201</y>
+    <width>90</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_5</name>
+    <pv_name>$(DEVICE):AI$(CHAN):RNG_RB</pv_name>
+    <x>201</x>
+    <y>241</y>
+    <width>90</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_15</name>
+    <text>Readback</text>
+    <x>203</x>
+    <y>95</y>
+    <width>51</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_16</name>
+    <text>Average (10 s)</text>
+    <x>34</x>
+    <y>330</y>
+    <width>75</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_17</name>
+    <text>Average (5 min)</text>
+    <x>22</x>
+    <y>370</y>
+    <width>83</width>
+    <height>16</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2_1</name>
+    <x>8</x>
+    <y>290</y>
+    <width>290</width>
+    <height>25</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <tooltip>Calculated triggering rate</tooltip>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <y>12</y>
+      <width>285</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_124</name>
+      <text>Calc. Triggering Rate</text>
+      <x>30</x>
+      <width>226</width>
+      <height>25</height>
+      <font>
+        <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+    </widget>
+  </widget>
+</display>

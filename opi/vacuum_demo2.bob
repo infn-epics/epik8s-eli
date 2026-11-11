@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-04-21 11:46:10 by georg-->
+<display version="2.0.0">
+  <name>vacuum_demo</name>
+  <width>1920</width>
+  <height>840</height>
+  <widget type="picture" version="2.0.0">
+    <name>Picture_4</name>
+    <x>400</x>
+    <y>435</y>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Univac</name>
+    <macros>
+      <GROUP>vac</GROUP>
+      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+    </macros>
+    <width>2000</width>
+    <height>1149</height>
+    <widget type="navtabs" version="2.0.0">
+      <name>VacZone</name>
+      <tabs>
+        <tab>
+          <name>WGS01</name>
+          <file>epik8s-opi/univac-opi/VacuumHistocombo2.bob</file>
+          <macros>
+          </macros>
+          <group_name></group_name>
+        </tab>
+      </tabs>
+      <x>2</x>
+      <y>3</y>
+      <width>1880</width>
+      <height>860</height>
+    </widget>
+  </widget>
+</display>

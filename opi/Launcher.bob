@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>ELI Control System</name>
+  <macros>
+    <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+  </macros>
+  <width>1900</width>
+  <height>852</height>
+  <actions>
+  </actions>
+  <widget type="navtabs" version="2.0.0">
+    <name>Navigation Tabs</name>
+    <tabs>
+      <tab>
+        <name>Timing &amp; Status</name>
+        <file>timing_demo.bob</file>
+        <macros>
+        </macros>
+        <group_name></group_name>
+        <selected_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </selected_color>
+        <deselected_color>
+          <color red="200" green="200" blue="200">
+          </color>
+        </deselected_color>
+      </tab>
+      <tab>
+        <name>RF</name>
+        <file>rf_demo.bob</file>
+        <macros>
+        </macros>
+        <group_name></group_name>
+        <selected_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </selected_color>
+        <deselected_color>
+          <color red="200" green="200" blue="200">
+          </color>
+        </deselected_color>
+      </tab>
+      <tab>
+        <name>Diagnostics</name>
+        <file>diagnostics_demo.bob</file>
+        <macros>
+        </macros>
+        <group_name></group_name>
+        <selected_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </selected_color>
+        <deselected_color>
+          <color red="200" green="200" blue="200">
+          </color>
+        </deselected_color>
+      </tab>
+      <tab>
+        <name>Magnets</name>
+        <file>Magnets_demo.bob</file>
+        <macros>
+        </macros>
+        <group_name></group_name>
+        <selected_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </selected_color>
+        <deselected_color>
+          <color red="200" green="200" blue="200">
+          </color>
+        </deselected_color>
+      </tab>
+      <tab>
+        <name>Vacuum</name>
+        <file>vacuum_demo.bob</file>
+        <macros>
+        </macros>
+        <group_name></group_name>
+        <selected_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </selected_color>
+        <deselected_color>
+          <color red="200" green="200" blue="200">
+          </color>
+        </deselected_color>
+      </tab>
+      <tab>
+        <name>Cooling</name>
+        <file>Cooling_demo.bob</file>
+        <macros>
+        </macros>
+        <group_name></group_name>
+        <selected_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </selected_color>
+        <deselected_color>
+          <color red="200" green="200" blue="200">
+          </color>
+        </deselected_color>
+      </tab>
+      <tab>
+        <name>IO</name>
+        <file>io_demo.bob</file>
+        <macros>
+        </macros>
+        <group_name></group_name>
+        <selected_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </selected_color>
+        <deselected_color>
+          <color red="200" green="200" blue="200">
+          </color>
+        </deselected_color>
+      </tab>
+      <tab>
+        <name>MPS</name>
+        <file>mps_demo.bob</file>
+        <macros>
+          <P>RUF-MPS-A-001</P>
+        </macros>
+        <group_name></group_name>
+        <selected_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </selected_color>
+        <deselected_color>
+          <color red="200" green="200" blue="200">
+          </color>
+        </deselected_color>
+      </tab>
+      <tab>
+        <name>TEST</name>
+        <file>Test_demo.bob</file>
+        <macros>
+        </macros>
+        <group_name></group_name>
+        <selected_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </selected_color>
+        <deselected_color>
+          <color red="200" green="200" blue="200">
+          </color>
+        </deselected_color>
+      </tab>
+      <tab>
+        <name>Applications</name>
+        <file>Applications_demo.bob</file>
+        <macros>
+        </macros>
+        <group_name></group_name>
+        <selected_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </selected_color>
+        <deselected_color>
+          <color red="200" green="200" blue="200">
+          </color>
+        </deselected_color>
+      </tab>
+      <tab>
+        <name>Configuration/Set</name>
+        <file>configurations-display.bob</file>
+        <macros>
+        </macros>
+        <group_name></group_name>
+        <selected_color>
+          <color red="236" green="236" blue="236">
+          </color>
+        </selected_color>
+        <deselected_color>
+          <color red="200" green="200" blue="200">
+          </color>
+        </deselected_color>
+      </tab>
+    </tabs>
+    <y>40</y>
+    <width>1900</width>
+    <height>815</height>
+    <direction>0</direction>
+    <tab_width>128</tab_width>
+    <tab_height>35</tab_height>
+    <tab_spacing>1</tab_spacing>
+    <selected_color>
+      <color red="185" green="215" blue="237">
+      </color>
+    </selected_color>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>Label</class>
+    <text>ELI CONTROL SYSTEM</text>
+    <x>60</x>
+    <width>540</width>
+    <height>28</height>
+    <font>
+      <font family="Algerian" style="BOLD" size="30.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_8</name>
+    <actions>
+      <action type="open_display">
+        <description>Laser</description>
+        <file>common/amplitude-laser/amplitude-laser-centroid-dashboard.bob</file>
+        <target>tab</target>
+      </action>
+    </actions>
+    <x>1530</x>
+    <y>10</y>
+    <width>130</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="MAJOR" red="255" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-04-22 16:34:11 by georg-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>1172</width>
+  <height>750</height>
+  <widget type="databrowser" version="2.0.0">
+    <name>M3</name>
+    <file>../../ini/plt/M3vac.plt</file>
+    <width>980</width>
+    <height>740</height>
+    <show_toolbar>true</show_toolbar>
+  </widget>
+</display>

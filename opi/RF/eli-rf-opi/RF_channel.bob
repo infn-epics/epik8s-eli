@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-02-11 15:42:46 by beatr-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>1210</width>
+  <height>732</height>
+  <widget type="group" version="3.0.0">
+    <name>$(LLRF_NAME):$(SIGNAL):$(SIGNAL_NAME)</name>
+    <width>1210</width>
+    <height>106</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="combo" version="2.0.0">
+      <name>Refresh</name>
+      <pv_name>$(LLRF_NAME):$(SIGNAL):power_remote.SCAN</pv_name>
+      <x>204</x>
+      <y>22</y>
+      <width>130</width>
+      <background_color>
+        <color name="Write_Background" red="128" green="255" blue="255">
+        </color>
+      </background_color>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+selected_value = PVUtil.getString(pvs[3])
+
+for PV in pvs:
+    PVUtil.writePV(str(PV), selected_value,1)
+]]></text>
+          <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL):amp_average_s.SCAN</pv_name>
+          <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL):amp_phase.SCAN</pv_name>
+          <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL):phase_average_s.SCAN</pv_name>
+          <pv_name>$(LLRF_NAME):$(SIGNAL):power_remote.SCAN</pv_name>
+        </script>
+      </scripts>
+      <items>
+        <item></item>
+      </items>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Duration</name>
+      <pv_name>$(LLRF_NAME):$(MARKERS):avg_dur</pv_name>
+      <x>495</x>
+      <y>22</y>
+      <width>120</width>
+      <height>30</height>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Duration</name>
+      <text>Duration [μs]</text>
+      <x>495</x>
+      <y>2</y>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Offset</name>
+      <pv_name>$(LLRF_NAME):$(MARKERS):offset</pv_name>
+      <x>355</x>
+      <y>22</y>
+      <width>120</width>
+      <height>30</height>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Offset</name>
+      <text>Offset [μs]</text>
+      <x>355</x>
+      <y>2</y>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Counts</name>
+      <text>Counts</text>
+      <x>635</x>
+      <y>2</y>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Counts</name>
+      <pv_name>loc://$(counts)(50)</pv_name>
+      <x>635</x>
+      <y>22</y>
+      <width>120</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Refresh</name>
+      <text>Refresh Rate</text>
+      <x>204</x>
+      <y>2</y>
+      <width>130</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Power &amp; Phase jitter</name>
+    <x>641</x>
+    <y>95</y>
+    <width>566</width>
+    <height>636</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="textupdate" version="2.0.0">
+      <name>stdev</name>
+      <pv_name>loc://$(stdev)</pv_name>
+      <x>396</x>
+      <y>437</y>
+      <width>120</width>
+      <height>30</height>
+      <format>1</format>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+phase=PVUtil.getDoubleArray(pvs[1]) # phase array PV
+counts=PVUtil.getDouble(pvs[2]) # avg number PV
+
+if len(phase) == 0 or (len(phase) == 1 and phase[0] == 0):
+	phase=[] # delete 0 initial value
+if len(phase)>counts+1: phase=[] # reset avg if avg number is decreased
+phase.append(PVUtil.getDouble(pvs[0])) # instant phase PV
+if len(phase)==counts+1: phase.pop(0) # limit array size to avg number
+PVUtil.writePV(str(pvs[1]),phase,1)]]></text>
+          <pv_name>$(LLRF_NAME):$(SIGNAL):phase_average_s.AVERAGE</pv_name>
+          <pv_name trigger="false">loc://$(phase)</pv_name>
+          <pv_name trigger="false">loc://$(counts)</pv_name>
+        </script>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script for standard deviation
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import math
+
+sum=0
+sum2=0
+phase=PVUtil.getDoubleArray(pvs[0])
+for p in phase: sum=sum+p
+mean=sum/len(phase)
+for p in phase: sum2=sum2+(p-mean)**2
+stdev=math.sqrt(sum2/len(phase))
+PVUtil.writePV(str(pvs[1]),mean,1)
+PVUtil.writePV(str(pvs[2]),stdev,1)
+]]></text>
+          <pv_name>loc://$(phase)</pv_name>
+          <pv_name trigger="false">loc://$(mean)</pv_name>
+          <pv_name trigger="false">loc://$(stdev)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Phase mean</name>
+      <pv_name>loc://$(mean)</pv_name>
+      <x>396</x>
+      <y>376</y>
+      <width>120</width>
+      <height>30</height>
+      <format>1</format>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Phase_jitter_deg</name>
+      <text>Phase jitter [deg]</text>
+      <x>396</x>
+      <y>417</y>
+      <width>120</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Phase_average</name>
+      <text>Phase average [deg]</text>
+      <x>396</x>
+      <y>356</y>
+      <width>134</width>
+    </widget>
+    <widget type="xyplot" version="3.0.0">
+      <name>phase hist</name>
+      <y>310</y>
+      <width>380</width>
+      <height>290</height>
+      <show_toolbar>true</show_toolbar>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[import array
+import math
+from org.csstudio.display.builder.runtime.script import PVUtil
+
+phase_data = PVUtil.getDoubleArray(pvs[0])
+
+bin_count = 10
+min_val = min(phase_data)
+max_val = max(phase_data)
+if max_val == min_val:
+    bin_width = 1e-9
+else:
+    bin_width = (max_val - min_val) / bin_count
+
+counts = array.array('i', [0] * bin_count)
+
+for value in phase_data:
+    bin_index = int((value - min_val) / bin_width)
+    if bin_index < bin_count:
+        counts[bin_index] += 1
+
+bins = array.array('d', [min_val + i * bin_width for i in range(bin_count + 1)])
+
+# Trasforma l'array di interi in un array di double
+counts_double = array.array('d', [float(count) for count in counts])
+
+PVUtil.writePV(str(pvs[1]), bins, 1)
+PVUtil.writePV(str(pvs[2]), counts_double, 1)
+]]></text>
+          <pv_name>loc://$(phase)</pv_name>
+          <pv_name trigger="false">loc://$(histogramBins_phase)</pv_name>
+          <pv_name trigger="false">loc://$(histogramCounts_phase)</pv_name>
+        </script>
+      </scripts>
+      <x_axis>
+        <title>Phase [deg]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <visible>true</visible>
+      </x_axis>
+      <y_axes>
+        <y_axis>
+          <title>Counts</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>-100.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>true</show_grid>
+          <title_font>
+            <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+            </font>
+          </title_font>
+          <scale_font>
+            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            </font>
+          </scale_font>
+          <on_right>false</on_right>
+          <visible>true</visible>
+          <color>
+            <color name="Text" red="0" green="0" blue="0">
+            </color>
+          </color>
+        </y_axis>
+      </y_axes>
+      <traces>
+        <trace>
+          <name>$(traces[0].y_pv)</name>
+          <x_pv>loc://$(histogramBins_phase)</x_pv>
+          <y_pv>loc://$(histogramCounts_phase)</y_pv>
+          <err_pv></err_pv>
+          <axis>0</axis>
+          <trace_type>5</trace_type>
+          <color>
+            <color red="230" green="128" blue="77">
+            </color>
+          </color>
+          <line_width>35</line_width>
+          <line_style>0</line_style>
+          <point_type>0</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+      </traces>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update</name>
+      <pv_name>loc://$(phase_jitter_fs)</pv_name>
+      <x>396</x>
+      <y>500</y>
+      <width>120</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script for phase jitter in fs
+from org.csstudio.display.builder.runtime.script import PVUtil
+
+jitter_deg=PVUtil.getDoubleArray(pvs[0])
+freq = PVUtil.getDouble(pvs[2])
+for deg in jitter_deg: 
+	jitter_fs = (deg / (360*freq)) * 1e15 
+
+PVUtil.writePV(str(pvs[1]),jitter_fs,1)]]></text>
+          <pv_name>loc://$(stdev)</pv_name>
+          <pv_name trigger="false">loc://$(phase_jitter_fs)</pv_name>
+          <pv_name trigger="false">loc://$(freq)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Phase_jitter_fs</name>
+      <text>Phase jitter [fs]</text>
+      <x>396</x>
+      <y>480</y>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>stdev_1</name>
+      <pv_name>loc://$(stdev_amp)</pv_name>
+      <x>396</x>
+      <y>168</y>
+      <width>120</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>1</format>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+amplitude=PVUtil.getDoubleArray(pvs[1]) # amp array PV
+counts=PVUtil.getDouble(pvs[2]) # avg number PV
+
+if len(amplitude) == 0 or (len(amplitude) == 1 and amplitude[0] == 0):
+	amplitude=[] # delete 0 initial value
+if len(amplitude)>counts+1: amplitude=[] # reset avg if avg number is decreased
+amplitude.append((PVUtil.getDouble(pvs[0])**2/100)/1e6) # instant power PV MW
+if len(amplitude)==counts+1: amplitude.pop(0) # limit array size to avg number
+PVUtil.writePV(str(pvs[1]),amplitude,1)  #power MW]]></text>
+          <pv_name>$(LLRF_NAME):$(SIGNAL):amp_average_s.AVERAGE</pv_name>
+          <pv_name trigger="false">loc://$(amp)</pv_name>
+          <pv_name trigger="false">loc://$(counts)</pv_name>
+        </script>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script for standard deviation
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import math
+
+sum=0
+sum2=0
+amplitude=PVUtil.getDoubleArray(pvs[0])
+for a in amplitude: sum=sum+a
+mean=sum/len(amplitude)
+for a in amplitude: sum2=sum2+(a-mean)**2
+stdev=math.sqrt(sum2/len(amplitude))
+stdev_percent = (stdev / mean) * 100
+PVUtil.writePV(str(pvs[1]),mean,1)   #average power in MW
+PVUtil.writePV(str(pvs[2]),stdev_percent,1)
+]]></text>
+          <pv_name>loc://$(amp)</pv_name>
+          <pv_name trigger="false">loc://$(mean_amp)</pv_name>
+          <pv_name trigger="false">loc://$(stdev_amp)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Amplitude_jitter</name>
+      <text>Power jitter [%]</text>
+      <x>396</x>
+      <y>152</y>
+      <width>134</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Amp mean</name>
+      <pv_name>loc://$(mean_amp)</pv_name>
+      <x>396</x>
+      <y>112</y>
+      <width>120</width>
+      <height>30</height>
+      <format>1</format>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Amplitude_average</name>
+      <text>Power average [MW]</text>
+      <x>396</x>
+      <y>92</y>
+      <width>140</width>
+    </widget>
+    <widget type="xyplot" version="3.0.0">
+      <name>amp hist</name>
+      <x>5</x>
+      <width>380</width>
+      <height>290</height>
+      <show_toolbar>true</show_toolbar>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[import array
+import math
+from org.csstudio.display.builder.runtime.script import PVUtil
+
+amp_data = PVUtil.getDoubleArray(pvs[0])
+
+bin_count = 10
+min_val = min(amp_data)
+max_val = max(amp_data)
+
+if max_val == min_val:
+    bin_width = 1e-9 
+else:
+    bin_width = (max_val - min_val) / bin_count
+
+counts = array.array('i', [0] * bin_count)
+
+for value in amp_data:
+    bin_index = int((value - min_val) / bin_width)
+    if bin_index < bin_count:
+        counts[bin_index] += 1
+
+bins = array.array('d', [min_val + i * bin_width for i in range(bin_count + 1)])
+
+# Trasforma l'array di interi in un array di double
+counts_double = array.array('d', [float(count) for count in counts])
+
+PVUtil.writePV(str(pvs[1]), bins, 1)
+PVUtil.writePV(str(pvs[2]), counts_double, 1)
+]]></text>
+          <pv_name>loc://$(amp)</pv_name>
+          <pv_name trigger="false">loc://$(histogramBins_amp)</pv_name>
+          <pv_name trigger="false">loc://$(histogramCounts_amp)</pv_name>
+        </script>
+      </scripts>
+      <x_axis>
+        <title>Power [MW]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <visible>true</visible>
+      </x_axis>
+      <y_axes>
+        <y_axis>
+          <title>Counts</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>true</show_grid>
+          <title_font>
+            <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+            </font>
+          </title_font>
+          <scale_font>
+            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            </font>
+          </scale_font>
+          <on_right>false</on_right>
+          <visible>true</visible>
+          <color>
+            <color name="Text" red="0" green="0" blue="0">
+            </color>
+          </color>
+        </y_axis>
+      </y_axes>
+      <traces>
+        <trace>
+          <name>$(traces[0].y_pv)</name>
+          <x_pv>loc://$(histogramBins_amp)</x_pv>
+          <y_pv>loc://$(histogramCounts_amp)</y_pv>
+          <err_pv></err_pv>
+          <axis>0</axis>
+          <trace_type>5</trace_type>
+          <color>
+            <color red="26" green="51" blue="153">
+            </color>
+          </color>
+          <line_width>35</line_width>
+          <line_style>0</line_style>
+          <point_type>0</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+      </traces>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>RESET</name>
+      <actions execute_as_one="true">
+        <action type="write_pv">
+          <description>WritePV</description>
+          <pv_name>loc://$(phase)</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>WritePV</description>
+          <pv_name>loc://$(amp)</pv_name>
+          <value>0</value>
+        </action>
+      </actions>
+      <text>RESET AVERAGE</text>
+      <x>394</x>
+      <y>42</y>
+      <width>142</width>
+      <height>36</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Waveforms</name>
+    <x>4</x>
+    <y>95</y>
+    <width>648</width>
+    <height>636</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="xyplot" version="3.0.0">
+      <name>waveforms</name>
+      <width>450</width>
+      <height>290</height>
+      <show_toolbar>true</show_toolbar>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+
+power_array=[]
+power_W=PVUtil.getDoubleArray(pvs[0])
+for element in power_W: 
+	power_MW=element/1e6
+	power_array.append(power_MW)
+PVUtil.writePV(str(pvs[1]), power_array,1)]]></text>
+          <pv_name>$(LLRF_NAME):$(SIGNAL):power_remote.POWER</pv_name>
+          <pv_name>loc://$(power_MW)</pv_name>
+        </script>
+      </scripts>
+      <x_axis>
+        <title>Time [μs]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>10.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <visible>true</visible>
+      </x_axis>
+      <y_axes>
+        <y_axis>
+          <title>Power [MW]</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>1.0</maximum>
+          <show_grid>true</show_grid>
+          <title_font>
+            <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+            </font>
+          </title_font>
+          <scale_font>
+            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            </font>
+          </scale_font>
+          <on_right>false</on_right>
+          <visible>true</visible>
+          <color>
+            <color red="26" green="51" blue="153">
+            </color>
+          </color>
+        </y_axis>
+        <y_axis>
+          <title>Phase [deg]</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>-200.0</minimum>
+          <maximum>200.0</maximum>
+          <show_grid>true</show_grid>
+          <title_font>
+            <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+            </font>
+          </title_font>
+          <scale_font>
+            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            </font>
+          </scale_font>
+          <on_right>true</on_right>
+          <visible>true</visible>
+          <color>
+            <color red="230" green="128" blue="77">
+            </color>
+          </color>
+        </y_axis>
+      </y_axes>
+      <traces>
+        <trace>
+          <name>$(traces[0].y_pv)</name>
+          <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+          <y_pv>loc://$(power_MW)</y_pv>
+          <err_pv></err_pv>
+          <axis>0</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="26" green="51" blue="153">
+            </color>
+          </color>
+          <line_width>2</line_width>
+          <line_style>0</line_style>
+          <point_type>0</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+        <trace>
+          <name>$(traces[1].y_pv)</name>
+          <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+          <y_pv>$(LLRF_NAME):$(SIGNAL):amp_phase.PHASE_REMOTE</y_pv>
+          <err_pv></err_pv>
+          <axis>1</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="230" green="128" blue="77">
+            </color>
+          </color>
+          <line_width>2</line_width>
+          <line_style>0</line_style>
+          <point_type>0</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+      </traces>
+      <marker>
+        <marker>
+          <color>
+            <color red="128" green="128" blue="128">
+            </color>
+          </color>
+          <pv_name>$(LLRF_NAME):$(MARKERS):offset</pv_name>
+          <interactive>true</interactive>
+        </marker>
+        <marker>
+          <color>
+            <color red="128" green="128" blue="128">
+            </color>
+          </color>
+          <pv_name>='$(LLRF_NAME):$(MARKERS):offset'+'$(LLRF_NAME):$(MARKERS):avg_dur'</pv_name>
+          <interactive>true</interactive>
+        </marker>
+      </marker>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>average_phase</name>
+      <pv_name>$(LLRF_NAME):$(SIGNAL):phase_average_s.AVERAGE</pv_name>
+      <x>458</x>
+      <y>426</y>
+      <width>153</width>
+      <height>30</height>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_pulse2pulse_ph_avg</name>
+      <text>Current phase [deg]</text>
+      <x>458</x>
+      <y>406</y>
+      <width>153</width>
+      <height>21</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>average_amp</name>
+      <pv_name>loc://$(power_avg)</pv_name>
+      <x>458</x>
+      <y>486</y>
+      <width>153</width>
+      <height>30</height>
+      <format>1</format>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+amp_avg=PVUtil.getDouble(pvs[0])
+power_MW=(amp_avg**2/100)/1e6   #MW
+PVUtil.writePV(str(pvs[1]), power_MW, 1)
+]]></text>
+          <pv_name>$(LLRF_NAME):$(SIGNAL):amp_average_s.AVERAGE</pv_name>
+          <pv_name>loc://$(power_avg)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_pulse2pulse_amp_avg</name>
+      <text>Current power [MW]</text>
+      <x>458</x>
+      <y>466</y>
+      <width>153</width>
+      <height>21</height>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>RESET_1</name>
+      <actions execute_as_one="true">
+        <action type="write_pv">
+          <description>WritePV</description>
+          <pv_name>loc://$(amp_avg)</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>WritePV</description>
+          <pv_name>loc://$(ph_avg)</pv_name>
+          <value>0</value>
+        </action>
+        <action type="write_pv">
+          <description>WritePV</description>
+          <pv_name>loc://$(index)</pv_name>
+          <value>0</value>
+        </action>
+      </actions>
+      <text>RESET GRAPH</text>
+      <x>458</x>
+      <y>306</y>
+      <width>142</width>
+      <height>36</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>GraphEntries</name>
+      <pv_name>loc://$(maxGraphEntries)(10000)</pv_name>
+      <x>460</x>
+      <y>368</y>
+      <width>120</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_GraphEntries</name>
+      <text>Max Graph Samples</text>
+      <x>460</x>
+      <y>349</y>
+      <width>150</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="xyplot" version="3.0.0">
+      <name>Average amplitude and phase</name>
+      <y>306</y>
+      <width>450</width>
+      <height>290</height>
+      <show_toolbar>true</show_toolbar>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+current_array = PVUtil.getDoubleArray(pvs[1])
+
+if len(current_array) > 0:
+    last_value = current_array[-1]
+else:
+    last_value = 0
+
+next_value = (last_value + 1)
+
+current_array.append(next_value)
+
+PVUtil.writePV(str(pvs[1]), next_value, 1)]]></text>
+          <pv_name>loc://$(ph_avg)</pv_name>
+          <pv_name trigger="false">loc://$(index)</pv_name>
+        </script>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+phase_avg=PVUtil.getDoubleArray(pvs[2])
+amp_avg=PVUtil.getDoubleArray(pvs[3])
+
+limit=PVUtil.getDouble(pvs[4])
+
+if len(phase_avg) == 0 or (len(phase_avg) == 1 and phase_avg[0] == 0):
+	phase_avg=[] # delete 0 initial value
+
+if len(amp_avg) == 0 or (len(amp_avg) == 1 and amp_avg[0] == 0):
+	amp_avg=[] # delete 0 initial value
+
+if len(phase_avg)>limit+1: phase_avg=[] 
+if len(amp_avg)>limit+1: amp_avg=[] 
+
+if len(phase_avg)==limit+1: phase_avg.pop(0)
+if len(amp_avg)==limit+1: amp_avg.pop(0)
+
+phase_avg.append(PVUtil.getDouble(pvs[0]))
+amp_avg.append((PVUtil.getDouble(pvs[1])**2/100)/1e6)  #MW
+
+
+PVUtil.writePV(str(pvs[2]), phase_avg, 1)
+PVUtil.writePV(str(pvs[3]), amp_avg, 1)]]></text>
+          <pv_name>$(LLRF_NAME):$(SIGNAL):phase_average_s.AVERAGE</pv_name>
+          <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL):amp_average_s.AVERAGE</pv_name>
+          <pv_name trigger="false">loc://$(ph_avg)</pv_name>
+          <pv_name trigger="false">loc://$(amp_avg)</pv_name>
+          <pv_name trigger="false">loc://$(maxGraphEntries)</pv_name>
+        </script>
+      </scripts>
+      <x_axis>
+        <title>Samples</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <visible>true</visible>
+      </x_axis>
+      <y_axes>
+        <y_axis>
+          <title>Power average [MW]</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>true</show_grid>
+          <title_font>
+            <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+            </font>
+          </title_font>
+          <scale_font>
+            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            </font>
+          </scale_font>
+          <on_right>false</on_right>
+          <visible>true</visible>
+          <color>
+            <color red="26" green="51" blue="153">
+            </color>
+          </color>
+        </y_axis>
+        <y_axis>
+          <title>Phase average [deg]</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>true</show_grid>
+          <title_font>
+            <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+            </font>
+          </title_font>
+          <scale_font>
+            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            </font>
+          </scale_font>
+          <on_right>true</on_right>
+          <visible>true</visible>
+          <color>
+            <color red="230" green="128" blue="77">
+            </color>
+          </color>
+        </y_axis>
+      </y_axes>
+      <traces>
+        <trace>
+          <name>$(traces[0].y_pv)</name>
+          <x_pv>loc://$(index)</x_pv>
+          <y_pv>loc://$(amp_avg)</y_pv>
+          <err_pv></err_pv>
+          <axis>0</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="26" green="51" blue="153">
+            </color>
+          </color>
+          <line_width>1</line_width>
+          <line_style>0</line_style>
+          <point_type>2</point_type>
+          <point_size>4</point_size>
+          <visible>true</visible>
+        </trace>
+        <trace>
+          <name>$(traces[1].y_pv)</name>
+          <x_pv>loc://$(index)</x_pv>
+          <y_pv>loc://$(ph_avg)</y_pv>
+          <err_pv></err_pv>
+          <axis>1</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="230" green="128" blue="77">
+            </color>
+          </color>
+          <line_width>1</line_width>
+          <line_style>0</line_style>
+          <point_type>2</point_type>
+          <point_size>4</point_size>
+          <visible>true</visible>
+        </trace>
+      </traces>
+    </widget>
+  </widget>
+</display>

@@ -1,0 +1,4761 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-02-20 14:14:43 by beatr-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>2404</width>
+  <height>1129</height>
+  <grid_color>
+    <color red="102" green="102" blue="102">
+    </color>
+  </grid_color>
+  <widget type="picture" version="2.0.0">
+    <name>Picture_7</name>
+    <file>ELI_layout.png</file>
+    <x>84</x>
+    <y>132</y>
+    <width>2300</width>
+    <height>987</height>
+    <stretch_image>true</stretch_image>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>STATUS RF1</name>
+    <x>64</x>
+    <y>10</y>
+    <width>348</width>
+    <height>89</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="led" version="2.0.0">
+      <name>AMP LOOP ON/OFF LLRF1</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF01:vm:dsp:pi_amp:loop_closed</pv_name>
+      <x>180</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label> AMP 
+ FBK 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label> AMP 
+ FBK 
+ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>TRIG ON/OFF LLRF1</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF01:tcm:trig:source</pv_name>
+      <x>90</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label> TRIG 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <line_color>
+        <color name="Header_Background" red="77" green="77" blue="77">
+        </color>
+      </line_color>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getString(pvs[0])
+if value == "Internal":
+    widget.setPropertyValue('on_color', ColorFontUtil.YELLOW)
+    widget.setPropertyValue('on_label', "TRIG \nINT")
+
+if value == "External":
+    widget.setPropertyValue('on_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('on_label', "TRIG EXT")
+
+
+   
+
+]]></text>
+          <pv_name>LEL-RF-LLRF01:tcm:trig:source</pv_name>
+        </script>
+      </scripts>
+      <tooltip></tooltip>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>PH LOOP ON/OFF LLRF1</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF01:vm:dsp:pi_ph:loop_closed</pv_name>
+      <x>225</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label> PHASE 
+ FBK 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label> PHASE 
+ FBK 
+ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>INTERLOCK LLRF1</name>
+      <class>GOOD_BAD</class>
+      <pv_name>LEL-RF-LLRF01:app:interlock:state</pv_name>
+      <bit>0</bit>
+      <x>135</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>INTLK 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_label>INTLK</on_label>
+      <on_color use_class="true">
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>RF ON/OFF LLRF1</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF01:app:rf_ctrl</pv_name>
+      <x>45</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>RF 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label>RF 
+ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>MOD STATE</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL:MOD:SCAT:MOD01:STATE_RB</pv_name>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getString(pvs[0])
+
+if value in ("StandByOnRequested","StandByInterlock","StandByOffRequested","StandBy"):
+    widget.setPropertyValue('on_color',  ColorFontUtil.getColorFromRGB(60, 100,60))
+    widget.setPropertyValue('on_label', "MOD \n STDBY")
+
+if value in ("HvInterlock","HvOffRequested","HvOnRequested","Hv"):
+     widget.setPropertyValue('on_color',  ColorFontUtil.getColorFromRGB(60, 100,60))
+     widget.setPropertyValue('on_label', "HV")
+
+if value in ("TrigInterlock","TrigOffRequested","TrigOnRequested","Trig"):
+    widget.setPropertyValue('on_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('on_label', "TRIG")
+
+if value=="Error":
+    widget.setPropertyValue('on_color', ColorFontUtil.RED)
+    widget.setPropertyValue('on_label', "Error")
+
+if value=="Off":
+    widget.setPropertyValue('on_color', ColorFontUtil.getColorFromRGB(60, 100,60))
+    widget.setPropertyValue('on_label', "MOD\n OFF")
+]]></text>
+          <pv_name>LEL:MOD:SCAT:MOD01:STATE_RB</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>CONDITIONING ON/OFF LLRF3_1</name>
+      <class>ON_OFF</class>
+      <pv_name>SSRIP:RF:CONDITIONING01:CONDITIONING_STATUS</pv_name>
+      <x>270</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>COND 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label>COND ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = int(PVUtil.getDouble(pvs[0]))
+if value == 1:
+    widget.setPropertyValue('on_color', ColorFontUtil.YELLOW)
+    widget.setPropertyValue('on_label', "COND ON")
+
+if value == 0:
+    widget.setPropertyValue('off_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('off_label', "COND OFF")
+]]></text>
+          <pv_name>SSRIP:RF:CONDITIONING01:CONDITIONING_STATUS</pv_name>
+        </script>
+      </scripts>
+    </widget>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>LLRFS1_panel</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>LLRF_panel.bob</file>
+        <macros>
+          <LLRF_NAME>LEL-RF-LLRF01</LLRF_NAME>
+          <power_MW>power_MW:LLRF1</power_MW>
+          <boolean>boolean:LLRF1</boolean>
+          <power_average>power_average:LLRF1</power_average>
+          <amp_mask>amp_mask:LLRF1</amp_mask>
+          <stdev_amp_mask>stdev_amp_mask:LLRF1</stdev_amp_mask>
+          <ph_average>ph_average:LLRF1</ph_average>
+          <stdev_mask>stdev_mask:LLRF1</stdev_mask>
+          <phase_mask>phase_mask:LLRF1</phase_mask>
+          <ch_vswr>ch6</ch_vswr>
+          <boolean_decrease_power>boolean_decrease_power:LLRF1</boolean_decrease_power>
+          <ch_VM>ch8</ch_VM>
+          <NAME>LLRF1</NAME>
+          <conditioning>SSRIP:RF:CONDITIONING01</conditioning>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>LLRF1</text>
+    <x>188</x>
+    <y>94</y>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="148" green="200" blue="212">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Open waveform line 1</name>
+    <actions>
+      <action type="open_display">
+        <description>Waveform 1</description>
+        <file>waveform.bob</file>
+        <macros>
+          <LLRF_NAME>LEL-RF-LLRF01</LLRF_NAME>
+          <SIGNAL1>ad1:ch2</SIGNAL1>
+          <TITLE1>DRV1 OUT</TITLE1>
+          <SIGNAL2>ad1:ch3</SIGNAL2>
+          <TITLE2>K1 FWD</TITLE2>
+          <SIGNAL3>ad1:ch4</SIGNAL3>
+          <TITLE3>K1 REV</TITLE3>
+          <SIGNAL4>ad1:ch5</SIGNAL4>
+          <TITLE4>GUN FWD</TITLE4>
+          <SIGNAL5>ad1:ch6</SIGNAL5>
+          <TITLE5>GUN REV</TITLE5>
+          <SIGNAL6>ad1:ch1</SIGNAL6>
+          <TITLE6>GUN PROBE</TITLE6>
+          <power1>power1:LLRF1</power1>
+          <power2>power2:LLRF1</power2>
+          <power3>power3:LLRF1</power3>
+          <power4>power4:LLRF1</power4>
+          <power5>power5:LLRF1</power5>
+          <power6>power6:LLRF1</power6>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <x>83</x>
+    <y>94</y>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>CONDITIONING 1</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>conditioning_panel.bob</file>
+        <macros>
+          <CONDITIONING_IOC>SSRIP:RF:CONDITIONING01</CONDITIONING_IOC>
+          <LLRF_NAME>LEL-RF-LLRF01</LLRF_NAME>
+          <power_average_cond>power_average_cond:LEL-RF-LLRF01</power_average_cond>
+          <vacuum_table>vacuum_table:LEL-RF-LLRF01</vacuum_table>
+          <trigger_apply_table>trigger_apply_table01</trigger_apply_table>
+          <PUMP1>VPCON01:IONP01</PUMP1>
+          <PUMP2>VPCON01:IONP02</PUMP2>
+          <PUMP3>VPCON01:IONP03</PUMP3>
+          <power_MW_cond>power_MW_cond:01</power_MW_cond>
+          <boolean_cond>boolean_cond:01</boolean_cond>
+          <PREF>LEL:VAC</PREF>
+          <SUFF>PRES_RB</SUFF>
+          <PUMP4>VPCON01:IONP04</PUMP4>
+          <PUMP5>VGCON01:CC01</PUMP5>
+          <PUMP6>VGCON01:CC03</PUMP6>
+          <PUMP7>VGCON01:CC04</PUMP7>
+          <PUMP8>VPCON04:WGS01IONP01</PUMP8>
+          <PUMP9>VPCON04:WGS01IONP02</PUMP9>
+          <PUMP10>VPCON04:WGS01IONP03</PUMP10>
+          <PUMP11>VPCON04:WGS01IONP04</PUMP11>
+          <PUMP12>VPCON05:WGS01IONP05</PUMP12>
+          <PUMP13>VPCON05:WGS01IONP06</PUMP13>
+          <selection1>Gun_Probe</selection1>
+          <selection2>Driver_FDW</selection2>
+          <selection3>Klystron1_FDW</selection3>
+          <selection4>Klystron1_REV</selection4>
+          <selection5>Gun_FDW</selection5>
+          <selection6>Gun_REV</selection6>
+          <channel_sel>channel_sel:line1</channel_sel>
+          <PUMP14>VPCON05:WGS01IONP06</PUMP14>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Conditioning1</text>
+    <x>293</x>
+    <y>94</y>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="progressbar" version="2.0.0">
+    <name>Progress Bar_1</name>
+    <pv_name>LEL-RF-LLRF01:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+    <x>379</x>
+    <y>153</y>
+    <width>16</width>
+    <height>65</height>
+    <horizontal>false</horizontal>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getDouble(pvs[0])
+if value <0.548:	#3 mW
+	widget.setPropertyValue('fill_color', ColorFontUtil.PURPLE)
+elif 0.548<=value<0.949:		# 3<value<9 mW
+	widget.setPropertyValue('fill_color', ColorFontUtil.GREEN)
+elif 0.949<=value<1:	        # 9<value<10 mW
+	widget.setPropertyValue('fill_color', ColorFontUtil.YELLOW)
+elif value>=1:	# 10 mW
+	widget.setPropertyValue('fill_color', ColorFontUtil.RED)	
+]]></text>
+        <pv_name>LEL-RF-LLRF01:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+      </script>
+    </scripts>
+    <limits_from_pv>false</limits_from_pv>
+    <maximum>1.05</maximum>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>STATUS RF2</name>
+    <x>473</x>
+    <y>10</y>
+    <width>348</width>
+    <height>89</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="led" version="2.0.0">
+      <name>AMP LOOP ON/OFF LLRF2</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF02:vm:dsp:pi_amp:loop_closed</pv_name>
+      <x>180</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label> AMP 
+ FBK 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label> AMP 
+ FBK 
+ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>TRIG ON/OFF LLRF1_2</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF02:tcm:trig:source</pv_name>
+      <x>90</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label> TRIG 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <line_color>
+        <color name="Header_Background" red="77" green="77" blue="77">
+        </color>
+      </line_color>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getString(pvs[0])
+if value == "Internal":
+    widget.setPropertyValue('on_color', ColorFontUtil.YELLOW)
+    widget.setPropertyValue('on_label', "TRIG \nINT")
+
+if value == "External":
+    widget.setPropertyValue('on_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('on_label', "TRIG EXT")
+
+
+   
+
+]]></text>
+          <pv_name>LEL-RF-LLRF02:tcm:trig:source</pv_name>
+        </script>
+      </scripts>
+      <tooltip></tooltip>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>PH LOOP ON/OFF LLRF2</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF02:vm:dsp:pi_ph:loop_closed</pv_name>
+      <x>225</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label> PHASE 
+ FBK 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label> PHASE 
+ FBK 
+ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>INTERLOCK LLRF2</name>
+      <class>GOOD_BAD</class>
+      <pv_name>LEL-RF-LLRF02:app:interlock:state</pv_name>
+      <bit>0</bit>
+      <x>135</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>INTLK 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_label>INTLK</on_label>
+      <on_color use_class="true">
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>RF ON/OFF LLRF2</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF02:app:rf_ctrl</pv_name>
+      <x>45</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>RF 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label>RF 
+ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>MOD STATE2</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL:MOD:SCAT:MOD02:STATE_RB</pv_name>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getString(pvs[0])
+
+if value in ("StandByOnRequested","StandByInterlock","StandByOffRequested","StandBy"):
+    widget.setPropertyValue('on_color',  ColorFontUtil.getColorFromRGB(60, 100,60))
+    widget.setPropertyValue('on_label', "MOD \n STDBY")
+
+if value in ("HvInterlock","HvOffRequested","HvOnRequested","Hv"):
+     widget.setPropertyValue('on_color',  ColorFontUtil.getColorFromRGB(60, 100,60))
+     widget.setPropertyValue('on_label', "HV")
+
+if value in ("TrigInterlock","TrigOffRequested","TrigOnRequested","Trig"):
+    widget.setPropertyValue('on_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('on_label', "TRIG")
+
+if value=="Error":
+    widget.setPropertyValue('on_color', ColorFontUtil.RED)
+    widget.setPropertyValue('on_label', "Error")
+
+if value=="Off":
+    widget.setPropertyValue('on_color', ColorFontUtil.getColorFromRGB(60, 100,60))
+    widget.setPropertyValue('on_label', "MOD\n OFF")
+]]></text>
+          <pv_name>LEL:MOD:SCAT:MOD02:STATE_RB</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>CONDITIONING ON/OFF LLRF2</name>
+      <class>ON_OFF</class>
+      <pv_name>SSRIP:RF:CONDITIONING02:CONDITIONING_STATUS</pv_name>
+      <x>270</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>COND 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label>COND ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = int(PVUtil.getDouble(pvs[0]))
+if value == 1:
+    widget.setPropertyValue('on_color', ColorFontUtil.YELLOW)
+    widget.setPropertyValue('on_label', "COND ON")
+
+if value == 0:
+    widget.setPropertyValue('off_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('off_label', "COND OFF")
+]]></text>
+          <pv_name>SSRIP:RF:CONDITIONING02:CONDITIONING_STATUS</pv_name>
+        </script>
+      </scripts>
+    </widget>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>LLRFS2_panel</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>LLRF_panel.bob</file>
+        <macros>
+          <LLRF_NAME>LEL-RF-LLRF02</LLRF_NAME>
+          <power_MW>power_MW:LLRF2</power_MW>
+          <boolean>boolean:LLRF2</boolean>
+          <power_average>power_average:LLRF2</power_average>
+          <amp_mask>amp_mask:LLRF2</amp_mask>
+          <stdev_amp_mask>stdev_amp_mask:LLRF2</stdev_amp_mask>
+          <ph_average>ph_average:LLRF2</ph_average>
+          <stdev_mask>stdev_mask:LLRF2</stdev_mask>
+          <phase_mask>phase_mask:LLRF2</phase_mask>
+          <ch_vswr>ch4</ch_vswr>
+          <boolean_decrease_power>boolean_decrease_power:LLRF2</boolean_decrease_power>
+          <ch_VM>ch8</ch_VM>
+          <NAME>LLRF2</NAME>
+          <conditioning>SSRIP:RF:CONDITIONING02</conditioning>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>LLRF2</text>
+    <x>596</x>
+    <y>95</y>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="148" green="200" blue="212">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Open waveform line 2</name>
+    <actions>
+      <action type="open_display">
+        <description>Waveform 2</description>
+        <file>waveform.bob</file>
+        <macros>
+          <LLRF_NAME>LEL-RF-LLRF02</LLRF_NAME>
+          <SIGNAL1>ad1:ch2</SIGNAL1>
+          <TITLE1>DRV2 OUT</TITLE1>
+          <SIGNAL2>ad1:ch3</SIGNAL2>
+          <TITLE2>K2 FWD</TITLE2>
+          <SIGNAL3>ad1:ch4</SIGNAL3>
+          <TITLE3>K2 REV</TITLE3>
+          <SIGNAL4>ad1:ch5</SIGNAL4>
+          <TITLE4>AC1 IN FWD</TITLE4>
+          <SIGNAL5>ad1:ch6</SIGNAL5>
+          <TITLE5>AC1 IN REV</TITLE5>
+          <SIGNAL6>ad1:ch1</SIGNAL6>
+          <TITLE6>AC1 OUT</TITLE6>
+          <power1>power1:LLRF2</power1>
+          <power2>power2:LLRF2</power2>
+          <power3>power3:LLRF2</power3>
+          <power4>power4:LLRF2</power4>
+          <power5>power5:LLRF2</power5>
+          <power6>power6:LLRF2</power6>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <x>491</x>
+    <y>95</y>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>CONDITIONING 2</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>conditioning_panel.bob</file>
+        <macros>
+          <CONDITIONING_IOC>SSRIP:RF:CONDITIONING02</CONDITIONING_IOC>
+          <LLRF_NAME>LEL-RF-LLRF02</LLRF_NAME>
+          <power_average_cond>power_average_cond:LEL-RF-LLRF02</power_average_cond>
+          <vacuum_table>vacuum_table:LEL-RF-LLRF02</vacuum_table>
+          <trigger_apply_table>trigger_apply_table02</trigger_apply_table>
+          <PUMP1>VPCON02:IONP05</PUMP1>
+          <PUMP2>VPCON02:IONP06</PUMP2>
+          <PUMP3>VPCON05:WGS02IONP01</PUMP3>
+          <PUMP4>VPCON05:WGS02IONP02</PUMP4>
+          <PUMP5>VPCON06:WGS02IONP03</PUMP5>
+          <PUMP6>VPCON06:WGS02IONP04</PUMP6>
+          <PUMP7>VPCON06:WGS02IONP05</PUMP7>
+          <PUMP8>VPCON06:WGS02IONP03</PUMP8>
+          <PUMP9>VPCON06:WGS02IONP03</PUMP9>
+          <PUMP10>VPCON06:WGS02IONP03</PUMP10>
+          <PUMP11>VPCON06:WGS02IONP03</PUMP11>
+          <PUMP12>VPCON06:WGS02IONP03</PUMP12>
+          <power_MW_cond>power_MW_cond:02</power_MW_cond>
+          <boolean_cond>boolean_cond:02</boolean_cond>
+          <PREF>LEL:VAC</PREF>
+          <SUFF>PRES_RB</SUFF>
+          <PUMP13>VPCON06:WGS02IONP03</PUMP13>
+          <PUMP14>VPCON06:WGS02IONP03</PUMP14>
+          <selection1>AC1_OUT</selection1>
+          <selection2>Driver_FWD</selection2>
+          <selection3>Klystron_FWD</selection3>
+          <selection4>Klystron_REV</selection4>
+          <selection5>AC1_IN_FWD</selection5>
+          <selection6>AC1_IN_REV</selection6>
+          <channel_sel>channel_sel:line2</channel_sel>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Conditioning2</text>
+    <x>701</x>
+    <y>95</y>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="progressbar" version="2.0.0">
+    <name>Progress Bar_2</name>
+    <pv_name>LEL-RF-LLRF02:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+    <x>790</x>
+    <y>150</y>
+    <width>16</width>
+    <height>65</height>
+    <horizontal>false</horizontal>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getDouble(pvs[0])
+if value <0.4:
+	widget.setPropertyValue('fill_color', ColorFontUtil.PURPLE)
+elif 0.4<=value<0.8:		
+	widget.setPropertyValue('fill_color', ColorFontUtil.GREEN)
+elif 0.8<=value<0.85:	       
+	widget.setPropertyValue('fill_color', ColorFontUtil.YELLOW)
+elif value>=0.85:	
+	widget.setPropertyValue('fill_color', ColorFontUtil.RED)	
+]]></text>
+        <pv_name>LEL-RF-LLRF02:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+      </script>
+    </scripts>
+    <limits_from_pv>false</limits_from_pv>
+    <maximum>0.9</maximum>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>STATUS RF3</name>
+    <x>1144</x>
+    <y>10</y>
+    <width>348</width>
+    <height>89</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="led" version="2.0.0">
+      <name>AMP LOOP ON/OFF LLRF3</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF03:vm:dsp:pi_amp:loop_closed</pv_name>
+      <x>180</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label> AMP 
+ FBK 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label> AMP 
+ FBK 
+ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>TRIG ON/OFF LLRF3</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF03:tcm:trig:source</pv_name>
+      <x>90</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label> TRIG 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <line_color>
+        <color name="Header_Background" red="77" green="77" blue="77">
+        </color>
+      </line_color>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getString(pvs[0])
+if value == "Internal":
+    widget.setPropertyValue('on_color', ColorFontUtil.YELLOW)
+    widget.setPropertyValue('on_label', "TRIG \nINT")
+
+if value == "External":
+    widget.setPropertyValue('on_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('on_label', "TRIG EXT")
+
+
+   
+
+]]></text>
+          <pv_name>LEL-RF-LLRF03:tcm:trig:source</pv_name>
+        </script>
+      </scripts>
+      <tooltip></tooltip>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>PH LOOP ON/OFF LLRF3</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF03:vm:dsp:pi_ph:loop_closed</pv_name>
+      <x>225</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label> PHASE 
+ FBK 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label> PHASE 
+ FBK 
+ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>INTERLOCK LLRF3</name>
+      <class>GOOD_BAD</class>
+      <pv_name>LEL-RF-LLRF03:app:interlock:state</pv_name>
+      <bit>0</bit>
+      <x>135</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>INTLK 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_label>INTLK</on_label>
+      <on_color use_class="true">
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>RF ON/OFF LLRF3</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF03:app:rf_ctrl</pv_name>
+      <x>45</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>RF 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label>RF 
+ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>MOD STATE_3</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL:MOD:SCAT:MOD03:STATE_RB</pv_name>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>MOD OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label>TRIG</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getString(pvs[0])
+
+if value in ("StandByOnRequested","StandByInterlock","StandByOffRequested","StandBy"):
+    widget.setPropertyValue('on_color',  ColorFontUtil.getColorFromRGB(60, 100,60))
+    widget.setPropertyValue('on_label', "MOD \n STDBY")
+
+if value in ("HvInterlock","HvOffRequested","HvOnRequested","Hv"):
+     widget.setPropertyValue('on_color',  ColorFontUtil.getColorFromRGB(60, 100,60))
+     widget.setPropertyValue('on_label', "HV")
+
+if value in ("TrigInterlock","TrigOffRequested","TrigOnRequested","Trig"):
+    widget.setPropertyValue('on_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('on_label', "TRIG")
+
+if value=="Error":
+    widget.setPropertyValue('on_color', ColorFontUtil.RED)
+    widget.setPropertyValue('on_label', "Error")
+
+if value=="Off":
+    widget.setPropertyValue('on_color', ColorFontUtil.getColorFromRGB(60, 100,60))
+    widget.setPropertyValue('on_label', "MOD\n OFF")
+]]></text>
+          <pv_name>LEL:MOD:SCAT:MOD03:STATE_RB</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>CONDITIONING ON/OFF LLRF3</name>
+      <class>ON_OFF</class>
+      <pv_name>SSRIP:RF:CONDITIONING03:CONDITIONING_STATUS</pv_name>
+      <x>270</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>COND 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label>COND ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = int(PVUtil.getDouble(pvs[0]))
+if value == 1:
+    widget.setPropertyValue('on_color', ColorFontUtil.YELLOW)
+    widget.setPropertyValue('on_label', "COND ON")
+
+if value == 0:
+    widget.setPropertyValue('off_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('off_label', "COND OFF")
+]]></text>
+          <pv_name>SSRIP:RF:CONDITIONING03:CONDITIONING_STATUS</pv_name>
+        </script>
+      </scripts>
+    </widget>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>LLRFS3_panel</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>LLRF_panel.bob</file>
+        <macros>
+          <LLRF_NAME>LEL-RF-LLRF03</LLRF_NAME>
+          <power_MW>power_MW:LLRF3</power_MW>
+          <boolean>boolean:LLRF3</boolean>
+          <power_average>power_average:LLRF3</power_average>
+          <amp_mask>amp_mask:LLRF3</amp_mask>
+          <stdev_amp_mask>stdev_amp_mask:LLRF3</stdev_amp_mask>
+          <ph_average>ph_average:LLRF3</ph_average>
+          <stdev_mask>stdev_mask:LLRF3</stdev_mask>
+          <phase_mask>phase_mask:LLRF3</phase_mask>
+          <ch_vswr>ch6</ch_vswr>
+          <boolean_decrease_power>boolean_decrease_power:LLRF3</boolean_decrease_power>
+          <ch_VM>ch8</ch_VM>
+          <NAME>LLRF3</NAME>
+          <conditioning>SSRIP:RF:CONDITIONING03</conditioning>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>LLRF3</text>
+    <x>1268</x>
+    <y>95</y>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="148" green="200" blue="212">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Open waveform line 3</name>
+    <actions>
+      <action type="open_display">
+        <description>Waveform 3</description>
+        <file>waveform.bob</file>
+        <macros>
+          <LLRF_NAME>LEL-RF-LLRF03</LLRF_NAME>
+          <SIGNAL1>ad1:ch2</SIGNAL1>
+          <TITLE1>DRV3 OUT</TITLE1>
+          <SIGNAL2>ad1:ch3</SIGNAL2>
+          <TITLE2>K3 FWD</TITLE2>
+          <SIGNAL3>ad1:ch4</SIGNAL3>
+          <TITLE3>K3 REV</TITLE3>
+          <SIGNAL4>ad1:ch5</SIGNAL4>
+          <TITLE4>AC2 IN FWD</TITLE4>
+          <SIGNAL5>ad1:ch6</SIGNAL5>
+          <TITLE5>AC2 IN REV</TITLE5>
+          <SIGNAL6>ad1:ch1</SIGNAL6>
+          <TITLE6>AC2 OUT</TITLE6>
+          <power1>power1:LLRF3</power1>
+          <power2>power2:LLRF3</power2>
+          <power3>power3:LLRF3</power3>
+          <power4>power4:LLRF3</power4>
+          <power5>power5:LLRF3</power5>
+          <power6>power6:LLRF3</power6>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <x>1163</x>
+    <y>95</y>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>CONDITIONING 3</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>conditioning_panel.bob</file>
+        <macros>
+          <CONDITIONING_IOC>SSRIP:RF:CONDITIONING03</CONDITIONING_IOC>
+          <LLRF_NAME>LEL-RF-LLRF03</LLRF_NAME>
+          <vacuum_table>vacuum_table:LEL-RF-LLRF03</vacuum_table>
+          <trigger_apply_table>trigger_apply_table03</trigger_apply_table>
+          <PUMP1>VGCON01:CC06</PUMP1>
+          <PUMP2>VPCON03:IONP09</PUMP2>
+          <PUMP3>VPCON02:IONP07</PUMP3>
+          <PUMP4>VPCON02:IONP08</PUMP4>
+          <PUMP5>VPCON06:WGS03IONP01</PUMP5>
+          <PUMP6>VPCON07:WGS03IONP02</PUMP6>
+          <PUMP7>VPCON07:WGS03IONP03</PUMP7>
+          <PUMP8>VPCON07:WGS03IONP04</PUMP8>
+          <PUMP9>VPCON07:WGS03IONP04</PUMP9>
+          <PUMP10>VPCON07:WGS03IONP04</PUMP10>
+          <PUMP11>VPCON07:WGS03IONP04</PUMP11>
+          <PUMP12>VPCON07:WGS03IONP04</PUMP12>
+          <power_MW_cond>power_MW_cond:03</power_MW_cond>
+          <boolean_cond>boolean_cond:03</boolean_cond>
+          <PREF>LEL:VAC</PREF>
+          <SUFF>PRES_RB</SUFF>
+          <PUMP13>VPCON07:WGS03IONP04</PUMP13>
+          <PUMP14>VPCON07:WGS03IONP04</PUMP14>
+          <selection1>AC2_OUT</selection1>
+          <selection2>Drive_FWD</selection2>
+          <selection3>Klystron_FWD</selection3>
+          <selection4>Klystron_REV</selection4>
+          <selection5>AC2_IN_FWD</selection5>
+          <selection6>AC2_IN_REV</selection6>
+          <channel_sel>channel_sel:line3</channel_sel>
+          <power_average_cond>power_average_cond:LEL-RF-LLRF03</power_average_cond>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Conditioning3</text>
+    <x>1373</x>
+    <y>95</y>
+    <width>101</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="progressbar" version="2.0.0">
+    <name>Progress Bar_3</name>
+    <pv_name>LEL-RF-LLRF03:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+    <x>1461</x>
+    <y>152</y>
+    <width>16</width>
+    <height>65</height>
+    <horizontal>false</horizontal>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getDouble(pvs[0])
+if value <0.4:	
+	widget.setPropertyValue('fill_color', ColorFontUtil.PURPLE)
+elif 0.4<=value<0.85:		
+	widget.setPropertyValue('fill_color', ColorFontUtil.GREEN)
+elif 0.85<=value<0.9:	        
+	widget.setPropertyValue('fill_color', ColorFontUtil.YELLOW)
+elif value>=0.9:	
+	widget.setPropertyValue('fill_color', ColorFontUtil.RED)	
+]]></text>
+        <pv_name>LEL-RF-LLRF03:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+      </script>
+    </scripts>
+    <limits_from_pv>false</limits_from_pv>
+    <maximum>0.95</maximum>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>STATUS RF4</name>
+    <x>1793</x>
+    <y>10</y>
+    <width>348</width>
+    <height>89</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <widget type="led" version="2.0.0">
+      <name>AMP LOOP ON/OFF LLRF4</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF04:vm:dsp:pi_amp:loop_closed</pv_name>
+      <x>180</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label> AMP 
+ FBK 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label> AMP 
+ FBK 
+ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>TRIG ON/OFF LLRF1_4</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF04:tcm:trig:source</pv_name>
+      <x>90</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label> TRIG 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <line_color>
+        <color name="Header_Background" red="77" green="77" blue="77">
+        </color>
+      </line_color>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getString(pvs[0])
+if value == "Internal":
+    widget.setPropertyValue('on_color', ColorFontUtil.YELLOW)
+    widget.setPropertyValue('on_label', "TRIG \nINT")
+
+if value == "External":
+    widget.setPropertyValue('on_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('on_label', "TRIG EXT")
+
+
+   
+
+]]></text>
+          <pv_name>LEL-RF-LLRF04:tcm:trig:source</pv_name>
+        </script>
+      </scripts>
+      <tooltip></tooltip>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>PH LOOP ON/OFF LLRF4</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF04:vm:dsp:pi_ph:loop_closed</pv_name>
+      <x>225</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label> PHASE 
+ FBK 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label> PHASE 
+ FBK 
+ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>INTERLOCK LLRF4</name>
+      <class>GOOD_BAD</class>
+      <pv_name>LEL-RF-LLRF04:app:interlock:state</pv_name>
+      <bit>0</bit>
+      <x>135</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>INTLK 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_label>INTLK</on_label>
+      <on_color use_class="true">
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>RF ON/OFF LLRF4</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL-RF-LLRF04:app:rf_ctrl</pv_name>
+      <x>45</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>RF 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label>RF 
+ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>CONDITIONING ON/OFF LLRF4</name>
+      <class>ON_OFF</class>
+      <pv_name>SSRIP:RF:CONDITIONING04:CONDITIONING_STATUS</pv_name>
+      <x>270</x>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_label>COND 
+OFF</off_label>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_label>COND ON</on_label>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = int(PVUtil.getDouble(pvs[0]))
+if value == 1:
+    widget.setPropertyValue('on_color', ColorFontUtil.YELLOW)
+    widget.setPropertyValue('on_label', "COND ON")
+
+if value == 0:
+    widget.setPropertyValue('off_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('off_label', "COND OFF")
+]]></text>
+          <pv_name>SSRIP:RF:CONDITIONING04:CONDITIONING_STATUS</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>MOD STATE_4</name>
+      <class>ON_OFF</class>
+      <pv_name>LEL:MOD:SCAT:MOD04:STATE_RB</pv_name>
+      <y>4</y>
+      <width>42</width>
+      <height>50</height>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getString(pvs[0])
+
+if value in ("StandByOnRequested","StandByInterlock","StandByOffRequested","StandBy"):
+    widget.setPropertyValue('on_color',  ColorFontUtil.getColorFromRGB(60, 100,60))
+    widget.setPropertyValue('on_label', "MOD \n STDBY")
+
+if value in ("HvInterlock","HvOffRequested","HvOnRequested","Hv"):
+     widget.setPropertyValue('on_color',  ColorFontUtil.getColorFromRGB(60, 100,60))
+     widget.setPropertyValue('on_label', "HV")
+
+if value in ("TrigInterlock","TrigOffRequested","TrigOnRequested","Trig"):
+    widget.setPropertyValue('on_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('on_label', "TRIG")
+
+if value=="Error":
+    widget.setPropertyValue('on_color', ColorFontUtil.RED)
+    widget.setPropertyValue('on_label', "Error")
+
+if value=="Off":
+    widget.setPropertyValue('on_color', ColorFontUtil.getColorFromRGB(60, 100,60))
+    widget.setPropertyValue('on_label', "MOD\n OFF")
+]]></text>
+          <pv_name>LEL:MOD:SCAT:MOD04:STATE_RB</pv_name>
+        </script>
+      </scripts>
+    </widget>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>LLRFC_panel</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>LLRF_panel.bob</file>
+        <macros>
+          <LLRF_NAME>LEL-RF-LLRF04</LLRF_NAME>
+          <power_MW>power_MW:LLRF4</power_MW>
+          <boolean>boolean:LLRF4</boolean>
+          <power_average>power_average:LLRF4</power_average>
+          <amp_mask>amp_mask:LLRF4</amp_mask>
+          <stdev_amp_mask>stdev_amp_mask:LLRF4</stdev_amp_mask>
+          <ph_average>ph_average:LLRF4</ph_average>
+          <stdev_mask>stdev_mask:LLRF4</stdev_mask>
+          <phase_mask>phase_mask:LLRF4</phase_mask>
+          <ch_vswr>ch6</ch_vswr>
+          <boolean_decrease_power>boolean_decrease_power:LLRF4</boolean_decrease_power>
+          <ch_VM>ch8</ch_VM>
+          <NAME>LLRF4</NAME>
+          <conditioning>SSRIP:RF:CONDITIONING04</conditioning>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>LLRF4</text>
+    <x>1916</x>
+    <y>95</y>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="148" green="200" blue="212">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>CONDITIONING 4</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>conditioning_panel.bob</file>
+        <macros>
+          <CONDITIONING_IOC>ELI:RF:CONDITIONING04</CONDITIONING_IOC>
+          <LLRF_NAME>LEL-RF-LLRF04</LLRF_NAME>
+          <power_average_cond>power_average_cond:LEL-RF-LLRF04</power_average_cond>
+          <vacuum_table>vacuum_table:LEL-RF-LLRF04</vacuum_table>
+          <trigger_apply_table>trigger_apply_table03</trigger_apply_table>
+          <PUMP1>VAC:KLCTVPC:KLCSIP01</PUMP1>
+          <PUMP2>VAC:KLCTVPC:BOCSIP01</PUMP2>
+          <PUMP3>VAC:KLYCVPC:WCSIP01</PUMP3>
+          <PUMP4>VAC:KLYCVPC:WCSIP02</PUMP4>
+          <PUMP5>VAC:KLYCVPC:WCSIP03</PUMP5>
+          <PUMP6>VAC:KLYC2VPC:WCSIP04</PUMP6>
+          <PUMP7>VAC:KLYC2VPC:WCSIP05</PUMP7>
+          <PUMP8>VAC:KLYC2VPC:WCSIP06</PUMP8>
+          <PUMP9>VAC:AC3VPC:AC3SIP01</PUMP9>
+          <PUMP10>VAC:AC3VPC:AC3SIP02</PUMP10>
+          <PUMP11>VAC:AC3VPC:AC3SIP03</PUMP11>
+          <PUMP12>VAC:AC3VPC:AC3SIP04</PUMP12>
+          <power_MW_cond>power_MW_cond:03</power_MW_cond>
+          <boolean_cond>boolean_cond:03</boolean_cond>
+          <PREF>ELI</PREF>
+          <SUFF>PRES_RB</SUFF>
+          <PUMP13>VAC:AC3VPC:AC3SIP04</PUMP13>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>Conditioning4</text>
+    <x>2021</x>
+    <y>95</y>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="progressbar" version="2.0.0">
+    <name>Progress Bar_4</name>
+    <pv_name>LEL-RF-LLRF04:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+    <x>2109</x>
+    <y>150</y>
+    <width>16</width>
+    <height>65</height>
+    <horizontal>false</horizontal>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getDouble(pvs[0])
+if value <0.548:	
+	widget.setPropertyValue('fill_color', ColorFontUtil.PURPLE)
+elif 0.548<=value<1:		
+	widget.setPropertyValue('fill_color', ColorFontUtil.GREEN)
+elif 1<=value<1.2:	        
+	widget.setPropertyValue('fill_color', ColorFontUtil.YELLOW)
+elif value>=1.2:
+	widget.setPropertyValue('fill_color', ColorFontUtil.RED)	
+]]></text>
+        <pv_name>LEL-RF-LLRF04:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+      </script>
+    </scripts>
+    <limits_from_pv>false</limits_from_pv>
+    <maximum>1.24</maximum>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Open waveform line 4</name>
+    <actions>
+      <action type="open_display">
+        <description>Waveform 4</description>
+        <file>waveform.bob</file>
+        <macros>
+          <LLRF_NAME>LEL-RF-LLRF04</LLRF_NAME>
+          <SIGNAL1>ad1:ch2</SIGNAL1>
+          <TITLE1>DRV4 OUT</TITLE1>
+          <SIGNAL2>ad1:ch3</SIGNAL2>
+          <TITLE2>K4 FWD</TITLE2>
+          <SIGNAL3>ad1:ch4</SIGNAL3>
+          <TITLE3>K4 REV</TITLE3>
+          <SIGNAL4>ad1:ch5</SIGNAL4>
+          <TITLE4>AC3 IN FWD</TITLE4>
+          <SIGNAL5>ad1:ch6</SIGNAL5>
+          <TITLE5>AC3 IN REV</TITLE5>
+          <SIGNAL6>ad1:ch1</SIGNAL6>
+          <TITLE6>AC3 OUT</TITLE6>
+          <power1>power1:LLRF4</power1>
+          <power2>power2:LLRF4</power2>
+          <power3>power3:LLRF4</power3>
+          <power4>power4:LLRF4</power4>
+          <power5>power5:LLRF4</power5>
+          <power6>power6:LLRF4</power6>
+        </macros>
+        <target>window</target>
+      </action>
+    </actions>
+    <x>1811</x>
+    <y>95</y>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>LLRFs_panel</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>LLRFs_panel.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>LLRF  CONTROL  PANEL</text>
+    <x>20</x>
+    <y>19</y>
+    <width>44</width>
+    <height>801</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="148" green="200" blue="212">
+      </color>
+    </background_color>
+    <rotation_step>1</rotation_step>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Expert1</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>expert.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <text>EXPERT  TOOLS</text>
+    <x>20</x>
+    <y>829</y>
+    <width>44</width>
+    <height>200</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+    <background_color>
+      <color red="102" green="153" blue="153">
+      </color>
+    </background_color>
+    <rotation_step>1</rotation_step>
+    <tooltip>$(actions)</tooltip>
+    <show_confirm_dialog>true</show_confirm_dialog>
+    <confirm_message>RF member only</confirm_message>
+    <password>merito</password>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>LLRFs SIGNALs</name>
+    <x>102</x>
+    <y>146</y>
+    <width>2279</width>
+    <height>939</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>VM2-POWER</name>
+      <x>583</x>
+      <y>13</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_mW=round(value_V*1e3,1)
+um_power=" mW"
+text =str(value_mW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VM2-PHASE</name>
+      <x>583</x>
+      <y>38</y>
+      <width>90</width>
+      <height>23</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch8:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DRV2-PHASE</name>
+      <x>583</x>
+      <y>225</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch2:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DRV2-POWER</name>
+      <x>583</x>
+      <y>200</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_W=round(value_V,1)
+um_power=" W"
+text =str(value_W) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch2:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K2-FWD-POWER</name>
+      <x>583</x>
+      <y>434</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch3:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K2-FWD-PHASE</name>
+      <x>583</x>
+      <y>459</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch3:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K2-REV-POWER</name>
+      <x>416</x>
+      <y>406</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch4:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K2-REV-PHASE</name>
+      <x>416</x>
+      <y>432</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch4:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC1-IN-FWD-POWER</name>
+      <x>583</x>
+      <y>647</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch5:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC1-IN-FWD-PHASE</name>
+      <x>583</x>
+      <y>673</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch5:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC1-REV-POWER</name>
+      <x>417</x>
+      <y>620</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch6:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC1-REV-PHASE</name>
+      <x>417</x>
+      <y>646</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch6:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC1-OUT-POWER</name>
+      <x>1065</x>
+      <y>880</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch1:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC1-OUT-PHASE</name>
+      <x>1065</x>
+      <y>906</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch1:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K3-REV-POWER</name>
+      <x>1087</x>
+      <y>407</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch4:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC2-IN-REV-POWER</name>
+      <x>1088</x>
+      <y>621</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch6:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC2-IN-REV-PHASE</name>
+      <x>1088</x>
+      <y>648</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch6:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K3-REV-PHASE</name>
+      <x>1087</x>
+      <y>434</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch4:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC2-OUT-POWER</name>
+      <x>1735</x>
+      <y>880</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch1:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC2-OUT-PHASE</name>
+      <x>1735</x>
+      <y>905</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch1:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VM3-POWER</name>
+      <x>1255</x>
+      <y>15</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_mW=round(value_V*1e3,1)
+um_power=" mW"
+text =str(value_mW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VM3-PHASE</name>
+      <x>1255</x>
+      <y>43</y>
+      <width>90</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch8:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DRV3-POWER</name>
+      <x>1254</x>
+      <y>201</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_W=round(value_V,1)
+um_power=" W"
+text =str(value_W) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch2:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DRV3-PHASE</name>
+      <x>1254</x>
+      <y>228</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch2:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K3-FWD-POWER</name>
+      <x>1254</x>
+      <y>436</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch3:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K3-FWD-PHASE</name>
+      <x>1254</x>
+      <y>462</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch3:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC2-IN-FWD-POWER</name>
+      <x>1254</x>
+      <y>648</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch5:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC2-IN-FWD-PHASE</name>
+      <x>1254</x>
+      <y>675</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch5:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K4-REV-POWER</name>
+      <x>1736</x>
+      <y>402</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch4:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K4-REV-PHASE</name>
+      <x>1736</x>
+      <y>429</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch4:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC3-IN-REV-POWER</name>
+      <x>1737</x>
+      <y>616</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch6:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC3-IN-REV-PHASE</name>
+      <x>1737</x>
+      <y>642</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch6:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC3-OUT-FWD</name>
+      <x>2182</x>
+      <y>870</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch1:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC3-OUT-PHASE</name>
+      <x>2183</x>
+      <y>897</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch1:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VM4-POWER</name>
+      <x>1904</x>
+      <y>11</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_mW=round(value_V*1e3,1)
+um_power=" mW"
+text =str(value_mW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VM4-PHASE</name>
+      <x>1904</x>
+      <y>39</y>
+      <width>90</width>
+      <height>32</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch8:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DRV4-POWER</name>
+      <x>1903</x>
+      <y>195</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_W=round(value_V,1)
+um_power=" W"
+text =str(value_W) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch2:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DRV4-PHASE</name>
+      <x>1903</x>
+      <y>222</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch2:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K4-FWD-POWER</name>
+      <x>1903</x>
+      <y>430</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch3:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K4-FWD-PHASE</name>
+      <x>1903</x>
+      <y>456</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch3:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC3-IN-FWD-POWER</name>
+      <x>1903</x>
+      <y>644</y>
+      <width>90</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch5:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>AC3-IN-FWD-PHASE</name>
+      <x>1903</x>
+      <y>670</y>
+      <width>90</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch5:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VM1-POWER</name>
+      <x>175</x>
+      <y>14</y>
+      <width>89</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_mW=round(value_V*1e3,1)
+um_power=" mW"
+text =str(value_mW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>VM1-PHASE</name>
+      <x>180</x>
+      <y>41</y>
+      <width>80</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch8:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DRV1-POWER</name>
+      <x>169</x>
+      <y>201</y>
+      <width>102</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_W=round(value_V,1)
+um_power=" W"
+text =str(value_W) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch2:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>DRV1-PHASE</name>
+      <x>180</x>
+      <y>232</y>
+      <width>80</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch2:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K1-FWD-POWER</name>
+      <x>170</x>
+      <y>436</y>
+      <width>102</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch3:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K1-FWD-PHASE</name>
+      <x>180</x>
+      <y>462</y>
+      <width>80</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch3:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K1-REV-POWER</name>
+      <x>6</x>
+      <y>409</y>
+      <width>98</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch4:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>K1-REV-PHASE</name>
+      <x>13</x>
+      <y>433</y>
+      <width>80</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch4:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>GUN-FWD-POWER</name>
+      <x>171</x>
+      <y>664</y>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch5:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>GUN-FWD-PHASE</name>
+      <x>182</x>
+      <y>690</y>
+      <width>80</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch5:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>GUN-REV-POWER</name>
+      <x>10</x>
+      <y>638</y>
+      <width>89</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch6:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>GUN-REV-PHASE</name>
+      <x>15</x>
+      <y>662</y>
+      <width>80</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch6:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>GUN-PB-POWER</name>
+      <x>6</x>
+      <y>757</y>
+      <width>91</width>
+      <height>48</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="26" green="51" blue="153">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_V = (PVUtil.getDouble(pvs[0])**2)/100
+value_MW=round(value_V/1e6,1)
+um_power=" MW"
+text =str(value_MW) + um_power
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch1:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>GUN-PB-PHASE</name>
+      <x>13</x>
+      <y>784</y>
+      <width>80</width>
+      <height>33</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="18.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="230" green="128" blue="77">
+        </color>
+      </foreground_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_deg = round(PVUtil.getDouble(pvs[0]), 1)
+um_phase =" deg"
+text =str(value_deg)+um_phase
+widget.setPropertyValue("text", text)]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch1:phase_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform VM1</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF01</LLRF_NAME>
+            <SIGNAL>ad1:ch8</SIGNAL>
+            <MARKERS>ad1:signals:ch8</MARKERS>
+            <SIGNAL_NAME>VM1</SIGNAL_NAME>
+            <counts>counts:VM1</counts>
+            <power_MW>power_MW:VM1</power_MW>
+            <ph_avg>ph_avg:VM1</ph_avg>
+            <index>index:VM1</index>
+            <amp_avg>amp_avg:VM1</amp_avg>
+            <maxGraphEntries>maxGraphEntries:VM1</maxGraphEntries>
+            <power_avg>power_avg:VM1</power_avg>
+            <amp>amp:VM1</amp>
+            <histogramBins_amp>histogramBins_amp:VM1</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:VM1</histogramCounts_amp>
+            <mean_amp>mean_amp:VM1</mean_amp>
+            <stdev_amp>stdev_amp:VM1</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:VM1</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:VM1</histogramCounts_phase>
+            <phase>phase:VM1</phase>
+            <mean>mean:VM1</mean>
+            <stdev>stdev:VM1</stdev>
+            <phase_jitter_fs>phase_jitter_fs:VM1</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>168</x>
+      <y>4</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>VM1</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform DRV1</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF01</LLRF_NAME>
+            <SIGNAL>ad1:ch2</SIGNAL>
+            <MARKERS>ad1:signals:ch2</MARKERS>
+            <SIGNAL_NAME>DRV1</SIGNAL_NAME>
+            <counts>counts:DRV1</counts>
+            <power_MW>power_MW:DRV1</power_MW>
+            <ph_avg>ph_avg:DRV1</ph_avg>
+            <index>index:DRV1</index>
+            <amp_avg>amp_avg:DRV1</amp_avg>
+            <maxGraphEntries>maxGraphEntries:DRV1</maxGraphEntries>
+            <power_avg>power_avg:DRV1</power_avg>
+            <amp>amp:DRV1</amp>
+            <histogramBins_amp>histogramBins_amp:DRV1</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:DRV1</histogramCounts_amp>
+            <mean_amp>mean_amp:DRV1</mean_amp>
+            <stdev_amp>stdev_amp:DRV1</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:DRV1</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:DRV1</histogramCounts_phase>
+            <phase>phase:DRV1</phase>
+            <mean>mean:DRV1</mean>
+            <stdev>stdev:DRV1</stdev>
+            <phase_jitter_fs>phase_jitter_fs:DRV1</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>168</x>
+      <y>187</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>DRV1</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform K1 FWD</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF01</LLRF_NAME>
+            <SIGNAL>ad1:ch3</SIGNAL>
+            <MARKERS>ad1:signals:ch3</MARKERS>
+            <SIGNAL_NAME>K1 FORWARD</SIGNAL_NAME>
+            <counts>counts:K1FWD</counts>
+            <power_MW>power_MW:K1FWD</power_MW>
+            <ph_avg>ph_avg:K1FWD</ph_avg>
+            <index>index:K1FWD</index>
+            <amp_avg>amp_avg:K1FWD</amp_avg>
+            <maxGraphEntries>maxGraphEntries:K1FWD</maxGraphEntries>
+            <power_avg>power_avg:K1FWD</power_avg>
+            <amp>amp:K1FWD</amp>
+            <histogramBins_amp>histogramBins_amp:K1FWD</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:K1FWD</histogramCounts_amp>
+            <mean_amp>mean_amp:K1FWD</mean_amp>
+            <stdev_amp>stdev_amp:K1FWD</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:K1FWD</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:K1FWD</histogramCounts_phase>
+            <phase>phase:K1FWD</phase>
+            <mean>mean:K1FWD</mean>
+            <stdev>stdev:K1FWD</stdev>
+            <phase_jitter_fs>phase_jitter_fs:K1FWD</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>168</x>
+      <y>425</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>K1FWD</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform K1 REV</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF01</LLRF_NAME>
+            <SIGNAL>ad1:ch4</SIGNAL>
+            <MARKERS>ad1:signals:ch4</MARKERS>
+            <SIGNAL_NAME>K1 REVERSE</SIGNAL_NAME>
+            <counts>counts:K1REV</counts>
+            <power_MW>power_MW:K1REV</power_MW>
+            <ph_avg>ph_avg:K1REV</ph_avg>
+            <index>index:K1REV</index>
+            <amp_avg>amp_avg:K1REV</amp_avg>
+            <maxGraphEntries>maxGraphEntries:K1REV</maxGraphEntries>
+            <power_avg>power_avg:K1REV</power_avg>
+            <amp>amp:K1REV</amp>
+            <histogramBins_amp>histogramBins_amp:K1REV</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:K1REV</histogramCounts_amp>
+            <mean_amp>mean_amp:K1REV</mean_amp>
+            <stdev_amp>stdev_amp:K1REV</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:K1REV</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:K1REV</histogramCounts_phase>
+            <phase>phase:K1REV</phase>
+            <mean>mean:K1REV</mean>
+            <stdev>stdev:K1REV</stdev>
+            <phase_jitter_fs>phase_jitter_fs:K1REV</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1</x>
+      <y>397</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>K1REV</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform GUN FWD</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF01</LLRF_NAME>
+            <SIGNAL>ad1:ch5</SIGNAL>
+            <MARKERS>ad1:signals:ch5</MARKERS>
+            <SIGNAL_NAME>GUN FORWARD</SIGNAL_NAME>
+            <counts>counts:GUNFWD</counts>
+            <power_MW>power_MW:GUNFWD</power_MW>
+            <ph_avg>ph_avg:GUNFWD</ph_avg>
+            <index>index:GUNFWD</index>
+            <amp_avg>amp_avg:GUNFWD</amp_avg>
+            <maxGraphEntries>maxGraphEntries:GUNFWD</maxGraphEntries>
+            <power_avg>power_avg:GUNFWD</power_avg>
+            <amp>amp:GUNFWD</amp>
+            <histogramBins_amp>histogramBins_amp:GUNFWD</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:GUNFWD</histogramCounts_amp>
+            <mean_amp>mean_amp:GUNFWD</mean_amp>
+            <stdev_amp>stdev_amp:GUNFWD</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:GUNFWD</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:GUNFWD</histogramCounts_phase>
+            <phase>phase:GUNFWD</phase>
+            <mean>mean:GUNFWD</mean>
+            <stdev>stdev:GUNFWD</stdev>
+            <phase_jitter_fs>phase_jitter_fs:GUNFWD</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>168</x>
+      <y>652</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>GUNFWD</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform GUN REV</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF01</LLRF_NAME>
+            <SIGNAL>ad1:ch6</SIGNAL>
+            <MARKERS>ad1:signals:ch6</MARKERS>
+            <SIGNAL_NAME>GUN REVERSE</SIGNAL_NAME>
+            <counts>counts:GUNREV</counts>
+            <power_MW>power_MW:GUNREV</power_MW>
+            <ph_avg>ph_avg:GUNREV</ph_avg>
+            <index>index:GUNREV</index>
+            <amp_avg>amp_avg:GUNREV</amp_avg>
+            <maxGraphEntries>maxGraphEntries:GUNREV</maxGraphEntries>
+            <power_avg>power_avg:GUNREV</power_avg>
+            <amp>amp:GUNREV</amp>
+            <histogramBins_amp>histogramBins_amp:GUNREV</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:GUNREV</histogramCounts_amp>
+            <mean_amp>mean_amp:GUNREV</mean_amp>
+            <stdev_amp>stdev_amp:GUNREV</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:GUNREV</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:GUNREV</histogramCounts_phase>
+            <phase>phase:GUNREV</phase>
+            <mean>mean:GUNREV</mean>
+            <stdev>stdev:GUNREV</stdev>
+            <phase_jitter_fs>phase_jitter_fs:GUNREV</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>2</x>
+      <y>624</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>GUNREV</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform GUN PB</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF01</LLRF_NAME>
+            <SIGNAL>ad1:ch1</SIGNAL>
+            <MARKERS>ad1:signals:ch1</MARKERS>
+            <SIGNAL_NAME>GUN PROBE</SIGNAL_NAME>
+            <counts>counts:GUNPB</counts>
+            <power_MW>power_MW:GUNPB</power_MW>
+            <ph_avg>ph_avg:GUNPB</ph_avg>
+            <index>index:GUNPB</index>
+            <amp_avg>amp_avg:GUNPB</amp_avg>
+            <maxGraphEntries>maxGraphEntries:GUNPB</maxGraphEntries>
+            <power_avg>power_avg:GUNPB</power_avg>
+            <amp>amp:GUNPB</amp>
+            <histogramBins_amp>histogramBins_amp:GUNPB</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:GUNPB</histogramCounts_amp>
+            <mean_amp>mean_amp:GUNPB</mean_amp>
+            <stdev_amp>stdev_amp:GUNPB</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:GUNPB</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:GUNPB</histogramCounts_phase>
+            <phase>phase:GUNPB</phase>
+            <mean>mean:GUNPB</mean>
+            <stdev>stdev:GUNPB</stdev>
+            <phase_jitter_fs>phase_jitter_fs:GUNPB</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <y>744</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>GUNPB</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform VM2</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF02</LLRF_NAME>
+            <SIGNAL>ad1:ch8</SIGNAL>
+            <MARKERS>ad1:signals:ch8</MARKERS>
+            <SIGNAL_NAME>VM2</SIGNAL_NAME>
+            <counts>counts:VM2</counts>
+            <power_MW>power_MW:VM2</power_MW>
+            <ph_avg>ph_avg:VM2</ph_avg>
+            <index>index:VM2</index>
+            <amp_avg>amp_avg:VM2</amp_avg>
+            <maxGraphEntries>maxGraphEntries:VM2</maxGraphEntries>
+            <power_avg>power_avg:VM2</power_avg>
+            <amp>amp:VM2</amp>
+            <histogramBins_amp>histogramBins_amp:VM2</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:VM2</histogramCounts_amp>
+            <mean_amp>mean_amp:VM2</mean_amp>
+            <stdev_amp>stdev_amp:VM2</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:VM2</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:VM2</histogramCounts_phase>
+            <phase>phase:VM2</phase>
+            <mean>mean:VM2</mean>
+            <stdev>stdev:VM2</stdev>
+            <phase_jitter_fs>phase_jitter_fs:VM2</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>576</x>
+      <y>2</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>VM2</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform DRV2</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF02</LLRF_NAME>
+            <SIGNAL>ad1:ch2</SIGNAL>
+            <MARKERS>ad1:signals:ch2</MARKERS>
+            <SIGNAL_NAME>DRV2</SIGNAL_NAME>
+            <counts>counts:DRV2</counts>
+            <power_MW>power_MW:DRV2</power_MW>
+            <ph_avg>ph_avg:DRV2</ph_avg>
+            <index>index:DRV2</index>
+            <amp_avg>amp_avg:DRV2</amp_avg>
+            <maxGraphEntries>maxGraphEntries:DRV2</maxGraphEntries>
+            <power_avg>power_avg:DRV2</power_avg>
+            <amp>amp:DRV2</amp>
+            <histogramBins_amp>histogramBins_amp:DRV2</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:DRV2</histogramCounts_amp>
+            <mean_amp>mean_amp:DRV2</mean_amp>
+            <stdev_amp>stdev_amp:DRV2</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:DRV2</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:DRV2</histogramCounts_phase>
+            <phase>phase:DRV2</phase>
+            <mean>mean:DRV2</mean>
+            <stdev>stdev:DRV2</stdev>
+            <phase_jitter_fs>phase_jitter_fs:DRV2</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>576</x>
+      <y>188</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>DRV2</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform K2 FWD</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF02</LLRF_NAME>
+            <SIGNAL>ad1:ch3</SIGNAL>
+            <MARKERS>ad1:signals:ch3</MARKERS>
+            <SIGNAL_NAME>K2 FORWARD</SIGNAL_NAME>
+            <counts>counts:K2FWD</counts>
+            <power_MW>power_MW:K2FWD</power_MW>
+            <ph_avg>ph_avg:K2FWD</ph_avg>
+            <index>index:K2FWD</index>
+            <amp_avg>amp_avg:K2FWD</amp_avg>
+            <maxGraphEntries>maxGraphEntries:K2FWD</maxGraphEntries>
+            <power_avg>power_avg:K2FWD</power_avg>
+            <amp>amp:K2FWD</amp>
+            <histogramBins_amp>histogramBins_amp:K2FWD</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:K2FWD</histogramCounts_amp>
+            <mean_amp>mean_amp:K2FWD</mean_amp>
+            <stdev_amp>stdev_amp:K2FWD</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:K2FWD</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:K2FWD</histogramCounts_phase>
+            <phase>phase:K2FWD</phase>
+            <mean>mean:K2FWD</mean>
+            <stdev>stdev:K2FWD</stdev>
+            <phase_jitter_fs>phase_jitter_fs:K2FWD</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>577</x>
+      <y>422</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>K2FWD</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform K2 REV</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF02</LLRF_NAME>
+            <SIGNAL>ad1:ch4</SIGNAL>
+            <MARKERS>ad1:signals:ch4</MARKERS>
+            <SIGNAL_NAME>K2 REVERSE</SIGNAL_NAME>
+            <counts>counts:K2REV</counts>
+            <power_MW>power_MW:K2REV</power_MW>
+            <ph_avg>ph_avg:K2REV</ph_avg>
+            <index>index:K2REV</index>
+            <amp_avg>amp_avg:K2REV</amp_avg>
+            <maxGraphEntries>maxGraphEntries:K2REV</maxGraphEntries>
+            <power_avg>power_avg:K2REV</power_avg>
+            <amp>amp:K2REV</amp>
+            <histogramBins_amp>histogramBins_amp:K2REV</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:K2REV</histogramCounts_amp>
+            <mean_amp>mean_amp:K2REV</mean_amp>
+            <stdev_amp>stdev_amp:K2REV</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:K2REV</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:K2REV</histogramCounts_phase>
+            <phase>phase:K2REV</phase>
+            <mean>mean:K2REV</mean>
+            <stdev>stdev:K2REV</stdev>
+            <phase_jitter_fs>phase_jitter_fs:K2REV</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>410</x>
+      <y>395</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>K2REV</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform AC1 IN FWD</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF02</LLRF_NAME>
+            <SIGNAL>ad1:ch5</SIGNAL>
+            <MARKERS>ad1:signals:ch5</MARKERS>
+            <SIGNAL_NAME>AC1 IN FORWARD</SIGNAL_NAME>
+            <counts>counts:AC1INFWD</counts>
+            <power_MW>power_MW:AC1NFWD</power_MW>
+            <ph_avg>ph_avg:AC1INFWD</ph_avg>
+            <index>index:AC1INFWD</index>
+            <amp_avg>amp_avg:AC1INFWD</amp_avg>
+            <maxGraphEntries>maxGraphEntries:AC1INFWD</maxGraphEntries>
+            <power_avg>power_avg:AC1INFWD</power_avg>
+            <amp>amp:AC1INFWD</amp>
+            <histogramBins_amp>histogramBins_amp:AC1INFWD</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:AC1INFWD</histogramCounts_amp>
+            <mean_amp>mean_amp:AC1INFWD</mean_amp>
+            <stdev_amp>stdev_amp:AC1INFWD</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:AC1INFWD</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:AC1INFWD</histogramCounts_phase>
+            <phase>phase:AC1INFWD</phase>
+            <mean>mean:AC1INFWD</mean>
+            <stdev>stdev:AC1INFWD</stdev>
+            <phase_jitter_fs>phase_jitter_fs:AC1INFWD</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>577</x>
+      <y>635</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>AC1INFWD</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform AC1 IN REV</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF02</LLRF_NAME>
+            <SIGNAL>ad1:ch6</SIGNAL>
+            <MARKERS>ad1:signals:ch6</MARKERS>
+            <SIGNAL_NAME>AC1 IN REVERSE</SIGNAL_NAME>
+            <counts>counts:AC1INREV</counts>
+            <power_MW>power_MW:AC1NREV</power_MW>
+            <ph_avg>ph_avg:AC1INREV</ph_avg>
+            <index>index:AC1INREV</index>
+            <amp_avg>amp_avg:AC1INREV</amp_avg>
+            <maxGraphEntries>maxGraphEntries:AC1INREV</maxGraphEntries>
+            <power_avg>power_avg:AC1INREV</power_avg>
+            <amp>amp:AC1INREV</amp>
+            <histogramBins_amp>histogramBins_amp:AC1INREV</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:AC1INREV</histogramCounts_amp>
+            <mean_amp>mean_amp:AC1INREV</mean_amp>
+            <stdev_amp>stdev_amp:AC1INREV</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:AC1INREV</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:AC1INREV</histogramCounts_phase>
+            <phase>phase:AC1INREV</phase>
+            <mean>mean:AC1INREV</mean>
+            <stdev>stdev:AC1INREV</stdev>
+            <phase_jitter_fs>phase_jitter_fs:AC1INREV</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>410</x>
+      <y>608</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>AC1INREV</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform AC1 OUT</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF02</LLRF_NAME>
+            <SIGNAL>ad1:ch1</SIGNAL>
+            <MARKERS>ad1:signals:ch1</MARKERS>
+            <SIGNAL_NAME>AC1 OUT</SIGNAL_NAME>
+            <counts>counts:AC1OUT</counts>
+            <power_MW>power_MW:AC1OUT</power_MW>
+            <ph_avg>ph_avg:AC1OUT</ph_avg>
+            <index>index:AC1OUT</index>
+            <amp_avg>amp_avg:AC1OUT</amp_avg>
+            <maxGraphEntries>maxGraphEntries:AC1OUT</maxGraphEntries>
+            <power_avg>power_avg:AC1OUT</power_avg>
+            <amp>amp:AC1OUT</amp>
+            <histogramBins_amp>histogramBins_amp:AC1OUT</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:AC1OUT</histogramCounts_amp>
+            <mean_amp>mean_amp:AC1OUT</mean_amp>
+            <stdev_amp>stdev_amp:AC1OUT</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:AC1OUT</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:AC1OUT</histogramCounts_phase>
+            <phase>phase:AC1OUT</phase>
+            <mean>mean:AC1OUT</mean>
+            <stdev>stdev:AC1OUT</stdev>
+            <phase_jitter_fs>phase_jitter_fs:AC1OUT</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1058</x>
+      <y>868</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>AC1OUT</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform VM3</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF03</LLRF_NAME>
+            <SIGNAL>ad1:ch8</SIGNAL>
+            <MARKERS>ad1:signals:ch8</MARKERS>
+            <SIGNAL_NAME>VM3</SIGNAL_NAME>
+            <counts>counts:VM3</counts>
+            <power_MW>power_MW:VM3</power_MW>
+            <ph_avg>ph_avg:VM3</ph_avg>
+            <index>index:VM3</index>
+            <amp_avg>amp_avg:VM3</amp_avg>
+            <maxGraphEntries>maxGraphEntries:VM3</maxGraphEntries>
+            <power_avg>power_avg:VM3</power_avg>
+            <amp>amp:VM3</amp>
+            <histogramBins_amp>histogramBins_amp:VM3</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:VM3</histogramCounts_amp>
+            <mean_amp>mean_amp:VM3</mean_amp>
+            <stdev_amp>stdev_amp:VM3</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:VM3</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:VM3</histogramCounts_phase>
+            <phase>phase:VM3</phase>
+            <mean>mean:VM3</mean>
+            <stdev>stdev:VM3</stdev>
+            <phase_jitter_fs>phase_jitter_fs:VM3</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1247</x>
+      <y>3</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>VM3</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform DRV3</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF03</LLRF_NAME>
+            <SIGNAL>ad1:ch2</SIGNAL>
+            <MARKERS>ad1:signals:ch2</MARKERS>
+            <SIGNAL_NAME>DRV3</SIGNAL_NAME>
+            <counts>counts:DRV3</counts>
+            <power_MW>power_MW:DRV3</power_MW>
+            <ph_avg>ph_avg:DRV3</ph_avg>
+            <index>index:DRV3</index>
+            <amp_avg>amp_avg:DRV3</amp_avg>
+            <maxGraphEntries>maxGraphEntries:DRV3</maxGraphEntries>
+            <power_avg>power_avg:DRV3</power_avg>
+            <amp>amp:DRV3</amp>
+            <histogramBins_amp>histogramBins_amp:DRV3</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:DRV3</histogramCounts_amp>
+            <mean_amp>mean_amp:DRV3</mean_amp>
+            <stdev_amp>stdev_amp:DRV3</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:DRV3</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:DRV3</histogramCounts_phase>
+            <phase>phase:DRV3</phase>
+            <mean>mean:DRV3</mean>
+            <stdev>stdev:DRV3</stdev>
+            <phase_jitter_fs>phase_jitter_fs:DRV3</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1247</x>
+      <y>190</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>DRV3</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform K3 FWD</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF03</LLRF_NAME>
+            <SIGNAL>ad1:ch3</SIGNAL>
+            <MARKERS>ad1:signals:ch3</MARKERS>
+            <SIGNAL_NAME>K3 FORWARD</SIGNAL_NAME>
+            <counts>counts:K3FWD</counts>
+            <power_MW>power_MW:K3FWD</power_MW>
+            <ph_avg>ph_avg:K3FWD</ph_avg>
+            <index>index:K3FWD</index>
+            <amp_avg>amp_avg:K3FWD</amp_avg>
+            <maxGraphEntries>maxGraphEntries:K3FWD</maxGraphEntries>
+            <power_avg>power_avg:K3FWD</power_avg>
+            <amp>amp:K3FWD</amp>
+            <histogramBins_amp>histogramBins_amp:K3FWD</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:K3FWD</histogramCounts_amp>
+            <mean_amp>mean_amp:K3FWD</mean_amp>
+            <stdev_amp>stdev_amp:K3FWD</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:K3FWD</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:K3FWD</histogramCounts_phase>
+            <phase>phase:K3FWD</phase>
+            <mean>mean:K3FWD</mean>
+            <stdev>stdev:K3FWD</stdev>
+            <phase_jitter_fs>phase_jitter_fs:K3FWD</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1247</x>
+      <y>424</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>K3FWD</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform K3 REV</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF03</LLRF_NAME>
+            <SIGNAL>ad1:ch4</SIGNAL>
+            <MARKERS>ad1:signals:ch4</MARKERS>
+            <SIGNAL_NAME>K3 REVERSE</SIGNAL_NAME>
+            <counts>counts:K3REV</counts>
+            <power_MW>power_MW:K3REV</power_MW>
+            <ph_avg>ph_avg:K3REV</ph_avg>
+            <index>index:K3REV</index>
+            <amp_avg>amp_avg:K3REV</amp_avg>
+            <maxGraphEntries>maxGraphEntries:K3REV</maxGraphEntries>
+            <power_avg>power_avg:K3REV</power_avg>
+            <amp>amp:K3REV</amp>
+            <histogramBins_amp>histogramBins_amp:K3REV</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:K3REV</histogramCounts_amp>
+            <mean_amp>mean_amp:K3REV</mean_amp>
+            <stdev_amp>stdev_amp:K3REV</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:K3REV</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:K3REV</histogramCounts_phase>
+            <phase>phase:K3REV</phase>
+            <mean>mean:K3REV</mean>
+            <stdev>stdev:K3REV</stdev>
+            <phase_jitter_fs>phase_jitter_fs:K3REV</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1081</x>
+      <y>397</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>K3REV</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform AC2 IN FWD</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF03</LLRF_NAME>
+            <SIGNAL>ad1:ch5</SIGNAL>
+            <MARKERS>ad1:signals:ch5</MARKERS>
+            <SIGNAL_NAME>AC2 IN FORWARD</SIGNAL_NAME>
+            <counts>counts:AC2INFWD</counts>
+            <power_MW>power_MW:AC2NFWD</power_MW>
+            <ph_avg>ph_avg:AC2INFWD</ph_avg>
+            <index>index:AC2INFWD</index>
+            <amp_avg>amp_avg:AC2INFWD</amp_avg>
+            <maxGraphEntries>maxGraphEntries:AC2INFWD</maxGraphEntries>
+            <power_avg>power_avg:AC2INFWD</power_avg>
+            <amp>amp:AC2INFWD</amp>
+            <histogramBins_amp>histogramBins_amp:AC2INFWD</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:AC2INFWD</histogramCounts_amp>
+            <mean_amp>mean_amp:AC2INFWD</mean_amp>
+            <stdev_amp>stdev_amp:AC2INFWD</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:AC2INFWD</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:AC2INFWD</histogramCounts_phase>
+            <phase>phase:AC2INFWD</phase>
+            <mean>mean:AC2INFWD</mean>
+            <stdev>stdev:AC2INFWD</stdev>
+            <phase_jitter_fs>phase_jitter_fs:AC2INFWD</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1247</x>
+      <y>636</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>AC2INFWD</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform AC2 IN REV</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF03</LLRF_NAME>
+            <SIGNAL>ad1:ch5</SIGNAL>
+            <MARKERS>ad1:signals:ch5</MARKERS>
+            <SIGNAL_NAME>AC2 IN REVERSE</SIGNAL_NAME>
+            <counts>counts:AC2INREV</counts>
+            <power_MW>power_MW:AC2NREV</power_MW>
+            <ph_avg>ph_avg:AC2INREV</ph_avg>
+            <index>index:AC2INREV</index>
+            <amp_avg>amp_avg:AC2INREV</amp_avg>
+            <maxGraphEntries>maxGraphEntries:AC2INREV</maxGraphEntries>
+            <power_avg>power_avg:AC2INREV</power_avg>
+            <amp>amp:AC2INREV</amp>
+            <histogramBins_amp>histogramBins_amp:AC2INREV</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:AC2INREV</histogramCounts_amp>
+            <mean_amp>mean_amp:AC2INREV</mean_amp>
+            <stdev_amp>stdev_amp:AC2INREV</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:AC2INREV</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:AC2INREV</histogramCounts_phase>
+            <phase>phase:AC2INREV</phase>
+            <mean>mean:AC2INREV</mean>
+            <stdev>stdev:AC2INREV</stdev>
+            <phase_jitter_fs>phase_jitter_fs:AC2INREV</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1081</x>
+      <y>610</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>AC2INREV</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform AC2 OUT</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF03</LLRF_NAME>
+            <SIGNAL>ad1:ch1</SIGNAL>
+            <MARKERS>ad1:signals:ch1</MARKERS>
+            <SIGNAL_NAME>AC2 OUT</SIGNAL_NAME>
+            <counts>counts:AC2OUT</counts>
+            <power_MW>power_MW:AC2OUT</power_MW>
+            <ph_avg>ph_avg:AC2OUT</ph_avg>
+            <index>index:AC2OUT</index>
+            <amp_avg>amp_avg:AC2OUT</amp_avg>
+            <maxGraphEntries>maxGraphEntries:AC2OUT</maxGraphEntries>
+            <power_avg>power_avg:AC2OUT</power_avg>
+            <amp>amp:AC2OUT</amp>
+            <histogramBins_amp>histogramBins_amp:AC2OUT</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:AC2OUT</histogramCounts_amp>
+            <mean_amp>mean_amp:AC2OUT</mean_amp>
+            <stdev_amp>stdev_amp:AC2OUT</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:AC2OUT</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:AC2OUT</histogramCounts_phase>
+            <phase>phase:AC2OUT</phase>
+            <mean>mean:AC2OUT</mean>
+            <stdev>stdev:AC2OUT</stdev>
+            <phase_jitter_fs>phase_jitter_fs:AC2OUT</phase_jitter_fs>
+            <freq>freq(2856000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1728</x>
+      <y>869</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>AC2OUT</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform K4 REV</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF04</LLRF_NAME>
+            <SIGNAL>ad1:ch4</SIGNAL>
+            <MARKERS>ad1:signals:ch4</MARKERS>
+            <SIGNAL_NAME>K4 REVERSE</SIGNAL_NAME>
+            <counts>counts:K4REV</counts>
+            <power_MW>power_MW:K4REV</power_MW>
+            <ph_avg>ph_avg:K4REV</ph_avg>
+            <index>index:K4REV</index>
+            <amp_avg>amp_avg:K4REV</amp_avg>
+            <maxGraphEntries>maxGraphEntries:K4REV</maxGraphEntries>
+            <power_avg>power_avg:K4REV</power_avg>
+            <amp>amp:K4REV</amp>
+            <histogramBins_amp>histogramBins_amp:K4REV</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:K4REV</histogramCounts_amp>
+            <mean_amp>mean_amp:K4REV</mean_amp>
+            <stdev_amp>stdev_amp:K4REV</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:K4REV</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:K4REV</histogramCounts_phase>
+            <phase>phase:K4REV</phase>
+            <mean>mean:K4REV</mean>
+            <stdev>stdev:K4REV</stdev>
+            <phase_jitter_fs>phase_jitter_fs:K4REV</phase_jitter_fs>
+            <freq>freq(5712000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1729</x>
+      <y>390</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>K4REV</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform AC3 IN REV</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF04</LLRF_NAME>
+            <SIGNAL>ad1:ch6</SIGNAL>
+            <MARKERS>ad1:signals:ch6</MARKERS>
+            <SIGNAL_NAME>AC3 IN REVERSE</SIGNAL_NAME>
+            <counts>counts:AC3INREV</counts>
+            <power_MW>power_MW:AC3NREV</power_MW>
+            <ph_avg>ph_avg:AC3INREV</ph_avg>
+            <index>index:AC3INREV</index>
+            <amp_avg>amp_avg:AC3INREV</amp_avg>
+            <maxGraphEntries>maxGraphEntries:AC3INREV</maxGraphEntries>
+            <power_avg>power_avg:AC3INREV</power_avg>
+            <amp>amp:AC3INREV</amp>
+            <histogramBins_amp>histogramBins_amp:AC3INREV</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:AC3INREV</histogramCounts_amp>
+            <mean_amp>mean_amp:AC3INREV</mean_amp>
+            <stdev_amp>stdev_amp:AC3INREV</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:AC3INREV</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:AC3INREV</histogramCounts_phase>
+            <phase>phase:AC3INREV</phase>
+            <mean>mean:AC3INREV</mean>
+            <stdev>stdev:AC3INREV</stdev>
+            <phase_jitter_fs>phase_jitter_fs:AC3INREV</phase_jitter_fs>
+            <freq>freq(5712000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1730</x>
+      <y>604</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>AC3INREV</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform AC3 OUT</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF04</LLRF_NAME>
+            <SIGNAL>ad1:ch1</SIGNAL>
+            <MARKERS>ad1:signals:ch1</MARKERS>
+            <SIGNAL_NAME>AC3 OUT</SIGNAL_NAME>
+            <counts>counts:AC3OUT</counts>
+            <power_MW>power_MW:AC3OUT</power_MW>
+            <ph_avg>ph_avg:AC3OUT</ph_avg>
+            <index>index:AC3OUT</index>
+            <amp_avg>amp_avg:AC3OUT</amp_avg>
+            <maxGraphEntries>maxGraphEntries:AC3OUT</maxGraphEntries>
+            <power_avg>power_avg:AC3OUT</power_avg>
+            <amp>amp:AC3OUT</amp>
+            <histogramBins_amp>histogramBins_amp:AC3OUT</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:AC3OUT</histogramCounts_amp>
+            <mean_amp>mean_amp:AC3OUT</mean_amp>
+            <stdev_amp>stdev_amp:AC3OUT</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:AC3OUT</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:AC3OUT</histogramCounts_phase>
+            <phase>phase:AC3OUT</phase>
+            <mean>mean:AC3OUT</mean>
+            <stdev>stdev:AC3OUT</stdev>
+            <phase_jitter_fs>phase_jitter_fs:AC3OUT</phase_jitter_fs>
+            <freq>freq(5712000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>2175</x>
+      <y>858</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>AC3OUT</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform DRV4</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF04</LLRF_NAME>
+            <SIGNAL>ad1:ch2</SIGNAL>
+            <MARKERS>ad1:signals:ch2</MARKERS>
+            <SIGNAL_NAME>DRV4</SIGNAL_NAME>
+            <counts>counts:DRV4</counts>
+            <power_MW>power_MW:DRV4</power_MW>
+            <ph_avg>ph_avg:DRV4</ph_avg>
+            <index>index:DRV4</index>
+            <amp_avg>amp_avg:DRV4</amp_avg>
+            <maxGraphEntries>maxGraphEntries:DRV4</maxGraphEntries>
+            <power_avg>power_avg:DRV4</power_avg>
+            <amp>amp:DRV4</amp>
+            <histogramBins_amp>histogramBins_amp:DRV4</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:DRV4</histogramCounts_amp>
+            <mean_amp>mean_amp:DRV4</mean_amp>
+            <stdev_amp>stdev_amp:DRV4</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:DRV4</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:DRV4</histogramCounts_phase>
+            <phase>phase:DRV4</phase>
+            <mean>mean:DRV4</mean>
+            <stdev>stdev:DRV4</stdev>
+            <phase_jitter_fs>phase_jitter_fs:DRV4</phase_jitter_fs>
+            <freq>freq(5712000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1897</x>
+      <y>184</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>DRV4</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform K4 FWD</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF04</LLRF_NAME>
+            <SIGNAL>ad1:ch3</SIGNAL>
+            <MARKERS>ad1:signals:ch3</MARKERS>
+            <SIGNAL_NAME>K4 FORWARD</SIGNAL_NAME>
+            <counts>counts:K4FWD</counts>
+            <power_MW>power_MW:K4FWD</power_MW>
+            <ph_avg>ph_avg:K4FWD</ph_avg>
+            <index>index:K4FWD</index>
+            <amp_avg>amp_avg:K4FWD</amp_avg>
+            <maxGraphEntries>maxGraphEntries:K4FWD</maxGraphEntries>
+            <power_avg>power_avg:K4FWD</power_avg>
+            <amp>amp:K4FWD</amp>
+            <histogramBins_amp>histogramBins_amp:K4FWD</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:K4FWD</histogramCounts_amp>
+            <mean_amp>mean_amp:K4FWD</mean_amp>
+            <stdev_amp>stdev_amp:K4FWD</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:K4FWD</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:K4FWD</histogramCounts_phase>
+            <phase>phase:K4FWD</phase>
+            <mean>mean:K4FWD</mean>
+            <stdev>stdev:K4FWD</stdev>
+            <phase_jitter_fs>phase_jitter_fs:K4FWD</phase_jitter_fs>
+            <freq>freq(5712000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1896</x>
+      <y>418</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>K4FWD</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform AC3 IN FWD</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF04</LLRF_NAME>
+            <SIGNAL>ad1:ch5</SIGNAL>
+            <MARKERS>ad1:signals:ch5</MARKERS>
+            <SIGNAL_NAME>AC3 IN FORWARD</SIGNAL_NAME>
+            <counts>counts:AC3INFWD</counts>
+            <power_MW>power_MW:AC3NFWD</power_MW>
+            <ph_avg>ph_avg:AC3INFWD</ph_avg>
+            <index>index:AC3INFWD</index>
+            <amp_avg>amp_avg:AC3INFWD</amp_avg>
+            <maxGraphEntries>maxGraphEntries:AC3INFWD</maxGraphEntries>
+            <power_avg>power_avg:AC3INFWD</power_avg>
+            <amp>amp:AC3INFWD</amp>
+            <histogramBins_amp>histogramBins_amp:AC3INFWD</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:AC3INFWD</histogramCounts_amp>
+            <mean_amp>mean_amp:AC3INFWD</mean_amp>
+            <stdev_amp>stdev_amp:AC3INFWD</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:AC3INFWD</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:AC3INFWD</histogramCounts_phase>
+            <phase>phase:AC3INFWD</phase>
+            <mean>mean:AC3INFWD</mean>
+            <stdev>stdev:AC3INFWD</stdev>
+            <phase_jitter_fs>phase_jitter_fs:AC3INFWD</phase_jitter_fs>
+            <freq>freq(5712000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1897</x>
+      <y>632</y>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>AC3INFWD</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Open Waveform VM4</name>
+      <actions>
+        <action type="open_display">
+          <description>Open statistic panel</description>
+          <file>RF_channel.bob</file>
+          <macros>
+            <LLRF_NAME>LEL-RF-LLRF04</LLRF_NAME>
+            <SIGNAL>ad1:ch8</SIGNAL>
+            <MARKERS>ad1:signals:ch8</MARKERS>
+            <SIGNAL_NAME>VM4</SIGNAL_NAME>
+            <counts>counts:VM4</counts>
+            <power_MW>power_MW:VM4</power_MW>
+            <ph_avg>ph_avg:VM4</ph_avg>
+            <index>index:VM4</index>
+            <amp_avg>amp_avg:VM4</amp_avg>
+            <maxGraphEntries>maxGraphEntries:VM4</maxGraphEntries>
+            <power_avg>power_avg:VM4</power_avg>
+            <amp>amp:VM4</amp>
+            <histogramBins_amp>histogramBins_amp:VM4</histogramBins_amp>
+            <histogramCounts_amp>histogramCounts_amp:VM4</histogramCounts_amp>
+            <mean_amp>mean_amp:VM4</mean_amp>
+            <stdev_amp>stdev_amp:VM4</stdev_amp>
+            <histogramBins_phase>histogramBins_phase:VM4</histogramBins_phase>
+            <histogramCounts_phase>histogramCounts_phase:VM4</histogramCounts_phase>
+            <phase>phase:VM4</phase>
+            <mean>mean:VM4</mean>
+            <stdev>stdev:VM4</stdev>
+            <phase_jitter_fs>phase_jitter_fs:VM4</phase_jitter_fs>
+            <freq>freq(5712000000)</freq>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text></text>
+      <x>1896</x>
+      <width>104</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="11.0">
+        </font>
+      </font>
+      <background_color>
+        <color red="210" green="210" blue="210" alpha="33">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <tooltip>VM4</tooltip>
+    </widget>
+  </widget>
+</display>

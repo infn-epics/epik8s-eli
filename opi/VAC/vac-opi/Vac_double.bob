@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-03-27 10:41:02 by riccardoesposito-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>1390</width>
+  <height>850</height>
+  <widget type="databrowser" version="2.0.0">
+    <name>Vacuum</name>
+    <file>$(PLTFILE1)</file>
+    <y>30</y>
+    <width>620</width>
+    <height>410</height>
+    <show_toolbar>true</show_toolbar>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Vacuum_1</name>
+    <file>$(PLTFILE2)</file>
+    <y>430</y>
+    <width>620</width>
+    <height>420</height>
+    <show_toolbar>true</show_toolbar>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>$(ZONE1) + $(ZONE2)</text>
+    <width>460</width>
+    <height>30</height>
+    <font>
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="picture" version="2.0.0">
+    <name>Picture</name>
+    <file>$(IMGFILE1)</file>
+    <x>620</x>
+    <y>30</y>
+    <width>310</width>
+    <height>590</height>
+  </widget>
+  <widget type="picture" version="2.0.0">
+    <name>Picture_2</name>
+    <file>$(IMGFILE2)</file>
+    <x>920</x>
+    <width>470</width>
+    <height>710</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Display</description>
+        <file>Vac_double.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <x>300</x>
+    <width>320</width>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

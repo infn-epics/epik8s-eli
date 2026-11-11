@@ -1,0 +1,26 @@
+Name,Zone,Type,Driver,Prefix,PV,Max,Min,Description,OPI
+SOL01:COIL01,M1,SOL,sigmaphi,LEL:MAG:SPSU01,LEL:MAG:SPSU01:SOL01:COIL01,100,-100,Solenoid Magnet SOL01:COIL01,sigmaphi/sigmaPhiStart.bob
+SOL01:COIL02,M1,SOL,sigmaphi,LEL:MAG:SPSU02,LEL:MAG:SPSU02:SOL01:COIL02,100,-100,Solenoid Magnet SOL01:COIL02,sigmaphi/sigmaPhiStart.bob
+HCOR01,M1,COR,biltitest,LEL:MAG:CPSU01,LEL:MAG:CPSU01:HCOR01,100,-100,Horizontal Corrector Magnet after source,biltitest/biltitest.bob
+VCOR01,M1,COR,biltitest,LEL:MAG:CPSU01,LEL:MAG:CPSU01:VCOR01,100,-100,Vertical Corrector Magnet after source,biltitest/biltitest.bob
+HCOR02,M2,COR,biltitest,LEL:MAG:CPSU01,LEL:MAG:CPSU01:HCOR01,100,-100,Horizontal Corrector Magnet before ACC1,biltitest/biltitest.bob
+VCOR02,M2,COR,biltitest,LEL:MAG:CPSU01,LEL:MAG:CPSU01:VCOR01,100,-100,Vertical Corrector Magnet before ACC1,biltitest/biltitest.bob
+SOL02:COIL0103,M2,SOL,sigmaphi,LEL:MAG:SPSU03,LEL:MAG:SPSU03:SOL02:COIL0103,100,-100,Solenoid Magnet SOL02:COIL0103,sigmaphi/sigmaPhiStart.bob
+SOL02:COIL0406,M2,SOL,sigmaphi,LEL:MAG:SPSU04,LEL:MAG:SPSU04:SOL02:COIL0406,100,-100,Solenoid Magnet SOL02:COIL0406,sigmaphi/sigmaPhiStart.bob
+SOL02:COIL0709,M2,SOL,sigmaphi,LEL:MAG:SPSU05,LEL:MAG:SPSU05:SOL02:COIL0709,100,-100,Solenoid Magnet SOL02:COIL0709,sigmaphi/sigmaPhiStart.bob
+SOL02:COIL1012,M2,SOL,sigmaphi,LEL:MAG:SPSU06,LEL:MAG:SPSU06:SOL02:COIL1012,100,-100,Solenoid Magnet SOL02:COIL1012,sigmaphi/sigmaPhiStart.bob
+HCOR03,M2,COR,biltitest,LEL:MAG:CPSU01,LEL:MAG:CPSU01:HCOR03,100,-100,Horizontal Corrector Magnet after ACC1,biltitest/biltitest.bob
+VCOR03,M2,COR,biltitest,LEL:MAG:CPSU01,LEL:MAG:CPSU01:VCOR03,100,-100,Vertical Corrector Magnet after ACC1,biltitest/biltitest.bob
+HCOR04,M3,COR,biltitest,LEL:MAG:CPSU02,LEL:MAG:CPSU02:HCOR04,100,-100,Horizontal Corrector Magnet before ACC2,biltitest/biltitest.bob
+VCOR04,M3,COR,biltitest,LEL:MAG:CPSU02,LEL:MAG:CPSU02:VCOR04,100,-100,Vertical Corrector Magnet before ACC2,biltitest/biltitest.bob
+HCOR05,M3,COR,biltitest,LEL:MAG:CPSU02,LEL:MAG:CPSU02:HCOR05,100,-100,Horizontal Corrector Magnet after ACC2,biltitest/biltitest.bob
+VCOR05,M3,COR,biltitest,LEL:MAG:CPSU02,LEL:MAG:CPSU02:VCOR05,100,-100,Vertical Corrector Magnet after ACC2 ,biltitest/biltitest.bob
+HCOR06,M2,COR,biltitest,LEL:MAG:CPSU03,LEL:MAG:CPSU03:HCOR06,100,-100,Horizontal Corrector Magnet after ACC1,biltitest/biltitest.bob
+VCOR06,M2,COR,biltitest,LEL:MAG:CPSU03,LEL:MAG:CPSU03:VCOR06,100,-100,Vertical Corrector Magnet after ACC1,biltitest/biltitest.bob
+HCOR07,M3,COR,biltitest,LEL:MAG:CPSU03,LEL:MAG:CPSU03:HCOR07,100,-100,Horizontal Corrector Magnet before ACC2,biltitest/biltitest.bob
+VCOR07,M3,COR,biltitest,LEL:MAG:CPSU03,LEL:MAG:CPSU03:VCOR07,100,-100,Vertical Corrector Magnet before ACC2,biltitest/biltitest.bob
+QUAD01,M2,QUA,sigmaphi,LEL:MAG:QPSU01,LEL:MAG:QPSU01:QUAD01,100,-100,Quadrupole after ACC3,sigmaphi/sigmaPhiStart.bob
+QUAD02,M2,QUA,sigmaphi,LEL:MAG:QPSU02,LEL:MAG:QPSU02:QUAD02,100,-100,Quadrupole after ACC3,sigmaphi/sigmaPhiStart.bob
+QUAD03,M2,QUA,sigmaphi,LEL:MAG:QPSU03,LEL:MAG:QPSU03:QUAD03,100,-100,Quadrupole after ACC3,sigmaphi/sigmaPhiStart.bob
+SOL02:COIL1012,M2,SOL,sigmaphi,LEL:MAG:SPSU06,LEL:MAG:SPSU06:SOL02:COIL1012,100,-100,Solenoid Magnet SOL02:COIL1012,sigmaphi/sigmaPhiStart.bob
+DIP01,M4,DIP,sigmaphi,LEL:MAG:DPSU01,LEL:MAG:DPSU01:DIP01,200,-200,Dipole Magnet DHRTB101,sigmaphi/sigmaPhiStart.bob

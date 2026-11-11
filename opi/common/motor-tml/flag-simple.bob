@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-03-04 10:32:09 by riccardoesposito-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>190</width>
+  <height>150</height>
+  <widget type="group" version="3.0.0">
+    <name>Flag $(R)</name>
+    <width>190</width>
+    <height>150</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="Read_Background" red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <widget type="led" version="2.0.0">
+      <name>Aperto</name>
+      <pv_name>$(P):$(R):MSTA.BD</pv_name>
+      <x>62</x>
+      <y>17</y>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Chiuso</name>
+      <pv_name>$(P):$(R):MSTA.B2</pv_name>
+      <x>62</x>
+      <y>37</y>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Moving</name>
+      <pv_name>$(P):$(R):MSTA.BA</pv_name>
+      <x>92</x>
+      <y>17</y>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>Error</name>
+      <pv_name>$(P):$(R):MSTA.B9</pv_name>
+      <x>92</x>
+      <y>37</y>
+      <on_color>
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text></text>
+      <x>52</x>
+      <y>42</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>OPENED</text>
+      <x>2</x>
+      <y>17</y>
+      <width>60</width>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>CLOSED</text>
+      <x>2</x>
+      <y>37</y>
+      <width>60</width>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_3</name>
+      <text>Moving</text>
+      <x>112</x>
+      <y>17</y>
+      <width>60</width>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>Error</text>
+      <x>112</x>
+      <y>37</y>
+      <width>60</width>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions execute_as_one="true">
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):$(R):ACT</pv_name>
+          <value>3</value>
+        </action>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):$(R):ACTX_SP</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>OPEN</text>
+      <y>72</y>
+      <width>42</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+print 'Hello'
+# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))
+pvs[1].write("3") ## jog reverse
+pvs[2].write("1")]]></text>
+          <pv_name>$(pv_name)</pv_name>
+          <pv_name>$(P):$(R):ACT</pv_name>
+          <pv_name>$(P):$(R):ACTX_SP</pv_name>
+        </script>
+      </scripts>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_4</name>
+      <actions execute_as_one="true">
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):$(R):ACT</pv_name>
+          <value>4</value>
+        </action>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):$(R):ACTX_SP</pv_name>
+          <value>1</value>
+        </action>
+      </actions>
+      <text>CLOSE</text>
+      <x>53</x>
+      <y>72</y>
+      <width>42</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+print 'Hello'
+# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))
+pvs[1].write("4") ## jog forward
+pvs[2].write("1")]]></text>
+          <pv_name>$(pv_name)</pv_name>
+          <pv_name>$(P):$(R):ACT</pv_name>
+          <pv_name>$(P):$(R):ACTX_SP</pv_name>
+        </script>
+      </scripts>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_5</name>
+      <actions>
+        <action type="write_pv">
+          <description>Write PV</description>
+          <pv_name>$(P):$(R):ACTX_SP</pv_name>
+          <value>2</value>
+        </action>
+      </actions>
+      <text>STOP</text>
+      <x>106</x>
+      <y>72</y>
+      <width>42</width>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+print 'Hello'
+# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))
+pvs[2].write("2")]]></text>
+          <pv_name>$(pv_name)</pv_name>
+          <pv_name>$(P):$(R):ACT</pv_name>
+          <pv_name>$(P):$(R):ACTX_SP</pv_name>
+        </script>
+      </scripts>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+</display>

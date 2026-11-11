@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-08-19 09:30:27 by riccardo-->
+<display version="2.0.0">
+  <name>MeasPanel</name>
+  <width>340</width>
+  <height>795</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Measurement Panel</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>340</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Section_Image</name>
+    <text>Camera Image</text>
+    <x>12</x>
+    <y>38</y>
+    <width>140</width>
+    <height>18</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>CursorInfo</name>
+    <x>188</x>
+    <y>38</y>
+    <width>140</width>
+    <height>18</height>
+    <horizontal_alignment>2</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <scripts>
+      <script file="Scripts/GetPixelInfo.py">
+        <pv_name>loc://cursor_info</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="image" version="2.0.0">
+    <name>CameraImage</name>
+    <pv_name>pva://$(DEVICE):$(CAM):PVA:OUTPUT</pv_name>
+    <x>12</x>
+    <y>58</y>
+    <width>316</width>
+    <height>260</height>
+    <show_toolbar>true</show_toolbar>
+    <cursor_info_pv>loc://cursor_info</cursor_info_pv>
+    <x_pv>loc://cursor_x</x_pv>
+    <y_pv>loc://cursor_y</y_pv>
+    <rules>
+      <rule name="interactive" prop_id="rois[0].interactive" out_exp="false">
+        <exp bool_exp="pv0&lt;1">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://roi_interactive(1)</pv_name>
+      </rule>
+      <rule name="centroidHvisible" prop_id="rois[1].visible" out_exp="false">
+        <exp bool_exp="pv0&lt;1">
+          <value>false</value>
+        </exp>
+        <pv_name>$(DEVICE):$(CAM):Stats1:ComputeCentroid_RBV</pv_name>
+      </rule>
+      <rule name="centroidVvisible" prop_id="rois[2].visible" out_exp="false">
+        <exp bool_exp="pv0&lt;1">
+          <value>false</value>
+        </exp>
+        <pv_name>$(DEVICE):$(CAM):Stats1:ComputeCentroid_RBV</pv_name>
+      </rule>
+    </rules>
+    <limits_from_pv>true</limits_from_pv>
+    <unsigned>true</unsigned>
+    <autoscale>true</autoscale>
+    <rois>
+      <roi>
+        <name>imageROI</name>
+        <color>
+          <color red="255" green="168" blue="0">
+          </color>
+        </color>
+        <visible>true</visible>
+        <interactive>true</interactive>
+        <x_pv>loc://roi_x(20)</x_pv>
+        <y_pv>loc://roi_y(20)</y_pv>
+        <width_pv>loc://roi_w(100)</width_pv>
+        <height_pv>loc://roi_h(100)</height_pv>
+        <file></file>
+      </roi>
+      <roi>
+        <name>CentroidH</name>
+        <color>
+          <color red="0" green="255" blue="255">
+          </color>
+        </color>
+        <visible>true</visible>
+        <interactive>false</interactive>
+        <x_pv>=0</x_pv>
+        <y_pv>='$(DEVICE):$(CAM):Stats1:CentroidY_RBV'-1</y_pv>
+        <width_pv>=100000</width_pv>
+        <height_pv>=2</height_pv>
+        <file></file>
+      </roi>
+      <roi>
+        <name>CentroidV</name>
+        <color>
+          <color red="0" green="255" blue="255">
+          </color>
+        </color>
+        <visible>true</visible>
+        <interactive>false</interactive>
+        <x_pv>='$(DEVICE):$(CAM):Stats1:CentroidX_RBV'-1</x_pv>
+        <y_pv>=0</y_pv>
+        <width_pv>=2</width_pv>
+        <height_pv>=100000</height_pv>
+        <file></file>
+      </roi>
+    </rois>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Section_ROI</name>
+    <text>Region of Interest</text>
+    <x>12</x>
+    <y>333</y>
+    <width>316</width>
+    <height>18</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group_ROI</name>
+    <x>12</x>
+    <y>353</y>
+    <width>316</width>
+    <height>128</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="action_button" version="3.0.0">
+      <name>ApplyROI</name>
+      <actions>
+        <action type="execute">
+          <description>Apply drawn ROI to camera acquisition region</description>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+x = int(PVUtil.getDouble(pvs[0]))
+y = int(PVUtil.getDouble(pvs[1]))
+w = int(PVUtil.getDouble(pvs[2]))
+h = int(PVUtil.getDouble(pvs[3]))
+
+# Min to 0 first so the new size below is never rejected by the old,
+# possibly incompatible, Min/Size combination on the camera.
+pvs[4].write(0)
+pvs[5].write(0)
+pvs[6].write(w)
+pvs[7].write(h)
+pvs[4].write(x)
+pvs[5].write(y)]]></text>
+            <pv_name>loc://roi_x</pv_name>
+            <pv_name>loc://roi_y</pv_name>
+            <pv_name>loc://roi_w</pv_name>
+            <pv_name>loc://roi_h</pv_name>
+            <pv_name>$(DEVICE):$(CAM):MinX</pv_name>
+            <pv_name>$(DEVICE):$(CAM):MinY</pv_name>
+            <pv_name>$(DEVICE):$(CAM):SizeX</pv_name>
+            <pv_name>$(DEVICE):$(CAM):SizeY</pv_name>
+          </script>
+        </action>
+      </actions>
+      <text>Apply ROI to Camera</text>
+      <x>0</x>
+      <y>0</y>
+      <width>316</width>
+      <height>32</height>
+      <font>
+        <font name="Header 2" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <tooltip>Push the on-image ROI (x/y/w/h) to $(DEVICE):$(CAM):MinX/MinY/SizeX/SizeY</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>ResetROI</name>
+      <actions>
+        <action type="execute">
+          <description>Reset camera acquisition region to full sensor size</description>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+# 100000 is far above any sensor size, so the IOC clamps it down to
+# MaxSizeX/MaxSizeY automatically - no need to read the max first.
+pvs[0].write(0)
+pvs[1].write(0)
+pvs[2].write(100000)
+pvs[3].write(100000)
+
+pvs[4].write(0)
+pvs[5].write(0)
+pvs[6].write(100000)
+pvs[7].write(100000)]]></text>
+            <pv_name>$(DEVICE):$(CAM):MinX</pv_name>
+            <pv_name>$(DEVICE):$(CAM):MinY</pv_name>
+            <pv_name>$(DEVICE):$(CAM):SizeX</pv_name>
+            <pv_name>$(DEVICE):$(CAM):SizeY</pv_name>
+            <pv_name>loc://roi_x</pv_name>
+            <pv_name>loc://roi_y</pv_name>
+            <pv_name>loc://roi_w</pv_name>
+            <pv_name>loc://roi_h</pv_name>
+          </script>
+        </action>
+      </actions>
+      <text>Reset ROI to Full Frame</text>
+      <x>0</x>
+      <y>38</y>
+      <width>316</width>
+      <height>32</height>
+      <font>
+        <font name="Header 2" family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Foreground" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <tooltip>Set MinX/MinY to 0 and SizeX/SizeY to the full sensor size</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_AppliedROI</name>
+      <text>Applied ROI (px):</text>
+      <x>0</x>
+      <y>78</y>
+      <width>200</width>
+      <height>16</height>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_MinX</name>
+      <text>X:</text>
+      <x>0</x>
+      <y>98</y>
+      <width>16</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MinX_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):MinX_RBV</pv_name>
+      <x>16</x>
+      <y>98</y>
+      <width>60</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_MinY</name>
+      <text>Y:</text>
+      <x>82</x>
+      <y>98</y>
+      <width>16</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MinY_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):MinY_RBV</pv_name>
+      <x>98</x>
+      <y>98</y>
+      <width>60</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_SizeX</name>
+      <text>W:</text>
+      <x>164</x>
+      <y>98</y>
+      <width>16</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>SizeX_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):SizeX_RBV</pv_name>
+      <x>180</x>
+      <y>98</y>
+      <width>60</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_SizeY</name>
+      <text>H:</text>
+      <x>246</x>
+      <y>98</y>
+      <width>16</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>SizeY_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):SizeY_RBV</pv_name>
+      <x>262</x>
+      <y>98</y>
+      <width>54</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Section_Stats</name>
+    <text>Statistics (Stats1)</text>
+    <x>12</x>
+    <y>496</y>
+    <width>316</width>
+    <height>18</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group_Stats</name>
+    <x>12</x>
+    <y>516</y>
+    <width>316</width>
+    <height>138</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="checkbox" version="2.0.0">
+      <name>EnableStats</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:EnableCallbacks</pv_name>
+      <label>Enable Plugin</label>
+      <x>0</x>
+      <y>0</y>
+      <width>140</width>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>ComputeStatistics</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:ComputeStatistics</pv_name>
+      <label>Compute Statistics</label>
+      <x>150</x>
+      <y>0</y>
+      <width>166</width>
+    </widget>
+    <widget type="checkbox" version="2.0.0">
+      <name>ComputeCentroid</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:ComputeCentroid</pv_name>
+      <label>Compute Centroid</label>
+      <x>0</x>
+      <y>26</y>
+      <width>160</width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Threshold</name>
+      <text>Threshold:</text>
+      <x>170</x>
+      <y>28</y>
+      <width>70</width>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>CentroidThreshold</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:CentroidThreshold</pv_name>
+      <x>242</x>
+      <y>26</y>
+      <width>70</width>
+      <format>1</format>
+      <precision>1</precision>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Min</name>
+      <text>Min:</text>
+      <x>0</x>
+      <y>58</y>
+      <width>30</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MinValue_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:MinValue_RBV</pv_name>
+      <x>30</x>
+      <y>58</y>
+      <width>60</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Max</name>
+      <text>Max:</text>
+      <x>100</x>
+      <y>58</y>
+      <width>30</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MaxValue_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:MaxValue_RBV</pv_name>
+      <x>130</x>
+      <y>58</y>
+      <width>60</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Mean</name>
+      <text>Mean:</text>
+      <x>200</x>
+      <y>58</y>
+      <width>38</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>MeanValue_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:MeanValue_RBV</pv_name>
+      <x>238</x>
+      <y>58</y>
+      <width>74</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Sigma</name>
+      <text>Sigma:</text>
+      <x>0</x>
+      <y>84</y>
+      <width>38</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Sigma_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:Sigma_RBV</pv_name>
+      <x>38</x>
+      <y>84</y>
+      <width>60</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Total</name>
+      <text>Total:</text>
+      <x>100</x>
+      <y>84</y>
+      <width>36</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Total_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:Total_RBV</pv_name>
+      <x>136</x>
+      <y>84</y>
+      <width>80</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Net</name>
+      <text>Net:</text>
+      <x>222</x>
+      <y>84</y>
+      <width>30</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Net_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:Net_RBV</pv_name>
+      <x>252</x>
+      <y>84</y>
+      <width>60</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Section_Centroid</name>
+    <text>Centroid (Stats1)</text>
+    <x>12</x>
+    <y>669</y>
+    <width>316</width>
+    <height>18</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group_Centroid</name>
+    <x>12</x>
+    <y>689</y>
+    <width>316</width>
+    <height>86</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_CX</name>
+      <text>X:</text>
+      <x>0</x>
+      <y>0</y>
+      <width>20</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CentroidX_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:CentroidX_RBV</pv_name>
+      <x>20</x>
+      <y>0</y>
+      <width>80</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_CY</name>
+      <text>Y:</text>
+      <x>160</x>
+      <y>0</y>
+      <width>20</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>CentroidY_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:CentroidY_RBV</pv_name>
+      <x>180</x>
+      <y>0</y>
+      <width>80</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_SigmaX</name>
+      <text>SigmaX:</text>
+      <x>0</x>
+      <y>28</y>
+      <width>60</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>SigmaX_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:SigmaX_RBV</pv_name>
+      <x>60</x>
+      <y>28</y>
+      <width>80</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_SigmaY</name>
+      <text>SigmaY:</text>
+      <x>160</x>
+      <y>28</y>
+      <width>60</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>SigmaY_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:SigmaY_RBV</pv_name>
+      <x>220</x>
+      <y>28</y>
+      <width>80</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_SigmaXY</name>
+      <text>SigmaXY:</text>
+      <x>0</x>
+      <y>56</y>
+      <width>60</width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>SigmaXY_RBV</name>
+      <pv_name>$(DEVICE):$(CAM):Stats1:SigmaXY_RBV</pv_name>
+      <x>60</x>
+      <y>56</y>
+      <width>80</width>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+  </widget>
+</display>

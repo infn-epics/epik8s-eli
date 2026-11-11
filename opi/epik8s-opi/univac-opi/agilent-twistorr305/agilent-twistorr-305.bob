@@ -1,0 +1,752 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-06-11 15:43:51 by valentinadompe-->
+<display version="2.0.0">
+  <name>Agilent Turbo Twistorr 305</name>
+  <macros>
+    <P>prova</P>
+  </macros>
+  <width>1000</width>
+  <height>900</height>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="group" version="3.0.0">
+    <name>Agilent Turbo Twistorr 305</name>
+    <macros>
+      <P>twistorr</P>
+    </macros>
+    <x>12</x>
+    <width>846</width>
+    <height>660</height>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>written temp</text>
+      <x>300</x>
+      <y>54</y>
+      <width>126</width>
+      <height>18</height>
+      <visible>false</visible>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>BK-F-COOL-CHILLER-001:TEMP_SETPT_SP_CALC</pv_name>
+      <x>426</x>
+      <y>54</y>
+      <width>150</width>
+      <height>18</height>
+      <visible>false</visible>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>SETTINGS</name>
+      <x>408</x>
+      <y>33</y>
+      <width>378</width>
+      <height>222</height>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_79</name>
+        <pv_name>$(P):ROT_SPEED_HZ_RB</pv_name>
+        <x>250</x>
+        <y>27</y>
+        <width>84</width>
+        <height>18</height>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>LED_12</name>
+        <pv_name>$(P):LOW_SPEED_ONOFF_RB</pv_name>
+        <x>211</x>
+        <y>19</y>
+        <width>30</width>
+        <height>30</height>
+        <off_label>No</off_label>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+        <on_label>Yes</on_label>
+        <on_color>
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </on_color>
+      </widget>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_9</name>
+        <pv_name>$(P):LOW_SPEED_ONOFF_SP</pv_name>
+        <x>144</x>
+        <y>19</y>
+        <width>55</width>
+        <off_label>No</off_label>
+        <off_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </off_color>
+        <on_label>Yes</on_label>
+        <on_color>
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </on_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_92</name>
+        <pv_name>$(P):LOW_SPEED_ONOFF_RB.DESC</pv_name>
+        <x>6</x>
+        <y>27</y>
+        <width>126</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label</name>
+        <text>Yes: 700 Hz rot. freq. set  No: 1010 Hz rot. freq. set</text>
+        <x>4</x>
+        <y>46</y>
+        <width>144</width>
+        <height>36</height>
+        <font>
+          <font family="Liberation Sans" style="REGULAR" size="12.0">
+          </font>
+        </font>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_1</name>
+        <pv_name>$(P):ROT_SPEED_ALARM_LL</pv_name>
+        <x>60</x>
+        <y>142</y>
+        <width>59</width>
+        <height>18</height>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update</name>
+        <pv_name>$(P):ROT_SPEED_ALARM_LL.DESC</pv_name>
+        <x>4</x>
+        <y>117</y>
+        <width>182</width>
+        <height>26</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+      </widget>
+      <widget type="led" version="2.0.0">
+        <name>LED_13</name>
+        <class>GOOD_BAD</class>
+        <pv_name>$(P):FREQ_LOW_LIM_ALARM_FLAG</pv_name>
+        <x>216</x>
+        <y>112</y>
+        <width>64</width>
+        <height>51</height>
+        <off_label>Freq OK</off_label>
+        <off_color use_class="true">
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </off_color>
+        <on_label>LOW FREQ</on_label>
+        <on_color use_class="true">
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </on_color>
+        <square>true</square>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>STATUS</name>
+      <x>30</x>
+      <y>33</y>
+      <width>360</width>
+      <height>222</height>
+      <widget type="led" version="2.0.0">
+        <name>LED_11</name>
+        <class>GOOD_BAD</class>
+        <pv_name>$(P):STATUS_RB</pv_name>
+        <x>198</x>
+        <y>21</y>
+        <width>60</width>
+        <height>60</height>
+        <off_label>Stop</off_label>
+        <off_color use_class="true">
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </off_color>
+        <on_label>Start</on_label>
+        <on_color use_class="true">
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </on_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_83</name>
+        <pv_name>$(P):PUMP_STATUS.DESC</pv_name>
+        <x>14</x>
+        <y>111</y>
+        <width>133</width>
+        <height>18</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_84</name>
+        <pv_name>$(P):PUMP_STATUS</pv_name>
+        <x>176</x>
+        <y>111</y>
+        <width>103</width>
+        <height>18</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <rules>
+          <rule name="RedBkgIfFail" prop_id="background_color" out_exp="false">
+            <exp bool_exp="pv0==6">
+              <value>
+                <color name="MAJOR" red="255" green="0" blue="0">
+                </color>
+              </value>
+            </exp>
+            <pv_name>twistorr:PUMP_STATUS</pv_name>
+          </rule>
+        </rules>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_145</name>
+        <pv_name>$(P):ACT_ROT_SPEED_HZ.DESC</pv_name>
+        <x>14</x>
+        <y>147</y>
+        <width>133</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_146</name>
+        <pv_name>$(P):ACT_ROT_SPEED_HZ</pv_name>
+        <x>176</x>
+        <y>147</y>
+        <width>84</width>
+        <height>18</height>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_11</name>
+        <pv_name>$(P):STATUS_SP</pv_name>
+        <x>46</x>
+        <y>21</y>
+        <width>78</width>
+        <height>60</height>
+        <off_label>START</off_label>
+        <off_color>
+          <color name="Button_Background" red="210" green="210" blue="210">
+          </color>
+        </off_color>
+        <on_label>STOP</on_label>
+        <on_color>
+          <color name="Button_Background" red="210" green="210" blue="210">
+          </color>
+        </on_color>
+        <show_led>false</show_led>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>INFO</name>
+      <x>30</x>
+      <y>275</y>
+      <width>360</width>
+      <height>325</height>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_88</name>
+        <pv_name>$(P):ACT_PUMP_POW.DESC</pv_name>
+        <x>11</x>
+        <y>42</y>
+        <width>171</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_89</name>
+        <pv_name>$(P):ACT_PUMP_POW</pv_name>
+        <x>230</x>
+        <y>42</y>
+        <width>84</width>
+        <height>18</height>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_90</name>
+        <pv_name>$(P):ACT_PUMP_CURR.DESC</pv_name>
+        <x>11</x>
+        <y>66</y>
+        <width>171</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_91</name>
+        <pv_name>$(P):ACT_PUMP_CURR</pv_name>
+        <x>230</x>
+        <y>66</y>
+        <width>84</width>
+        <height>18</height>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_96</name>
+        <pv_name>$(P):CONTROL_MODE_RB.DESC</pv_name>
+        <x>11</x>
+        <y>229</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_97</name>
+        <pv_name>$(P):CONTROL_MODE_RB</pv_name>
+        <x>230</x>
+        <y>229</y>
+        <width>84</width>
+        <height>18</height>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_98</name>
+        <pv_name>$(P):INTERLOCK_TYPE_RB.DESC</pv_name>
+        <x>11</x>
+        <y>253</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_99</name>
+        <pv_name>$(P):INTERLOCK_TYPE_RB</pv_name>
+        <x>230</x>
+        <y>252</y>
+        <width>84</width>
+        <height>18</height>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_100</name>
+        <pv_name>$(P):CTRL_HEATSINK_TEMP.DESC</pv_name>
+        <x>11</x>
+        <y>89</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_101</name>
+        <pv_name>$(P):CTRL_HEATSINK_TEMP</pv_name>
+        <x>230</x>
+        <y>89</y>
+        <width>84</width>
+        <height>18</height>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_102</name>
+        <pv_name>$(P):CTRL_COOLAIR_TEMP.DESC</pv_name>
+        <x>11</x>
+        <y>113</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_103</name>
+        <pv_name>$(P):CTRL_COOLAIR_TEMP</pv_name>
+        <x>230</x>
+        <y>113</y>
+        <width>84</width>
+        <height>18</height>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_104</name>
+        <pv_name>$(P):CYCL_TIME_MIN.DESC</pv_name>
+        <x>11</x>
+        <y>158</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_105</name>
+        <pv_name>$(P):CYCL_TIME_MIN</pv_name>
+        <x>230</x>
+        <y>158</y>
+        <width>84</width>
+        <height>18</height>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_106</name>
+        <pv_name>$(P):CYCL_NUM.DESC</pv_name>
+        <x>11</x>
+        <y>181</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_107</name>
+        <pv_name>$(P):CYCL_NUM</pv_name>
+        <x>230</x>
+        <y>181</y>
+        <width>84</width>
+        <height>18</height>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_108</name>
+        <pv_name>$(P):PUMP_OP_HRS.DESC</pv_name>
+        <x>11</x>
+        <y>204</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_109</name>
+        <pv_name>$(P):PUMP_OP_HRS</pv_name>
+        <x>230</x>
+        <y>204</y>
+        <width>84</width>
+        <height>18</height>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_110</name>
+        <pv_name>$(P):PUMP_TEMP</pv_name>
+        <x>230</x>
+        <y>136</y>
+        <width>84</width>
+        <height>18</height>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_111</name>
+        <pv_name>$(P):PUMP_TEMP.DESC</pv_name>
+        <x>11</x>
+        <y>136</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_81</name>
+        <pv_name>$(P):ROT_SPEED_RPM_RB.DESC</pv_name>
+        <x>11</x>
+        <y>18</y>
+        <width>171</width>
+        <height>18</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_82</name>
+        <pv_name>$(P):ROT_SPEED_RPM_RB</pv_name>
+        <x>230</x>
+        <y>18</y>
+        <width>88</width>
+        <height>18</height>
+        <horizontal_alignment>1</horizontal_alignment>
+        <tooltip></tooltip>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>ERRORS</name>
+      <x>408</x>
+      <y>275</y>
+      <width>378</width>
+      <height>325</height>
+      <widget type="byte_monitor" version="2.0.0">
+        <name>Byte Monitor</name>
+        <pv_name>$(P):ERROR_CODE</pv_name>
+        <x>18</x>
+        <y>18</y>
+        <width>31</width>
+        <height>252</height>
+        <horizontal>false</horizontal>
+        <off_color>
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </off_color>
+        <on_color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </on_color>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_144</name>
+        <pv_name>$(P):ERROR:TOO_HI_LOAD.DESC</pv_name>
+        <x>90</x>
+        <y>25</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_143</name>
+        <pv_name>$(P):ERROR:SHORT_CIRC.DESC</pv_name>
+        <x>90</x>
+        <y>57</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_142</name>
+        <pv_name>$(P):ERROR:OVER_VOLT.DESC</pv_name>
+        <x>90</x>
+        <y>89</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_141</name>
+        <pv_name>$(P):ERROR:OVERRIDE.DESC</pv_name>
+        <x>90</x>
+        <y>119</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_140</name>
+        <pv_name>$(P):ERROR:RUN_UP_TIME.DESC</pv_name>
+        <x>90</x>
+        <y>151</y>
+        <width>204</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_139</name>
+        <pv_name>$(P):ERROR:CTR_OVER_TEMP.DESC</pv_name>
+        <x>90</x>
+        <y>182</y>
+        <width>171</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_138</name>
+        <pv_name>$(P):ERROR:PUMP_OVER_TEMP.DESC</pv_name>
+        <x>90</x>
+        <y>213</y>
+        <width>171</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>Text Update_137</name>
+        <pv_name>$(P):ERROR:NO_PUMP.DESC</pv_name>
+        <x>90</x>
+        <y>245</y>
+        <width>171</width>
+        <height>21</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <background_color>
+          <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+          </color>
+        </background_color>
+        <tooltip></tooltip>
+      </widget>
+    </widget>
+  </widget>
+</display>

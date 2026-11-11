@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-01-02 17:43:55 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Scale parameters</name>
+  <x>644</x>
+  <y>480</y>
+  <width>280</width>
+  <height>220</height>
+  <background_color>
+    <color name="GLOBAL canvas" red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <widget type="rectangle" version="2.0.0">
+    <name>EDM activeRectangleClass</name>
+    <width>361</width>
+    <height>41</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="GLOBAL help" red="120" green="120" blue="120">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Calibration for processor #$(BOARD)</text>
+    <x>70</x>
+    <y>10</y>
+    <width>260</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="libera_title" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Pickup orientation</text>
+    <x>10</x>
+    <y>80</y>
+    <height>14</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Pickup positioning</text>
+    <x>10</x>
+    <y>50</y>
+    <width>131</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="libera_plot_title" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Geometrical coefficients</text>
+    <x>10</x>
+    <y>150</y>
+    <width>166</width>
+    <height>16</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="libera_plot_title" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="radio" version="2.0.0">
+    <name>EDM activeRadioButtonClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):dsp_control:pickup_orientation</pv_name>
+    <x>140</x>
+    <y>80</y>
+    <width>130</width>
+    <height>50</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <horizontal>false</horizontal>
+    <items>
+      <item>Item 1</item>
+      <item>Item 2</item>
+    </items>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>EDM shellCmdClass</name>
+    <actions>
+      <action type="command">
+        <command>/home/libera/epics/lsph_3.0/edm/scripts/$(BPM)geometrical_coefficients.sh</command>
+      </action>
+    </actions>
+    <text>Set geometrical coefficients</text>
+    <x>10</x>
+    <y>180</y>
+    <width>260</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="libera_button_bg_1" red="181" green="190" blue="201">
+      </color>
+    </background_color>
+  </widget>
+</display>

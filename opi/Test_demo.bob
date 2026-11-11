@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-05-27 14:59:05 by georg-->
+<display version="2.0.0">
+  <name>Tests</name>
+  <width>1300</width>
+  <height>2000</height>
+  <widget type="label" version="2.0.0">
+    <name>Tests_Title</name>
+    <text>Tests</text>
+    <x>50</x>
+    <y>50</y>
+    <width>400</width>
+    <height>40</height>
+    <font>
+      <font name="Liberation Sans" family="" style="BOLD" size="24.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>START2_1</name>
+    <actions>
+      <action type="open_display">
+        <file>MAG/sigmaPhiStart.bob</file>
+        <macros>
+          <device>ELI:START11:MEA1</device>
+        </macros>
+        <target>window</target>
+        <description>START1</description>
+      </action>
+    </actions>
+    <text>START11</text>
+    <x>413</x>
+    <y>284</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>START2_2</name>
+    <actions>
+      <action type="open_display">
+        <file>MAG/sigmaPhiStart.bob</file>
+        <macros>
+          <device>ELI:START2:MEA1</device>
+        </macros>
+        <target>window</target>
+        <description>START2</description>
+      </action>
+    </actions>
+    <text>START2</text>
+    <x>413</x>
+    <y>244</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>BILTITEST</name>
+    <actions>
+      <action type="open_display">
+        <file>MAG/biltitest.bob</file>
+        <macros>
+          <device>ELI:BILT:MEA1</device>
+        </macros>
+        <target>window</target>
+        <description>IBILT</description>
+      </action>
+    </actions>
+    <text>IBILTITEST</text>
+    <x>413</x>
+    <y>204</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>TimingEli_1</name>
+    <actions>
+      <action type="open_display">
+        <file>timing/mrf230-opi/Timing.bob</file>
+        <macros>
+          <TITLE>TIMING ELI</TITLE>
+        </macros>
+        <target>window</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>Timing Eli</text>
+    <x>303</x>
+    <y>264</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>menlosynchro</name>
+    <actions>
+      <action type="open_display">
+        <file>RF/menloOpi/synchro/SyncroTheta_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:MENLO:SYNCTHETA</DEVICE>
+        </macros>
+        <target>window</target>
+        <description>Menlo Theta</description>
+      </action>
+    </actions>
+    <x>653</x>
+    <y>484</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>menlosynchro_2</name>
+    <actions>
+      <action type="open_display">
+        <file>RF/menloOpi/lac/LAC1550_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:MENLO:LAC</DEVICE>
+        </macros>
+        <target>window</target>
+        <description>Menlo LAC</description>
+      </action>
+    </actions>
+    <x>652</x>
+    <y>514</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>menlosynchro_3</name>
+    <actions>
+      <action type="open_display">
+        <file>RF/menloOpi/lfc/LFC_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:MENLO:SYNCOMO</DEVICE>
+        </macros>
+        <target>window</target>
+        <description>Menlo OMO</description>
+      </action>
+    </actions>
+    <x>653</x>
+    <y>554</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="open_display">
+        <file>MAG/polarityreversal.bob</file>
+        <macros>
+          <P>LEL:POLREV</P>
+        </macros>
+        <target>window</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>POLARITY REVERSAL</text>
+    <x>183</x>
+    <y>714</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_2</name>
+    <actions>
+      <action type="open_display">
+        <file>common/m9210/m9210_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:DIA:FCT01</DEVICE>
+        </macros>
+        <target>window</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>ADC1</text>
+    <x>173</x>
+    <y>374</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_3</name>
+    <actions>
+      <action type="open_display">
+        <file>common/m9210/m9210_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:DIA:FCT02</DEVICE>
+        </macros>
+        <target>window</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>ADC2</text>
+    <x>183</x>
+    <y>434</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>POLAROTY</name>
+    <actions>
+      <action type="open_display">
+        <file>MAG/polarityreversal.bob</file>
+        <macros>
+          <P>LEL:POLREV</P>
+        </macros>
+        <target>window</target>
+        <description>Polarity</description>
+      </action>
+    </actions>
+    <text>PolarityReversal</text>
+    <x>413</x>
+    <y>434</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Modulator1</name>
+    <actions>
+      <action type="open_display">
+        <file>epik8s-opi/unimod-opi/scandicat-opi/ScandinovaRFMod_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:MOD:SCAT:MOD01</DEVICE>
+        </macros>
+        <target>window</target>
+        <description>MOD001</description>
+      </action>
+    </actions>
+    <text>MOD01</text>
+    <x>73</x>
+    <y>104</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Modulator2</name>
+    <actions>
+      <action type="open_display">
+        <file>epik8s-opi/unimod-opi/scandicat-opi/ScandinovaRFMod_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:MOD:SCAT:MOD02</DEVICE>
+        </macros>
+        <target>window</target>
+        <description>MOD002</description>
+      </action>
+    </actions>
+    <text>MOD02</text>
+    <x>73</x>
+    <y>134</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Modulator3</name>
+    <actions>
+      <action type="open_display">
+        <file>epik8s-opi/unimod-opi/scandicat-opi/ScandinovaRFMod_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:MOD:SCAT:MOD03</DEVICE>
+        </macros>
+        <target>window</target>
+        <description>MOD003</description>
+      </action>
+    </actions>
+    <text>MOD03</text>
+    <x>73</x>
+    <y>164</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Modulator4</name>
+    <actions>
+      <action type="open_display">
+        <file>epik8s-opi/unimod-opi/scandicat-opi/ScandinovaRFMod_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:MOD:SCAT:MOD04</DEVICE>
+        </macros>
+        <target>window</target>
+        <description>MOD004</description>
+      </action>
+    </actions>
+    <text>MOD04</text>
+    <x>73</x>
+    <y>194</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Modulator1_1</name>
+    <actions>
+      <action type="open_display">
+        <file>common/plcelimag.bob</file>
+        <macros>
+          <P>LEL:PLC:MAG</P>
+        </macros>
+        <target>window</target>
+        <description>PLCMAG</description>
+      </action>
+    </actions>
+    <text>PLCMAG</text>
+    <x>93</x>
+    <y>554</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Modulator1_2</name>
+    <actions>
+      <action type="open_display">
+        <file>common/plcelivac.bob</file>
+        <macros>
+          <P>LEL:PLC:VAC</P>
+        </macros>
+        <target>window</target>
+        <description>PLCVAC</description>
+      </action>
+    </actions>
+    <text>PLCVAC</text>
+    <x>93</x>
+    <y>604</y>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

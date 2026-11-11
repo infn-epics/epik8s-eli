@@ -1,0 +1,8 @@
+pyepics
+pvapy
+numpy
+scipy
+pandas
+pcaspy
+softioc
+cothread

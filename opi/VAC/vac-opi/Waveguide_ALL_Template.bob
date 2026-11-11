@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-04-30 18:53:27 by georg-->
+<display version="2.0.0">
+  <name>vacuum_display_$(LCID)</name>
+  <width>420</width>
+  <height>570</height>
+  <scripts>
+    <script file="Scripts/LoadDevicePopulateArray.py" check_connections="false">
+      <pv_name>loc://ZONE_$(LCID)&lt;VString&gt;($(ZONE))</pv_name>
+      <pv_name>loc://TYPE_$(LCID)&lt;VLong&gt;($(TYPE))</pv_name>
+    </script>
+  </scripts>
+  <widget type="group" version="3.0.0">
+    <name>$(WGS)_Layout</name>
+    <macros>
+      <WGS>WGS01</WGS>
+    </macros>
+    <width>235</width>
+    <height>570</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <tooltip>Layout for $(WGS)</tooltip>
+    <widget type="picture" version="2.0.0">
+      <name>Picture_1</name>
+      <file>../../img/WGS01-664x340-Layout.png</file>
+      <x>1</x>
+      <width>267</width>
+      <height>600</height>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Health indicator WGS01</name>
+      <x>83</x>
+      <y>16</y>
+      <width>153</width>
+      <height>22</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color name="Text" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="Background" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <scripts>
+        <script file="Scripts/LinacVacuumAlarmWGS01.py">
+          <pv_name>LEL:VAC:VPCON04:WGS01IONP01:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON04:WGS01IONP02:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON04:WGS01IONP03:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON04:WGS01IONP04:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON05:WGS01IONP05:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON05:WGS01IONP06:PRES</pv_name>
+        </script>
+      </scripts>
+      <tooltip>WGS01 Vacuum Status</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Health indicator WGS01</name>
+      <text>Alarm WGS01</text>
+      <x>96</x>
+      <y>18</y>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS01-IONP01</name>
+      <pv_name>LEL:VAC:VPCON04:$(WGS)IONP01:PRES</pv_name>
+      <x>24</x>
+      <y>97</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON04:$(WGS)IONP01:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP01(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS01-IONP02</name>
+      <pv_name>LEL:VAC:VPCON04:$(WGS)IONP02:PRES</pv_name>
+      <x>24</x>
+      <y>258</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON04:$(WGS)IONP02:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP02(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS01-IONP03</name>
+      <pv_name>LEL:VAC:VPCON04:$(WGS)IONP03:PRES</pv_name>
+      <x>24</x>
+      <y>330</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON04:$(WGS)IONP03:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP03(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS01-IONP04</name>
+      <pv_name>LEL:VAC:VPCON04:$(WGS)IONP04:PRES</pv_name>
+      <x>24</x>
+      <y>372</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON04:$(WGS)IONP04:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP04(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS01-IONP05</name>
+      <pv_name>LEL:VAC:VPCON05:$(WGS)IONP05:PRES</pv_name>
+      <x>21</x>
+      <y>455</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON05:$(WGS)IONP05:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP05(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS01-IONP06</name>
+      <pv_name>LEL:VAC:VPCON05:$(WGS)IONP06:PRES</pv_name>
+      <x>22</x>
+      <y>494</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON05:$(WGS)IONP06:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP06(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>$(WGS)</text>
+    <x>50</x>
+    <width>101</width>
+    <height>1</height>
+    <visible>false</visible>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>element_template</name>
+    <file>VacuumChannel.bob</file>
+    <y>270</y>
+    <width>361</width>
+    <height>1</height>
+    <visible>false</visible>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>WGS02_Layout</name>
+    <macros>
+      <WGS>WGS02</WGS>
+    </macros>
+    <x>239</x>
+    <width>229</width>
+    <height>574</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <tooltip>Layout for $(WGS)</tooltip>
+    <widget type="rectangle" version="2.0.0">
+      <name>Health indicator WGS02</name>
+      <x>63</x>
+      <y>17</y>
+      <width>153</width>
+      <height>22</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color name="Text" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="Background" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <scripts>
+        <script file="Scripts/LinacVacuumAlarmWGS02.py">
+          <pv_name>LEL:VAC:VPCON05:WGS02IONP01:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON05:WGS02IONP02:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON06:WGS02IONP03:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON06:WGS02IONP04:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON06:WGS02IONP05:PRES</pv_name>
+        </script>
+      </scripts>
+      <tooltip>WGS02 Vacuum Status</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Health indicator WGS02</name>
+      <text>Alarm WGS02</text>
+      <x>81</x>
+      <y>17</y>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="picture" version="2.0.0">
+      <name>Picture_6</name>
+      <file>../../img/20260226.3 WGS02-664x340-Layout.png</file>
+      <y>38</y>
+      <width>267</width>
+      <height>522</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS02-IONP01</name>
+      <pv_name>LEL:VAC:VPCON05:$(WGS)IONP01:PRES</pv_name>
+      <x>10</x>
+      <y>96</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON05:$(WGS)IONP01:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP01(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS02-IONP02</name>
+      <pv_name>LEL:VAC:VPCON05:$(WGS)IONP02:PRES</pv_name>
+      <x>10</x>
+      <y>183</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON05:$(WGS)IONP02:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP02(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS02-IONP03</name>
+      <pv_name>LEL:VAC:VPCON06:$(WGS)IONP03:PRES</pv_name>
+      <x>10</x>
+      <y>330</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON06:$(WGS)IONP03:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP03(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS02-IONP04</name>
+      <pv_name>LEL:VAC:VPCON06:$(WGS)IONP04:PRES</pv_name>
+      <x>7</x>
+      <y>413</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON06:$(WGS)IONP04:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP04(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS02-IONP05</name>
+      <pv_name>LEL:VAC:VPCON06:$(WGS)IONP05:PRES</pv_name>
+      <x>5</x>
+      <y>489</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON06:$(WGS)IONP05:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP05(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>WGS03_Layout</name>
+    <macros>
+      <WGS>WGS03</WGS>
+    </macros>
+    <x>438</x>
+    <width>260</width>
+    <height>577</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <tooltip>Layout for $(WGS)</tooltip>
+    <widget type="picture" version="2.0.0">
+      <name>Picture_7</name>
+      <file>../../img/20260226.3 WGS03-664x340-Layout.png</file>
+      <x>1</x>
+      <y>2</y>
+      <width>267</width>
+      <height>600</height>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Health indicator WGS03</name>
+      <x>60</x>
+      <y>17</y>
+      <width>153</width>
+      <height>22</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color name="Text" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="Background" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <scripts>
+        <script file="Scripts/LinacVacuumAlarmWGS03.py">
+          <pv_name>LEL:VAC:VPCON06:WGS03IONP01:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON07:WGS03IONP02:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON07:WGS03IONP03:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON07:WGS03IONP04:PRES</pv_name>
+        </script>
+      </scripts>
+      <tooltip>WGS03 Vacuum Status</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Health indicator WGS03</name>
+      <text>Alarm WGS03</text>
+      <x>79</x>
+      <y>17</y>
+      <width>120</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS03-IONP01</name>
+      <pv_name>LEL:VAC:VPCON06:$(WGS)IONP01:PRES</pv_name>
+      <x>10</x>
+      <y>100</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON06:$(WGS)IONP01:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP01(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS03-IONP02</name>
+      <pv_name>LEL:VAC:VPCON07:$(WGS)IONP02:PRES</pv_name>
+      <x>12</x>
+      <y>186</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON07:$(WGS)IONP02:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP02(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS03-IONP03</name>
+      <pv_name>LEL:VAC:VPCON07:$(WGS)IONP03:PRES</pv_name>
+      <x>11</x>
+      <y>335</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON07:$(WGS)IONP03:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP03(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS03-IONP04</name>
+      <pv_name>LEL:VAC:VPCON07:$(WGS)IONP04:PRES</pv_name>
+      <x>8</x>
+      <y>493</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON07:$(WGS)IONP04:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP04(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>WGC01_Layout</name>
+    <macros>
+      <WGS>WGC01</WGS>
+    </macros>
+    <x>607</x>
+    <width>248</width>
+    <height>581</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <tooltip>Layout for $(WGS)</tooltip>
+    <widget type="picture" version="2.0.0">
+      <name>Picture_4</name>
+      <file>../../img/20260226.3 WGC01-664x340-Layout.png</file>
+      <x>31</x>
+      <width>267</width>
+      <height>600</height>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Health indicator WGC01</name>
+      <x>98</x>
+      <y>17</y>
+      <width>148</width>
+      <height>22</height>
+      <line_width>2</line_width>
+      <line_color>
+        <color name="Text" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="Background" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <scripts>
+        <script file="Scripts/LinacVacuumAlarmWGC01.py">
+          <pv_name>LEL:VAC:VPCON07:WGC01IONP01:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON08:WGC01IONP02:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON08:WGC01IONP03:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON08:WGC01IONP04:PRES</pv_name>
+        </script>
+      </scripts>
+      <tooltip>WGC01 Vacuum Status</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Health indicator WGC01</name>
+      <text>Alarm WGC01</text>
+      <x>115</x>
+      <y>17</y>
+      <width>128</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGC01-IONP01</name>
+      <pv_name>LEL:VAC:VPCON07:$(WGS)IONP01:PRES</pv_name>
+      <x>41</x>
+      <y>98</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON07:$(WGS)IONP01:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP01(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGC01-IONP02</name>
+      <pv_name>LEL:VAC:VPCON08:$(WGS)IONP02:PRES</pv_name>
+      <x>41</x>
+      <y>184</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON08:$(WGS)IONP02:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP02(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGC01-IONP03</name>
+      <pv_name>LEL:VAC:VPCON08:$(WGS)IONP03:PRES</pv_name>
+      <x>41</x>
+      <y>333</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON08:$(WGS)IONP03:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP03(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGC01-IONP04</name>
+      <pv_name>LEL:VAC:VPCON08:$(WGS)IONP04:PRES</pv_name>
+      <x>40</x>
+      <y>412</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON08:$(WGS)IONP04:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP04(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGC01-IONP05</name>
+      <pv_name>LEL:VAC:VPCON08:$(WGS)IONP05:PRES</pv_name>
+      <x>38</x>
+      <y>489</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch_WGuides.py">
+          <pv_name>LEL:VAC:VPCON08:$(WGS)IONP05:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_$(WGS)IONP05(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>WGS01 Vacuum</name>
+    <file>../../ini/plt/WGS01vac.plt</file>
+    <x>857</x>
+    <width>460</width>
+    <height>340</height>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>WGS02 Vacuum</name>
+    <file>../../ini/plt/WGS02vac.plt</file>
+    <x>1316</x>
+    <width>475</width>
+    <height>340</height>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>WGS03 Vacuum</name>
+    <file>../../ini/plt/WGS03vac.plt</file>
+    <x>856</x>
+    <y>339</y>
+    <width>460</width>
+    <height>340</height>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>WGC01 Vacuum</name>
+    <file>../../ini/plt/WGC01vac.plt</file>
+    <x>1315</x>
+    <y>327</y>
+    <width>475</width>
+    <height>340</height>
+  </widget>
+</display>

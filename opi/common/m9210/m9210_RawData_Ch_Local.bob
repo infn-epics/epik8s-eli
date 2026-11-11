@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <macros>
+    <CH>0</CH>
+  </macros>
+  <width>752</width>
+  <height>1283</height>
+  <background_color>
+    <color name="IO Grid" red="215" green="215" blue="215">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="xyplot" version="3.0.0">
+    <name>XY Graph Template</name>
+    <x>23</x>
+    <y>40</y>
+    <width>728</width>
+    <height>439</height>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <title>Raw Data - Channel $(CHAN) Local PV</title>
+    <title_font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </title_font>
+    <show_toolbar>true</show_toolbar>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="enablech1" prop_id="traces[0].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>false</value>
+        </exp>
+        <pv_name>loc://enable_ch1_$(DID)(1)</pv_name>
+      </rule>
+    </rules>
+    <x_axis>
+      <title>Samples [n]</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>2059.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Voltage [V]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-5.0E-12</minimum>
+        <maximum>5.0E-12</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):AI$(CHAN):AVG</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+    <marker>
+      <marker>
+        <color>
+          <color name="Off" red="60" green="100" blue="60">
+          </color>
+        </color>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_START_IDX</pv_name>
+        <interactive>true</interactive>
+        <visible>true</visible>
+      </marker>
+      <marker>
+        <color>
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </color>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_END_IDX</pv_name>
+        <interactive>true</interactive>
+        <visible>true</visible>
+      </marker>
+    </marker>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Integral_Display_Target</name>
+    <text>Channel 0 Integral Result local PV:</text>
+    <x>325</x>
+    <y>10</y>
+    <width>270</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <scripts>
+      <script file="EmbeddedPy" check_connections="false">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from jarray import array
+import math
+
+try:
+    # --- INDEX 0: Raw waveform signal data array ($(DEVICE):AI$(CHAN):AVG) ---
+    pv_reading = pvs[0].read() 
+    
+    if pv_reading is not None:
+        raw_data = pv_reading.getData()
+        
+        if raw_data is not None and raw_data.size() > 750:
+            total_samples = raw_data.size()
+            
+            cal_factor = 2.5  
+            attenuation_factor = 1.0
+            
+            # --- INDEX 3: CLKF_SP (Sampling Rate Clock) ---
+            clk_val = PVUtil.getDouble(pvs[3]) 
+            if clk_val < 100.0:
+                dt = 1.0 / (clk_val * 1e9)  
+            else:
+                dt = 1.0 / clk_val          
+            
+            # --- INDEX 1 & 2: Direct Draggable Absolute Local Markers ---
+            try:
+                m1_val = PVUtil.getDouble(pvs[1])
+            except Exception:
+                m1_val = 100.0  
+                
+            try:
+                m2_val = PVUtil.getDouble(pvs[2])
+            except Exception:
+                m2_val = 400.0  
+
+            # Safely clamp visual dragging bounds within array boundaries
+            start_index = max(0, min(int(round(m1_val)), total_samples - 2))
+            stop_index = max(0, min(int(round(m2_val)), total_samples - 1))
+            
+            # Ensure proper execution order if marker 2 is dragged left of marker 1
+            if start_index > stop_index:
+                start_index, stop_index = stop_index, start_index
+            
+            # --- ADAPTIVE PRE-PULSE BASELINE (Samples 700 to 750) ---
+            # This captures real-time hardware drift right before the pulse drops,
+            # but won't change when you drag your markers around.
+            baseline_start = 700
+            baseline_end = 750
+                
+            baseline_sum = 0.0
+            for i in range(baseline_start, baseline_end):
+                baseline_sum += raw_data.getDouble(i)
+            baseline_avg = baseline_sum / float(baseline_end - baseline_start)
+            
+            # --- INDEX 8: READ OPI MANUAL HARDWARE TRIM KNOB ---
+            manual_offset = 0.0
+            if len(pvs) > 8:
+                try:
+                    manual_offset = PVUtil.getDouble(pvs[8]) # $(DEVICE):AI$(CHAN):OFS_SP
+                except Exception:
+                    manual_offset = 0.0
+            
+            # --- STRICT STABILIZED CUMULATIVE INTEGRAL LOOP ---
+            charge_profile = [0.0] * total_samples
+            running_area = 0.0
+            final_frozen_charge = 0.0
+            
+            for idx in range(0, total_samples - 1):
+                # 1. Before Marker 1: Lock flat at exactly zero
+                if idx < start_index:
+                    running_area = 0.0
+                    charge_profile[idx] = 0.0
+                    
+                # 2. Inside Active Window: Accumulate pulse data
+                elif idx >= start_index and idx < stop_index:
+                    # Invert polarity (baseline - raw) to make the downward pulse integrate upward/positively
+                    y1 = (baseline_avg + manual_offset) - raw_data.getDouble(idx)
+                    y2 = (baseline_avg + manual_offset) - raw_data.getDouble(idx + 1)
+                    running_area += (y1 + y2) / 2.0
+                    
+                    v_secs = running_area * dt
+                    final_frozen_charge = (v_secs * 1e12 * attenuation_factor) / cal_factor
+                    charge_profile[idx + 1] = final_frozen_charge
+                    
+                # 3. After Marker 2: Freeze execution completely to hold a stable plateau
+                else:
+                    charge_profile[idx + 1] = final_frozen_charge
+
+            charge_profile[-1] = charge_profile[-2]
+            
+            # Update the numerical UI text label dynamically
+            widget.setPropertyValue("text", "{:.2f} pC".format(final_frozen_charge))
+            
+            # --- INDEX 4: WRITE ARRAY TO LOCAL GRAPH PV ---
+            if len(pvs) > 4:
+                try:
+                    java_array = array(charge_profile, 'd')
+                    pvs[4].write(java_array)
+                except Exception as plot_err:
+                    print("Graph update deferred: " + str(plot_err))
+                    
+            # --- INDEX 5: WRITE FINAL CALCULATION OUT TO SCALAR NETWORK PV ---
+#            if len(pvs) > 5:
+#                try:
+#                    pvs[5].write(float(final_frozen_charge))
+#                except Exception as write_err:
+#                    print("Scalar network write deferred: " + str(write_err))
+            
+except Exception as e:
+    widget.setPropertyValue("text", "ERR")]]></text>
+        <pv_name>$(DEVICE):AI$(CHAN):AVG</pv_name>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_START_IDX</pv_name>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_END_IDX</pv_name>
+        <pv_name trigger="false">$(DEVICE):CLKF_SP</pv_name>
+        <pv_name trigger="false">loc://fct01_integral_array[2048](0.0)</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):CHARGE_FINAL</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):ATT_RB</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):TCNT</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):OFS_SP</pv_name>
+        <pv_name trigger="false">$(DEVICE):K_OFFSET</pv_name>
+      </script>
+    </scripts>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_13</name>
+    <text>sample window size</text>
+    <y>18</y>
+    <height>14</height>
+    <visible>false</visible>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_6</name>
+    <pv_name>$(DEVICE):UBUNCHSAMPL</pv_name>
+    <x>118</x>
+    <y>12</y>
+    <width>91</width>
+    <height>26</height>
+    <visible>false</visible>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Calculate Integral</name>
+    <actions execute_as_one="true">
+    </actions>
+    <text>Calculate Integral Ch1</text>
+    <x>530</x>
+    <y>4</y>
+    <width>175</width>
+    <visible>false</visible>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>X/Y Plot_1</name>
+    <x>23</x>
+    <y>486</y>
+    <width>729</width>
+    <height>389</height>
+    <scripts>
+      <script file="EmbeddedPy" check_connections="false">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from jarray import array
+ 
+try:
+    # --- INDEX 0: Raw waveform signal data array ---
+    pv_reading = pvs[0].read() 
+    
+    if pv_reading is not None:
+        raw_data = pv_reading.getData()
+        
+        if raw_data is not None and raw_data.size() > 40:
+            total_samples = raw_data.size()
+            
+            cal_factor = 2.5  
+            attenuation_factor = 1.0
+            
+            # --- INDEX 3: CLKF_SP (Sampling Rate Clock) ---
+            clk_val = PVUtil.getDouble(pvs[3]) 
+            if clk_val < 100.0:
+                dt = 1.0 / (clk_val * 1e9)  
+            else:
+                dt = 1.0 / clk_val          
+            
+            # --- INDEX 1 & 2: Direct Absolute Local Markers ---
+            m1_val = PVUtil.getDouble(pvs[1]) 
+            m2_val = PVUtil.getDouble(pvs[2])   
+            
+            # Clamp boundaries cleanly inside the data array limits
+            start_index = max(0, min(int(round(m1_val)), total_samples - 2))
+            stop_index = max(0, min(int(round(m2_val)), total_samples - 1))
+            
+            # Ensure start_index is always before stop_index
+            if start_index > stop_index:
+                start_index, stop_index = stop_index, start_index
+ 
+            # --- PURE PRE-TRIGGER BASELINE ---
+            lookback_size = 40
+            baseline_start = max(0, start_index - lookback_size - 15)
+            baseline_end = max(0, start_index - 15)
+            if (baseline_end - baseline_start) < 15:
+                baseline_start = 0
+                baseline_end = 40
+                
+            baseline_sum = 0.0
+            for i in range(baseline_start, baseline_end):
+                baseline_sum += raw_data.getDouble(i)
+            baseline_avg = baseline_sum / float(baseline_end - baseline_start)
+            
+            # --- FIXED WINDOW ACCUMULATED INTEGRAL ---
+            charge_profile = [0.0] * total_samples
+            running_area = 0.0
+            final_frozen_charge = 0.0
+
+            for idx in range(0, total_samples - 1):
+                # 1. Before Marker 1: Lock flat at exactly zero
+                if idx < start_index:
+                    running_area = 0.0
+                    charge_profile[idx] = 0.0
+                    
+                # 2. Between Marker 1 and Marker 2: Actively integrate the pulse
+                elif idx >= start_index and idx < stop_index:
+                    y1 = raw_data.getDouble(idx) - baseline_avg
+                    y2 = raw_data.getDouble(idx + 1) - baseline_avg
+                    running_area += (y1 + y2) / 2.0
+                    
+                    v_secs = running_area * dt
+                    current_charge = (v_secs * 1e12 * attenuation_factor) / cal_factor
+                    charge_profile[idx] = current_charge
+                    final_frozen_charge = current_charge  
+                    
+                # 3. After Marker 2: Freeze math completely and hold a stable plateau
+                else:
+                    charge_profile[idx] = final_frozen_charge
+ 
+            # Protect final array element boundary safely
+            charge_profile[-1] = charge_profile[-2]
+            
+            # --- INDEX 4: WRITE TO THE CORRECT WAVEFORM PV (loc://fct01_integral_out) ---
+            if len(pvs) > 4:
+                try:
+                    java_array = array(charge_profile, 'd')
+                    pvs[4].write(java_array) 
+                except Exception as plot_err:
+                    print("Lower Graph data frame write deferred: " + str(plot_err))
+                         
+except Exception as e:
+    print("Script Execution Error: " + str(e))]]></text>
+        <pv_name>$(DEVICE):AI$(CHAN):AVG</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):SET_START_IDX</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):SET_END_IDX</pv_name>
+        <pv_name trigger="false">$(DEVICE):CLKF_SP</pv_name>
+        <pv_name trigger="false">loc://fct01_integral_out[2048](0.0)</pv_name>
+        <pv_name trigger="false">loc://microbunch_integral_array[](0)</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):ATT_RB</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):TCNT</pv_name>
+        <pv_name trigger="false">$(DEVICE):AI$(CHAN):OFS_SP</pv_name>
+      </script>
+    </scripts>
+    <x_axis>
+      <title>Samples [n]</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>2054.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Charge Profile [pC]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>2054.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>Integrated Charge Profile Ch $(CHAN)- Local PV</name>
+        <x_pv></x_pv>
+        <y_pv>loc://fct01_integral_out[2048](0.0)</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>2</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>X/Y Plot_2</name>
+    <x>23</x>
+    <y>890</y>
+    <width>729</width>
+    <height>389</height>
+    <scripts>
+      <script file="EmbeddedPy" check_connections="false">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from jarray import array
+
+try:
+    # Index 0: Raw waveform signal data array ($(DEVICE):AI$(CHAN):AVG)
+    pv_reading = pvs[0].read()
+
+    if pv_reading is not None:
+        raw_data = pv_reading.getData()
+
+        if raw_data is not None and raw_data.size() > 40:
+            total_samples = raw_data.size()
+
+            cal_factor = 2.5
+            attenuation_factor = 1.0
+
+            # --- INDEX 3: CLKF_SP (Sampling Rate Clock) ---
+            clk_val = PVUtil.getDouble(pvs[3])
+            if clk_val < 100.0:
+                dt = 1.0 / (clk_val * 1e9)
+            else:
+                dt = 1.0 / clk_val
+
+            # --- INDEX 1: MICB_OFFSET (M1), INDEX 2: UBUNCHSAMPL (Width) ---
+            marker1_raw = PVUtil.getDouble(pvs[1])
+            width_raw = PVUtil.getDouble(pvs[2])
+            start_index = max(0, min(int(round(marker1_raw)), total_samples - 2))
+
+            # --- DYNAMIC PRE-TRIGGER BASELINE ---
+            lookback_size = 40
+            baseline_start = max(0, start_index - lookback_size - 15)
+            baseline_end = max(0, start_index - 15)
+            if (baseline_end - baseline_start) < 15:
+                baseline_start = 0
+                baseline_end = 40
+
+            baseline_sum = 0.0
+            for i in range(baseline_start, baseline_end):
+                baseline_sum += raw_data.getDouble(i)
+            baseline_avg = baseline_sum / float(baseline_end - baseline_start)
+
+            # --- FULL-SIGNAL CUMULATIVE INTEGRAL (OPI-side integral waveform) ---
+            charge_profile = [0.0] * total_samples
+            running_area = 0.0
+            for idx in range(0, total_samples - 1):
+                y1 = baseline_avg - raw_data.getDouble(idx)
+                y2 = baseline_avg - raw_data.getDouble(idx + 1)
+                running_area += (y1 + y2) / 2.0
+                v_secs = running_area * dt
+                charge_profile[idx + 1] = (v_secs * 1e12 * attenuation_factor) / cal_factor
+            charge_profile[-1] = charge_profile[-2]
+
+            # --- INDEX 4: WRITE INTEGRAL WAVEFORM TO LOCAL GRAPH PV ---
+            if len(pvs) > 4:
+                try:
+                    java_array = array(charge_profile, 'd')
+                    pvs[4].write(java_array)
+                except Exception as plot_err:
+                    print("Lower Graph data frame write deferred: " + str(plot_err))
+
+except Exception as e:
+    print("Script Execution Error: " + str(e))]]></text>
+        <pv_name>$(DEVICE):AI$(CHAN):AVG</pv_name>
+        <pv_name trigger="false">$(DEVICE):MICB_OFFSET</pv_name>
+        <pv_name trigger="false">$(DEVICE):UBUNCHSAMPL</pv_name>
+        <pv_name trigger="false">$(DEVICE):CLKF_SP</pv_name>
+        <pv_name trigger="false">loc://microbunch_integral_array_ch0</pv_name>
+      </script>
+    </scripts>
+    <x_axis>
+      <title>Samples [n]</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>2054.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Charge Profile [pC]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>2054.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>Integral Waveform (OPI-side, full signal)</name>
+        <x_pv></x_pv>
+        <y_pv>loc://microbunch_integral_array_ch0</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+</display>

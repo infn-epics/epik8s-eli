@@ -1,0 +1,2662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-02-17 12:07:45 by beatr-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>550</width>
+  <height>972</height>
+  <widget type="group" version="3.0.0">
+    <name>LEL-RF-LLRF01</name>
+    <width>550</width>
+    <height>243</height>
+    <foreground_color>
+      <color red="26" green="51" blue="153">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="26" green="51" blue="153">
+      </color>
+    </line_color>
+    <transparent>true</transparent>
+    <widget type="bool_button" version="2.0.0">
+      <name>CLEAR_LLRF1</name>
+      <pv_name>LEL-RF-LLRF01:app:interlock:state</pv_name>
+      <x>393</x>
+      <y>23</y>
+      <width>85</width>
+      <off_label>Clear</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>Clear</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+interlock=PVUtil.getDouble(pvs[0])
+
+if interlock==0:
+	widget.setPropertyValue('enabled',0)
+else:
+	widget.setPropertyValue('enabled',1)]]></text>
+          <pv_name>LEL-RF-LLRF01:app:interlock:state</pv_name>
+        </script>
+      </scripts>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <mode>1</mode>
+      <show_confirm_dialog>false</show_confirm_dialog>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Interlock</name>
+      <text>Interlock</text>
+      <x>363</x>
+      <width>59</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>INTERLOCK</name>
+      <class>GOOD_BAD</class>
+      <pv_name>LEL-RF-LLRF01:app:interlock:state</pv_name>
+      <bit>0</bit>
+      <x>427</x>
+      <off_color use_class="true">
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_3</name>
+      <pv_name>LEL-RF-LLRF01:app:rf_ctrl</pv_name>
+      <x>90</x>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>Choice Button</name>
+      <pv_name>LEL-RF-LLRF01:app:rf_ctrl</pv_name>
+      <x>3</x>
+      <y>23</y>
+      <width>120</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <items>
+        <item>OFF</item>
+        <item>ON</item>
+      </items>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Interlock_1</name>
+      <text>RF status</text>
+      <x>17</x>
+      <width>64</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>INTERLOCK_1</name>
+      <class>GOOD_BAD</class>
+      <pv_name>LEL-RF-LLRF01:ad1:interlock:ch6:source</pv_name>
+      <bit>0</bit>
+      <x>498</x>
+      <off_color use_class="true">
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Trigger_1</name>
+      <text>VSWR</text>
+      <x>452</x>
+      <width>42</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>Feedbacks</name>
+      <y>62</y>
+      <width>486</width>
+      <height>145</height>
+      <transparent>true</transparent>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_3</name>
+        <pv_name>LEL-RF-LLRF01:vm:dsp:pi_ph:loop_closed</pv_name>
+        <y>79</y>
+        <width>90</width>
+        <off_label>Phi Fbk</off_label>
+        <on_label>Phi Fbk</on_label>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <horizontal_alignment>0</horizontal_alignment>
+      </widget>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_4</name>
+        <pv_name>LEL-RF-LLRF01:vm:dsp:pi_amp:loop_closed</pv_name>
+        <y>18</y>
+        <width>90</width>
+        <off_label>Amp Fbk</off_label>
+        <on_label>Amp Fbk</on_label>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <horizontal_alignment>0</horizontal_alignment>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_1</name>
+        <pv_name>LEL-RF-LLRF01:vm:dsp:sp_ph:phase</pv_name>
+        <x>103</x>
+        <y>79</y>
+        <width>110</width>
+        <height>30</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Phase</name>
+        <text>Phase set [deg]</text>
+        <x>103</x>
+        <y>61</y>
+        <width>104</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_2</name>
+        <pv_name>loc://power_MW_LLRF1(0)</pv_name>
+        <x>103</x>
+        <y>18</y>
+        <width>60</width>
+        <height>30</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_5</name>
+        <pv_name>loc://boolean_LLRF1</pv_name>
+        <x>163</x>
+        <y>18</y>
+        <width>50</width>
+        <off_label>Apply</off_label>
+        <off_color>
+          <color name="Button_Background" red="210" green="210" blue="210">
+          </color>
+        </off_color>
+        <on_label>Apply</on_label>
+        <on_color>
+          <color name="Button_Background" red="210" green="210" blue="210">
+          </color>
+        </on_color>
+        <show_led>false</show_led>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+boolean_value=PVUtil.getDouble(pvs[2])
+if boolean_value==0: 
+      pass
+else:
+     source_value=PVUtil.getDouble(pvs[0])
+     PVUtil.writePV(str(pvs[1]), source_value*1e6,1) ]]></text>
+            <pv_name trigger="false">loc://power_MW_LLRF1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:vm:dsp:sp_amp:power</pv_name>
+            <pv_name>loc://boolean_LLRF1</pv_name>
+          </script>
+        </scripts>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <mode>1</mode>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Power read MW</name>
+        <x>213</x>
+        <y>18</y>
+        <width>60</width>
+        <height>30</height>
+        <background_color>
+          <color name="Read_Background" red="240" green="240" blue="240">
+          </color>
+        </background_color>
+        <transparent>false</transparent>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_W= PVUtil.getDouble(pvs[0])
+
+text =str(round(value_W/1e6,1)) #MW
+widget.setPropertyValue("text", text)]]></text>
+            <pv_name>LEL-RF-LLRF01:vm:dsp:sp_amp:power</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Power</name>
+        <text>Power set [MW]</text>
+        <x>104</x>
+        <width>105</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Power_2</name>
+        <text>Power [MW]</text>
+        <x>285</x>
+        <width>81</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>stdev_amp_1</name>
+        <pv_name>loc://power_average_LLRF1</pv_name>
+        <x>285</x>
+        <y>18</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    value = (PVUtil.getDouble(target_pv)**2) / 100
+    PVUtil.writePV(str(pvs[14]),value/1e6,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch1:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch2:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch3:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch4:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch5:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch6:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+            <pv_name>loc://power_average_LLRF1</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Power_3</name>
+        <text>Jitter [%]</text>
+        <x>370</x>
+        <width>60</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>stdev_amp_2</name>
+        <pv_name>loc://stdev_amp_mask_LLRF1</pv_name>
+        <x>370</x>
+        <y>18</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+counts=50
+amp=PVUtil.getDoubleArray(pvs[14]) # amp array PV
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    if len(amp) == 0 or (len(amp) == 1 and amp[0] == 0): amp=[] # delete 0 initial value
+    amp.append(PVUtil.getDouble(target_pv)**2/100) # instant power PV
+    if len(amp)==counts+1: amp.pop(0) # limit array size to avg number
+    PVUtil.writePV(str(pvs[14]),amp,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:amp_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch1:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch2:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch3:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch4:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch5:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch6:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+            <pv_name>loc://amp_mask_LLRF1</pv_name>
+          </script>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for standard deviation
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import math
+
+sum=0
+sum2=0
+amp=PVUtil.getDoubleArray(pvs[0])
+for a in amp: sum=sum+a
+mean=sum/len(amp)
+for a in amp: sum2=sum2+(a-mean)**2
+stdev=math.sqrt(sum2/len(amp))
+stdev_percent = (stdev / mean) * 100
+PVUtil.writePV(str(pvs[1]),stdev_percent,1)]]></text>
+            <pv_name>loc://amp_mask_LLRF1</pv_name>
+            <pv_name trigger="false">loc://stdev_amp_mask_LLRF1</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Phase_setting</name>
+        <text>Phase [deg]</text>
+        <x>285</x>
+        <y>59</y>
+        <width>80</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>stdev_phase</name>
+        <pv_name>loc://stdev_mask_LLRF1</pv_name>
+        <x>370</x>
+        <y>75</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+counts=50
+phase=PVUtil.getDoubleArray(pvs[14]) # phase array PV
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    if len(phase) == 0 or (len(phase) == 1 and phase[0] == 0): phase=[] # delete 0 initial value
+    phase.append(PVUtil.getDouble(target_pv)) # instant phase PV
+    if len(phase)==counts+1: phase.pop(0) # limit array size to avg number
+    PVUtil.writePV(str(pvs[14]),phase,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch1:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch2:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch3:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch4:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch5:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch6:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch8:phase_average_s.AVERAGE</pv_name>
+            <pv_name>loc://phase_mask_LLRF1</pv_name>
+          </script>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for standard deviation
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import math
+
+sum=0
+sum2=0
+phase=PVUtil.getDoubleArray(pvs[0])
+for p in phase: sum=sum+p
+mean=sum/len(phase)
+for p in phase: sum2=sum2+(p-mean)**2
+stdev=math.sqrt(sum2/len(phase))
+PVUtil.writePV(str(pvs[1]),stdev,1)]]></text>
+            <pv_name>loc://phase_mask_LLRF1</pv_name>
+            <pv_name trigger="false">loc://stdev_mask_LLRF1</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>ph_average</name>
+        <pv_name>loc://ph_average_LLRF1</pv_name>
+        <x>285</x>
+        <y>76</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    avg_phase=PVUtil.getDouble(target_pv)
+    PVUtil.writePV(str(pvs[14]),round(avg_phase,3),1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch_mask:ph_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch1:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch2:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch3:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch4:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch5:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch6:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF01:ad1:ch8:phase_average_s.AVERAGE</pv_name>
+            <pv_name>loc://ph_average_LLRF1</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_Phase_jitter</name>
+        <text>Jitter [deg]</text>
+        <x>371</x>
+        <y>59</y>
+        <width>73</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>LLRF1 Output Level_Label</name>
+      <text>LLRF1 Output </text>
+      <x>244</x>
+      <width>98</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="progressbar" version="2.0.0">
+      <name>Progress Bar_1</name>
+      <pv_name>LEL-RF-LLRF01:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+      <x>230</x>
+      <y>23</y>
+      <width>130</width>
+      <height>30</height>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getDouble(pvs[0])
+if value <0.548:	#3 mW
+	widget.setPropertyValue('fill_color', ColorFontUtil.PURPLE)
+elif 0.548<=value<0.949:		# 3<value<9 mW
+	widget.setPropertyValue('fill_color', ColorFontUtil.GREEN)
+elif 0.949<=value<1:	        # 9<value<10 mW
+	widget.setPropertyValue('fill_color', ColorFontUtil.YELLOW)
+elif value>=1:	# 10 mW
+	widget.setPropertyValue('fill_color', ColorFontUtil.RED)	
+]]></text>
+          <pv_name>LEL-RF-LLRF01:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+      <limits_from_pv>false</limits_from_pv>
+      <maximum>1.05</maximum>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Interlock_9</name>
+      <text>Conditioning</text>
+      <x>133</x>
+      <width>87</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>CONDITIONING ON/OFF LLRF3_1</name>
+      <class>ON_OFF</class>
+      <pv_name>SSRIP:RF:CONDITIONING01:CONDITIONING_STATUS</pv_name>
+      <x>151</x>
+      <y>24</y>
+      <width>51</width>
+      <height>30</height>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = int(PVUtil.getDouble(pvs[0]))
+if value == 1:
+    widget.setPropertyValue('on_color', ColorFontUtil.YELLOW)
+    widget.setPropertyValue('on_label', "ON")
+
+if value == 0:
+    widget.setPropertyValue('off_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('off_label', "OFF")
+]]></text>
+          <pv_name>SSRIP:RF:CONDITIONING01:CONDITIONING_STATUS</pv_name>
+        </script>
+      </scripts>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>LEL-RF-LLRF02</name>
+    <y>243</y>
+    <width>550</width>
+    <height>243</height>
+    <foreground_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="51" green="102" blue="51">
+      </color>
+    </line_color>
+    <transparent>true</transparent>
+    <widget type="bool_button" version="2.0.0">
+      <name>CLEAR_LLRF2</name>
+      <pv_name>LEL-RF-LLRF02:app:interlock:state</pv_name>
+      <x>393</x>
+      <y>23</y>
+      <width>85</width>
+      <off_label>Clear</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>Clear</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+interlock=PVUtil.getDouble(pvs[0])
+
+if interlock==0:
+	widget.setPropertyValue('enabled',0)
+else:
+	widget.setPropertyValue('enabled',1)]]></text>
+          <pv_name>LEL-RF-LLRF02:app:interlock:state</pv_name>
+        </script>
+      </scripts>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <mode>1</mode>
+      <show_confirm_dialog>false</show_confirm_dialog>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Interlock_4</name>
+      <text>Interlock</text>
+      <x>363</x>
+      <width>59</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>INTERLOCK_4</name>
+      <class>GOOD_BAD</class>
+      <pv_name>LEL-RF-LLRF02:app:interlock:state</pv_name>
+      <bit>0</bit>
+      <x>427</x>
+      <off_color use_class="true">
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_5</name>
+      <pv_name>LEL-RF-LLRF02:app:rf_ctrl</pv_name>
+      <x>90</x>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>Choice Button_2</name>
+      <pv_name>LEL-RF-LLRF02:app:rf_ctrl</pv_name>
+      <x>3</x>
+      <y>24</y>
+      <width>120</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <items>
+        <item>OFF</item>
+        <item>ON</item>
+      </items>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Interlock_5</name>
+      <text>RF status</text>
+      <x>17</x>
+      <width>64</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>INTERLOCK_5</name>
+      <class>GOOD_BAD</class>
+      <pv_name>LEL-RF-LLRF02:ad1:interlock:ch4:source</pv_name>
+      <bit>0</bit>
+      <x>498</x>
+      <off_color use_class="true">
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Trigger_5</name>
+      <text>VSWR</text>
+      <x>452</x>
+      <width>42</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>Feedbacks</name>
+      <y>62</y>
+      <width>486</width>
+      <height>145</height>
+      <transparent>true</transparent>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_9</name>
+        <pv_name>LEL-RF-LLRF02:vm:dsp:pi_ph:loop_closed</pv_name>
+        <y>79</y>
+        <width>90</width>
+        <off_label>Phi Fbk</off_label>
+        <on_label>Phi Fbk</on_label>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <horizontal_alignment>0</horizontal_alignment>
+      </widget>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_10</name>
+        <pv_name>LEL-RF-LLRF02:vm:dsp:pi_amp:loop_closed</pv_name>
+        <y>18</y>
+        <width>90</width>
+        <off_label>Amp Fbk</off_label>
+        <on_label>Amp Fbk</on_label>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <horizontal_alignment>0</horizontal_alignment>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_5</name>
+        <pv_name>LEL-RF-LLRF02:vm:dsp:sp_ph:phase</pv_name>
+        <x>103</x>
+        <y>79</y>
+        <width>110</width>
+        <height>30</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Phase_2</name>
+        <text>Phase set [deg]</text>
+        <x>103</x>
+        <y>61</y>
+        <width>104</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_6</name>
+        <pv_name>loc://power_MW_LLRF2(0)</pv_name>
+        <x>103</x>
+        <y>18</y>
+        <width>60</width>
+        <height>30</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_11</name>
+        <pv_name>loc://boolean_LLRF2</pv_name>
+        <x>163</x>
+        <y>18</y>
+        <width>50</width>
+        <off_label>Apply</off_label>
+        <off_color>
+          <color name="Button_Background" red="210" green="210" blue="210">
+          </color>
+        </off_color>
+        <on_label>Apply</on_label>
+        <on_color>
+          <color name="Button_Background" red="210" green="210" blue="210">
+          </color>
+        </on_color>
+        <show_led>false</show_led>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+boolean_value=PVUtil.getDouble(pvs[2])
+if boolean_value==0: 
+      pass
+else:
+     source_value=PVUtil.getDouble(pvs[0])
+     PVUtil.writePV(str(pvs[1]), source_value*1e6,1) ]]></text>
+            <pv_name trigger="false">loc://power_MW_LLRF2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:vm:dsp:sp_amp:power</pv_name>
+            <pv_name>loc://boolean_LLRF2</pv_name>
+          </script>
+        </scripts>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <mode>1</mode>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Power read MW_2</name>
+        <x>213</x>
+        <y>18</y>
+        <width>60</width>
+        <height>30</height>
+        <background_color>
+          <color name="Read_Background" red="240" green="240" blue="240">
+          </color>
+        </background_color>
+        <transparent>false</transparent>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_W= PVUtil.getDouble(pvs[0])
+
+text =str(round(value_W/1e6,1)) #MW
+widget.setPropertyValue("text", text)]]></text>
+            <pv_name>LEL-RF-LLRF02:vm:dsp:sp_amp:power</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Power_7</name>
+        <text>Power set [MW]</text>
+        <x>104</x>
+        <width>105</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Power_8</name>
+        <text>Power [MW]</text>
+        <x>285</x>
+        <width>81</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>stdev_amp_5</name>
+        <pv_name>loc://power_average_LLRF2</pv_name>
+        <x>285</x>
+        <y>18</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    value = (PVUtil.getDouble(target_pv)**2) / 100
+    PVUtil.writePV(str(pvs[14]),value/1e6,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch1:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch2:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch3:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch4:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch5:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch6:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+            <pv_name>loc://power_average_LLRF2</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Power_9</name>
+        <text>Jitter [%]</text>
+        <x>370</x>
+        <width>60</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>stdev_amp_6</name>
+        <pv_name>loc://stdev_amp_mask_LLRF2</pv_name>
+        <x>370</x>
+        <y>18</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+counts=50
+amp=PVUtil.getDoubleArray(pvs[14]) # amp array PV
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    if len(amp) == 0 or (len(amp) == 1 and amp[0] == 0): amp=[] # delete 0 initial value
+    amp.append(PVUtil.getDouble(target_pv)**2/100) # instant power PV
+    if len(amp)==counts+1: amp.pop(0) # limit array size to avg number
+    PVUtil.writePV(str(pvs[14]),amp,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:amp_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch1:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch2:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch3:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch4:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch5:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch6:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+            <pv_name>loc://amp_mask_LLRF2</pv_name>
+          </script>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for standard deviation
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import math
+
+sum=0
+sum2=0
+amp=PVUtil.getDoubleArray(pvs[0])
+for a in amp: sum=sum+a
+mean=sum/len(amp)
+for a in amp: sum2=sum2+(a-mean)**2
+stdev=math.sqrt(sum2/len(amp))
+stdev_percent = (stdev / mean) * 100
+PVUtil.writePV(str(pvs[1]),stdev_percent,1)]]></text>
+            <pv_name>loc://amp_mask_LLRF2</pv_name>
+            <pv_name trigger="false">loc://stdev_amp_mask_LLRF2</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Phase_setting_2</name>
+        <text>Phase [deg]</text>
+        <x>285</x>
+        <y>59</y>
+        <width>80</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>stdev_phase_2</name>
+        <pv_name>loc://stdev_mask_LLRF2</pv_name>
+        <x>370</x>
+        <y>75</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+counts=50
+phase=PVUtil.getDoubleArray(pvs[14]) # phase array PV
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    if len(phase) == 0 or (len(phase) == 1 and phase[0] == 0): phase=[] # delete 0 initial value
+    phase.append(PVUtil.getDouble(target_pv)) # instant phase PV
+    if len(phase)==counts+1: phase.pop(0) # limit array size to avg number
+    PVUtil.writePV(str(pvs[14]),phase,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch1:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch2:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch3:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch4:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch5:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch6:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch8:phase_average_s.AVERAGE</pv_name>
+            <pv_name>loc://phase_mask_LLRF2</pv_name>
+          </script>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for standard deviation
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import math
+
+sum=0
+sum2=0
+phase=PVUtil.getDoubleArray(pvs[0])
+for p in phase: sum=sum+p
+mean=sum/len(phase)
+for p in phase: sum2=sum2+(p-mean)**2
+stdev=math.sqrt(sum2/len(phase))
+PVUtil.writePV(str(pvs[1]),stdev,1)]]></text>
+            <pv_name>loc://phase_mask_LLRF2</pv_name>
+            <pv_name trigger="false">loc://stdev_mask_LLRF2</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>ph_average_2</name>
+        <pv_name>loc://ph_average_LLRF2</pv_name>
+        <x>285</x>
+        <y>76</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    avg_phase=PVUtil.getDouble(target_pv)
+    PVUtil.writePV(str(pvs[14]),avg_phase,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch_mask:ph_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch1:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch2:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch3:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch4:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch5:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch6:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF02:ad1:ch8:phase_average_s.AVERAGE</pv_name>
+            <pv_name>loc://ph_average_LLRF2</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_Phase_jitter_2</name>
+        <text>Jitter [deg]</text>
+        <x>371</x>
+        <y>59</y>
+        <width>73</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>LLRF1 Output Level_Label_1</name>
+      <text>LLRF2 Output </text>
+      <x>244</x>
+      <width>98</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="progressbar" version="2.0.0">
+      <name>Progress Bar_4</name>
+      <pv_name>LEL-RF-LLRF02:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+      <x>230</x>
+      <y>23</y>
+      <width>130</width>
+      <height>30</height>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getDouble(pvs[0])
+if value <0.4:
+	widget.setPropertyValue('fill_color', ColorFontUtil.PURPLE)
+elif 0.4<=value<0.8:		
+	widget.setPropertyValue('fill_color', ColorFontUtil.GREEN)
+elif 0.8<=value<0.85:	       
+	widget.setPropertyValue('fill_color', ColorFontUtil.YELLOW)
+elif value>=0.85:	
+	widget.setPropertyValue('fill_color', ColorFontUtil.RED)	
+]]></text>
+          <pv_name>LEL-RF-LLRF02:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+      <limits_from_pv>false</limits_from_pv>
+      <maximum>0.9</maximum>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Interlock_10</name>
+      <text>Conditioning</text>
+      <x>133</x>
+      <width>87</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>CONDITIONING ON/OFF LLRF3_2</name>
+      <class>ON_OFF</class>
+      <pv_name>SSRIP:RF:CONDITIONING02:CONDITIONING_STATUS</pv_name>
+      <x>151</x>
+      <y>24</y>
+      <width>51</width>
+      <height>30</height>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = int(PVUtil.getDouble(pvs[0]))
+if value == 1:
+    widget.setPropertyValue('on_color', ColorFontUtil.YELLOW)
+    widget.setPropertyValue('on_label', "ON")
+
+if value == 0:
+    widget.setPropertyValue('off_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('off_label', "OFF")
+]]></text>
+          <pv_name>SSRIP:RF:CONDITIONING02:CONDITIONING_STATUS</pv_name>
+        </script>
+      </scripts>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>LEL-RF-LLRF03</name>
+    <y>486</y>
+    <width>550</width>
+    <height>243</height>
+    <foreground_color>
+      <color red="153" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="153" green="0" blue="0">
+      </color>
+    </line_color>
+    <transparent>true</transparent>
+    <widget type="bool_button" version="2.0.0">
+      <name>CLEAR_LLRF3</name>
+      <pv_name>LEL-RF-LLRF03:app:interlock:state</pv_name>
+      <x>393</x>
+      <y>24</y>
+      <width>85</width>
+      <off_label>Clear</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>Clear</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+interlock=PVUtil.getDouble(pvs[0])
+
+if interlock==0:
+	widget.setPropertyValue('enabled',0)
+else:
+	widget.setPropertyValue('enabled',1)]]></text>
+          <pv_name>LEL-RF-LLRF03:app:interlock:state</pv_name>
+        </script>
+      </scripts>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <mode>1</mode>
+      <show_confirm_dialog>false</show_confirm_dialog>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_6</name>
+      <pv_name>LEL-RF-LLRF03:app:rf_ctrl</pv_name>
+      <x>90</x>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>Choice Button_3</name>
+      <pv_name>LEL-RF-LLRF03:app:rf_ctrl</pv_name>
+      <x>3</x>
+      <y>24</y>
+      <width>120</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <items>
+        <item>OFF</item>
+        <item>ON</item>
+      </items>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Interlock_7</name>
+      <text>RF status</text>
+      <x>17</x>
+      <width>64</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>Feedbacks</name>
+      <y>62</y>
+      <width>486</width>
+      <height>145</height>
+      <transparent>true</transparent>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_12</name>
+        <pv_name>LEL-RF-LLRF03:vm:dsp:pi_ph:loop_closed</pv_name>
+        <y>79</y>
+        <width>90</width>
+        <off_label>Phi Fbk</off_label>
+        <on_label>Phi Fbk</on_label>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <horizontal_alignment>0</horizontal_alignment>
+      </widget>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_13</name>
+        <pv_name>LEL-RF-LLRF03:vm:dsp:pi_amp:loop_closed</pv_name>
+        <y>18</y>
+        <width>90</width>
+        <off_label>Amp Fbk</off_label>
+        <on_label>Amp Fbk</on_label>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <horizontal_alignment>0</horizontal_alignment>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_7</name>
+        <pv_name>LEL-RF-LLRF03:vm:dsp:sp_ph:phase</pv_name>
+        <x>103</x>
+        <y>79</y>
+        <width>110</width>
+        <height>30</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Phase_3</name>
+        <text>Phase set [deg]</text>
+        <x>103</x>
+        <y>61</y>
+        <width>104</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_8</name>
+        <pv_name>loc://power_MW_LLRF3(0)</pv_name>
+        <x>103</x>
+        <y>18</y>
+        <width>60</width>
+        <height>30</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_14</name>
+        <pv_name>loc://boolean_LLRF3</pv_name>
+        <x>163</x>
+        <y>18</y>
+        <width>50</width>
+        <off_label>Apply</off_label>
+        <off_color>
+          <color name="Button_Background" red="210" green="210" blue="210">
+          </color>
+        </off_color>
+        <on_label>Apply</on_label>
+        <on_color>
+          <color name="Button_Background" red="210" green="210" blue="210">
+          </color>
+        </on_color>
+        <show_led>false</show_led>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+boolean_value=PVUtil.getDouble(pvs[2])
+if boolean_value==0: 
+      pass
+else:
+     source_value=PVUtil.getDouble(pvs[0])
+     PVUtil.writePV(str(pvs[1]), source_value*1e6,1) ]]></text>
+            <pv_name trigger="false">loc://power_MW_LLRF3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:vm:dsp:sp_amp:power</pv_name>
+            <pv_name>loc://boolean_LLRF3</pv_name>
+          </script>
+        </scripts>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <mode>1</mode>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Power read MW_3</name>
+        <x>213</x>
+        <y>18</y>
+        <width>60</width>
+        <height>30</height>
+        <background_color>
+          <color name="Read_Background" red="240" green="240" blue="240">
+          </color>
+        </background_color>
+        <transparent>false</transparent>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_W= PVUtil.getDouble(pvs[0])
+
+text =str(round(value_W/1e6,1)) #MW
+widget.setPropertyValue("text", text)]]></text>
+            <pv_name>LEL-RF-LLRF03:vm:dsp:sp_amp:power</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Power_10</name>
+        <text>Power set [MW]</text>
+        <x>104</x>
+        <width>105</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Power_11</name>
+        <text>Power [MW]</text>
+        <x>285</x>
+        <width>81</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>stdev_amp_7</name>
+        <pv_name>loc://power_average_LLRF3</pv_name>
+        <x>285</x>
+        <y>18</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    value = (PVUtil.getDouble(target_pv)**2) / 100
+    PVUtil.writePV(str(pvs[14]),value/1e6,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch1:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch2:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch3:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch4:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch5:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch6:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+            <pv_name>loc://power_average_LLRF3</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Power_12</name>
+        <text>Jitter [%]</text>
+        <x>370</x>
+        <width>60</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>stdev_amp_8</name>
+        <pv_name>loc://stdev_amp_mask_LLRF3</pv_name>
+        <x>370</x>
+        <y>18</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+counts=50
+amp=PVUtil.getDoubleArray(pvs[14]) # amp array PV
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    if len(amp) == 0 or (len(amp) == 1 and amp[0] == 0): amp=[] # delete 0 initial value
+    amp.append(PVUtil.getDouble(target_pv)**2/100) # instant power PV
+    if len(amp)==counts+1: amp.pop(0) # limit array size to avg number
+    PVUtil.writePV(str(pvs[14]),amp,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:amp_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch1:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch2:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch3:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch4:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch5:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch6:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+            <pv_name>loc://amp_mask_LLRF3</pv_name>
+          </script>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for standard deviation
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import math
+
+sum=0
+sum2=0
+amp=PVUtil.getDoubleArray(pvs[0])
+for a in amp: sum=sum+a
+mean=sum/len(amp)
+for a in amp: sum2=sum2+(a-mean)**2
+stdev=math.sqrt(sum2/len(amp))
+stdev_percent = (stdev / mean) * 100
+PVUtil.writePV(str(pvs[1]),stdev_percent,1)]]></text>
+            <pv_name>loc://amp_mask_LLRF3</pv_name>
+            <pv_name trigger="false">loc://stdev_amp_mask_LLRF3</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Phase_setting_3</name>
+        <text>Phase [deg]</text>
+        <x>285</x>
+        <y>59</y>
+        <width>80</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>stdev_phase_3</name>
+        <pv_name>loc://stdev_mask_LLRF3</pv_name>
+        <x>370</x>
+        <y>75</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+counts=50
+phase=PVUtil.getDoubleArray(pvs[14]) # phase array PV
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    if len(phase) == 0 or (len(phase) == 1 and phase[0] == 0): phase=[] # delete 0 initial value
+    phase.append(PVUtil.getDouble(target_pv)) # instant phase PV
+    if len(phase)==counts+1: phase.pop(0) # limit array size to avg number
+    PVUtil.writePV(str(pvs[14]),phase,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch1:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch2:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch3:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch4:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch5:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch6:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch8:phase_average_s.AVERAGE</pv_name>
+            <pv_name>loc://phase_mask_LLRF3</pv_name>
+          </script>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for standard deviation
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import math
+
+sum=0
+sum2=0
+phase=PVUtil.getDoubleArray(pvs[0])
+for p in phase: sum=sum+p
+mean=sum/len(phase)
+for p in phase: sum2=sum2+(p-mean)**2
+stdev=math.sqrt(sum2/len(phase))
+PVUtil.writePV(str(pvs[1]),stdev,1)]]></text>
+            <pv_name>loc://phase_mask_LLRF3</pv_name>
+            <pv_name trigger="false">loc://stdev_mask_LLRF3</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>ph_average_3</name>
+        <pv_name>loc://ph_average_LLRF3</pv_name>
+        <x>285</x>
+        <y>76</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    avg_phase=PVUtil.getDouble(target_pv)
+    PVUtil.writePV(str(pvs[14]),avg_phase,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch_mask:ph_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch1:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch2:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch3:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch4:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch5:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch6:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF03:ad1:ch8:phase_average_s.AVERAGE</pv_name>
+            <pv_name>loc://ph_average_LLRF3</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_Phase_jitter_3</name>
+        <text>Jitter [deg]</text>
+        <x>371</x>
+        <y>59</y>
+        <width>73</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>CONDITIONING ON/OFF LLRF3</name>
+      <class>ON_OFF</class>
+      <pv_name>SSRIP:RF:CONDITIONING03:CONDITIONING_STATUS</pv_name>
+      <x>151</x>
+      <y>24</y>
+      <width>51</width>
+      <height>30</height>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = int(PVUtil.getDouble(pvs[0]))
+if value == 1:
+    widget.setPropertyValue('on_color', ColorFontUtil.YELLOW)
+    widget.setPropertyValue('on_label', "ON")
+
+if value == 0:
+    widget.setPropertyValue('off_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('off_label', "OFF")
+]]></text>
+          <pv_name>SSRIP:RF:CONDITIONING03:CONDITIONING_STATUS</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Interlock_6</name>
+      <text>Interlock</text>
+      <x>363</x>
+      <y>2</y>
+      <width>59</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>INTERLOCK_6</name>
+      <class>GOOD_BAD</class>
+      <pv_name>LEL-RF-LLRF03:app:interlock:state</pv_name>
+      <bit>0</bit>
+      <x>427</x>
+      <off_color use_class="true">
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Trigger_7</name>
+      <text>VSWR</text>
+      <x>452</x>
+      <y>2</y>
+      <width>42</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>INTERLOCK_7</name>
+      <class>GOOD_BAD</class>
+      <pv_name>LEL-RF-LLRF03:ad1:interlock:ch6:source</pv_name>
+      <bit>0</bit>
+      <x>498</x>
+      <off_color use_class="true">
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Interlock_8</name>
+      <text>Conditioning</text>
+      <x>133</x>
+      <width>87</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>LLRF3 Output Level_Label</name>
+      <text>LLRF3 Output</text>
+      <x>248</x>
+      <width>94</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="progressbar" version="2.0.0">
+      <name>Progress Bar_3</name>
+      <pv_name>LEL-RF-LLRF03:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+      <x>230</x>
+      <y>24</y>
+      <width>130</width>
+      <height>31</height>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getDouble(pvs[0])
+if value <0.4:	
+	widget.setPropertyValue('fill_color', ColorFontUtil.PURPLE)
+elif 0.4<=value<0.85:		
+	widget.setPropertyValue('fill_color', ColorFontUtil.GREEN)
+elif 0.85<=value<0.9:	        
+	widget.setPropertyValue('fill_color', ColorFontUtil.YELLOW)
+elif value>=0.9:	
+	widget.setPropertyValue('fill_color', ColorFontUtil.RED)	
+]]></text>
+          <pv_name>LEL-RF-LLRF03:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+      <limits_from_pv>false</limits_from_pv>
+      <maximum>0.95</maximum>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>LEL-RF-LLRF04</name>
+    <y>729</y>
+    <width>550</width>
+    <height>243</height>
+    <foreground_color>
+      <color red="153" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="153" green="0" blue="0">
+      </color>
+    </line_color>
+    <transparent>true</transparent>
+    <widget type="bool_button" version="2.0.0">
+      <name>CLEAR_LLRF4</name>
+      <pv_name>LEL-RF-LLRF04:app:interlock:state</pv_name>
+      <x>393</x>
+      <y>24</y>
+      <width>85</width>
+      <off_label>Clear</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>Clear</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+interlock=PVUtil.getDouble(pvs[0])
+
+if interlock==0:
+	widget.setPropertyValue('enabled',0)
+else:
+	widget.setPropertyValue('enabled',1)]]></text>
+          <pv_name>LEL-RF-LLRF04:app:interlock:state</pv_name>
+        </script>
+      </scripts>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <mode>1</mode>
+      <show_confirm_dialog>false</show_confirm_dialog>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED_7</name>
+      <pv_name>LEL-RF-LLRF04:app:rf_ctrl</pv_name>
+      <x>90</x>
+    </widget>
+    <widget type="choice" version="2.0.0">
+      <name>Choice Button_4</name>
+      <pv_name>LEL-RF-LLRF04:app:rf_ctrl</pv_name>
+      <x>3</x>
+      <y>24</y>
+      <width>120</width>
+      <height>30</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <items>
+        <item>OFF</item>
+        <item>ON</item>
+      </items>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Interlock_11</name>
+      <text>RF status</text>
+      <x>17</x>
+      <width>64</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>Feedbacks_1</name>
+      <y>62</y>
+      <width>486</width>
+      <height>145</height>
+      <transparent>true</transparent>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_15</name>
+        <pv_name>LEL-RF-LLRF04:vm:dsp:pi_ph:loop_closed</pv_name>
+        <y>79</y>
+        <width>90</width>
+        <off_label>Phi Fbk</off_label>
+        <on_label>Phi Fbk</on_label>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <horizontal_alignment>0</horizontal_alignment>
+      </widget>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_16</name>
+        <pv_name>LEL-RF-LLRF04:vm:dsp:pi_amp:loop_closed</pv_name>
+        <y>18</y>
+        <width>90</width>
+        <off_label>Amp Fbk</off_label>
+        <on_label>Amp Fbk</on_label>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <horizontal_alignment>0</horizontal_alignment>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_9</name>
+        <pv_name>LEL-RF-LLRF04:vm:dsp:sp_ph:phase</pv_name>
+        <x>103</x>
+        <y>79</y>
+        <width>110</width>
+        <height>30</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Phase_4</name>
+        <text>Phase set [deg]</text>
+        <x>103</x>
+        <y>61</y>
+        <width>104</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Text Entry_10</name>
+        <pv_name>loc://power_MW_LLRF4(0)</pv_name>
+        <x>103</x>
+        <y>18</y>
+        <width>60</width>
+        <height>30</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="bool_button" version="2.0.0">
+        <name>Boolean Button_17</name>
+        <pv_name>loc://boolean_LLRF4</pv_name>
+        <x>163</x>
+        <y>18</y>
+        <width>50</width>
+        <off_label>Apply</off_label>
+        <off_color>
+          <color name="Button_Background" red="210" green="210" blue="210">
+          </color>
+        </off_color>
+        <on_label>Apply</on_label>
+        <on_color>
+          <color name="Button_Background" red="210" green="210" blue="210">
+          </color>
+        </on_color>
+        <show_led>false</show_led>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+boolean_value=PVUtil.getDouble(pvs[2])
+if boolean_value==0: 
+      pass
+else:
+     source_value=PVUtil.getDouble(pvs[0])
+     PVUtil.writePV(str(pvs[1]), source_value*1e6,1) ]]></text>
+            <pv_name trigger="false">loc://power_MW_LLRF4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:vm:dsp:sp_amp:power</pv_name>
+            <pv_name>loc://boolean_LLRF4</pv_name>
+          </script>
+        </scripts>
+        <border_alarm_sensitive>false</border_alarm_sensitive>
+        <mode>1</mode>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Power read MW_4</name>
+        <x>213</x>
+        <y>18</y>
+        <width>60</width>
+        <height>30</height>
+        <background_color>
+          <color name="Read_Background" red="240" green="240" blue="240">
+          </color>
+        </background_color>
+        <transparent>false</transparent>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value_W= PVUtil.getDouble(pvs[0])
+
+text =str(round(value_W/1e6,1)) #MW
+widget.setPropertyValue("text", text)]]></text>
+            <pv_name>LEL-RF-LLRF04:vm:dsp:sp_amp:power</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Power_13</name>
+        <text>Power set [MW]</text>
+        <x>104</x>
+        <width>105</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Power_14</name>
+        <text>Power [MW]</text>
+        <x>285</x>
+        <width>81</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>stdev_amp_9</name>
+        <pv_name>loc://power_average_LLRF4</pv_name>
+        <x>285</x>
+        <y>18</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    value = (PVUtil.getDouble(target_pv)**2) / 100
+    PVUtil.writePV(str(pvs[14]),value/1e6,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch1:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch2:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch3:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch4:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch5:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch6:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+            <pv_name>loc://power_average_LLRF4</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Power_15</name>
+        <text>Jitter [%]</text>
+        <x>370</x>
+        <width>60</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>stdev_amp_10</name>
+        <pv_name>loc://stdev_amp_mask_LLRF4</pv_name>
+        <x>370</x>
+        <y>18</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+counts=50
+amp=PVUtil.getDoubleArray(pvs[14]) # amp array PV
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    if len(amp) == 0 or (len(amp) == 1 and amp[0] == 0): amp=[] # delete 0 initial value
+    amp.append(PVUtil.getDouble(target_pv)**2/100) # instant power PV
+    if len(amp)==counts+1: amp.pop(0) # limit array size to avg number
+    PVUtil.writePV(str(pvs[14]),amp,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:amp_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch1:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch2:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch3:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch4:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch5:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch6:amp_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+            <pv_name>loc://amp_mask_LLRF4</pv_name>
+          </script>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for standard deviation
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import math
+
+sum=0
+sum2=0
+amp=PVUtil.getDoubleArray(pvs[0])
+for a in amp: sum=sum+a
+mean=sum/len(amp)
+for a in amp: sum2=sum2+(a-mean)**2
+stdev=math.sqrt(sum2/len(amp))
+stdev_percent = (stdev / mean) * 100
+PVUtil.writePV(str(pvs[1]),stdev_percent,1)]]></text>
+            <pv_name>loc://amp_mask_LLRF4</pv_name>
+            <pv_name trigger="false">loc://stdev_amp_mask_LLRF4</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_RF_Phase_setting_4</name>
+        <text>Phase [deg]</text>
+        <x>285</x>
+        <y>59</y>
+        <width>80</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>stdev_phase_4</name>
+        <pv_name>loc://stdev_mask_LLRF4</pv_name>
+        <x>370</x>
+        <y>75</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+counts=50
+phase=PVUtil.getDoubleArray(pvs[14]) # phase array PV
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    if len(phase) == 0 or (len(phase) == 1 and phase[0] == 0): phase=[] # delete 0 initial value
+    phase.append(PVUtil.getDouble(target_pv)) # instant phase PV
+    if len(phase)==counts+1: phase.pop(0) # limit array size to avg number
+    PVUtil.writePV(str(pvs[14]),phase,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch1:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch2:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch3:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch4:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch5:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch6:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch8:phase_average_s.AVERAGE</pv_name>
+            <pv_name>loc://phase_mask_LLRF4</pv_name>
+          </script>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for standard deviation
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import math
+
+sum=0
+sum2=0
+phase=PVUtil.getDoubleArray(pvs[0])
+for p in phase: sum=sum+p
+mean=sum/len(phase)
+for p in phase: sum2=sum2+(p-mean)**2
+stdev=math.sqrt(sum2/len(phase))
+PVUtil.writePV(str(pvs[1]),stdev,1)]]></text>
+            <pv_name>loc://phase_mask_LLRF4</pv_name>
+            <pv_name trigger="false">loc://stdev_mask_LLRF4</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="textupdate" version="2.0.0">
+        <name>ph_average_4</name>
+        <pv_name>loc://ph_average_LLRF4</pv_name>
+        <x>285</x>
+        <y>76</y>
+        <width>80</width>
+        <height>30</height>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+        <vertical_alignment>1</vertical_alignment>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[# Embedded python script for read phase and create phase array
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+for i, pv in enumerate(pvs):
+    pv_value = PVUtil.getDouble(pv)
+    if pv_value != 0.0:  
+        channel_index = i 
+        break
+
+if channel_index != -1:
+    target_pv = pvs[channel_index+7]
+    #print(target_pv)
+    avg_phase=PVUtil.getDouble(target_pv)
+    PVUtil.writePV(str(pvs[14]),avg_phase,1)
+else:
+    print("Nessun canale con valore true trovato.")]]></text>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch1</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch2</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch3</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch4</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch5</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch6</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch_mask:ph_loop:ch8</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch1:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch2:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch3:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch4:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch5:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch6:phase_average_s.AVERAGE</pv_name>
+            <pv_name trigger="false">LEL-RF-LLRF04:ad1:ch8:phase_average_s.AVERAGE</pv_name>
+            <pv_name>loc://ph_average_LLRF4</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Label_Phase_jitter_4</name>
+        <text>Jitter [deg]</text>
+        <x>371</x>
+        <y>59</y>
+        <width>73</width>
+        <height>16</height>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <auto_size>true</auto_size>
+      </widget>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>CONDITIONING ON/OFF LLRF4</name>
+      <class>ON_OFF</class>
+      <pv_name>SSRIP:RF:CONDITIONING04:CONDITIONING_STATUS</pv_name>
+      <x>151</x>
+      <y>24</y>
+      <width>51</width>
+      <height>30</height>
+      <off_color use_class="true">
+        <color name="Off" red="60" green="100" blue="60">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="On" red="0" green="255" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = int(PVUtil.getDouble(pvs[0]))
+if value == 1:
+    widget.setPropertyValue('on_color', ColorFontUtil.YELLOW)
+    widget.setPropertyValue('on_label', "ON")
+
+if value == 0:
+    widget.setPropertyValue('off_color', ColorFontUtil.GREEN)
+    widget.setPropertyValue('off_label', "OFF")
+]]></text>
+          <pv_name>SSRIP:RF:CONDITIONING04:CONDITIONING_STATUS</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Interlock_12</name>
+      <text>Interlock</text>
+      <x>363</x>
+      <y>2</y>
+      <width>59</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>INTERLOCK_8</name>
+      <class>GOOD_BAD</class>
+      <pv_name>LEL-RF-LLRF04:app:interlock:state</pv_name>
+      <bit>0</bit>
+      <x>427</x>
+      <off_color use_class="true">
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Trigger_8</name>
+      <text>VSWR</text>
+      <x>452</x>
+      <y>2</y>
+      <width>42</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>INTERLOCK_9</name>
+      <class>GOOD_BAD</class>
+      <pv_name>LEL-RF-LLRF04:ad1:interlock:ch6:source</pv_name>
+      <bit>0</bit>
+      <x>498</x>
+      <off_color use_class="true">
+        <color name="OK" red="0" green="255" blue="0">
+        </color>
+      </off_color>
+      <on_color use_class="true">
+        <color name="MAJOR" red="255" green="0" blue="0">
+        </color>
+      </on_color>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="10.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_Interlock_13</name>
+      <text>Conditioning</text>
+      <x>133</x>
+      <width>87</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>LLRF4 Output Level_Label_1</name>
+      <text>LLRF4 Output</text>
+      <x>248</x>
+      <width>94</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="progressbar" version="2.0.0">
+      <name>Progress Bar_5</name>
+      <pv_name>LEL-RF-LLRF04:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+      <x>230</x>
+      <y>24</y>
+      <width>130</width>
+      <height>31</height>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from org.csstudio.opibuilder.scriptUtil import ColorFontUtil
+
+value = PVUtil.getDouble(pvs[0])
+if value <0.548:	
+	widget.setPropertyValue('fill_color', ColorFontUtil.PURPLE)
+elif 0.548<=value<1:		
+	widget.setPropertyValue('fill_color', ColorFontUtil.GREEN)
+elif 1<=value<1.2:	        
+	widget.setPropertyValue('fill_color', ColorFontUtil.YELLOW)
+elif value>=1.2:
+	widget.setPropertyValue('fill_color', ColorFontUtil.RED)	
+]]></text>
+          <pv_name>LEL-RF-LLRF04:ad1:ch8:amp_average_s.AVERAGE</pv_name>
+        </script>
+      </scripts>
+      <limits_from_pv>false</limits_from_pv>
+      <maximum>1.24</maximum>
+    </widget>
+  </widget>
+</display>

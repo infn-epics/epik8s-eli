@@ -1,0 +1,88 @@
+{
+  "EVG": {
+    "TOE_TE": {
+		"0" : 1,
+		"10": 2,
+		"20": 3 
+    }, 
+    "Units": "uSec"
+  }, 
+  "EVR01": {
+    "UNIV0": {
+      "Delay": 0.0, 
+      "Event": 1, 
+      "Polarity": 0, 
+      "Width": 0.0
+    }, 
+    "UNIV1": {
+      "Delay": 0.0, 
+      "Event": 0, 
+      "Polarity": 0, 
+      "Width": 0.0
+    }, 
+    "UNIV2": {
+      "Delay": 0.0, 
+      "Event": 0, 
+      "Polarity": 0, 
+      "Width": 0.0
+    }, 
+    "UNIV3": {
+      "Delay": 0.0, 
+      "Event": 0, 
+      "Polarity": 0, 
+      "Width": 0.0
+    }
+  }, 
+  "EVR02": {
+    "UNIV0": {
+      "Delay": 0.0, 
+      "Event": 0, 
+      "Polarity": 1, 
+      "Width": 0.0
+    }, 
+    "UNIV1": {
+      "Delay": 0.0, 
+      "Event": 0, 
+      "Polarity": 0, 
+      "Width": 0.0
+    }, 
+    "UNIV2": {
+      "Delay": 0.0, 
+      "Event": 0, 
+      "Polarity": 0, 
+      "Width": 0.0
+    }, 
+    "UNIV3": {
+      "Delay": 0.0, 
+      "Event": 0, 
+      "Polarity": 0, 
+      "Width": 0.0
+    }
+  }, 
+  "EVR03": {
+    "UNIV0": {
+      "Delay": 0.0, 
+      "Event": 0, 
+      "Polarity": 0, 
+      "Width": 0.0
+    }, 
+    "UNIV1": {
+      "Delay": 0.0, 
+      "Event": 0, 
+      "Polarity": 0, 
+      "Width": 0.0
+    }, 
+    "UNIV2": {
+      "Delay": 0.0, 
+      "Event": 0, 
+      "Polarity": 0, 
+      "Width": 0.0
+    }, 
+    "UNIV3": {
+      "Delay": 0.0, 
+      "Event": 0, 
+      "Polarity": 0, 
+      "Width": 0.0
+    }
+  }
+}

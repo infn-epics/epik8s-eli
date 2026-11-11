@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<pvtable enable_save_restore="true" version="3.0">
+    <timeout>60.0</timeout>
+    <pvlist>
+        <pv>
+            <selected>true</selected>
+            <name>LEL:VAC:VGCON01:CC01:PRES</name>
+            <tolerance>0.1</tolerance>
+            <saved_value_timestamp/>
+            <completion>true</completion>
+        </pv>
+        <pv>
+            <selected>true</selected>
+            <name>LEL:VAC:VGCON01:CC01:PRES.HIHI</name>
+            <tolerance>0.1</tolerance>
+            <saved_value_timestamp/>
+            <completion>true</completion>
+        </pv>
+        <pv>
+            <selected>true</selected>
+            <name>LEL:VAC:VGCON01:CC01:PRES.LOLO</name>
+            <tolerance>0.1</tolerance>
+            <saved_value_timestamp/>
+            <completion>true</completion>
+        </pv>
+        <pv>
+            <selected>true</selected>
+            <name>LEL:VAC:VGCON01:CC01:PRES.HIGH</name>
+            <tolerance>0.1</tolerance>
+            <saved_value_timestamp/>
+            <completion>true</completion>
+        </pv>
+        <pv>
+            <selected>true</selected>
+            <name>LEL:VAC:VGCON01:CC01:PRES.LOW</name>
+            <tolerance>0.1</tolerance>
+            <saved_value_timestamp/>
+            <completion>true</completion>
+        </pv>
+    </pvlist>
+</pvtable>

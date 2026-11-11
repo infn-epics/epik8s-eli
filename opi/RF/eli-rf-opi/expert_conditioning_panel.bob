@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-02-17 11:42:46 by beatr-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>840</width>
+  <height>460</height>
+  <widget type="group" version="3.0.0">
+    <name>Expert Panel:$(CONDITIONING_IOC)</name>
+    <width>840</width>
+    <height>460</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="26" green="51" blue="153">
+      </color>
+    </foreground_color>
+    <transparent>true</transparent>
+    <widget type="group" version="3.0.0">
+      <name>Power Raise</name>
+      <x>539</x>
+      <y>1</y>
+      <width>261</width>
+      <height>162</height>
+      <transparent>true</transparent>
+      <widget type="label" version="2.0.0">
+        <name>Conditioning_target_Label</name>
+        <text>Cond. target [MW]:</text>
+        <x>1</x>
+        <y>97</y>
+        <width>118</width>
+        <height>16</height>
+        <foreground_color>
+          <color red="51" green="26" blue="128">
+          </color>
+        </foreground_color>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Conditioning Target</name>
+        <pv_name>$(CONDITIONING_IOC):CONDITIONING_TARGET</pv_name>
+        <x>154</x>
+        <y>92</y>
+        <width>60</width>
+        <height>26</height>
+        <format>1</format>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Power Raise Wait_Label</name>
+        <text>Power raise wait [min]:</text>
+        <x>1</x>
+        <y>51</y>
+        <width>141</width>
+        <height>16</height>
+        <foreground_color>
+          <color red="51" green="26" blue="128">
+          </color>
+        </foreground_color>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Power Raise Wait</name>
+        <pv_name>$(CONDITIONING_IOC):POWER_RAISE_WAIT</pv_name>
+        <x>154</x>
+        <y>46</y>
+        <width>60</width>
+        <height>26</height>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Power Raise Step_Label</name>
+        <text>Power raise step [kW]:</text>
+        <x>1</x>
+        <y>5</y>
+        <width>141</width>
+        <height>16</height>
+        <foreground_color>
+          <color red="51" green="26" blue="128">
+          </color>
+        </foreground_color>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Power Raise Step</name>
+        <pv_name>$(CONDITIONING_IOC):POWER_RAISE_STEP</pv_name>
+        <x>154</x>
+        <width>60</width>
+        <height>26</height>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>Waveform pulse to pulse</name>
+      <y>158</y>
+      <width>800</width>
+      <height>273</height>
+      <transparent>true</transparent>
+      <widget type="xyplot" version="3.0.0">
+        <name>mask_plot</name>
+        <width>446</width>
+        <height>237</height>
+        <show_toolbar>true</show_toolbar>
+        <show_legend>false</show_legend>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+min=widget.getPropertyValue('y_axes[1].minimum')
+max=widget.getPropertyValue('y_axes[1].maximum')
+widget.setPropertyValue('y_axes[0].minimum', min)
+widget.setPropertyValue('y_axes[0].maximum', max)
+widget.setPropertyValue('y_axes[2].minimum', min)
+widget.setPropertyValue('y_axes[2].maximum', max)]]></text>
+            <pv_name>$(LLRF_NAME):ad1:ch6:power_remote.POWER</pv_name>
+            <pv_name trigger="false">$(CONDITIONING_IOC):WF_SOURCE_SEL</pv_name>
+          </script>
+        </scripts>
+        <tooltip></tooltip>
+        <x_axis>
+          <title>Time [us]</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>10.0</maximum>
+          <show_grid>false</show_grid>
+          <title_font>
+            <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+            </font>
+          </title_font>
+          <scale_font>
+            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            </font>
+          </scale_font>
+          <visible>true</visible>
+        </x_axis>
+        <y_axes>
+          <y_axis>
+            <title></title>
+            <autoscale>false</autoscale>
+            <log_scale>false</log_scale>
+            <minimum>0.0</minimum>
+            <maximum>10.0</maximum>
+            <show_grid>false</show_grid>
+            <title_font>
+              <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </title_font>
+            <scale_font>
+              <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+              </font>
+            </scale_font>
+            <on_right>false</on_right>
+            <visible>true</visible>
+            <color>
+              <color name="Text" red="0" green="0" blue="0">
+              </color>
+            </color>
+          </y_axis>
+          <y_axis>
+            <title>mask high</title>
+            <autoscale>true</autoscale>
+            <log_scale>false</log_scale>
+            <minimum>0.0</minimum>
+            <maximum>100.0</maximum>
+            <show_grid>true</show_grid>
+            <title_font>
+              <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </title_font>
+            <scale_font>
+              <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+              </font>
+            </scale_font>
+            <on_right>false</on_right>
+            <visible>false</visible>
+            <color>
+              <color name="Text" red="0" green="0" blue="0">
+              </color>
+            </color>
+          </y_axis>
+          <y_axis>
+            <title>mask low</title>
+            <autoscale>false</autoscale>
+            <log_scale>false</log_scale>
+            <minimum>0.0</minimum>
+            <maximum>100.0</maximum>
+            <show_grid>false</show_grid>
+            <title_font>
+              <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </title_font>
+            <scale_font>
+              <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+              </font>
+            </scale_font>
+            <on_right>false</on_right>
+            <visible>false</visible>
+            <color>
+              <color name="Text" red="0" green="0" blue="0">
+              </color>
+            </color>
+          </y_axis>
+        </y_axes>
+        <traces>
+          <trace>
+            <name>$(traces[0].y_pv)</name>
+            <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+            <y_pv></y_pv>
+            <err_pv></err_pv>
+            <axis>0</axis>
+            <trace_type>1</trace_type>
+            <color>
+              <color red="26" green="51" blue="153">
+              </color>
+            </color>
+            <line_width>2</line_width>
+            <line_style>0</line_style>
+            <point_type>0</point_type>
+            <point_size>10</point_size>
+            <visible>true</visible>
+          </trace>
+          <trace>
+            <name>$(traces[1].y_pv)</name>
+            <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+            <y_pv>$(CONDITIONING_IOC):WF_MASK_HIGH</y_pv>
+            <err_pv></err_pv>
+            <axis>1</axis>
+            <trace_type>1</trace_type>
+            <color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </color>
+            <line_width>1</line_width>
+            <line_style>1</line_style>
+            <point_type>0</point_type>
+            <point_size>10</point_size>
+            <visible>true</visible>
+          </trace>
+          <trace>
+            <name>$(traces[2].y_pv)</name>
+            <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+            <y_pv>$(CONDITIONING_IOC):WF_MASK_LOW</y_pv>
+            <err_pv></err_pv>
+            <axis>2</axis>
+            <trace_type>1</trace_type>
+            <color>
+              <color red="0" green="128" blue="128">
+              </color>
+            </color>
+            <line_width>1</line_width>
+            <line_style>1</line_style>
+            <point_type>0</point_type>
+            <point_size>10</point_size>
+            <visible>true</visible>
+          </trace>
+        </traces>
+        <marker>
+          <marker>
+            <color>
+              <color red="179" green="179" blue="179">
+              </color>
+            </color>
+            <pv_name>$(CONDITIONING_IOC):WF_OFFSET_CURS_US</pv_name>
+            <interactive>true</interactive>
+          </marker>
+          <marker>
+            <color>
+              <color red="179" green="179" blue="179">
+              </color>
+            </color>
+            <pv_name>='$(CONDITIONING_IOC):WF_DURATION_CURS_US'+'$(CONDITIONING_IOC):WF_OFFSET_CURS_US'</pv_name>
+            <interactive>true</interactive>
+          </marker>
+        </marker>
+      </widget>
+      <widget type="combo" version="2.0.0">
+        <name>$(LLRF_NAME)</name>
+        <pv_name>loc://$(channel_sel)&lt;VString&gt;</pv_name>
+        <x>473</x>
+        <y>3</y>
+        <width>136</width>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+channel_sel= PVUtil.getString(pvs[1])
+wf_sel=int(PVUtil.getDouble(pvs[0]))
+
+item1=widget.getPropertyValue('items[0]')
+item2=widget.getPropertyValue('items[1]')
+item3=widget.getPropertyValue('items[2]')
+item4=widget.getPropertyValue('items[3]')
+item5=widget.getPropertyValue('items[4]')
+item6=widget.getPropertyValue('items[5]')
+
+if channel_sel is None or channel_sel == "":
+    if wf_sel == 0: PVUtil.writePV(str(pvs[1]), item1, 1)
+    elif wf_sel == 1: PVUtil.writePV(str(pvs[1]), item2, 1)
+    elif wf_sel == 2: PVUtil.writePV(str(pvs[1]), item3, 1)
+    elif wf_sel == 3: PVUtil.writePV(str(pvs[1]), item4, 1)
+    elif wf_sel == 4: PVUtil.writePV(str(pvs[1]), item5, 1)
+    elif wf_sel == 5: PVUtil.writePV(str(pvs[1]), item6, 1)
+
+mask_graph = ScriptUtil.findWidgetByName(widget, 'mask_plot')
+
+if channel_sel==item1: PVUtil.writePV(str(pvs[0]),0,1); mask_graph.setPropertyValue('y_axes[0].title',item1)
+elif channel_sel==item2: PVUtil.writePV(str(pvs[0]),1,1); mask_graph.setPropertyValue('y_axes[0].title',item2)
+elif channel_sel==item3: PVUtil.writePV(str(pvs[0]),2,1); mask_graph.setPropertyValue('y_axes[0].title',item3)
+elif channel_sel==item4: PVUtil.writePV(str(pvs[0]),3,1); mask_graph.setPropertyValue('y_axes[0].title',item4)
+elif channel_sel==item5: PVUtil.writePV(str(pvs[0]),4,1); mask_graph.setPropertyValue('y_axes[0].title',item5)
+elif channel_sel==item6: PVUtil.writePV(str(pvs[0]),5,1); mask_graph.setPropertyValue('y_axes[0].title',item6)]]></text>
+            <pv_name trigger="false">$(CONDITIONING_IOC):WF_SOURCE_SEL</pv_name>
+            <pv_name>loc://$(channel_sel)</pv_name>
+          </script>
+          <script file="EmbeddedPy" check_connections="false">
+            <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+sel=PVUtil.getStringArray(pvs[0])
+a=int(PVUtil.getDouble(pvs[1]))
+llrf_name=widget.getName()
+
+mask_graph = ScriptUtil.findWidgetByName(widget, 'mask_plot')
+mask_graph.setPropertyValue('traces[0].y_pv',llrf_name+sel[a])
+]]></text>
+            <pv_name trigger="false">$(CONDITIONING_IOC):WF_SOURCE_SUFFIX</pv_name>
+            <pv_name>$(CONDITIONING_IOC):WF_SOURCE_SEL</pv_name>
+          </script>
+        </scripts>
+        <items>
+          <item>$(selection1)</item>
+          <item>$(selection2)</item>
+          <item>$(selection3)</item>
+          <item>$(selection4)</item>
+          <item>$(selection5)</item>
+          <item>$(selection6)</item>
+        </items>
+        <items_from_pv>false</items_from_pv>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Tollerance</name>
+        <pv_name>$(CONDITIONING_IOC):WF_MASK_PERCENT</pv_name>
+        <x>614</x>
+        <y>46</y>
+        <width>60</width>
+        <height>26</height>
+        <precision>1</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>offset_curs</name>
+        <pv_name>$(CONDITIONING_IOC):WF_OFFSET_CURS_US</pv_name>
+        <x>614</x>
+        <y>94</y>
+        <width>60</width>
+        <height>26</height>
+        <format>1</format>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>duration_curs</name>
+        <pv_name>$(CONDITIONING_IOC):WF_DURATION_CURS_US</pv_name>
+        <x>614</x>
+        <y>143</y>
+        <width>60</width>
+        <height>26</height>
+        <format>1</format>
+        <precision>3</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Cursor_offset_label</name>
+        <text>Cursor offset [us]:</text>
+        <x>474</x>
+        <y>99</y>
+        <width>111</width>
+        <height>16</height>
+        <foreground_color>
+          <color red="51" green="26" blue="128">
+          </color>
+        </foreground_color>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Cursor_duration_label_1</name>
+        <text>Cursor duration [us]:</text>
+        <x>474</x>
+        <y>148</y>
+        <width>127</width>
+        <height>16</height>
+        <foreground_color>
+          <color red="51" green="26" blue="128">
+          </color>
+        </foreground_color>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Mask_tollerance_label</name>
+        <text>Mask tollerance [%]:</text>
+        <x>474</x>
+        <y>51</y>
+        <width>127</width>
+        <height>16</height>
+        <foreground_color>
+          <color red="51" green="26" blue="128">
+          </color>
+        </foreground_color>
+        <auto_size>true</auto_size>
+      </widget>
+    </widget>
+    <widget type="group" version="3.0.0">
+      <name>Vacuum settings</name>
+      <y>1</y>
+      <width>539</width>
+      <height>162</height>
+      <transparent>true</transparent>
+      <widget type="table" version="2.0.0">
+        <name>Expert_Vacuum_table</name>
+        <width>280</width>
+        <height>130</height>
+        <background_color>
+          <color name="Write_Background" red="128" green="255" blue="255">
+          </color>
+        </background_color>
+        <columns>
+          <column>
+            <name>VACUUM PUMPS</name>
+            <width>130</width>
+            <editable>true</editable>
+          </column>
+          <column>
+            <name>VACUUM THR [mbar]</name>
+            <width>150</width>
+            <editable>true</editable>
+          </column>
+        </columns>
+        <scripts>
+          <script file="EmbeddedPy">
+            <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+from array import array
+
+tsh_array = PVUtil.getDoubleArray(pvs[0])
+labels=PVUtil.getStringArray(pvs[1])
+formatted_data = []
+
+for i, value in enumerate(tsh_array):
+    label = labels[i]
+    formatted_data.append([label,str(value)]) 
+widget.setValue(formatted_data)
+
+]]></text>
+            <pv_name>$(CONDITIONING_IOC):VACUUM_TSH</pv_name>
+            <pv_name>$(CONDITIONING_IOC):VACUUM_PUMPS</pv_name>
+          </script>
+          <script file="EmbeddedPy">
+            <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+from array import array
+
+boolean_value=PVUtil.getDouble(pvs[0])
+if boolean_value==0: 
+      pass
+else:
+	updated_data = widget.getValue() 
+	new_values = []
+	for row in updated_data:
+		value = float(row[1])
+       	 	new_values.append(value)
+	PVUtil.writePV(str(pvs[1]), array('d',new_values),1)]]></text>
+            <pv_name>loc://$(trigger_apply_table)</pv_name>
+            <pv_name trigger="false">$(CONDITIONING_IOC):VACUUM_TSH</pv_name>
+          </script>
+        </scripts>
+      </widget>
+      <widget type="bool_button" version="2.0.0">
+        <name>Apply Table Button</name>
+        <pv_name>loc://$(trigger_apply_table)</pv_name>
+        <x>291</x>
+        <y>94</y>
+        <width>115</width>
+        <height>34</height>
+        <off_label>Apply Table</off_label>
+        <off_color>
+          <color name="Button_Background" red="210" green="210" blue="210">
+          </color>
+        </off_color>
+        <on_label>Apply Table</on_label>
+        <on_color>
+          <color red="0" green="234" blue="255">
+          </color>
+        </on_color>
+        <show_led>false</show_led>
+        <font>
+          <font family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </font>
+        <mode>1</mode>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Intlk Hysteresis</name>
+        <pv_name>$(CONDITIONING_IOC):INTLK_HYSTERESIS</pv_name>
+        <x>444</x>
+        <width>60</width>
+        <height>26</height>
+        <format>1</format>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Power_reduction_label</name>
+        <text>Power reduction factor:</text>
+        <x>291</x>
+        <y>5</y>
+        <width>144</width>
+        <height>16</height>
+        <foreground_color>
+          <color red="51" green="26" blue="128">
+          </color>
+        </foreground_color>
+        <auto_size>true</auto_size>
+      </widget>
+      <widget type="textentry" version="3.0.0">
+        <name>Intlk Hysteresis_1</name>
+        <pv_name>$(CONDITIONING_IOC):VAC_THRESHOLD_REENABLE</pv_name>
+        <x>446</x>
+        <y>42</y>
+        <width>60</width>
+        <height>26</height>
+        <format>1</format>
+        <precision>2</precision>
+        <horizontal_alignment>1</horizontal_alignment>
+      </widget>
+      <widget type="label" version="2.0.0">
+        <name>Vacuum_enable_factor_label</name>
+        <text>Vacuum enable factor:</text>
+        <x>291</x>
+        <y>47</y>
+        <width>141</width>
+        <height>16</height>
+        <foreground_color>
+          <color red="51" green="26" blue="128">
+          </color>
+        </foreground_color>
+        <auto_size>true</auto_size>
+      </widget>
+    </widget>
+  </widget>
+</display>

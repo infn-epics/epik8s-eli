@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-04-28 16:39:26 by georg-->
+<display version="2.0.0">
+  <name>rf_demo</name>
+  <width>1300</width>
+  <height>2000</height>
+  <widget type="group" version="3.0.0">
+    <name>UNIMAG Group</name>
+    <macros>
+      <P>LEL:MAG</P>
+      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+      <GROUP>mag</GROUP>
+    </macros>
+    <width>1279</width>
+    <height>770</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="13.0">
+      </font>
+    </font>
+    <widget type="navtabs" version="2.0.0">
+      <name>DanteMagnets_1</name>
+      <tabs>
+        <tab>
+          <name>ALL</name>
+          <file>epik8s-opi/unimag-opi/mag.bob</file>
+          <macros>
+            <ZONE>ALL</ZONE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>M1</name>
+          <file>epik8s-opi/unimag-opi/mag.bob</file>
+          <macros>
+            <ZONE>M1</ZONE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>M2</name>
+          <file>epik8s-opi/unimag-opi/mag.bob</file>
+          <macros>
+            <ZONE>M2</ZONE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>M3</name>
+          <file>epik8s-opi/unimag-opi/mag.bob</file>
+          <macros>
+            <ZONE>M3</ZONE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>M4</name>
+          <file>epik8s-opi/unimag-opi/mag.bob</file>
+          <macros>
+            <ZONE>M4</ZONE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+      </tabs>
+      <x>2</x>
+      <width>1150</width>
+      <height>743</height>
+      <direction>0</direction>
+      <tab_height>25</tab_height>
+      <selected_color>
+        <color red="153" green="179" blue="255">
+        </color>
+      </selected_color>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>POLAROTY_1</name>
+      <actions>
+        <action type="open_display">
+          <file>MAG/polarityreversal.bob</file>
+          <macros>
+            <P>LEL:POLREV</P>
+          </macros>
+          <target>window</target>
+          <description>Polarity</description>
+        </action>
+      </actions>
+      <text>Polarity Reversal</text>
+      <x>852</x>
+      <y>30</y>
+      <width>94</width>
+      <height>60</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_19</name>
+      <actions>
+        <action type="open_display">
+          <file>epik8s-opi/unimag-opi/mag_dynamic.bob</file>
+          <target>window</target>
+          <description>Magnets Window</description>
+        </action>
+      </actions>
+      <x>712</x>
+      <y>31</y>
+      <width>110</width>
+      <height>60</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+</display>

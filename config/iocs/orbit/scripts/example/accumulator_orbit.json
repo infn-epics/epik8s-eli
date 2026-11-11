@@ -1,0 +1,34 @@
+{
+    "prefix":"accumulator:orbit",
+    "collect":[
+    {
+        "pvname":"x",
+        "src":["LIBERA08:SA:SA_X_MONITOR","LIBERA07:SA:SA_X_MONITOR","libera13:bpm1:sa.X","libera13:bpm2:sa.X","LIBERA01:SA:SA_X_MONITOR","LIBERA02:SA:SA_X_MONITOR","LIBERA09:SA:SA_X_MONITOR","libera12:bpm2:sa.X","libera12:bpm4:sa.X","libera12:bpm1:sa.X","libera12:bpm3:sa.X","LIBERA03:SA:SA_X_MONITOR"],
+        "coeff":0.001,
+        "type":"float",
+        "update":1000
+    },
+    {
+        "pvname":"y",
+        "src":["LIBERA08:SA:SA_Y_MONITOR","LIBERA07:SA:SA_Y_MONITOR","libera13:bpm1:sa.Y","libera13:bpm2:sa.Y","LIBERA01:SA:SA_Y_MONITOR","LIBERA02:SA:SA_Y_MONITOR","LIBERA09:SA:SA_Y_MONITOR","libera12:bpm2:sa.Y","libera12:bpm4:sa.Y","libera12:bpm1:sa.Y","libera12:bpm3:sa.Y","LIBERA03:SA:SA_Y_MONITOR"],
+        "coeff":0.001,
+        "type":"float",
+        "update":500
+    },
+    {
+        "pvname":"coord",
+        "const":[2.801375,5.206375,6.577375,9.704125,11.075125,13.480125,17.721875, 19.082875, 22.858875,25.985625,29.761625,31.122625],
+        "update":0
+    },
+    {
+        "pvname":"bpm",
+        "type": "string",
+        "const":["BPBA1001","BPSA1001","BPBA1002","BPBA2001","BPSA2001","BPBA2002","BPBA3001", "BPSA3001", "BPBA3002","BPBA4001","BPSA4001","BPBA4002"],
+        "update":0
+    }
+
+
+]
+}
+
+

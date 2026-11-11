@@ -1,0 +1,1025 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Varian MidiVac</name>
+  <width>620</width>
+  <height>900</height>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Varian MidiVac Ion Pump</text>
+    <width>620</width>
+    <height>40</height>
+    <font>
+      <font name="Title" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="60" blue="110">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>FwLabel</name>
+    <text>Firmware:</text>
+    <x>10</x>
+    <y>45</y>
+    <width>80</width>
+    <foreground_color>
+      <color red="170" green="170" blue="170">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Firmware</name>
+    <pv_name>pva://$(P):$(R):Firmware-Sts</pv_name>
+    <x>90</x>
+    <y>45</y>
+    <width>520</width>
+    <foreground_color>
+      <color red="0" green="200" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="40" green="40" blue="40">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SectionReadings</name>
+    <text>LIVE READINGS</text>
+    <y>75</y>
+    <width>620</width>
+    <height>25</height>
+    <font>
+      <font name="Section" family="Liberation Sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="200" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="25" green="35" blue="50">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>VoltLabel</name>
+    <text>Voltage</text>
+    <x>15</x>
+    <y>110</y>
+    <width>120</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Voltage</name>
+    <pv_name>pva://$(P):$(R):Voltage-Sts</pv_name>
+    <x>74</x>
+    <y>110</y>
+    <width>120</width>
+    <height>30</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="230" blue="160">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="20" green="25" blue="35">
+      </color>
+    </background_color>
+    <precision>1</precision>
+    <horizontal_alignment>2</horizontal_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>CurrLabel</name>
+    <text>Current</text>
+    <x>208</x>
+    <y>110</y>
+    <width>80</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Current</name>
+    <pv_name>pva://$(P):$(R):Current-Sts</pv_name>
+    <x>281</x>
+    <y>110</y>
+    <width>110</width>
+    <height>30</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="230" blue="160">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="20" green="25" blue="35">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>2</precision>
+    <horizontal_alignment>2</horizontal_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SectionHV</name>
+    <text>HV CONTROL</text>
+    <y>155</y>
+    <width>620</width>
+    <height>25</height>
+    <font>
+      <font name="Section" family="Liberation Sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="200" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="25" green="35" blue="50">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>HV_ON</name>
+    <actions>
+      <action type="write_pv">
+        <description>HV ON</description>
+        <pv_name>pva://$(P):$(R):HV-Cmd</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <text>HV ON</text>
+    <x>30</x>
+    <y>190</y>
+    <height>35</height>
+    <font>
+      <font name="Button" family="Liberation Sans" style="BOLD" size="13.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="0" green="140" blue="60">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>HV_OFF</name>
+    <actions>
+      <action type="write_pv">
+        <description>HV OFF</description>
+        <pv_name>pva://$(P):$(R):HV-Cmd</pv_name>
+        <value>0</value>
+      </action>
+    </actions>
+    <text>HV OFF</text>
+    <x>140</x>
+    <y>190</y>
+    <height>35</height>
+    <font>
+      <font name="Button" family="Liberation Sans" style="BOLD" size="13.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="180" green="30" blue="30">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>HVStatusLabel</name>
+    <text>Status:</text>
+    <x>270</x>
+    <y>193</y>
+    <width>70</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>HVStatus</name>
+    <pv_name>pva://$(P):$(R):HVStatus-Sts</pv_name>
+    <x>340</x>
+    <y>190</y>
+    <width>60</width>
+    <height>30</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="245" green="200" blue="66">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="20" green="25" blue="35">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>HVStatusHelp</name>
+    <text>0=Off  1=Start  3=Protect  &lt;0=Error</text>
+    <x>410</x>
+    <y>196</y>
+    <width>200</width>
+    <font>
+      <font name="Help" family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="110" green="120" blue="140">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SectionMode</name>
+    <text>MODE CONTROL</text>
+    <y>240</y>
+    <width>620</width>
+    <height>25</height>
+    <font>
+      <font name="Section" family="Liberation Sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="200" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="25" green="35" blue="50">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>ModeStart</name>
+    <actions>
+      <action type="write_pv">
+        <description>START mode</description>
+        <pv_name>pva://$(P):$(R):Mode-Cmd</pv_name>
+        <value>0</value>
+      </action>
+    </actions>
+    <text>START</text>
+    <x>30</x>
+    <y>275</y>
+    <font>
+      <font name="Button" family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="60" green="80" blue="140">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>ModeProtect</name>
+    <actions>
+      <action type="write_pv">
+        <description>PROTECT mode</description>
+        <pv_name>pva://$(P):$(R):Mode-Cmd</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <text>PROTECT</text>
+    <x>140</x>
+    <y>275</y>
+    <font>
+      <font name="Button" family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="140" green="80" blue="60">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ModeRbLabel</name>
+    <text>Current mode:</text>
+    <x>270</x>
+    <y>278</y>
+    <width>120</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>ModeRb</name>
+    <pv_name>pva://$(P):$(R):Mode-Sts</pv_name>
+    <x>395</x>
+    <y>275</y>
+    <width>120</width>
+    <height>30</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="176" green="111" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="20" green="25" blue="35">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SectionVSP</name>
+    <text>VOLTAGE SETPOINT</text>
+    <y>320</y>
+    <width>620</width>
+    <height>25</height>
+    <font>
+      <font name="Section" family="Liberation Sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="200" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="25" green="35" blue="50">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Set3kV</name>
+    <actions>
+      <action type="write_pv">
+        <description>Set 3 kV</description>
+        <pv_name>pva://$(P):$(R):VoltageSP-Cmd</pv_name>
+        <value>0</value>
+      </action>
+    </actions>
+    <text>3 kV</text>
+    <x>30</x>
+    <y>355</y>
+    <width>80</width>
+    <font>
+      <font name="Button" family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="70" green="90" blue="120">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Set5kV</name>
+    <actions>
+      <action type="write_pv">
+        <description>Set 5 kV</description>
+        <pv_name>pva://$(P):$(R):VoltageSP-Cmd</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <text>5 kV</text>
+    <x>120</x>
+    <y>355</y>
+    <width>80</width>
+    <font>
+      <font name="Button" family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="70" green="90" blue="120">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Set7kV</name>
+    <actions>
+      <action type="write_pv">
+        <description>Set 7 kV</description>
+        <pv_name>pva://$(P):$(R):VoltageSP-Cmd</pv_name>
+        <value>2</value>
+      </action>
+    </actions>
+    <text>7 kV</text>
+    <x>210</x>
+    <y>355</y>
+    <width>80</width>
+    <font>
+      <font name="Button" family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="70" green="90" blue="120">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>VSPRbLabel</name>
+    <text>Readback:</text>
+    <x>330</x>
+    <y>358</y>
+    <width>90</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>VSPRb</name>
+    <pv_name>pva://$(P):$(R):VoltageSP-Sts</pv_name>
+    <x>420</x>
+    <y>355</y>
+    <height>30</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="230" blue="160">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="20" green="25" blue="35">
+      </color>
+    </background_color>
+    <precision>1</precision>
+    <horizontal_alignment>2</horizontal_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>VSPUnit</name>
+    <text>kV</text>
+    <x>525</x>
+    <y>358</y>
+    <width>30</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SectionProtI</name>
+    <text>PROTECT CURRENT THRESHOLD</text>
+    <y>400</y>
+    <width>620</width>
+    <height>25</height>
+    <font>
+      <font name="Section" family="Liberation Sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="200" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="25" green="35" blue="50">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ProtISetLabel</name>
+    <text>Set (xE-2 A):</text>
+    <x>30</x>
+    <y>435</y>
+    <width>120</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>ProtISet</name>
+    <pv_name>pva://$(P):$(R):ProtectI-Cmd</pv_name>
+    <x>155</x>
+    <y>432</y>
+    <height>30</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="REGULAR" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="50" green="55" blue="65">
+      </color>
+    </background_color>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ProtIRbLabel</name>
+    <text>Readback:</text>
+    <x>300</x>
+    <y>435</y>
+    <width>90</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>ProtIRb</name>
+    <pv_name>pva://$(P):$(R):ProtectI-Sts</pv_name>
+    <x>395</x>
+    <y>432</y>
+    <width>130</width>
+    <height>30</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="230" blue="160">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="20" green="25" blue="35">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>2</precision>
+    <horizontal_alignment>2</horizontal_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>ProtIRbUnit</name>
+    <text>A</text>
+    <x>530</x>
+    <y>435</y>
+    <width>30</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SectionSP</name>
+    <text>SET POINTS (PRESSURE TRIGGERS)</text>
+    <y>480</y>
+    <width>620</width>
+    <height>25</height>
+    <font>
+      <font name="Section" family="Liberation Sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="200" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="25" green="35" blue="50">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SP1Label</name>
+    <text>SP1 Set:</text>
+    <x>30</x>
+    <y>518</y>
+    <width>80</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>SP1Set</name>
+    <pv_name>pva://$(P):$(R):SP1-Cmd</pv_name>
+    <x>115</x>
+    <y>515</y>
+    <width>140</width>
+    <height>28</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="REGULAR" size="13.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="50" green="55" blue="65">
+      </color>
+    </background_color>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SP1RbLabel</name>
+    <text>Rb:</text>
+    <x>270</x>
+    <y>518</y>
+    <width>35</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>SP1Rb</name>
+    <pv_name>pva://$(P):$(R):SP1-Sts</pv_name>
+    <x>310</x>
+    <y>515</y>
+    <width>140</width>
+    <height>28</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="BOLD" size="13.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="230" blue="160">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="20" green="25" blue="35">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SP2Label</name>
+    <text>SP2 Set:</text>
+    <x>30</x>
+    <y>553</y>
+    <width>80</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>SP2Set</name>
+    <pv_name>pva://$(P):$(R):SP2-Cmd</pv_name>
+    <x>115</x>
+    <y>550</y>
+    <width>140</width>
+    <height>28</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="REGULAR" size="13.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="50" green="55" blue="65">
+      </color>
+    </background_color>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SP2RbLabel</name>
+    <text>Rb:</text>
+    <x>270</x>
+    <y>553</y>
+    <width>35</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>SP2Rb</name>
+    <pv_name>pva://$(P):$(R):SP2-Sts</pv_name>
+    <x>310</x>
+    <y>550</y>
+    <width>140</width>
+    <height>28</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="BOLD" size="13.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="230" blue="160">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="20" green="25" blue="35">
+      </color>
+    </background_color>
+    <precision>4</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SPStatLabel</name>
+    <text>Relay status:</text>
+    <x>30</x>
+    <y>590</y>
+    <width>120</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>SPStat</name>
+    <pv_name>pva://$(P):$(R):SPStatus-Sts</pv_name>
+    <x>155</x>
+    <y>588</y>
+    <width>50</width>
+    <height>28</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="245" green="200" blue="66">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="20" green="25" blue="35">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SPStatHelp</name>
+    <text>0=none  1=SP1  2=SP2  3=both</text>
+    <x>220</x>
+    <y>593</y>
+    <width>250</width>
+    <font>
+      <font name="Help" family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="110" green="120" blue="140">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>SectionUtil</name>
+    <text>UTILITY</text>
+    <y>635</y>
+    <width>620</width>
+    <height>25</height>
+    <font>
+      <font name="Section" family="Liberation Sans" style="BOLD" size="11.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="200" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="25" green="35" blue="50">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>SaveBtn</name>
+    <actions>
+      <action type="write_pv">
+        <description>Save to EEPROM</description>
+        <pv_name>pva://$(P):$(R):Save-Cmd</pv_name>
+        <value>1</value>
+      </action>
+    </actions>
+    <text>Save to EEPROM</text>
+    <x>30</x>
+    <y>670</y>
+    <width>160</width>
+    <height>35</height>
+    <font>
+      <font name="Button" family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="100" green="80" blue="40">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AccessLabel</name>
+    <text>Local / Remote</text>
+    <x>245</x>
+    <y>670</y>
+    <width>150</width>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>AccessStatus</name>
+    <pv_name>pva://$(P):$(R):LocalRemote-Sts</pv_name>
+    <x>405</x>
+    <y>666</y>
+    <width>170</width>
+    <height>28</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="245" green="200" blue="66">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="20" green="25" blue="35">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>AccessHint</name>
+    <text>Shows LOCAL when front panel is local; otherwise the controller is responding remotely.</text>
+    <x>245</x>
+    <y>697</y>
+    <width>350</width>
+    <height>32</height>
+    <foreground_color>
+      <color red="140" green="150" blue="170">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Current_1</name>
+    <pv_name>pva://$(P):$(R):PRES_RB</pv_name>
+    <x>470</x>
+    <y>110</y>
+    <width>140</width>
+    <height>30</height>
+    <font>
+      <font name="Value" family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="0" green="230" blue="160">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color red="20" green="25" blue="35">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>2</precision>
+    <horizontal_alignment>2</horizontal_alignment>
+    <border_width>1</border_width>
+    <border_color>
+      <color red="60" green="70" blue="90">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>CurrLabel_1</name>
+    <text>Pressure</text>
+    <x>400</x>
+    <y>110</y>
+    <width>80</width>
+    <height>25</height>
+    <foreground_color>
+      <color red="200" green="200" blue="200">
+      </color>
+    </foreground_color>
+  </widget>
+</display>

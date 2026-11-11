@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <width>550</width>
+  <height>340</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Configurations</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>550</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>100MeV</name>
+    <y>60</y>
+    <width>430</width>
+    <height>280</height>
+    <widget type="action_button" version="3.0.0">
+      <name>Magnet 100MeV</name>
+      <actions>
+        <action type="open_sar_node">
+          <description>Magnet100MeV</description>
+          <node_id>daf094ab-dbf6-48e4-8d9b-4b0af680ea93</node_id>
+        </action>
+      </actions>
+      <text>Magnet 100MeV</text>
+      <x>12</x>
+      <y>12</y>
+      <width>150</width>
+      <height>90</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Magnet 100MeV_1</name>
+      <actions>
+        <action type="open_sar_node">
+          <description>RF100MeV</description>
+          <node_id>1654e46c-a970-4e85-ae2d-097ed7f6dd6b</node_id>
+        </action>
+      </actions>
+      <x>192</x>
+      <y>12</y>
+      <width>150</width>
+      <height>90</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Magnet 100MeV_2</name>
+      <actions>
+        <action type="open_sar_node">
+          <description>Timing</description>
+          <node_id>0df92a98-1800-4d7a-a5a3-72cf1c7a272d</node_id>
+        </action>
+      </actions>
+      <x>12</x>
+      <y>132</y>
+      <width>150</width>
+      <height>90</height>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+</display>

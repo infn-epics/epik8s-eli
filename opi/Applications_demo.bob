@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Applications</name>
+  <width>1900</width>
+  <height>815</height>
+  <widget type="tabs" version="2.0.0">
+    <name>ApplicationsTab</name>
+    <tabs>
+      <tab>
+        <name>Jupyther Notebook</name>
+        <children>
+          <widget type="webbrowser" version="2.0.0">
+            <name>Web Browser</name>
+            <url>http://eli-notebook.srv.int.eli-np.ro/lab</url>
+            <width>1880</width>
+            <height>760</height>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Epics Archiver</name>
+        <children>
+          <widget type="webbrowser" version="2.0.0">
+            <name>Archiver</name>
+            <url>http://eli-archiver.srv.int.eli-np.ro/mgmt/ui/index.html</url>
+            <width>1880</width>
+            <height>760</height>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>MatLab</name>
+        <children>
+        </children>
+      </tab>
+      <tab>
+        <name>CCTV</name>
+        <children>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_5</name>
+            <actions>
+              <action type="open_webpage">
+                <description>ROOF Modulator CCTV 3 - 4</description>
+                <url>http://onvif:1234@10.16.0.20/axis-cgi/mjpg/video.cgi</url>
+              </action>
+            </actions>
+            <x>252</x>
+            <y>38</y>
+            <width>160</width>
+            <height>130</height>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="action_button" version="3.0.0">
+            <name>Action Button_6</name>
+            <actions>
+              <action type="open_webpage">
+                <description>ROOF Modulator CCTV 1 - 2</description>
+                <url>http://onvif:1234@10.16.0.21/axis-cgi/mjpg/video.cgi</url>
+              </action>
+            </actions>
+            <x>52</x>
+            <y>38</y>
+            <width>160</width>
+            <height>130</height>
+            <tooltip>$(actions)</tooltip>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <x>8</x>
+    <y>2</y>
+    <width>1880</width>
+    <height>800</height>
+    <direction>1</direction>
+  </widget>
+</display>
