@@ -12,7 +12,7 @@ ioc_version: "latest" ## the ioc image version to use if not specified in each I
 # token:
 ## starting point
 giturl: https://github.com/infn-epics/epik8s-eli.git
-gitrev: devel
+gitrev: main
 #baseIp: "10.96.0.0/13" ## valid IPs is 10.96.0.0/12
 baseIp: "10.96.240.0/22" ## valid service IPs are 10.43.240.1 to 10.43.243.254
 startIp: 1
@@ -133,7 +133,7 @@ epicsConfiguration:
         gitRepoConfig:
           url: https://github.com/infn-epics/epik8s-eli.git
           path: opi
-          branch: devel
+          branch: main
         autosync: true ## restart automatically on changes
         usegateway: true
 
