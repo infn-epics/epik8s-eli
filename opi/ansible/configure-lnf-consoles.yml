@@ -1,0 +1,43 @@
+- name: Perform git update on directories
+  hosts: eli_lnf_consoles
+  # gather_facts: no
+  remote_user: root
+  vars:
+    ansible_ssh_pass: "{{ lookup('env', 'ELI_UPDATE') }}"
+  #  git_repo_token: "{{ lookup('env', 'GIT_REPO_TOKEN') }}"  # Ensure this token is defined
+    ansible_python_interpreter: /usr/bin/python3
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ControlMaster=no'
+
+  tasks:
+    - name: Disable host key checking
+      set_fact:
+        ansible_ssh_common_args: '-o StrictHostKeyChecking=no -o ControlMaster=no'
+    - name: Apply ansible-epics-console-role
+      ansible.builtin.import_role:
+        name: ansible-epics-console-role
+      vars:
+        install_phoebus: false
+        # phoebus_version: v5.0.3-INFN
+        phoebus_url: "https://github.com/ControlSystemStudio/phoebus/releases/download/v5.0.2/phoebus-5.0.2-linux.tar.gz"
+
+        opi_repos:
+          - url: "https://github.com/infn-epics/epik8s-eli.git"
+            dest: "epik8s-eli-lnf"
+            opi_main: opi/Launcher.bob
+            opi_settings: opi/settings_eli_lnf.ini
+            default: true
+            opi_user: eliuser 
+        
+        nfsMounts:
+          - name: data
+            server: 192.168.197.157
+            path: /data_epik8s/eli/data
+            mountPath: /nfs/epik8s/data
+          - name: autosave
+            server: 192.168.197.157
+            path: /data_epik8s/eli/autosave
+            mountPath: /nfs/epik8s/autosave
+          - name: config
+            server: 192.168.197.157
+            path: /data_epik8s/eli/config
+            mountPath: /nfs/epik8s/config

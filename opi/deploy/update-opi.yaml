@@ -1,0 +1,44 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: update-opi-dir
+  namespace: sparc
+spec:
+  template:
+    metadata:
+      name: update-opi-dir
+    spec:
+      containers:
+      - name: create-configmap
+        image: alpine:latest   # You can use any image that has Git installed
+        imagePullPolicy: IfNotPresent
+        securityContext:
+            privileged: true
+        command: 
+        - sh 
+        - -c
+        - |
+          apk --no-cache add git
+          cd /tmp
+          if [ -d /tmp/opi ];then
+            cd /tmp/opi
+            git pull origin main
+            git submodule update --init --recursive
+            chmod a+w,a+r -R *
+
+          else
+            git clone https://baltig.infn.it/lnf-da-control/sparc-epics-opi.git --recurse-submodules opi
+            chmod a+w,a+r -R opi
+
+          fi
+        volumeMounts:
+        - name: opis-volume
+          mountPath: /tmp
+        restartPolicy: Never
+
+      volumes:
+        {{- if .Values.opi.claim }}
+        - name: opis-volume
+          persistentVolumeClaim:
+            claimName: {{ .Values.opi.claim }}
+

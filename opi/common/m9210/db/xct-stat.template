@@ -1,0 +1,309 @@
+## Project       : Agilient m9210A
+## Description   : Provides EPICS support for m9210A DAQ board
+## Authors       : Vyacheslav Isaev <slava.isaev@cosylab.com>
+##
+## Copyright (c) 2015 Cosylab d.d.
+##
+## Template for the Current Transformer business logic.
+
+record(longout, "$(PREFIX):MICB_ID") {
+    field(DESC, "Microbunch ID to extract raw data.")
+    field(SCAN, "Passive")
+    field(VAL,  "0")
+    field(PINI, "YES")
+    field(HOPR, "31")
+    field(LOPR, "0")
+    field(OUT, "$(PREFIX):MICB_ID_DF PP")
+    field(FLNK, "$(PREFIX):MICB_OFFSET")
+}
+
+record (dfanout, "$(PREFIX):MICB_ID_DF" ){
+    field(SCAN, "Passive")
+    field(OUTA, "$(PREFIX):MICB_N_SUM.INDX")
+    field(OUTB, "$(PREFIX):MICB_N_AVG.INDX")
+    field(OMSL, "closed_loop")
+}
+
+record(calcout, "$(PREFIX):MICB_OFFSET") {
+    field(DESC, "Microbunch offset to extract raw data.")
+    field(SCAN, "Passive")
+    field(INPA,  "$(PREFIX):MICB_ID NPP")
+    field(INPB,  "$(UBUNCHSAMPL)")
+    field(CALC,  "A*B")
+    field(OUT,   "$(PREFIX):MICB.INDX")
+    field(OOPT,  "On Change")
+    field(DOPT,  "Use CALC")
+    field(FLNK, "$(PREFIX):MICB_RAW_OFFSET")
+}
+
+record(calcout, "$(PREFIX):MICB_RAW_OFFSET") {
+    field(DESC, "Microbunch offset to extract raw data.")
+    field(SCAN, "Passive")
+    field(INPA,  "$(PREFIX):MICB_ID NPP")
+    field(INPB,  "$(UBUNCHSAMPL)")
+    field(CALC,  "A*B")
+    field(OUT,   "$(PREFIX):MICB_RAW.INDX")
+    field(OOPT,  "On Change")
+    field(DOPT,  "Use CALC")
+}
+
+
+
+## The waveform which keeps charge of whole macrobunch
+record(acalcout, "$(PREFIX):MACB_CW") {
+    field(DESC, "Macro bunch charge (V-Koffset)*Kfin")
+    field(NELM, "$(BUFSIZE)")
+    field(OOPT, "Every Time")
+    field(INAA, "$(SRCREC)")
+    field(INPB, "0")
+    field(INPC, "1")
+    field(CALC, "(AA-B)*C")
+    field(FLNK, "$(PREFIX):STAT_FANOUT")
+    field(TSEL, "$(SRCREC).TIME")
+    field(EGU,  "pC")
+}
+
+## Calc which keeps value for conversion from voltage to charge
+record(calcout, "$(PREFIX):K_FIN") {
+    field(PINI, "YES")
+    field(DESC, "Const for charge (Kcal*1000)/(Imp*Smpr)")
+    field(OOPT, "Every Time")
+    field(INPA, "1")
+    field(INPB, "1")
+    field(INPC, "1")
+    field(INPD, "1000")
+    field(CALC, "A*D/(B*C)")
+    field(OUT,  "$(PREFIX):MACB_CW.C")
+    field(EGU,  "pC")
+}
+
+record(fanout, "$(PREFIX):STAT_FANOUT") {
+    field(DESC, "Stat fanout")
+    field(SCAN, "Passive")
+    field(SELM, "All")
+    field(LNK1, "$(PREFIX):MICB")
+    field(LNK2, "$(PREFIX):MICB_AVG")
+    field(LNK3, "$(PREFIX):MICB_AVGROLL")
+    field(LNK4, "$(PREFIX):MACB_CW_AVG")
+    field(LNK5, "$(PREFIX):MACB_CW_RAW")
+}
+
+record(compress, "$(PREFIX):MACB_CW_AVG"){
+    field(DESC,  "Macro bunch charge (avg)")
+    field(INP,   "$(PREFIX):MACB_CW.AVAL")
+    field(ALG,   "Average")
+    field(NSAM,  "$(BUFSIZE)")
+    field(N,     "100")
+    field(EGU,   "pC")
+}
+
+record(acalcout, "$(PREFIX):MACB_CW_RAW") {
+    field(DESC, "Macro bunch charge (Raw data)")
+    field(NELM, "$(BUFSIZE)")
+    field(OOPT, "Every Time")
+    field(INAA, "$(SRCREC)")
+    field(CALC, "AA")
+    field(FLNK, "$(PREFIX):MACB_CW_RAW_AVG")
+    field(TSEL, "$(SRCREC).TIME")
+    field(EGU,  "V")
+}
+
+record(compress, "$(PREFIX):MACB_CW_RAW_AVG"){
+    field(DESC,  "Macro bunch charge (Raw data avg)")
+    field(INP,   "$(PREFIX):MACB_CW_RAW.AVAL")
+    field(ALG,   "Average")
+    field(NSAM,  "$(BUFSIZE)")
+    field(N,     "100")
+    field(FLNK, "$(PREFIX):MICB_RAW")
+    field(EGU,   "V")
+}
+
+record(subArray, "$(PREFIX):MICB_RAW") {
+    field(DESC, "Microbunch charge waveform (Raw data)")
+    field(SCAN, "Passive")
+    field(INP,  "$(PREFIX):MACB_CW_RAW.AVAL")
+    field(MALM,  "$(BUFSIZE)")
+    field(NELM,  "$(UBUNCHSAMPL)")
+    field(INDX,  "0")
+    field(FTVL, "DOUBLE")
+    field(FLNK, "$(PREFIX):MICB_CW_RAW_AVG")
+    field(EGU,  "V")
+}
+
+record(compress, "$(PREFIX):MICB_CW_RAW_AVG"){
+    field(DESC,  "Microbunch charge wf (Raw data avg)")
+    field(INP,   "$(PREFIX):MICB_RAW")
+    field(ALG,   "Average")
+    field(NSAM,  "$(UBUNCHSAMPL)")
+    field(N,     "100")
+    field(EGU,   "V")
+}
+
+record(subArray, "$(PREFIX):MICB") {
+    field(DESC, "Microbunch charge waveform")
+    field(SCAN, "Passive")
+    field(INP,  "$(PREFIX):MACB_CW.AVAL")
+    field(MALM,  "$(BUFSIZE)")
+    field(NELM,  "$(UBUNCHSAMPL)")
+    field(INDX,  "0")
+    field(FTVL, "DOUBLE")
+    field(FLNK, "$(PREFIX):MICB_CW_AVG")
+    field(EGU,  "pC")
+}
+
+record(compress, "$(PREFIX):MICB_CW_AVG"){
+    field(DESC,  "Microbunch charge wf (avg)")
+    field(INP,   "$(PREFIX):MICB")
+    field(ALG,   "Average")
+    field(NSAM,  "$(UBUNCHSAMPL)")
+    field(N,     "100")
+    field(EGU,   "pC")
+}
+
+record(compress, "$(PREFIX):MICB_AVG") {
+    field(DESC, "Microbunch avg (tmp)")
+    field(SCAN, "Passive")
+    field(INP,  "$(PREFIX):MACB_CW.AVAL")
+    field(ALG,  "N to 1 Average")
+    field(NSAM, "32")
+    field(N,    "$(UBUNCHSAMPL)")
+    field(FLNK, "$(PREFIX):MICB_SUM")
+    field(TSEL, "$(SRCREC).TIME")
+    field(EGU,  "V")
+}
+
+record(acalcout, "$(PREFIX):MICB_SUM") {
+    field(DESC, "Micro-bunches charge integral")
+    field(NELM, "32")
+    field(OOPT, "Every Time")
+    field(INAA, "$(PREFIX):MICB_AVG")
+    field(INPA, "$(UBUNCHSAMPL)")
+    field(CALC, "AA*A")
+    field(FLNK, "$(PREFIX):MACB_SUM")
+    field(TSEL, "$(SRCREC).TIME")
+    field(EGU,  "pC")
+}
+
+record(acalcout, "$(PREFIX):MACB_SUM") {
+    field(DESC, "Macro-bunch integral")
+    field(NELM, "32")
+    field(OOPT, "Every Time")
+    field(INAA, "$(PREFIX):MICB_SUM.AVAL")
+#   field(INPA, "$(PREFIX):MACB_SUM.VAL")
+    field(CALC, "SUM(AA)")
+    field(FLNK, "$(PREFIX):MACB_SUM_AVG")
+    field(TSEL, "$(SRCREC).TIME")
+    field(EGU,  "pC")
+}
+
+record(compress, "$(PREFIX):MACB_SUM_AVG") {
+    field(DESC, "Macro-bunch integral avg")
+    field(SCAN, "Passive")
+    field(INP,  "$(PREFIX):MACB_SUM")
+    field(ALG,  "Average")
+    field(NSAM, "1")
+    field(N,    "100")
+    field(TSEL, "$(SRCREC).TIME")
+    field(FLNK, "$(PREFIX):MICB_N_SUM") 
+    field(EGU,  "pC")
+}
+
+record(subArray, "$(PREFIX):MICB_N_SUM") {
+    field(DESC, "Microbunch integral")
+    field(SCAN, "Passive")
+    field(INP,  "$(PREFIX):MICB_SUM.AVAL")
+    field(MALM,  "32")
+    field(NELM,  "1")
+    field(INDX,  "0")
+    field(FTVL, "DOUBLE")
+    field(EGU,  "pC")
+}
+
+record(compress, "$(PREFIX):MICB_AVGROLL") {
+    field(DESC, "Microbunches integral average (N)")
+    field(SCAN, "Passive")
+    field(INP,  "$(PREFIX):MICB_SUM.AVAL")
+    field(NSAM, "32")
+    field(N,    "100")
+    field(ALG,  "Average")
+    field(TSEL, "$(SRCREC).TIME")
+    field(FLNK, "$(PREFIX):MICB_N_AVG")
+    field(EGU,  "pC")
+}
+
+record(subArray, "$(PREFIX):MICB_N_AVG") {
+    field(DESC, "Microbunch integral avg")
+    field(SCAN, "Passive")
+    field(INP,  "$(PREFIX):MICB_AVGROLL")
+    field(MALM,  "32")
+    field(NELM,  "1")
+    field(INDX,  "0")
+    field(FTVL, "DOUBLE")
+    field(EGU,  "pC")
+}
+
+record(stringin, "$(PREFIX):IOCNAME") {
+    field(DESC, "IOC name")
+    field(SCAN, "Passive")
+    field(VAL,  "$(IOCNAME)")
+}
+
+record($(PV_IMPED_TP), "$(PV_IMPED)")
+{
+    field(FLNK, "$(PREFIX):K_CONV")
+}
+
+record(ao, "$(PREFIX):K_CONV") {
+    field(DESC, "Kconv")
+    field(EGU,  "Ohm")
+    field(OUT,  "$(PREFIX):K_FIN.C")
+    field(FLNK, "$(PREFIX):K_FIN")
+    field(DOL,  "$(PV_IMPED).RVAL")
+    field(SCAN, "Passive")
+    field(VAL,  "1")
+    field(OMSL, "closed_loop")
+}
+
+record($(PV_SR_TP), "$(PV_SR)")
+{
+    field(FLNK, "$(PREFIX):SR")
+}
+
+record(ao, "$(PREFIX):SR") {
+    field(DESC, "Sampling rate (GHz)")
+    field(EGU,  "GHz")
+    field(OUT,  "$(PREFIX):K_FIN.B")
+    field(FLNK, "$(PREFIX):K_FIN")
+    field(DOL,  "$(PV_SR)")
+    field(SCAN, "Passive")
+    field(VAL,  "1")
+    field(OMSL, "closed_loop")
+}
+
+record(ao, "$(PREFIX):K_CAL") {
+    field(DESC, "Kcal")
+    field(OUT,  "$(PREFIX):K_FIN.A")
+    field(FLNK, "$(PREFIX):K_FIN")
+    field(SCAN, "Passive")
+    field(VAL,  "1")
+    field(LOPR, "-32000")
+    field(HOPR, "32000")
+    field(PREC, "5")
+}
+
+record(ao, "$(PREFIX):K_OFFSET") {
+    field(DESC, "Koffset")
+    field(OUT,  "$(PREFIX):MACB_CW.B")
+    field(SCAN, "Passive")
+    field(VAL,  "0")
+    field(LOPR, "-32000")
+    field(HOPR, "32000")
+    field(PREC, "5")
+}
+
+record(ao, "$(PREFIX):UBUNCHSAMPL") {
+    field(DESC, "Num of samples per ubunch")
+    field(SCAN, "Passive")
+    field(VAL,  "$(UBUNCHSAMPL)")
+}
+

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-04-20 17:40:44 by georg-->
+<display version="2.0.0">
+  <name>rf_demo</name>
+  <width>1300</width>
+  <height>2000</height>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs_1</name>
+    <tabs>
+      <tab>
+        <name>ALL</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>IO</name>
+            <macros>
+              <GROUP>io</GROUP>
+              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+              <ZONE>ALL</ZONE>
+              <TYPE>ALL</TYPE>
+            </macros>
+            <x>8</x>
+            <y>2</y>
+            <width>1050</width>
+            <height>676</height>
+            <widget type="embedded" version="2.0.0">
+              <name>Embedded Display_20</name>
+              <file>epik8s-opi/uniio-opi/io_array.bob</file>
+              <x>2</x>
+              <y>2</y>
+              <width>1000</width>
+              <height>626</height>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>RTD</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>RTD</name>
+            <macros>
+              <GROUP>io</GROUP>
+              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+              <ZONE>ALL</ZONE>
+              <TYPE>rtd</TYPE>
+            </macros>
+            <x>2</x>
+            <y>2</y>
+            <width>1050</width>
+            <height>696</height>
+            <widget type="embedded" version="2.0.0">
+              <name>Embedded Display_24</name>
+              <file>epik8s-opi/uniio-opi/io_array.bob</file>
+              <x>2</x>
+              <y>2</y>
+              <width>1000</width>
+              <height>646</height>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>RLY</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>RLY</name>
+            <macros>
+              <GROUP>io</GROUP>
+              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+              <ZONE>ALL</ZONE>
+              <TYPE>rly</TYPE>
+            </macros>
+            <x>2</x>
+            <width>1050</width>
+            <height>718</height>
+            <widget type="embedded" version="2.0.0">
+              <name>Embedded Display_25</name>
+              <file>epik8s-opi/uniio-opi/io_array.bob</file>
+              <x>2</x>
+              <y>2</y>
+              <width>1000</width>
+              <height>678</height>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>AI</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>AI</name>
+            <macros>
+              <GROUP>io</GROUP>
+              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+              <ZONE>ALL</ZONE>
+              <TYPE>in</TYPE>
+            </macros>
+            <x>2</x>
+            <width>1050</width>
+            <height>688</height>
+            <widget type="embedded" version="2.0.0">
+              <name>Embedded Display_26</name>
+              <file>epik8s-opi/uniio-opi/io_array.bob</file>
+              <x>2</x>
+              <y>2</y>
+              <width>1000</width>
+              <height>628</height>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>AO</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>AO</name>
+            <macros>
+              <GROUP>io</GROUP>
+              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+              <ZONE>ALL</ZONE>
+              <TYPE>ao</TYPE>
+            </macros>
+            <x>2</x>
+            <width>1050</width>
+            <height>698</height>
+            <widget type="embedded" version="2.0.0">
+              <name>Embedded Display_27</name>
+              <file>epik8s-opi/uniio-opi/io_array.bob</file>
+              <x>2</x>
+              <y>2</y>
+              <width>1000</width>
+              <height>648</height>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>DI</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>DI</name>
+            <macros>
+              <GROUP>io</GROUP>
+              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+              <ZONE>ALL</ZONE>
+              <TYPE>di</TYPE>
+            </macros>
+            <x>2</x>
+            <width>1050</width>
+            <height>688</height>
+            <widget type="embedded" version="2.0.0">
+              <name>Embedded Display_28</name>
+              <file>epik8s-opi/uniio-opi/io_array.bob</file>
+              <x>2</x>
+              <y>2</y>
+              <width>1000</width>
+              <height>568</height>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>DO</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>DO</name>
+            <macros>
+              <GROUP>io</GROUP>
+              <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+              <ZONE>ALL</ZONE>
+              <TYPE>do</TYPE>
+            </macros>
+            <x>2</x>
+            <width>1050</width>
+            <height>698</height>
+            <widget type="embedded" version="2.0.0">
+              <name>Embedded Display_29</name>
+              <file>epik8s-opi/uniio-opi/io_array.bob</file>
+              <x>2</x>
+              <y>2</y>
+              <width>1000</width>
+              <height>620</height>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <width>1130</width>
+    <height>730</height>
+    <active_tab>3</active_tab>
+    <direction>1</direction>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_3</name>
+    <actions>
+      <action type="open_display">
+        <file>common/m9210/m9210_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:DIA:FCT01</DEVICE>
+        </macros>
+        <target>window</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>ADC1</text>
+    <x>1140</x>
+    <y>50</y>
+    <width>150</width>
+    <height>99</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_4</name>
+    <actions>
+      <action type="open_display">
+        <file>common/m9210/m9210_Main.bob</file>
+        <macros>
+          <DEVICE>LEL:DIA:FCT02</DEVICE>
+        </macros>
+        <target>window</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>ADC2</text>
+    <x>1147</x>
+    <y>210</y>
+    <width>140</width>
+    <height>100</height>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

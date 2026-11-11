@@ -1,0 +1,346 @@
+---
+# Java installation and configuration tasks
+# Supports: Ubuntu, Linux Mint, LMDE (Linux Mint Debian Edition), Debian, YUM-based distros
+
+- name: Validate java_version variable
+  assert:
+    that:
+      - java_version in ['17', '21', '27']
+    fail_msg: "java_version must be either '17' or '21' or '27'"
+
+- name: Display distribution information
+  debug:
+    msg: "Distribution: {{ ansible_distribution }}, Version: {{ ansible_distribution_version }}, Release: {{ ansible_distribution_release }}, OS Family: {{ ansible_os_family }}"
+
+- name: Detect distribution type
+  set_fact:
+    is_linux_mint: "{{ ansible_distribution in ['Linuxmint', 'LinuxMint'] }}"
+    is_lmde: "{{ ansible_distribution == 'LMDE' }}"
+    is_debian_family: "{{ ansible_os_family == 'Debian' }}"
+
+- name: Display distribution detection result
+  debug:
+    msg: "Linux Mint: {{ is_linux_mint }}, LMDE: {{ is_lmde }}, Debian family: {{ is_debian_family }}"
+
+# --- Check if OpenJDK package is already available ---
+- name: Check if OpenJDK {{ java_version }} package is available
+  shell: apt-cache policy openjdk-{{ java_version }}-jdk 2>/dev/null | grep 'Candidate:' | grep -v '(none)'
+  register: openjdk_check
+  failed_when: false
+  changed_when: false
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Display OpenJDK availability
+  debug:
+    msg: "openjdk-{{ java_version }}-jdk available: {{ 'YES' if (openjdk_check.rc | default(1)) == 0 else 'NO - will add repositories' }}"
+  when: ansible_pkg_mgr == 'apt'
+
+# --- Linux Mint (Ubuntu-based) repository setup ---
+- name: Get Ubuntu base codename for Linux Mint
+  shell: grep DISTRIB_CODENAME /etc/upstream-release/lsb-release 2>/dev/null | cut -d= -f2 || echo ""
+  register: ubuntu_base_codename
+  changed_when: false
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - is_linux_mint
+    - (openjdk_check.rc | default(1)) != 0
+
+- name: Add Ubuntu universe repository (Linux Mint)
+  apt_repository:
+    repo: "{{ item }}"
+    state: present
+  loop:
+    - "deb http://archive.ubuntu.com/ubuntu {{ ubuntu_base_codename.stdout }} universe"
+    - "deb http://archive.ubuntu.com/ubuntu {{ ubuntu_base_codename.stdout }}-updates universe"
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - is_linux_mint
+    - (openjdk_check.rc | default(1)) != 0
+    - ubuntu_base_codename.stdout | default('') | length > 0
+  ignore_errors: yes
+
+# --- Ubuntu: try enabling universe ---
+- name: Try to enable universe repository (Ubuntu)
+  command: add-apt-repository -y universe
+  register: add_universe
+  failed_when: false
+  changed_when: add_universe.rc == 0
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - ansible_distribution == 'Ubuntu'
+    - (openjdk_check.rc | default(1)) != 0
+
+# --- Add Adoptium (Temurin) repository as fallback ---
+- name: Determine codename for Adoptium repository
+  shell: |
+    if [ "{{ ansible_distribution }}" = "Ubuntu" ]; then
+      echo "{{ ansible_distribution_release }}"
+    elif [ -n "{{ ubuntu_base_codename.stdout | default('') }}" ]; then
+      echo "{{ ubuntu_base_codename.stdout | default('') }}"
+    elif [ -f /etc/debian_version ]; then
+      deb_ver=$(cat /etc/debian_version | cut -d/ -f1 | cut -d. -f1)
+      case "$deb_ver" in
+        10) echo "buster" ;;
+        11) echo "bullseye" ;;
+        12) echo "bookworm" ;;
+        13|trixie) echo "bookworm" ;;
+        *) echo "bookworm" ;;
+      esac
+    else
+      echo "bookworm"
+    fi
+  register: debian_base_codename
+  changed_when: false
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - (openjdk_check.rc | default(1)) != 0
+
+- name: Display codename for Adoptium repo
+  debug:
+    msg: "Using codename '{{ debian_base_codename.stdout | default('unknown') }}' for Adoptium repository"
+  when:
+    - debian_base_codename is defined
+    - debian_base_codename.stdout is defined
+
+- name: Install required packages for Adoptium repository
+  apt:
+    name:
+      - apt-transport-https
+      - gnupg
+      - wget
+    state: present
+    update_cache: yes
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - (openjdk_check.rc | default(1)) != 0
+
+- name: Add Adoptium GPG key
+  shell: |
+    wget -qO- https://packages.adoptium.net/artifactory/api/gpg/key/public | gpg --dearmor -o /usr/share/keyrings/adoptium.gpg
+  args:
+    creates: /usr/share/keyrings/adoptium.gpg
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - (openjdk_check.rc | default(1)) != 0
+
+- name: Add Adoptium APT repository
+  apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/adoptium.gpg] https://packages.adoptium.net/artifactory/deb {{ debian_base_codename.stdout }} main"
+    state: present
+    filename: adoptium
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - (openjdk_check.rc | default(1)) != 0
+    - debian_base_codename.stdout | default('') | length > 0
+
+# --- Update apt cache after any repository changes ---
+- name: Update apt cache after repository changes
+  apt:
+    update_cache: yes
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - (openjdk_check.rc | default(1)) != 0
+
+# --- Re-check OpenJDK availability after adding repos ---
+- name: Re-check if OpenJDK {{ java_version }} package is now available
+  shell: apt-cache policy openjdk-{{ java_version }}-jdk 2>/dev/null | grep 'Candidate:' | grep -v '(none)'
+  register: openjdk_recheck
+  failed_when: false
+  changed_when: false
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - (openjdk_check.rc | default(1)) != 0
+
+- name: Determine which Java package to install
+  set_fact:
+    java_package: "{{ 'openjdk-' + java_version + '-jdk' if ((openjdk_check.rc | default(1)) == 0 or (openjdk_recheck.rc | default(1)) == 0) else 'temurin-' + java_version + '-jdk' }}"
+    java_is_temurin: "{{ (openjdk_check.rc | default(1)) != 0 and (openjdk_recheck.rc | default(1)) != 0 }}"
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Display Java package to install
+  debug:
+    msg: "Will install Java package: {{ java_package }} (Temurin fallback: {{ java_is_temurin }})"
+  when: ansible_pkg_mgr == 'apt'
+
+# --- Install Java ---
+- name: Install Java JDK (APT)
+  apt:
+    name: "{{ java_package }}"
+    state: present
+    update_cache: yes
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Install libqt5x11extras5 (APT - best effort)
+  apt:
+    name: libqt5x11extras5
+    state: present
+  when: ansible_pkg_mgr == 'apt'
+  ignore_errors: yes
+
+- name: Install OpenJDK {{ java_version }} JDK & required packages (YUM)
+  package:
+    name: java-{{ java_version }}-openjdk-devel
+    state: present
+  when: ansible_pkg_mgr == 'yum'
+
+# --- Determine Java home path ---
+- name: Find Java home directory (APT)
+  shell: |
+    if [ -d "/usr/lib/jvm/temurin-{{ java_version }}-jdk-amd64" ]; then
+      echo "/usr/lib/jvm/temurin-{{ java_version }}-jdk-amd64"
+    elif [ -d "/usr/lib/jvm/java-{{ java_version }}-openjdk-amd64" ]; then
+      echo "/usr/lib/jvm/java-{{ java_version }}-openjdk-amd64"
+    else
+      # fallback: find any matching JVM directory
+      find /usr/lib/jvm -maxdepth 1 -type d -name "*{{ java_version }}*" | head -1
+    fi
+  register: java_home_detected
+  changed_when: false
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Set java_home fact (APT)
+  set_fact:
+    java_home: "{{ java_home_detected.stdout }}"
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - java_home_detected.stdout | default('') | length > 0
+
+- name: Display detected JAVA_HOME
+  debug:
+    msg: "Detected JAVA_HOME: {{ java_home | default('NOT FOUND') }}"
+  when: ansible_pkg_mgr == 'apt'
+
+# --- Configure alternatives ---
+- name: Configure Java alternatives (APT)
+  alternatives:
+    name: java
+    path: "{{ java_home }}/bin/java"
+    priority: 2100
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - java_home is defined
+
+- name: Configure javac alternatives (APT)
+  alternatives:
+    name: javac
+    path: "{{ java_home }}/bin/javac"
+    priority: 2100
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - java_home is defined
+
+- name: Configure keytool alternatives (APT)
+  alternatives:
+    name: keytool
+    path: "{{ java_home }}/bin/keytool"
+    priority: 2100
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - java_home is defined
+
+- name: Configure Java alternatives (YUM)
+  alternatives:
+    name: java
+    path: /usr/lib/jvm/java-{{ java_version }}-openjdk/bin/java
+    priority: 2100
+  when: ansible_pkg_mgr == 'yum'
+
+- name: Configure javac alternatives (YUM)
+  alternatives:
+    name: javac
+    path: /usr/lib/jvm/java-{{ java_version }}-openjdk/bin/javac
+    priority: 2100
+  when: ansible_pkg_mgr == 'yum'
+
+- name: Configure keytool alternatives (YUM)
+  alternatives:
+    name: keytool
+    path: /usr/lib/jvm/java-{{ java_version }}-openjdk/bin/keytool
+    priority: 2100
+  when: ansible_pkg_mgr == 'yum'
+
+# --- Set JAVA_HOME ---
+- name: Set JAVA_HOME environment variable (APT)
+  lineinfile:
+    path: /etc/environment
+    regexp: '^JAVA_HOME='
+    line: 'JAVA_HOME={{ java_home }}'
+    create: yes
+  when:
+    - ansible_pkg_mgr == 'apt'
+    - java_home is defined
+
+- name: Set JAVA_HOME environment variable (YUM)
+  lineinfile:
+    path: /etc/environment
+    regexp: '^JAVA_HOME='
+    line: 'JAVA_HOME=/usr/lib/jvm/java-{{ java_version }}-openjdk'
+    create: yes
+  when: ansible_pkg_mgr == 'yum'
+
+# --- Set alternatives to auto mode ---
+- name: Set Java alternatives to automatic mode (APT)
+  command: update-alternatives --auto java
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Set javac alternatives to automatic mode (APT)
+  command: update-alternatives --auto javac
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Set keytool alternatives to automatic mode (APT)
+  command: update-alternatives --auto keytool
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Set Java alternatives to automatic mode (YUM)
+  command: alternatives --auto java
+  when: ansible_pkg_mgr == 'yum'
+
+- name: Set javac alternatives to automatic mode (YUM)
+  command: alternatives --auto javac
+  when: ansible_pkg_mgr == 'yum'
+
+- name: Set keytool alternatives to automatic mode (YUM)
+  command: alternatives --auto keytool
+  when: ansible_pkg_mgr == 'yum'
+
+# --- Verify installation ---
+- name: Display Java alternatives status (APT)
+  command: update-alternatives --display java
+  register: java_alternatives_status
+  changed_when: false
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Show Java alternatives status (APT)
+  debug:
+    msg: "{{ java_alternatives_status.stdout_lines }}"
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Display Java alternatives status (YUM)
+  command: alternatives --display java
+  register: java_alternatives_status_yum
+  changed_when: false
+  when: ansible_pkg_mgr == 'yum'
+
+- name: Show Java alternatives status (YUM)
+  debug:
+    msg: "{{ java_alternatives_status_yum.stdout_lines }}"
+  when: ansible_pkg_mgr == 'yum'
+
+- name: Verify Java installation and version
+  command: java -version
+  register: java_version_output
+  changed_when: false
+
+- name: Display Java version
+  debug:
+    msg: "Java version installed: {{ java_version_output.stderr_lines[0] }}"
+
+- name: Verify keytool is available
+  command: keytool -help
+  register: keytool_output
+  changed_when: false
+  failed_when: keytool_output.rc != 0
+
+- name: Display keytool availability
+  debug:
+    msg: "keytool is available and working"

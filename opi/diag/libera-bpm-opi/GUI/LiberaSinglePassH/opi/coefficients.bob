@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-01-02 17:43:54 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Scale parameters</name>
+  <x>786</x>
+  <y>409</y>
+  <width>330</width>
+  <height>440</height>
+  <background_color>
+    <color name="GLOBAL canvas" red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <widget type="rectangle" version="2.0.0">
+    <name>EDM activeRectangleClass</name>
+    <width>331</width>
+    <height>41</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="GLOBAL help" red="120" green="120" blue="120">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Calibration for processor #$(BPM)</text>
+    <x>10</x>
+    <y>10</y>
+    <width>239</width>
+    <height>18</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="libera_title" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Coefficients - frequency harmonic 1</text>
+    <x>10</x>
+    <y>50</y>
+    <width>249</width>
+    <height>18</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="libera_plot_title" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Xoffset</text>
+    <x>10</x>
+    <y>160</y>
+    <width>37</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:offs:x:f1</pv_name>
+    <x>150</x>
+    <y>160</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Yoffset</text>
+    <x>10</x>
+    <y>180</y>
+    <width>37</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:offs:y:f1</pv_name>
+    <x>150</x>
+    <y>180</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>SUMk</text>
+    <x>10</x>
+    <y>80</y>
+    <width>33</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:k:s:f1</pv_name>
+    <x>150</x>
+    <y>80</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>SUMoffset</text>
+    <x>10</x>
+    <y>100</y>
+    <width>56</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:offs:s:f1</pv_name>
+    <x>150</x>
+    <y>100</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Qk</text>
+    <x>10</x>
+    <y>120</y>
+    <width>16</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:k:q:f1</pv_name>
+    <x>150</x>
+    <y>120</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Qoffset</text>
+    <x>10</x>
+    <y>140</y>
+    <width>39</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:offs:q:f1</pv_name>
+    <x>150</x>
+    <y>140</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>PHoffset</text>
+    <x>10</x>
+    <y>200</y>
+    <width>46</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:offs:ph:f1</pv_name>
+    <x>150</x>
+    <y>200</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Coefficients - frequency harmonic 2</text>
+    <x>10</x>
+    <y>240</y>
+    <width>249</width>
+    <height>18</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="libera_plot_title" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Xoffset</text>
+    <x>10</x>
+    <y>350</y>
+    <width>37</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:offs:x:f2</pv_name>
+    <x>150</x>
+    <y>350</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Yoffset</text>
+    <x>10</x>
+    <y>370</y>
+    <width>37</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:offs:y:f2</pv_name>
+    <x>150</x>
+    <y>370</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>SUMk</text>
+    <x>10</x>
+    <y>270</y>
+    <width>33</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:k:s:f2</pv_name>
+    <x>150</x>
+    <y>270</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>SUMoffset</text>
+    <x>10</x>
+    <y>290</y>
+    <width>56</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:offs:s:f2</pv_name>
+    <x>150</x>
+    <y>290</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Qk</text>
+    <x>10</x>
+    <y>310</y>
+    <width>16</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:k:q:f2</pv_name>
+    <x>150</x>
+    <y>310</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Qoffset</text>
+    <x>10</x>
+    <y>330</y>
+    <width>39</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:offs:q:f2</pv_name>
+    <x>150</x>
+    <y>330</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>PHoffset</text>
+    <x>10</x>
+    <y>390</y>
+    <width>46</width>
+    <height>15</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <auto_size>true</auto_size>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM activeXTextDspClass</name>
+    <pv_name>$(HOSTNAME):$(BPM):calibration:offs:ph:f2</pv_name>
+    <x>150</x>
+    <y>390</y>
+    <height>19</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <show_units>false</show_units>
+  </widget>
+</display>

@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-04-10 22:05:10 by andreamichelotti-->
+<display version="2.0.0">
+  <width>390</width>
+  <height>265</height>
+  <background_color>
+    <color red="237" green="236" blue="235">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle Template_1</name>
+    <macros>
+      <pv_name></pv_name>
+    </macros>
+    <width>390</width>
+    <height>265</height>
+    <line_width>0</line_width>
+    <line_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_15</name>
+    <text>Event</text>
+    <x>25</x>
+    <y>70</y>
+    <width>26</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template</name>
+    <pv_name>GEN-TMG-$(EVR):Pul$(FP)-Evt-Trig0-SP</pv_name>
+    <x>105</x>
+    <y>65</y>
+    <width>120</width>
+    <height>30</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions execute_as_one="true">
+      <action type="execute">
+        <script file="scripts/unsavedInfo.py">
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_16</name>
+    <text>Delay</text>
+    <x>25</x>
+    <y>120</y>
+    <width>26</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_3</name>
+    <pv_name>GEN-TMG-$(EVR):Pul$(FP)-Delay-RB</pv_name>
+    <x>246</x>
+    <y>116</y>
+    <width>118</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_1</name>
+    <pv_name>GEN-TMG-$(EVR):Pul$(FP)-Delay-SP</pv_name>
+    <x>105</x>
+    <y>115</y>
+    <width>120</width>
+    <height>30</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions execute_as_one="true">
+      <action type="execute">
+        <script file="scripts/unsavedInfo.py">
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_17</name>
+    <text>Width</text>
+    <x>25</x>
+    <y>170</y>
+    <width>26</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_4</name>
+    <pv_name>GEN-TMG-$(EVR):Pul$(FP)-Width-RB</pv_name>
+    <x>246</x>
+    <y>166</y>
+    <width>118</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_2</name>
+    <pv_name>GEN-TMG-$(EVR):Pul$(FP)-Width-SP</pv_name>
+    <x>105</x>
+    <y>165</y>
+    <width>120</width>
+    <height>30</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions execute_as_one="true">
+      <action type="execute">
+        <script file="scripts/unsavedInfo.py">
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_18</name>
+    <text>Polarity</text>
+    <x>25</x>
+    <y>220</y>
+    <width>34</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2</name>
+    <x>20</x>
+    <y>20</y>
+    <width>350</width>
+    <height>23</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <y>11</y>
+      <width>350</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text> Output $(FP) </text>
+      <x>125</x>
+      <width>82</width>
+      <height>18</height>
+      <font>
+        <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <auto_size>true</auto_size>
+      <actions>
+      </actions>
+    </widget>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>PolLow</name>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>1</value>
+        <description>WritePV</description>
+      </action>
+      <action type="execute">
+        <script file="scripts/unsavedInfo.py">
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+    <pv_name>GEN-TMG-$(EVR):Pul$(FP)-Polarity-Sel</pv_name>
+    <text>Low</text>
+    <x>163</x>
+    <y>215</y>
+    <width>62</width>
+    <height>35</height>
+    <font>
+      <font family="Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="Rule" prop_id="enabled" out_exp="false">
+        <exp bool_exp="pv0=0">
+          <value>false</value>
+        </exp>
+        <pv_name>$(pv_name)</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>PolHigh</name>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <pv_name>$(pv_name)</pv_name>
+        <value>0</value>
+        <description>WritePV</description>
+      </action>
+      <action type="execute">
+        <script file="scripts/unsavedInfo.py">
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+    <pv_name>GEN-TMG-$(EVR):Pul$(FP)-Polarity-Sel</pv_name>
+    <text>High</text>
+    <x>105</x>
+    <y>215</y>
+    <width>62</width>
+    <height>35</height>
+    <font>
+      <font family="Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_5</name>
+    <pv_name>GEN-TMG-$(EVR):Pul$(FP)-Polarity-Sel</pv_name>
+    <x>246</x>
+    <y>216</y>
+    <width>118</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+</display>

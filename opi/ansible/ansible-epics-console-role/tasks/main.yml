@@ -1,0 +1,442 @@
+---
+- name: Ensure opi_repos is defined and not empty
+  fail:
+    msg: "opi_repos is not defined or is empty"
+  when: opi_repos is not defined or opi_repos | length == 0
+
+- name: Ensure all required fields are set in opi_repos
+  fail:
+    msg: "Each opi_repos item must have url, dest, opi_main, and opi_user set. Problem with item: {{ item }}"
+  loop: "{{ opi_repos }}"
+  when: 
+    - item.url is not defined or item.url | length == 0
+    - item.dest is not defined or item.dest | length == 0
+    - item.opi_main is not defined or item.opi_main | length == 0
+    - item.opi_user is not defined or item.opi_user | length == 0
+
+- name: Ensure opi_settings or PHOEBUSINI is available
+  fail:
+    msg: "Either opi_settings must be set in opi_repos item or PHOEBUSINI environment variable must be set. Problem with item: {{ item }}"
+  loop: "{{ opi_repos }}"
+  when: 
+    - (item.opi_settings is not defined or item.opi_settings | length == 0)
+    - (default_phoebus_ini is not defined or default_phoebus_ini | length == 0)
+
+- name: Install common packages (APT) - needed for proxy setup
+  package:
+    name: 
+      - git
+    state: present
+  when: ansible_pkg_mgr == 'apt'
+
+- name: Install common packages (YUM) - needed for proxy setup
+  package:
+    name: 
+      - git
+      - python3
+      - emacs-nox
+      - pip
+    state: present
+  when: ansible_pkg_mgr == 'yum'
+
+- import_tasks: proxy.yml
+  when: proxy_url != "" and proxy_port != ""
+
+- import_tasks: java.yml
+
+- name: install python {{ python_version }}
+  package:
+    name: 
+      - python{{ python_version }}
+      - python{{ python_version }}-venv
+      - pip
+    state: present
+  when: python_version is defined and python_version != ''
+
+- name: Install NFS common package for Ubuntu/Debian
+  package:
+    name: nfs-common
+    state: present
+  when: ansible_os_family == 'Debian'
+
+- name: Install NFS client package for RedHat/CentOS
+  package:
+    name: nfs-utils
+    state: present
+  when: ansible_os_family == 'RedHat'
+
+- name: Install NFS client package for SUSE
+  package:
+    name: nfs-client
+    state: present
+  when: ansible_os_family == 'Suse'
+
+# - name: Add environment variable to system
+#   lineinfile:
+#     path: "/etc/environment"  # You may need to choose the appropriate system-wide configuration file
+#     line: 'export OPIHOME={{opi_path}}'
+#     create: yes
+
+- name: Set Phoebus download URL
+  set_fact:
+    # Auto-detect URL format:
+    # - If phoebus_url is explicitly set, use it
+    # - If phoebus_version contains 'b' (beta) or matches vX.X.X pattern, use GitHub releases
+    # - Otherwise, use binary server
+    phoebus_download_url: >
+      {% if phoebus_url | default('') | length > 0 %}
+        {{ phoebus_url }}
+      {% elif phoebus_version is match('^v\d+\.\d+\.\d+[a-z]?\d*$') %}
+        https://github.com/infn-epics/phoebus/releases/download/{{ phoebus_version }}/phoebus-5.0.3-SNAPSHOT-linux.tar.gz
+      {% else %}
+        https://opensource.lnf.infn.it/binary/epics/phoebus/linux/product-{{ phoebus_version }}.tar.gz
+      {% endif %}
+  when: install_phoebus | default(true)
+
+- name: Download Phoebus artifact
+  get_url:
+    url: "{{ phoebus_download_url }}"
+    dest: "/tmp/phoebus.tar.gz"
+  when: install_phoebus | default(true)
+
+- name: Install Phoebus in {{phoebus_home}}
+  shell: |
+    cd /tmp
+    mkdir -p {{phoebus_home}}
+    tar xfz phoebus.tar.gz -C {{phoebus_home}}
+    ver=`ls {{phoebus_home}}/phoebus-*-*-*`
+    echo "version: $ver {{phoebus_version}}" > {{phoebus_home}}/version.txt
+    rm *.tar.gz
+  when: install_phoebus | default(true)
+
+- name: add phoebus icon
+  ansible.builtin.copy:
+    src: files/EPIK8-512.png
+    dest: '{{phoebus_icon}}'
+    owner: root
+    group: root
+    mode: 0644
+
+
+
+# - name: create phoebus startup script
+#   template:
+#     src: phoebus.ini.j2
+#     dest: "{{phoebus_settings_path}}"
+#     owner: root
+#     group: root
+#     mode: 0755
+
+
+
+- name: add MIME types
+  copy:
+    src: phoebus.xml
+    dest: /usr/share/mime/packages
+    owner: root
+    group: root
+    mode: 0644
+  notify: Update MIME database
+
+
+
+- name: Remove existing OPI repositories for fresh clone
+  file:
+    path: "{{ opi_path }}/{{ item.dest | default(item.url | basename | replace('.git', '')) }}"
+    state: absent
+  loop: "{{ opi_repos }}"
+  when: opi_git_update | default(true)
+
+- name: Ensure OPI destination directory exists (archive install)
+  file:
+    path: "{{ opi_path }}/{{ item.dest }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ opi_repos }}"
+  loop_control:
+    label: "{{ item.dest }}"
+  when:
+    - opi_git_update | default(true)
+    - item.archive is defined and item.archive | length > 0
+
+- name: install OPIs repositories from prebuilt archive
+  # Pushes one already-resolved tarball per host over the existing SSH connection
+  # instead of every console git-cloning (with submodules) from baltig.infn.it/github.com,
+  # which is what was tripping 429 rate limits across the console fleet.
+  ansible.builtin.unarchive:
+    src: "{{ item.archive }}"
+    dest: "{{ opi_path }}/{{ item.dest }}"
+  loop: "{{ opi_repos }}"
+  loop_control:
+    label: "{{ item.dest }}"
+  when:
+    - opi_git_update | default(true)
+    - item.archive is defined and item.archive | length > 0
+
+- name: install OPIs repositories via git clone (fallback when no prebuilt archive is provided)
+  ansible.builtin.git:
+    repo: "{{ item.url }}"
+    dest: "{{ opi_path }}/{{ item.dest | default(item.url | basename | replace('.git', '')) }}"
+    version: "{{ item.version | default(omit) }}"
+    force: true
+  loop: "{{ opi_repos }}"
+  loop_control:
+    label: "{{ item.dest }}"
+  when:
+    - opi_git_update | default(true)
+    - item.archive is not defined or item.archive | length == 0
+
+
+# - name: Clone Git repository
+#   git:
+#     repo: '{{ opi_repo }}'
+#     dest: '{{ opi_path }}'
+#     update: yes
+#     recursive: true
+  # You might want to add failed_when or ignore_errors here
+- debug:
+    msg: "Checking file: {{ opi_path }}/{{ item.dest }}/{{ item.opi_main }}"
+  loop: "{{ opi_repos }}"
+
+- name: Check OPI main and settings files exist for each repo
+  block:
+    - name: Stat opi_main
+      stat:
+        path: "{{ opi_path }}/{{ item.dest }}/{{ item.opi_main }}"
+      register: opi_main_stat
+      loop: "{{ opi_repos }}"
+      loop_control:
+        label: "{{ item.dest }}/{{ item.opi_main }}"
+      become: true
+
+    - name: Stat opi_settings (from repo)
+      stat:
+        path: "{{ opi_path }}/{{ item.dest }}/{{ item.opi_settings }}"
+      register: opi_settings_stat
+      loop: "{{ opi_repos }}"
+      loop_control:
+        label: "{{ item.dest }}/{{ item.opi_settings | default('N/A') }}"
+      become: true
+      when: item.opi_settings is defined and item.opi_settings | length > 0
+
+    - name: Stat opi_settings (from PHOEBUSINI env)
+      stat:
+        path: "{{ default_phoebus_ini }}"
+      register: phoebusini_stat
+      when: default_phoebus_ini is defined and default_phoebus_ini | length > 0
+      become: true
+
+    - name: Fail if opi_main is missing
+      fail:
+        msg: >-
+          Missing file: {{ opi_path }}/{{ item.dest }}/{{ item.opi_main }}
+      when:
+        - not (opi_main_stat.results[loop_index0].stat.exists | default(false))
+      loop: "{{ opi_repos }}"
+      loop_control:
+        index_var: loop_index0
+        label: "{{ item.dest }}"
+
+    - name: Fail if opi_settings is missing (neither in repo nor PHOEBUSINI)
+      fail:
+        msg: >-
+          Missing settings file. Either set opi_settings in opi_repos or PHOEBUSINI environment variable.
+          Checked: {{ opi_path }}/{{ item.dest }}/{{ item.opi_settings | default('') }} and PHOEBUSINI={{ default_phoebus_ini | default('') }}
+      when:
+        - (item.opi_settings is not defined or item.opi_settings | length == 0 or not (opi_settings_stat.results[loop_index0].stat.exists | default(false)))
+        - (default_phoebus_ini is not defined or default_phoebus_ini | length == 0 or not (phoebusini_stat.stat.exists | default(false)))
+      loop: "{{ opi_repos }}"
+      loop_control:
+        index_var: loop_index0
+        label: "{{ item.dest }}"
+
+- name: Create phoebus bin directory
+  file:
+    path: "{{ phoebus_home }}/bin"
+    state: directory
+    mode: 0755
+    owner: root
+    group: root
+
+- name: create phoebus startup script
+  template:
+    src: phoebus.j2
+    dest: "{{phoebus_bin}}"
+    owner: root
+    group: root
+    mode: 0755
+
+# NOTE: /etc/environment does NOT support shell syntax like 'export' or '$PATH'
+# We use /etc/profile.d/ instead to properly extend PATH
+- name: Add phoebus bin to PATH via profile.d
+  copy:
+    content: |
+      # Added by ansible-epics-console-role
+      export PATH="{{ phoebus_home }}/bin:$PATH"
+    dest: /etc/profile.d/phoebus-path.sh
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Check if /usr/bin is writable
+  stat:
+    path: /usr/bin
+  register: usr_bin_stat
+
+- name: Create symlink in /usr/bin if writable
+  file:
+    src: "{{ phoebus_bin }}"
+    dest: "/usr/bin/phoebus"
+    state: link
+    force: yes
+  when: usr_bin_stat.stat.writeable | default(false)
+  ignore_errors: yes
+
+- name: Render Phoebus EPIK8s .desktop file for each opi_user
+  template:
+    src: epik8s.j2
+    dest: /usr/bin/epik8s-{{ item.name }}
+    owner: root
+    group: root
+    mode: 0755
+  loop: "{{ opi_repos }}"
+  vars:
+    opi_settings: "{{ (opi_path + '/' + item.dest + '/' + item.opi_settings) if (item.opi_settings is defined and item.opi_settings | length > 0) else default_phoebus_ini }}"
+    opi_main: "{{opi_path}}/{{item.dest}}/{{ item.opi_main }}"
+    dest: "{{item.dest}}"
+  when: item.name is defined
+
+# - name: add phoebus navigator to desktop menu
+#   template:
+#     src: phoebus_navigator.desktop.j2
+#     dest: /usr/share/applications/phoebus_navigator.desktop
+#     owner: root
+#     group: root
+#     mode: 0644
+- import_tasks: control_desktop.yml
+
+- import_tasks: py_epics.yml
+  when: python_version is defined and python_version != ''
+
+
+- name: Ensure NFS mount point directory exists
+  file:
+    path: "{{ item.mountPath }}"
+    state: directory
+    mode: '0777'
+  loop: "{{ nfsMounts }}"
+  when: 
+    - item.server | default('') | length > 0 and item.path | default('') | length > 0 and item.mountPath | default('') | length > 0
+    - nfsMounts is defined and nfsMounts | length > 0
+  ignore_errors: true
+
+- name: Unmount NFS shares if mounted
+  mount:
+    name: "{{ item.mountPath }}"
+    state: unmounted
+  loop: "{{ nfsMounts }}"
+  when: 
+    - item.server | default('') | length > 0 and item.path | default('') | length > 0 and item.mountPath | default('') | length > 0
+    - nfsMounts is defined and nfsMounts | length > 0
+  ignore_errors: true
+
+- name: Mount NFS shares
+  mount:
+    name: "{{ item.mountPath }}"
+    src: "{{ item.server }}:{{ item.path }}"
+    fstype: nfs
+    opts: "{{ item.opt | default('defaults') }}"
+    state: mounted
+  loop: "{{ nfsMounts }}"
+  when: 
+    - item.server | default('') | length > 0 and item.path | default('') | length > 0 and item.mountPath | default('') | length > 0
+    - nfsMounts is defined and nfsMounts | length > 0
+    - mount_dir | default(true)
+  ignore_errors: true
+  register: nfs_mount_result
+
+- name: Report NFS mount results
+  debug:
+    msg: "NFS mount {{ item.item.name }} ({{ item.item.server }}:{{ item.item.path }} -> {{ item.item.mountPath }}): {{ 'SUCCESS' if item.changed else 'FAILED' }}"
+  loop: "{{ nfs_mount_result.results }}"
+  when: nfs_mount_result is defined
+
+- name: Add entries to /etc/hosts
+  lineinfile:
+    path: /etc/hosts
+    regexp: '^{{ item.ip }}\s+{{ item.name }}'
+    line: '{{ item.ip }} {{ item.name }}'
+    state: present
+    create: yes
+  loop: "{{ dnsnames }}"
+  when:
+    - item.ip | default('') | length > 0 and item.name | default('') | length > 0
+    - dnsnames is defined and dnsnames | length > 0
+
+- name: Gather service facts to detect the active NTP client
+  ansible.builtin.service_facts:
+  when: ntpServers is defined and ntpServers | length > 0
+
+- name: Determine chrony config path and service name for this OS family
+  set_fact:
+    chrony_conf_path: "{{ '/etc/chrony/chrony.conf' if ansible_os_family == 'Debian' else '/etc/chrony.conf' }}"
+    chrony_service_name: "{{ 'chrony' if ansible_os_family == 'Debian' else 'chronyd' }}"
+    chrony_configured_hosts_regex: "{{ ntpServers | map('regex_escape') | join('|') }}"
+  when: ntpServers is defined and ntpServers | length > 0
+
+# Detect the mechanism by which services are actually installed (service_facts) rather
+# than guessing from ansible_os_family/ansible_distribution: unmapped distros (e.g. Linux
+# Mint on some Ansible versions) don't reliably report os_family == 'Debian', and consoles
+# may already run chrony with systemd-timesyncd present-but-masked (chrony is the intended
+# time daemon there, and force-enabling a masked timesyncd unit fails).
+- name: Configure NTP servers via chrony (used when chrony is installed)
+  when:
+    - ntpServers is defined and ntpServers | length > 0
+    - (chrony_service_name + '.service') in ansible_facts.services
+  notify: Restart chrony
+  block:
+    - name: Remove default server/pool entries from chrony.conf
+      # Excludes lines already matching one of our configured NTP hosts, otherwise this
+      # would strip out its own "Add configured NTP servers" lines on every subsequent
+      # run (making the task perpetually non-idempotent and restarting chrony each time).
+      lineinfile:
+        path: "{{ chrony_conf_path }}"
+        regexp: '^(server|pool)\s+(?!({{ chrony_configured_hosts_regex }})\b)'
+        state: absent
+
+    - name: Add configured NTP servers to chrony.conf
+      lineinfile:
+        path: "{{ chrony_conf_path }}"
+        regexp: '^server\s+{{ item }}\b'
+        line: "server {{ item }} iburst"
+        insertafter: BOF
+        state: present
+      loop: "{{ ntpServers }}"
+
+    - name: Remove stale chrony.conf left over from the wrong distro path (e.g. RHEL path on Debian)
+      file:
+        path: "{{ '/etc/chrony.conf' if chrony_conf_path != '/etc/chrony.conf' else '/etc/chrony/chrony.conf' }}"
+        state: absent
+
+- name: Configure NTP servers via systemd-timesyncd (used when chrony is not installed)
+  template:
+    src: timesyncd.conf.j2
+    dest: /etc/systemd/timesyncd.conf
+    owner: root
+    group: root
+    mode: '0644'
+  when:
+    - ntpServers is defined and ntpServers | length > 0
+    - (chrony_service_name + '.service') not in ansible_facts.services
+    - "'systemd-timesyncd.service' in ansible_facts.services"
+  notify: Restart systemd-timesyncd
+
+- name: Ensure systemd-timesyncd is enabled and running (when it's the active NTP client)
+  ansible.builtin.systemd:
+    name: systemd-timesyncd
+    enabled: yes
+    state: started
+  when:
+    - ntpServers is defined and ntpServers | length > 0
+    - (chrony_service_name + '.service') not in ansible_facts.services
+    - "'systemd-timesyncd.service' in ansible_facts.services"

@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-06-04 16:32:11 by georg-->
+<display version="2.0.0">
+  <width>700</width>
+  <height>565</height>
+  <background_color>
+    <color name="IO Grid" red="215" green="215" blue="215">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="xyplot" version="3.0.0">
+    <name>XY Graph Template</name>
+    <x>5</x>
+    <y>45</y>
+    <width>696</width>
+    <height>521</height>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <title>Microbunch Raw Data</title>
+    <title_font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </title_font>
+    <actions>
+    </actions>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import ScriptUtil
+from org.csstudio.display.builder.runtime.script import PVUtil
+import math
+
+# ==============================================================================
+# --- LINAC HARDWARE CALIBRATION CONSTANTS ---
+# ==============================================================================
+ICT_SENSITIVITY = 5.0     # V*s/C (Standard Bergoz ICT constant)
+ATTENUATION_FACTOR = 1.0  # Change to 10.0 if using a -20dB pad, or 100.0 if -40dB
+ALPHA = 0.08              # Low-pass filter factor for the text display box
+
+try:
+    # 1. Read the live fast-burst array data from LEL:DIA:FCT01:MICB
+    pv_reading = pvs[0].read()
+    
+    if pv_reading is not None:
+        raw_data = pv_reading.getData()
+        total_samples = raw_data.size()
+        
+        if total_samples > 0:
+            
+            # --- HARDWARE BURST MODE RESOLUTION TUNING ---
+            # Optimizing baseline and time steps for the 64-sample cutoff
+            if total_samples <= 64:
+                dt = 1.0e-10          # 100 ps step size (Adjust to match your scope clock)
+                baseline_window = 5   # Keep window small so it doesn't swallow the microbunches
+            elif total_samples > 1500:
+                dt = 2.5e-10          # 4 GS/s fallback
+                baseline_window = 30
+            else:
+                dt = 5.0e-10          # 2 GS/s fallback
+                baseline_window = 15
+            
+            # 2. Extract baseline noise level using the early safe samples
+            baseline_sum = 0.0
+            # Guardrail in case total_samples is incredibly small
+            actual_window = min(baseline_window, total_samples)
+            for i in range(actual_window):
+                baseline_sum += raw_data.getDouble(i)
+            baseline_avg = baseline_sum / float(actual_window)
+            
+            # Initialize the array container to map directly to your lower XY Plot
+            running_profile = [0.0] * total_samples
+            cumulative_area = 0.0
+            
+            # 3. HIGH-SPEED RUNNING TRAPEZOIDAL ENGINE
+            # Looping through all 64 samples to reconstruct the fine noise details
+            for j in range(0, total_samples - 1):
+                # (raw - baseline) ensures the curve steps down cleanly into negative values
+                y1 = raw_data.getDouble(j) - baseline_avg
+                y2 = raw_data.getDouble(j + 1) - baseline_avg
+                
+                # Accumulate area step-by-step
+                cumulative_area += (y1 + y2) / 2.0
+                
+                # Convert running integrated area into picocoulombs (pC)
+                v_secs = cumulative_area * dt
+                pC = (v_secs * ATTENUATION_FACTOR / ICT_SENSITIVITY) * 1e12
+                
+                # Assign to the corresponding profile index
+                running_profile[j+1] = float(pC)
+            
+            # Handle boundary edge smoothing for index 0
+            if total_samples > 1:
+                running_profile[0] = running_profile[1]
+            
+            # 4. STREAM ARRAY DIRECTLY TO YOUR LOWER XY PLOT
+            # Writes out to row #1: loc://microbunch_integral_array
+            pvs[1].write(running_profile)
+            
+            # 5. UI TEXT LABEL DELIVERY (Optional Control Room Display Box)
+            # Pulls the absolute final plateau charge value from the tail of the array
+            final_charge = running_profile[-1]
+            result_str = "{:.2f} pC".format(abs(final_charge))
+            
+            display_box = ScriptUtil.findWidgetByName(widget, "Integral_Display")
+            if display_box is not None:
+                display_box.setPropertyValue("text", result_str)
+                
+except Exception as e:
+    print("Microbunch Core Array Engine Error: " + str(e))]]></text>
+        <pv_name>LEL:DIA:FCT01:MICB</pv_name>
+        <pv_name trigger="false">loc://microbunch_integral_array</pv_name>
+      </script>
+    </scripts>
+    <x_axis>
+      <title>Sample [n]</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum> </minimum>
+      <maximum> </maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Voltage [V]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-0.5</minimum>
+        <maximum>0.05</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv></x_pv>
+        <y_pv>LEL:DIA:FCT01:MICB</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="IO Trace 1" red="79" green="129" blue="189">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>2</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+    <marker>
+      <marker>
+        <color>
+          <color name="MINOR" red="255" green="128" blue="0">
+          </color>
+        </color>
+        <pv_name></pv_name>
+        <interactive>true</interactive>
+      </marker>
+      <marker>
+        <color>
+          <color name="MAJOR" red="255" green="0" blue="0">
+          </color>
+        </color>
+        <pv_name></pv_name>
+        <interactive>true</interactive>
+      </marker>
+    </marker>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_13</name>
+    <text>Microbunch number</text>
+    <x>5</x>
+    <y>18</y>
+    <width>108</width>
+    <height>17</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_4</name>
+    <pv_name>$(DEVICE):MICB_ID</pv_name>
+    <x>177</x>
+    <y>15</y>
+    <width>91</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from java.lang import Thread, Runnable
+
+# 1. Dynamically read the current widget's underlying PV name
+trigger_pv_name = pvs[0].getName() # e.g., "LEL:DIA:FCT01:RNG_SP" or "LEL:DIA:FCT02:RNG_SP"
+
+
+# 2. Reconstruct the target path for this specific device space
+pv_parts = trigger_pv_name.split(":")
+base_channel_prefix = ":".join(pv_parts[0:3]) 
+dynamic_msgs_pv = base_channel_prefix + ":MSGS"
+
+class AsyncRangeCycle(Runnable):
+    def __init__(self, msgs_target):
+        self.msgs_target = msgs_target
+    def run(self):
+        try:
+            # Cycle only the local channel driver
+            PVUtil.writePV(self.msgs_target, "OFF", 10) 
+            Thread.sleep(400)
+            PVUtil.writePV(self.msgs_target, "ON", 10)
+        except Exception as e:
+            print("Dynamic Range Reset Error: " + str(e))
+
+Thread(AsyncRangeCycle(dynamic_msgs_pv)).start()]]></text>
+        <pv_name>$(DEVICE):MICB_ID</pv_name>
+      </script>
+    </scripts>
+    <border_width>2</border_width>
+  </widget>
+</display>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-06-19 16:27:05 by georg-->
+<display version="2.0.0">
+  <width>1300</width>
+  <height>980</height>
+  <background_color>
+    <color red="237" green="236" blue="235">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Title Banner</name>
+    <text>CT - $(DEVICE)</text>
+    <width>1023</width>
+    <height>45</height>
+    <font>
+      <font name="ELI-NP Title Bar" family="sans" style="REGULAR" size="23.762376237623762">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Label" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="ELI-NP Diagnostics Title" red="207" green="151" blue="207">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabbed ContainerTemplate</name>
+    <tabs>
+      <tab>
+        <name>Main</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>m9210_State.opi</file>
+            <width>300</width>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Channels</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>channel1</name>
+            <macros>
+              <CHAN>0</CHAN>
+            </macros>
+            <file>m9210_Channel.opi</file>
+            <width>300</width>
+            <height>395</height>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+          <widget type="embedded" version="2.0.0">
+            <name>Channel2</name>
+            <macros>
+              <CHAN>1</CHAN>
+            </macros>
+            <file>m9210_Channel.opi</file>
+            <y>405</y>
+            <width>300</width>
+            <height>395</height>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Trigger</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>m9210_Trigger.opi</file>
+            <width>300</width>
+            <height>370</height>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Info</name>
+        <children>
+          <widget type="embedded" version="2.0.0">
+            <name>Linking Container Template</name>
+            <file>m9210_DevInfo.opi</file>
+            <width>300</width>
+            <height>495</height>
+            <transparent>true</transparent>
+            <actions>
+            </actions>
+            <border_color>
+              <color name="IO Border" red="215" green="215" blue="215">
+              </color>
+            </border_color>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <y>48</y>
+    <width>306</width>
+    <height>890</height>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <tab_height>10</tab_height>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="picture" version="2.0.0">
+    <name>Image Template</name>
+    <file>/CSS/opi/boy/elinp-css-common/images/csl_logo.png</file>
+    <x>938</x>
+    <y>2</y>
+    <width>82</width>
+    <height>41</height>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display_1</name>
+    <file>m9210_ChannelView.bob</file>
+    <x>306</x>
+    <y>47</y>
+    <width>950</width>
+    <height>920</height>
+  </widget>
+</display>

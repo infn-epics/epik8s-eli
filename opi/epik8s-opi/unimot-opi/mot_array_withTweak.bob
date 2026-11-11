@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-04-22 19:13:50 by valentinadompe-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>975</width>
+  <height>730</height>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Name     </text>
+    <x>7</x>
+    <y>29</y>
+    <width>50</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <file>mot_display_large.bob</file>
+    <x>8</x>
+    <y>49</y>
+    <width>975</width>
+    <height>710</height>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Readout</text>
+    <x>127</x>
+    <y>29</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>LSN</text>
+    <x>340</x>
+    <y>29</y>
+    <width>40</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>LSP</text>
+    <x>377</x>
+    <y>29</y>
+    <width>40</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Err</text>
+    <x>413</x>
+    <y>29</y>
+    <width>40</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>Move</text>
+    <x>444</x>
+    <y>29</y>
+    <width>40</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>Abs Move</text>
+    <x>495</x>
+    <y>29</y>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>Rel Move</text>
+    <x>606</x>
+    <y>29</y>
+    <width>86</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>Setpoint</text>
+    <x>225</x>
+    <y>29</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_10</name>
+    <text>POI</text>
+    <x>821</x>
+    <y>29</y>
+    <width>38</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_11</name>
+    <text>ZONE:</text>
+    <x>7</x>
+    <width>86</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>$(ZONE)</text>
+    <x>77</x>
+    <width>86</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_13</name>
+    <text>Tweak Step</text>
+    <x>702</x>
+    <y>29</y>
+    <width>107</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+  </widget>
+</display>

@@ -1,0 +1,2292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-11-11 09:49:50 by beatriceserenellini-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>993</width>
+  <height>590</height>
+  <widget type="group" version="3.0.0">
+    <name>Amp shape</name>
+    <y>27</y>
+    <width>504</width>
+    <height>263</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="26" green="51" blue="153">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="26" green="51" blue="153">
+      </color>
+    </line_color>
+    <transparent>true</transparent>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry</name>
+      <pv_name>loc://$(amp1_startvalue)&lt;VDouble&gt;</pv_name>
+      <x>181</x>
+      <y>18</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Delay":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)]]></text>
+          <pv_name>loc://$(func)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_1</name>
+      <pv_name>loc://$(amp1_endvalue)&lt;VDouble&gt;(0)</pv_name>
+      <x>280</x>
+      <y>18</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Delay":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_2</name>
+      <pv_name>loc://$(amp_duration1)&lt;VDouble&gt;</pv_name>
+      <x>82</x>
+      <y>18</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Start amp (0-1)</text>
+      <x>181</x>
+      <width>85</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('text', "Start Amp (0-1)")
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Start Amp (0-1)")
+elif PVUtil.getString(pvs[0])=="Delay":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Amp (0-1)")]]></text>
+          <pv_name>loc://$(func)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>End amp (0-1)</text>
+      <x>280</x>
+      <width>80</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Delay":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>Duration [ns]</text>
+      <x>82</x>
+      <width>75</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_3</name>
+      <pv_name>loc://$(exp_rapidity)&lt;VDouble&gt;</pv_name>
+      <x>379</x>
+      <y>18</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Delay":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>Exp rapidity</text>
+      <x>379</x>
+      <width>69</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Delay":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_4</name>
+      <pv_name>loc://$(amp2_startvalue)&lt;VDouble&gt;</pv_name>
+      <x>181</x>
+      <y>77</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)]]></text>
+          <pv_name>loc://$(func2)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_5</name>
+      <pv_name>loc://$(amp2_endvalue)&lt;VDouble&gt;(0)</pv_name>
+      <x>280</x>
+      <y>77</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func2)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_6</name>
+      <pv_name>loc://$(amp_duration2)&lt;VDouble&gt;</pv_name>
+      <x>82</x>
+      <y>77</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>Start amp (0-1)</text>
+      <x>181</x>
+      <y>59</y>
+      <width>85</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('text', "Start Amp (0-1)")
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Start Amp (0-1)")
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Amp (0-1)")]]></text>
+          <pv_name>loc://$(func2)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>End amp (0-1)</text>
+      <x>280</x>
+      <y>59</y>
+      <width>80</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func2)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_7</name>
+      <text>Duration [ns]</text>
+      <x>82</x>
+      <y>59</y>
+      <width>75</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_7</name>
+      <pv_name>loc://$(exp_rapidity2)&lt;VDouble&gt;</pv_name>
+      <x>379</x>
+      <y>77</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func2)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>Exp rapidity</text>
+      <x>379</x>
+      <y>59</y>
+      <width>69</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func2)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_8</name>
+      <pv_name>loc://$(amp3_startvalue)&lt;VDouble&gt;</pv_name>
+      <x>181</x>
+      <y>137</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)]]></text>
+          <pv_name>loc://$(func3)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_9</name>
+      <pv_name>loc://$(amp3_endvalue)&lt;VDouble&gt;</pv_name>
+      <x>280</x>
+      <y>137</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func3)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_10</name>
+      <pv_name>loc://$(amp_duration3)&lt;VDouble&gt;</pv_name>
+      <x>82</x>
+      <y>137</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_9</name>
+      <text>Start amp (0-1)</text>
+      <x>181</x>
+      <y>119</y>
+      <width>85</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('text', "Start Amp (0-1)")
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Start Amp (0-1)")
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Amp (0-1)")]]></text>
+          <pv_name>loc://$(func3)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_10</name>
+      <text>End amp (0-1)</text>
+      <x>280</x>
+      <y>119</y>
+      <width>80</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func3)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_11</name>
+      <text>Duration [ns]</text>
+      <x>82</x>
+      <y>119</y>
+      <width>75</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_11</name>
+      <pv_name>loc://$(exp_rapidity3)&lt;VDouble&gt;</pv_name>
+      <x>379</x>
+      <y>137</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func3)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_12</name>
+      <text>Exp rapidity</text>
+      <x>379</x>
+      <y>119</y>
+      <width>69</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func3)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_12</name>
+      <pv_name>loc://$(amp4_startvalue)&lt;VDouble&gt;</pv_name>
+      <x>181</x>
+      <y>197</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)]]></text>
+          <pv_name>loc://$(func4)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_13</name>
+      <pv_name>loc://$(amp4_endvalue)&lt;VDouble&gt;</pv_name>
+      <x>280</x>
+      <y>197</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func4)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_14</name>
+      <pv_name>loc://$(amp_duration4)&lt;VDouble&gt;</pv_name>
+      <x>82</x>
+      <y>197</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_13</name>
+      <text>Start amp (0-1)</text>
+      <x>181</x>
+      <y>179</y>
+      <width>85</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('text', "Start Amp (0-1)")
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Start Amp (0-1)")
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Amp (0-1)")]]></text>
+          <pv_name>loc://$(func4)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_14</name>
+      <text>End amp (0-1)</text>
+      <x>280</x>
+      <y>179</y>
+      <width>80</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func4)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_15</name>
+      <text>Duration [ns]</text>
+      <x>82</x>
+      <y>179</y>
+      <width>75</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_15</name>
+      <pv_name>loc://$(exp_rapidity4)&lt;VDouble&gt;</pv_name>
+      <x>379</x>
+      <y>197</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func4)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_16</name>
+      <text>Exp rapidity</text>
+      <x>379</x>
+      <y>179</y>
+      <width>69</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func4)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box</name>
+      <pv_name>loc://$(func)&lt;VString&gt;("Delay")</pv_name>
+      <y>18</y>
+      <width>75</width>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+string = PVUtil.getString(pvs[0])
+
+if string is None or string == "":
+    PVUtil.writePV(str(pvs[0]), "Delay",1)
+elif string == "0":
+    PVUtil.writePV(str(pvs[0]), "Delay",1)
+else:
+    pass]]></text>
+          <pv_name>loc://$(func)</pv_name>
+        </script>
+      </scripts>
+      <items>
+        <item>Delay</item>
+        <item>Cost</item>
+        <item>Ramp</item>
+        <item>Exp</item>
+      </items>
+      <items_from_pv>false</items_from_pv>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box2_1</name>
+      <pv_name>loc://$(func3)&lt;VString&gt;("Ramp")</pv_name>
+      <y>135</y>
+      <width>75</width>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+string = PVUtil.getString(pvs[0])
+
+if string is None or string == "":
+    PVUtil.writePV(str(pvs[0]), "Ramp",1)
+elif string == "0":
+    PVUtil.writePV(str(pvs[0]), "Ramp",1)
+else:
+    pass]]></text>
+          <pv_name>loc://$(func3)</pv_name>
+        </script>
+      </scripts>
+      <items>
+        <item>Cost</item>
+        <item>Ramp</item>
+        <item>Exp</item>
+      </items>
+      <items_from_pv>false</items_from_pv>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box2_2</name>
+      <pv_name>loc://$(func4)&lt;VString&gt;("Exp")</pv_name>
+      <y>195</y>
+      <width>75</width>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+string = PVUtil.getString(pvs[0])
+
+if string is None or string == "":
+    PVUtil.writePV(str(pvs[0]), "Exp",1)
+elif string == "0":
+    PVUtil.writePV(str(pvs[0]), "Exp",1)
+else:
+    pass]]></text>
+          <pv_name>loc://$(func4)</pv_name>
+        </script>
+      </scripts>
+      <items>
+        <item>Cost</item>
+        <item>Ramp</item>
+        <item>Exp</item>
+      </items>
+      <items_from_pv>false</items_from_pv>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box2</name>
+      <pv_name>loc://$(func2)&lt;VString&gt;("Cost")</pv_name>
+      <y>77</y>
+      <width>75</width>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+string = PVUtil.getString(pvs[0])
+
+if string is None or string == "":
+    PVUtil.writePV(str(pvs[0]), "Cost",1)
+elif string == "0":
+    PVUtil.writePV(str(pvs[0]), "Cost",1)
+else:
+    pass]]></text>
+          <pv_name>loc://$(func2)</pv_name>
+        </script>
+      </scripts>
+      <items>
+        <item>Cost</item>
+        <item>Ramp</item>
+        <item>Exp</item>
+      </items>
+      <items_from_pv>false</items_from_pv>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Phase shape</name>
+    <x>489</x>
+    <y>27</y>
+    <width>504</width>
+    <height>263</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="230" green="128" blue="77">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="230" green="128" blue="77">
+      </color>
+    </line_color>
+    <transparent>true</transparent>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_48</name>
+      <pv_name>loc://$(ph1_startvalue)</pv_name>
+      <x>181</x>
+      <y>18</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Delay":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)]]></text>
+          <pv_name>loc://$(func_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_49</name>
+      <pv_name>loc://$(ph1_endvalue)</pv_name>
+      <x>280</x>
+      <y>18</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Delay":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_50</name>
+      <pv_name>loc://$(ph_duration1)</pv_name>
+      <x>82</x>
+      <y>18</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_49</name>
+      <text>Start amp (0-180)</text>
+      <x>177</x>
+      <width>98</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('text', "Start Amp (0-180)")
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Start Amp (0-180)")
+elif PVUtil.getString(pvs[0])=="Delay":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Amp (0-180)")]]></text>
+          <pv_name>loc://$(func_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_50</name>
+      <text>End amp (0-180)</text>
+      <x>280</x>
+      <width>93</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Delay":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_51</name>
+      <text>Duration [ns]</text>
+      <x>82</x>
+      <width>75</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_51</name>
+      <pv_name>loc://$(exp_rapidity_ph)</pv_name>
+      <x>379</x>
+      <y>18</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Delay":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_52</name>
+      <text>Exp rapidity</text>
+      <x>379</x>
+      <width>69</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Delay":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_52</name>
+      <pv_name>loc://$(ph2_startvalue)</pv_name>
+      <x>181</x>
+      <y>77</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)]]></text>
+          <pv_name>loc://$(func2_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_53</name>
+      <pv_name>loc://$(ph2_endvalue)</pv_name>
+      <x>280</x>
+      <y>77</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func2_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_54</name>
+      <pv_name>loc://$(ph_duration2)</pv_name>
+      <x>82</x>
+      <y>77</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_53</name>
+      <text>Start amp (0-180)</text>
+      <x>177</x>
+      <y>59</y>
+      <width>98</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('text', "Start Amp (0-180)")
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Start Amp (0-180)")
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Amp (0-180)")]]></text>
+          <pv_name>loc://$(func2_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_54</name>
+      <text>End amp (0-180)</text>
+      <x>280</x>
+      <y>59</y>
+      <width>93</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func2_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_55</name>
+      <text>Duration [ns]</text>
+      <x>82</x>
+      <y>59</y>
+      <width>75</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_55</name>
+      <pv_name>loc://$(exp_rapidity2_ph)</pv_name>
+      <x>379</x>
+      <y>77</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func2_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_56</name>
+      <text>Exp rapidity</text>
+      <x>379</x>
+      <y>59</y>
+      <width>69</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func2_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_56</name>
+      <pv_name>loc://$(ph3_startvalue)</pv_name>
+      <x>181</x>
+      <y>137</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)]]></text>
+          <pv_name>loc://$(func3_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_57</name>
+      <pv_name>loc://$(ph3_endvalue)</pv_name>
+      <x>280</x>
+      <y>137</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func3_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_58</name>
+      <pv_name>loc://$(ph_duration3)</pv_name>
+      <x>82</x>
+      <y>137</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_57</name>
+      <text>Start amp (0-180)</text>
+      <x>177</x>
+      <y>119</y>
+      <width>98</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('text', "Start Amp (0-180)")
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Start Amp (0-180)")
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Amp (0-180)")]]></text>
+          <pv_name>loc://$(func3_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_58</name>
+      <text>End amp (0-180)</text>
+      <x>280</x>
+      <y>119</y>
+      <width>93</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func3_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_59</name>
+      <text>Duration [ns]</text>
+      <x>82</x>
+      <y>119</y>
+      <width>75</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_59</name>
+      <pv_name>loc://$(exp_rapidity3_ph)</pv_name>
+      <x>379</x>
+      <y>137</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func3_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_60</name>
+      <text>Exp rapidity</text>
+      <x>379</x>
+      <y>119</y>
+      <width>69</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func3_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_60</name>
+      <pv_name>loc://$(ph4_startvalue)</pv_name>
+      <x>181</x>
+      <y>197</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)]]></text>
+          <pv_name>loc://$(func4_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_61</name>
+      <pv_name>loc://$(ph4_endvalue)</pv_name>
+      <x>280</x>
+      <y>197</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func4_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_62</name>
+      <pv_name>loc://$(ph_duration4)</pv_name>
+      <x>82</x>
+      <y>197</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_61</name>
+      <text>Start amp (0-180)</text>
+      <x>177</x>
+      <y>179</y>
+      <width>98</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('text', "Start Amp (0-180)")
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Start Amp (0-180)")
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 1)
+	widget.setPropertyValue('text', "Amp (0-180)")]]></text>
+          <pv_name>loc://$(func4_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_62</name>
+      <text>End amp (0-180)</text>
+      <x>280</x>
+      <y>179</y>
+      <width>93</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func4_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_63</name>
+      <text>Duration [ns]</text>
+      <x>82</x>
+      <y>179</y>
+      <width>75</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Entry_63</name>
+      <pv_name>loc://$(exp_rapidity4_ph)</pv_name>
+      <x>379</x>
+      <y>197</y>
+      <width>90</width>
+      <height>30</height>
+      <precision>0</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func4_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_64</name>
+      <text>Exp rapidity</text>
+      <x>379</x>
+      <y>179</y>
+      <width>69</width>
+      <height>15</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <auto_size>true</auto_size>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+if PVUtil.getString(pvs[0])=="Ramp":
+	widget.setPropertyValue('visible', 0)
+elif PVUtil.getString(pvs[0])=="Exp":
+	widget.setPropertyValue('visible', 1)
+elif PVUtil.getString(pvs[0])=="Cost":
+	widget.setPropertyValue('visible', 0)]]></text>
+          <pv_name>loc://$(func4_ph)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box_3</name>
+      <pv_name>loc://$(func_ph)&lt;VString&gt;("Delay")</pv_name>
+      <y>18</y>
+      <width>75</width>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+string = PVUtil.getString(pvs[0])
+
+if string is None or string == "":
+    PVUtil.writePV(str(pvs[0]), "Delay",1)
+elif string == "0":
+    PVUtil.writePV(str(pvs[0]), "Delay",1)
+else:
+    pass]]></text>
+          <pv_name>loc://$(func_ph)</pv_name>
+        </script>
+      </scripts>
+      <items>
+        <item>Delay</item>
+        <item>Cost</item>
+        <item>Ramp</item>
+        <item>Exp</item>
+      </items>
+      <items_from_pv>false</items_from_pv>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box2_9</name>
+      <pv_name>loc://$(func2_ph)&lt;VString&gt;("Cost")</pv_name>
+      <y>77</y>
+      <width>75</width>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+string = PVUtil.getString(pvs[0])
+
+if string is None or string == "":
+    PVUtil.writePV(str(pvs[0]), "Cost",1)
+elif string == "0":
+    PVUtil.writePV(str(pvs[0]), "Cost",1)
+else:
+    pass]]></text>
+          <pv_name>loc://$(func2_ph)</pv_name>
+        </script>
+      </scripts>
+      <items>
+        <item>Cost</item>
+        <item>Ramp</item>
+        <item>Exp</item>
+      </items>
+      <items_from_pv>false</items_from_pv>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box2_10</name>
+      <pv_name>loc://$(func3_ph)&lt;VString&gt;("Ramp")</pv_name>
+      <y>135</y>
+      <width>75</width>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+string = PVUtil.getString(pvs[0])
+
+if string is None or string == "":
+    PVUtil.writePV(str(pvs[0]), "Ramp",1)
+elif string == "0":
+    PVUtil.writePV(str(pvs[0]), "Ramp",1)
+else:
+    pass]]></text>
+          <pv_name>loc://$(func3_ph)</pv_name>
+        </script>
+      </scripts>
+      <items>
+        <item>Cost</item>
+        <item>Ramp</item>
+        <item>Exp</item>
+      </items>
+      <items_from_pv>false</items_from_pv>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Combo Box2_11</name>
+      <pv_name>loc://$(func4_ph)&lt;VString&gt;("Exp")</pv_name>
+      <y>195</y>
+      <width>75</width>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+string = PVUtil.getString(pvs[0])
+
+if string is None or string == "":
+    PVUtil.writePV(str(pvs[0]), "Exp",1)
+elif string == "0":
+    PVUtil.writePV(str(pvs[0]), "Exp",1)
+else:
+    pass]]></text>
+          <pv_name>loc://$(func4_ph)</pv_name>
+        </script>
+      </scripts>
+      <items>
+        <item>Cost</item>
+        <item>Ramp</item>
+        <item>Exp</item>
+      </items>
+      <items_from_pv>false</items_from_pv>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group</name>
+    <x>9</x>
+    <y>284</y>
+    <width>975</width>
+    <height>306</height>
+    <style>2</style>
+    <transparent>true</transparent>
+    <widget type="xyplot" version="3.0.0">
+      <name>X/Y Plot_1</name>
+      <x>28</x>
+      <y>7</y>
+      <height>290</height>
+      <title>PULSE PREVIEW</title>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import math
+
+ns_conversion=8.605
+amp_inizio1= PVUtil.getDouble(pvs[1])
+amp_inizio2=PVUtil.getDouble(pvs[8])
+amp_inizio3=PVUtil.getDouble(pvs[14])
+amp_inizio4=PVUtil.getDouble(pvs[17])
+amp_fine1 = PVUtil.getDouble(pvs[2])
+amp_fine2 = PVUtil.getDouble(pvs[9])
+amp_fine3 = PVUtil.getDouble(pvs[15])
+amp_fine4 = PVUtil.getDouble(pvs[18])
+
+durata1= int(PVUtil.getDouble(pvs[0])/ns_conversion) #ns2samples
+durata2= int(PVUtil.getDouble(pvs[7])/ns_conversion) #ns2samples
+durata3= int(PVUtil.getDouble(pvs[13])/ns_conversion) #ns2samples
+durata4= int(PVUtil.getDouble(pvs[19])/ns_conversion) #ns2samples
+
+andamento1 = PVUtil.getString(pvs[4])
+andamento2 = PVUtil.getString(pvs[10])
+andamento3 = PVUtil.getString(pvs[12])
+andamento4 = PVUtil.getString(pvs[20])
+
+v_exp1=PVUtil.getDouble(pvs[5])
+v_exp2=PVUtil.getDouble(pvs[11])
+v_exp3=PVUtil.getDouble(pvs[16])
+v_exp4=PVUtil.getDouble(pvs[21])
+
+if durata1 + durata2 +durata3> 1024:
+    raise ValueError("Errore: la lunghezza del vettore supera i 1024 campioni.")
+
+vettore = [0.0] * 1024
+
+for i in range(durata1):
+    if andamento1 == "Ramp":
+            vettore[i] = amp_inizio1 + (amp_fine1 - amp_inizio1) * (i / float(durata1 - 1))
+    elif andamento1 == "Exp":
+            vettore[i] = amp_inizio1 + (amp_fine1 - amp_inizio1) * (1 - math.exp(v_exp1 * i / float(durata1 - 1))) / (1 - math.exp(v_exp1))
+    elif andamento1 == "Delay":
+            vettore[i] = 0.0
+    elif andamento1 == "Cost":
+            vettore[i] = amp_inizio1
+
+for i in range(durata1, durata1+durata2):
+    j = i - durata1
+    if andamento2 == "Ramp":
+            vettore[i] = amp_inizio2 + (amp_fine2 - amp_inizio2) * (j / float(durata2 - 1))
+    elif andamento2 == "Cost":
+            vettore[i] = amp_inizio2
+    elif andamento2 == "Exp":
+            vettore[i] = amp_inizio2 + (amp_fine2 - amp_inizio2) * (1 - math.exp(v_exp2 * j / float(durata2 - 1))) / (1 - math.exp(v_exp2))
+
+for i in range(durata1+durata2, durata1+durata2+durata3):
+    j = i -(durata1+durata2)
+    if andamento3 == "Ramp":
+            vettore[i] = amp_inizio3 + (amp_fine3 - amp_inizio3) * (j / float(durata3 - 1))
+    elif andamento3 == "Cost":
+            vettore[i] = amp_inizio3
+    elif andamento3 == "Exp":
+            vettore[i] = amp_inizio3 + (amp_fine3 - amp_inizio3) * (1 - math.exp(v_exp3 * j / float(durata3 - 1))) / (1 - math.exp(v_exp3))
+
+for i in range(durata1+durata2+durata3, durata1+durata2+durata3+durata4):
+    j = i -(durata1+durata2+durata3)
+    if andamento4 == "Ramp":
+            vettore[i] = amp_inizio4 + (amp_fine4 - amp_inizio4) * (j / float(durata4 - 1))
+    elif andamento4 == "Cost":
+            vettore[i] = amp_inizio4
+    elif andamento4 == "Exp":
+            vettore[i] = amp_inizio4 + (amp_fine4 - amp_inizio4) * (1 - math.exp(v_exp4 * j / float(durata4 - 1))) / (1 - math.exp(v_exp4))
+
+
+
+PVUtil.writePV(str(pvs[3]),vettore,1)
+
+asse_x_ns = [i * ns_conversion for i in range(1024)]
+PVUtil.writePV(str(pvs[6]),asse_x_ns,1)]]></text>
+          <pv_name>loc://$(amp_duration1)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(amp1_startvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(amp1_endvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name trigger="false">loc://$(amp_pulse_shape)&lt;VDoubleArray&gt;</pv_name>
+          <pv_name trigger="false">loc://$(func)&lt;VString&gt;</pv_name>
+          <pv_name>loc://$(exp_rapidity)&lt;VDouble&gt;</pv_name>
+          <pv_name trigger="false">loc://$(time_ns)&lt;VDoubleArray&gt;</pv_name>
+          <pv_name>loc://$(amp_duration2)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(amp2_startvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(amp2_endvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name trigger="false">loc://$(func2)&lt;VString&gt;</pv_name>
+          <pv_name>loc://$(exp_rapidity2)&lt;VDouble&gt;</pv_name>
+          <pv_name trigger="false">loc://$(func3)&lt;VString&gt;</pv_name>
+          <pv_name>loc://$(amp_duration3)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(amp3_startvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(amp3_endvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(exp_rapidity3)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(amp4_startvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(amp4_endvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(amp_duration4)&lt;VDouble&gt;</pv_name>
+          <pv_name trigger="false">loc://$(func4)&lt;VString&gt;</pv_name>
+          <pv_name>loc://$(exp_rapidity4)&lt;VDouble&gt;</pv_name>
+        </script>
+        <script file="EmbeddedPy">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+import math
+
+ns_conversion=8.605
+amp_inizio1= PVUtil.getDouble(pvs[1])
+amp_inizio2=PVUtil.getDouble(pvs[8])
+amp_inizio3=PVUtil.getDouble(pvs[14])
+amp_inizio4=PVUtil.getDouble(pvs[17])
+amp_fine1 = PVUtil.getDouble(pvs[2])
+amp_fine2 = PVUtil.getDouble(pvs[9])
+amp_fine3 = PVUtil.getDouble(pvs[15])
+amp_fine4 = PVUtil.getDouble(pvs[18])
+
+durata1= int(PVUtil.getDouble(pvs[0])/ns_conversion) #ns2samples
+durata2= int(PVUtil.getDouble(pvs[7])/ns_conversion) #ns2samples
+durata3= int(PVUtil.getDouble(pvs[13])/ns_conversion) #ns2samples
+durata4= int(PVUtil.getDouble(pvs[19])/ns_conversion) #ns2samples
+
+andamento1 = PVUtil.getString(pvs[4])
+andamento2 = PVUtil.getString(pvs[10])
+andamento3 = PVUtil.getString(pvs[12])
+andamento4 = PVUtil.getString(pvs[20])
+
+v_exp1=PVUtil.getDouble(pvs[5])
+v_exp2=PVUtil.getDouble(pvs[11])
+v_exp3=PVUtil.getDouble(pvs[16])
+v_exp4=PVUtil.getDouble(pvs[21])
+
+if durata1 + durata2 +durata3> 1024:
+    raise ValueError("Errore: la lunghezza del vettore supera i 1024 campioni.")
+
+vettore = [0.0] * 1024
+
+for i in range(durata1):
+    if andamento1 == "Ramp":
+            vettore[i] = amp_inizio1 + (amp_fine1 - amp_inizio1) * (i / float(durata1 - 1))
+    elif andamento1 == "Exp":
+            vettore[i] = amp_inizio1 + (amp_fine1 - amp_inizio1) * (1 - math.exp(v_exp1 * i / float(durata1 - 1))) / (1 - math.exp(v_exp1))
+    elif andamento1 == "Delay":
+            vettore[i] = 0.0
+    elif andamento1 == "Cost":
+            vettore[i] = amp_inizio1
+
+for i in range(durata1, durata1+durata2):
+    j = i - durata1
+    if andamento2 == "Ramp":
+            vettore[i] = amp_inizio2 + (amp_fine2 - amp_inizio2) * (j / float(durata2 - 1))
+    elif andamento2 == "Cost":
+            vettore[i] = amp_inizio2
+    elif andamento2 == "Exp":
+            vettore[i] = amp_inizio2 + (amp_fine2 - amp_inizio2) * (1 - math.exp(v_exp2 * j / float(durata2 - 1))) / (1 - math.exp(v_exp2))
+
+for i in range(durata1+durata2, durata1+durata2+durata3):
+    j = i -(durata1+durata2)
+    if andamento3 == "Ramp":
+            vettore[i] = amp_inizio3 + (amp_fine3 - amp_inizio3) * (j / float(durata3 - 1))
+    elif andamento3 == "Cost":
+            vettore[i] = amp_inizio3
+    elif andamento3 == "Exp":
+            vettore[i] = amp_inizio3 + (amp_fine3 - amp_inizio3) * (1 - math.exp(v_exp3 * j / float(durata3 - 1))) / (1 - math.exp(v_exp3))
+
+for i in range(durata1+durata2+durata3, durata1+durata2+durata3+durata4):
+    j = i -(durata1+durata2+durata3)
+    if andamento4 == "Ramp":
+            vettore[i] = amp_inizio4 + (amp_fine4 - amp_inizio4) * (j / float(durata4 - 1))
+    elif andamento4 == "Cost":
+            vettore[i] = amp_inizio4
+    elif andamento4 == "Exp":
+            vettore[i] = amp_inizio4 + (amp_fine4 - amp_inizio4) * (1 - math.exp(v_exp4 * j / float(durata4 - 1))) / (1 - math.exp(v_exp4))
+
+
+
+PVUtil.writePV(str(pvs[3]),vettore,1)
+
+#asse_x_ns = [i * ns_conversion for i in range(1024)]
+#PVUtil.writePV(str(pvs[6]),asse_x_ns,1)]]></text>
+          <pv_name>loc://$(ph_duration1)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(ph1_startvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(ph1_endvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name trigger="false">loc://$(ph_pulse_shape)&lt;VDoubleArray&gt;</pv_name>
+          <pv_name trigger="false">loc://$(func_ph)&lt;VString&gt;</pv_name>
+          <pv_name>loc://$(exp_rapidity_ph)&lt;VDouble&gt;</pv_name>
+          <pv_name trigger="false">loc://$(time_ns)</pv_name>
+          <pv_name>loc://$(ph_duration2)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(ph2_startvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(ph2_endvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name trigger="false">loc://$(func2_ph)&lt;VString&gt;</pv_name>
+          <pv_name>loc://$(exp_rapidity2_ph)&lt;VDouble&gt;</pv_name>
+          <pv_name trigger="false">loc://$(func3_ph)&lt;VString&gt;</pv_name>
+          <pv_name>loc://$(ph_duration3)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(ph3_startvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(ph3_endvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(exp_rapidity3_ph)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(ph4_startvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(ph4_endvalue)&lt;VDouble&gt;</pv_name>
+          <pv_name>loc://$(ph_duration4)&lt;VDouble&gt;</pv_name>
+          <pv_name trigger="false">loc://$(func4_ph)&lt;VString&gt;</pv_name>
+          <pv_name>loc://$(exp_rapidity4_ph)&lt;VDouble&gt;</pv_name>
+        </script>
+      </scripts>
+      <x_axis>
+        <title>Time [ns]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <visible>true</visible>
+      </x_axis>
+      <y_axes>
+        <y_axis>
+          <title>Amplitude</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>true</show_grid>
+          <title_font>
+            <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+            </font>
+          </title_font>
+          <scale_font>
+            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            </font>
+          </scale_font>
+          <on_right>false</on_right>
+          <visible>true</visible>
+          <color>
+            <color red="26" green="51" blue="153">
+            </color>
+          </color>
+        </y_axis>
+        <y_axis>
+          <title>Phase</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>false</show_grid>
+          <title_font>
+            <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+            </font>
+          </title_font>
+          <scale_font>
+            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            </font>
+          </scale_font>
+          <on_right>true</on_right>
+          <visible>true</visible>
+          <color>
+            <color red="230" green="128" blue="77">
+            </color>
+          </color>
+        </y_axis>
+      </y_axes>
+      <traces>
+        <trace>
+          <name>$(traces[0].y_pv)</name>
+          <x_pv>loc://$(time_ns)</x_pv>
+          <y_pv>loc://$(amp_pulse_shape)</y_pv>
+          <err_pv></err_pv>
+          <axis>0</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="26" green="51" blue="153">
+            </color>
+          </color>
+          <line_width>3</line_width>
+          <line_style>3</line_style>
+          <point_type>0</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+        <trace>
+          <name>$(traces[1].y_pv)</name>
+          <x_pv>loc://$(time_ns)</x_pv>
+          <y_pv>loc://$(ph_pulse_shape)</y_pv>
+          <err_pv></err_pv>
+          <axis>1</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="230" green="128" blue="77">
+            </color>
+          </color>
+          <line_width>3</line_width>
+          <line_style>3</line_style>
+          <point_type>0</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+      </traces>
+    </widget>
+    <widget type="led" version="2.0.0">
+      <name>LED (Multi State)</name>
+      <pv_name>loc://$(update)</pv_name>
+      <x>449</x>
+      <y>71</y>
+      <width>78</width>
+      <height>31</height>
+      <off_label>Up to date</off_label>
+      <off_color>
+        <color name="STOP" red="255" green="0" blue="0">
+        </color>
+      </off_color>
+      <on_label>Up to date</on_label>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <square>true</square>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+set_amp_shape=PVUtil.getDoubleArray(pvs[0])
+libera_amp_shape=PVUtil.getDoubleArray(pvs[1])
+set_ph_shape=PVUtil.getDoubleArray(pvs[2])
+libera_ph_shape=PVUtil.getDoubleArray(pvs[3])
+if set_amp_shape==libera_amp_shape and set_ph_shape==libera_ph_shape:
+	PVUtil.writePV(str(pvs[4]),1,1)
+else: 
+	PVUtil.writePV(str(pvs[4]),0,1)
+
+	
+]]></text>
+          <pv_name>loc://$(amp_pulse_shape)&lt;VDoubleArray&gt;</pv_name>
+          <pv_name>$(LLRF_NAME):vm:dsp:ff_pulse_shape:amp</pv_name>
+          <pv_name>loc://$(ph_pulse_shape)&lt;VDoubleArray&gt;</pv_name>
+          <pv_name>$(LLRF_NAME):vm:dsp:ff_pulse_shape:ph</pv_name>
+          <pv_name trigger="false">loc://$(update)</pv_name>
+        </script>
+      </scripts>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button</name>
+      <pv_name>loc://$(apply_pulse_shape)(0)</pv_name>
+      <x>449</x>
+      <y>113</y>
+      <width>78</width>
+      <height>33</height>
+      <off_label>Apply</off_label>
+      <off_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </off_color>
+      <on_label>Apply</on_label>
+      <on_color>
+        <color name="Button_Background" red="210" green="210" blue="210">
+        </color>
+      </on_color>
+      <show_led>false</show_led>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+apply=PVUtil.getDouble(pvs[5])
+if apply==0: 
+	pass
+else:
+	amp_shape=PVUtil.getDoubleArray(pvs[1])
+	ph_shape=PVUtil.getDoubleArray(pvs[3])
+	PVUtil.writePV(str(pvs[0]),amp_shape,1)
+	PVUtil.writePV(str(pvs[4]),ph_shape,1)
+	PVUtil.writePV(str(pvs[2]),1,1)
+	PVUtil.writePV(str(pvs[2]),1,1)]]></text>
+          <pv_name trigger="false">$(LLRF_NAME):vm:dsp:ff_pulse_shape:amp</pv_name>
+          <pv_name trigger="false">loc://$(amp_pulse_shape)&lt;VDoubleArray&gt;</pv_name>
+          <pv_name trigger="false">$(LLRF_NAME):vm:dsp:ff_pulse_shape:apply_tables</pv_name>
+          <pv_name trigger="false">loc://$(ph_pulse_shape)&lt;VDoubleArray&gt;</pv_name>
+          <pv_name trigger="false">$(LLRF_NAME):vm:dsp:ff_pulse_shape:ph</pv_name>
+          <pv_name>loc://$(apply_pulse_shape)</pv_name>
+        </script>
+      </scripts>
+      <mode>1</mode>
+    </widget>
+    <widget type="xyplot" version="3.0.0">
+      <name>X/Y Plot</name>
+      <x>547</x>
+      <y>5</y>
+      <height>290</height>
+      <title>LIBERA PULSE</title>
+      <scripts>
+        <script file="EmbeddedPy">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+samples = list(range(1, 1025))
+for i in range(len(samples)):
+    samples[i] = samples[i] * 8.403
+PVUtil.writePV(str(pvs[1]), samples,1)]]></text>
+          <pv_name>$(LLRF_NAME):vm:dsp:ff_pulse_shape:amp</pv_name>
+          <pv_name trigger="false">loc://$(samples)</pv_name>
+        </script>
+      </scripts>
+      <x_axis>
+        <title>Time [ns]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <visible>true</visible>
+      </x_axis>
+      <y_axes>
+        <y_axis>
+          <title>Amplitude</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>true</show_grid>
+          <title_font>
+            <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+            </font>
+          </title_font>
+          <scale_font>
+            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            </font>
+          </scale_font>
+          <on_right>false</on_right>
+          <visible>true</visible>
+          <color>
+            <color red="26" green="51" blue="153">
+            </color>
+          </color>
+        </y_axis>
+        <y_axis>
+          <title>Phase</title>
+          <autoscale>true</autoscale>
+          <log_scale>false</log_scale>
+          <minimum>0.0</minimum>
+          <maximum>100.0</maximum>
+          <show_grid>false</show_grid>
+          <title_font>
+            <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+            </font>
+          </title_font>
+          <scale_font>
+            <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+            </font>
+          </scale_font>
+          <on_right>true</on_right>
+          <visible>true</visible>
+          <color>
+            <color red="230" green="128" blue="77">
+            </color>
+          </color>
+        </y_axis>
+      </y_axes>
+      <traces>
+        <trace>
+          <name>$(traces[0].y_pv)</name>
+          <x_pv>loc://$(samples)</x_pv>
+          <y_pv>$(LLRF_NAME):vm:dsp:ff_pulse_shape:amp</y_pv>
+          <err_pv></err_pv>
+          <axis>0</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="26" green="51" blue="153">
+            </color>
+          </color>
+          <line_width>3</line_width>
+          <line_style>1</line_style>
+          <point_type>0</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+        <trace>
+          <name>$(traces[1].y_pv)</name>
+          <x_pv>loc://$(samples)</x_pv>
+          <y_pv>$(LLRF_NAME):vm:dsp:ff_pulse_shape:ph</y_pv>
+          <err_pv></err_pv>
+          <axis>1</axis>
+          <trace_type>1</trace_type>
+          <color>
+            <color red="230" green="128" blue="77">
+            </color>
+          </color>
+          <line_width>3</line_width>
+          <line_style>1</line_style>
+          <point_type>0</point_type>
+          <point_size>10</point_size>
+          <visible>true</visible>
+        </trace>
+      </traces>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Error Message</name>
+      <text>Error: the vector length exceeds 1024 samples!
+</text>
+      <x>116</x>
+      <y>108</y>
+      <width>232</width>
+      <height>50</height>
+      <visible>false</visible>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="255" green="0" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="255" green="255" blue="128">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="EmbeddedPy" check_connections="false">
+          <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+ns_conversion=8.605
+durata1= int(PVUtil.getDouble(pvs[0])/ns_conversion) #ns2samples
+durata2= int(PVUtil.getDouble(pvs[1])/ns_conversion) #ns2samples
+durata3= int(PVUtil.getDouble(pvs[2])/ns_conversion) #ns2samples
+durata4= int(PVUtil.getDouble(pvs[3])/ns_conversion) #ns2samples
+
+durata_ph1= int(PVUtil.getDouble(pvs[4])/ns_conversion) #ns2samples
+durata_ph2= int(PVUtil.getDouble(pvs[5])/ns_conversion) #ns2samples
+durata_ph3= int(PVUtil.getDouble(pvs[6])/ns_conversion) #ns2samples
+durata_ph4= int(PVUtil.getDouble(pvs[7])/ns_conversion) #ns2samples
+
+if durata1+durata2+durata3+durata4>1024: widget.setPropertyValue('visible', 1)
+elif durata_ph1+durata_ph2+durata_ph3+durata_ph4>1024: widget.setPropertyValue('visible', 1)
+else: widget.setPropertyValue('visible', 0)
+
+
+]]></text>
+          <pv_name>loc://$(amp_duration1)</pv_name>
+          <pv_name>loc://$(amp_duration2)</pv_name>
+          <pv_name>loc://$(amp_duration3)</pv_name>
+          <pv_name>loc://$(amp_duration4)</pv_name>
+          <pv_name>loc://$(ph_duration1)</pv_name>
+          <pv_name>loc://$(ph_duration2)</pv_name>
+          <pv_name>loc://$(ph_duration3)</pv_name>
+          <pv_name>loc://$(ph_duration4)</pv_name>
+        </script>
+      </scripts>
+      <border_width>2</border_width>
+      <border_color>
+        <color name="INVALID" red="255" green="0" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>$(LLRF_NAME):PULSE_SHAPE</text>
+    <x>10</x>
+    <width>370</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="20.0">
+      </font>
+    </font>
+  </widget>
+</display>

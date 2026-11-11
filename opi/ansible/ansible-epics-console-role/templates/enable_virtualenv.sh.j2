@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Source the virtual environment
+if [ -f "{{ python_env_path }}/bin/activate" ]; then
+    source "{{ python_env_path }}/bin/activate"
+fi

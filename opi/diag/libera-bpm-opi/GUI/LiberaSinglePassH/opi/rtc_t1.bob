@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-01-02 17:43:56 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Scale parameters</name>
+  <x>899</x>
+  <y>141</y>
+  <width>580</width>
+  <height>880</height>
+  <background_color>
+    <color name="GLOBAL canvas" red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <widget type="rectangle" version="2.0.0">
+    <name>EDM activeRectangleClass</name>
+    <width>581</width>
+    <height>31</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="libera_title_container" red="255" green="120" blue="0">
+      </color>
+    </background_color>
+  </widget>
+</display>

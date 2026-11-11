@@ -1,0 +1,360 @@
+---
+
+# Detect desktop environment
+- name: Detect desktop environment
+  shell: |
+    if [ -n "$XDG_CURRENT_DESKTOP" ]; then
+      echo "$XDG_CURRENT_DESKTOP"
+    elif [ -n "$DESKTOP_SESSION" ]; then
+      echo "$DESKTOP_SESSION"
+    elif pgrep -x "gnome-shell" > /dev/null; then
+      echo "GNOME"
+    elif pgrep -x "lxsession" > /dev/null || pgrep -x "lxpanel" > /dev/null; then
+      echo "LXDE"
+    elif pgrep -x "xfce4-session" > /dev/null; then
+      echo "XFCE"
+    else
+      echo "unknown"
+    fi
+  register: desktop_env_result
+  changed_when: false
+  ignore_errors: true
+
+- name: Set desktop environment fact
+  set_fact:
+    desktop_environment: "{{ desktop_env_result.stdout | default('unknown') | upper }}"
+
+- name: Display detected desktop environment
+  debug:
+    msg: "Detected desktop environment: {{ desktop_environment }}"
+
+- name: Remove existing user OPI repositories for fresh clone
+  file:
+    path: "/home/{{ item.opi_user }}/{{ item.dest }}"
+    state: absent
+  loop: "{{ opi_repos }}"
+  become: true
+  become_user: "{{ item.opi_user }}"
+  when:
+    - opi_git_update | default(true)
+    - skip_git_user_config is not defined or not skip_git_user_config
+
+- name: Ensure user OPI destination directory exists (archive install)
+  file:
+    path: "/home/{{ item.opi_user }}/{{ item.dest }}"
+    state: directory
+    mode: '0755'
+  loop: "{{ opi_repos }}"
+  become: true
+  become_user: "{{ item.opi_user }}"
+  when:
+    - opi_git_update | default(true)
+    - skip_git_user_config is not defined or not skip_git_user_config
+    - item.archive is defined and item.archive | length > 0
+
+- name: install OPIs repositories in user home for development (from prebuilt archive)
+  # Same rationale as the opi_path install in main.yml: reuse the archive already
+  # pushed over the SSH connection instead of a second per-console git clone from
+  # baltig.infn.it, which is what was tripping 429 rate limits across the fleet.
+  ansible.builtin.unarchive:
+    src: "{{ item.archive }}"
+    dest: "/home/{{ item.opi_user }}/{{ item.dest }}"
+  loop: "{{ opi_repos }}"
+  become: true
+  become_user: "{{ item.opi_user }}"
+  when:
+    - opi_git_update | default(true)
+    - skip_git_user_config is not defined or not skip_git_user_config
+    - item.archive is defined and item.archive | length > 0
+
+- name: install OPIs repositories in user home for development (git clone fallback when no prebuilt archive is provided)
+  git:
+    repo: "{{ item.url }}"
+    dest: "/home/{{ item.opi_user }}/{{ item.dest }}"
+    version: "{{ item.version | default(omit) }}"
+    force: true
+  loop: "{{ opi_repos }}"
+  become: true
+  become_user: "{{ item.opi_user }}"
+  when:
+    - opi_git_update | default(true)
+    - skip_git_user_config is not defined or not skip_git_user_config
+    - item.archive is not defined or item.archive | length == 0
+
+- name: create user application directories
+  file:
+    path: "/home/{{ item[0].opi_user }}/{{ item[1] }}"
+    state: directory
+    owner: "{{ item[0].opi_user }}"
+    mode: 0775
+  loop: "{{ opi_repos | product(['.docker', '.local/share/applications']) | list }}"
+  when: skip_git_user_config is not defined or not skip_git_user_config
+
+- name: Ensure correct desktop directory exists
+  file:
+    path: "/home/{{ item.opi_user }}/{{ desktop_dir_result.results[loop_index].stdout }}"
+    state: directory
+    owner: "{{ item.opi_user }}"
+    mode: 0775
+  loop: "{{ opi_repos }}"
+  when: desktop_dir_result is defined and (skip_git_user_config is not defined or not skip_git_user_config)
+
+- name: Detect desktop directory name
+  shell: |
+    if [ -d "/home/{{ item.opi_user }}/Desktop" ]; then
+      echo "Desktop"
+    elif [ -d "/home/{{ item.opi_user }}/Scrivania" ]; then
+      echo "Scrivania"
+    else
+      # Fallback to XDG user dirs (already running as item.opi_user via become_user)
+      desktop_dir=$(timeout 5 xdg-user-dir DESKTOP 2>/dev/null || echo "Desktop")
+      echo "$desktop_dir" | sed 's|.*/||'  # Extract just the directory name
+    fi
+  register: desktop_dir_result
+  become: true
+  become_user: "{{ item.opi_user }}"
+  loop: "{{ opi_repos }}"
+  changed_when: false
+  when: skip_git_user_config is not defined or not skip_git_user_config
+
+- name: Set desktop directory fact for each user
+  set_fact:
+    user_desktop_dirs: "{{ user_desktop_dirs | default({}) | combine({item.item.opi_user: item.stdout}) }}"
+  loop: "{{ desktop_dir_result.results }}"
+  when: desktop_dir_result is defined and (skip_git_user_config is not defined or not skip_git_user_config)
+
+- name: Ensure correct desktop directory exists
+  file:
+    path: "/home/{{ item.opi_user }}/{{ user_desktop_dirs[item.opi_user] }}"
+    state: directory
+    owner: "{{ item.opi_user }}"
+    mode: 0775
+  loop: "{{ opi_repos }}"
+  when: user_desktop_dirs is defined and (skip_git_user_config is not defined or not skip_git_user_config)
+
+- name: Render Phoebus EPIK8s .desktop file for each opi_user
+  template:
+    src: phoebus.desktop.j2
+    dest: "/home/{{ item.opi_user }}/{{ user_desktop_dirs[item.opi_user] }}/phoebus-{{item.dest}}.desktop"
+    owner: "{{ item.opi_user }}"
+    mode: 0644
+  loop: "{{ opi_repos }}"
+  vars:
+    opi_settings: "{{ (opi_path + '/' + item.dest + '/' + item.opi_settings) if (item.opi_settings is defined and item.opi_settings | length > 0) else default_phoebus_ini }}"
+    opi_main: "{{opi_path}}/{{item.dest}}/{{ item.opi_main }}"
+    dest: "{{item.dest}}"
+  when: skip_git_user_config is not defined or not skip_git_user_config
+
+
+- name: Render Phoebus EPIK8s .desktop file in .local/applications
+  template:
+    src: phoebus.desktop.j2
+    dest: "/home/{{ item.opi_user }}/.local/share/applications/phoebus-{{item.dest}}.desktop"
+    owner: "{{ item.opi_user }}"
+    mode: 0644
+  loop: "{{ opi_repos }}"
+  vars:
+    opi_settings: "{{ (opi_path + '/' + item.dest + '/' + item.opi_settings) if (item.opi_settings is defined and item.opi_settings | length > 0) else default_phoebus_ini }}"
+    opi_main: "{{opi_path}}/{{item.dest}}/{{ item.opi_main }}"
+    dest: "{{item.dest}}"
+  when: skip_git_user_config is not defined or not skip_git_user_config
+
+
+- name: Render system-wide Phoebus .desktop
+  template:
+    src: phoebus.desktop.j2
+    dest: "/usr/share/applications/phoebus.desktop"
+    owner: root
+    group: root
+    mode: 0644
+  vars:
+    dest: "Application"
+  become: true
+
+# Desktop shortcuts for localhost/root user when skip_git_user_config is true
+- name: Get current user home directory
+  shell: echo $HOME
+  register: current_user_home
+  changed_when: false
+  when: skip_git_user_config is defined and skip_git_user_config
+
+- name: Detect desktop directory for current user
+  shell: |
+    if [ -d "{{ current_user_home.stdout }}/Desktop" ]; then
+      echo "Desktop"
+    elif [ -d "{{ current_user_home.stdout }}/Scrivania" ]; then
+      echo "Scrivania"
+    else
+      desktop_dir=$(xdg-user-dir DESKTOP 2>/dev/null || echo "Desktop")
+      echo "$desktop_dir" | sed 's|.*/||'
+    fi
+  register: current_user_desktop_dir
+  changed_when: false
+  when: skip_git_user_config is defined and skip_git_user_config
+
+- name: Ensure current user desktop directory exists
+  file:
+    path: "{{ current_user_home.stdout }}/{{ current_user_desktop_dir.stdout }}"
+    state: directory
+    mode: 0775
+  when: 
+    - skip_git_user_config is defined and skip_git_user_config
+    - current_user_home.stdout is defined
+    - current_user_desktop_dir.stdout is defined
+
+- name: Create Phoebus desktop shortcut for current user
+  template:
+    src: phoebus.desktop.j2
+    dest: "{{ current_user_home.stdout }}/{{ current_user_desktop_dir.stdout }}/phoebus.desktop"
+    mode: 0755
+  vars:
+    dest: "Application"
+  when: 
+    - skip_git_user_config is defined and skip_git_user_config
+    - current_user_home.stdout is defined
+    - current_user_desktop_dir.stdout is defined
+
+- name: Make desktop shortcut executable (required for LXDE)
+  file:
+    path: "{{ current_user_home.stdout }}/{{ current_user_desktop_dir.stdout }}/phoebus.desktop"
+    mode: 0755
+  when: 
+    - skip_git_user_config is defined and skip_git_user_config
+    - current_user_home.stdout is defined
+    - current_user_desktop_dir.stdout is defined
+
+- name: Get the D-Bus session address for the target user (GNOME)
+  shell: "grep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pgrep -u {{ item.opi_user }} gnome-session | head -n1)/environ | tr '\\0' '\\n'"
+  register: dbus_session
+  become: true
+  become_user: "{{ item.opi_user }}"
+  changed_when: false
+  ignore_errors: true
+  loop: "{{ opi_repos }}"
+  when: 
+    - skip_git_user_config is not defined or not skip_git_user_config
+    - "'GNOME' in desktop_environment"
+
+- name: Get the D-Bus session address for the target user (GNOME with index)
+  shell: "grep -z DBUS_SESSION_BUS_ADDRESS /proc/$(pgrep -u {{ item.opi_user }} gnome-session | head -n1)/environ | tr '\\0' '\\n'"
+  register: dbus_session
+  become: true
+  become_user: "{{ item.opi_user }}"
+  changed_when: false
+  ignore_errors: true
+  loop: "{{ opi_repos }}"
+  loop_control:
+    index_var: idx
+  when: 
+    - skip_git_user_config is not defined or not skip_git_user_config
+    - "'GNOME' in desktop_environment"
+
+- name: Add each Phoebus app to GNOME favorites
+  become: true
+  become_user: "{{ item.opi_user }}"
+  environment:
+    DBUS_SESSION_BUS_ADDRESS: "{{ dbus_session.results[idx].stdout }}"
+  shell: |
+    favs=$(gsettings get org.gnome.shell favorite-apps)
+    entry="phoebus-{{ item.dest }}.desktop"
+    if [[ "$favs" != *"$entry"* ]]; then
+      new_favs=$(echo $favs | sed "s/]$/, '$entry']/")
+      gsettings set org.gnome.shell favorite-apps "$new_favs"
+    fi
+  when: 
+    - dbus_session.results[idx].stdout | default('') != ""
+    - skip_git_user_config is not defined or not skip_git_user_config
+    - "'GNOME' in desktop_environment"
+  loop: "{{ opi_repos }}"
+  loop_control:
+    index_var: idx
+
+# LXDE-specific tasks
+- name: Ensure LXDE panel launchers directory exists
+  file:
+    path: "/home/{{ item.opi_user }}/.config/lxpanel/LXDE/panels"
+    state: directory
+    owner: "{{ item.opi_user }}"
+    mode: 0755
+  loop: "{{ opi_repos }}"
+  become: true
+  become_user: "{{ item.opi_user }}"
+  when: 
+    - skip_git_user_config is not defined or not skip_git_user_config
+    - "'LXDE' in desktop_environment"
+  ignore_errors: true
+
+- name: Create LXDE launchbar directory if not exists
+  file:
+    path: "/home/{{ item.opi_user }}/.config/lxpanel/LXDE/launchtaskbar"
+    state: directory
+    owner: "{{ item.opi_user }}"
+    mode: 0755
+  loop: "{{ opi_repos }}"
+  become: true
+  become_user: "{{ item.opi_user }}"
+  when: 
+    - skip_git_user_config is not defined or not skip_git_user_config
+    - "'LXDE' in desktop_environment"
+  ignore_errors: true
+
+- name: Copy Phoebus desktop file to LXDE launchbar
+  copy:
+    src: "/home/{{ item.opi_user }}/.local/share/applications/phoebus-{{ item.dest }}.desktop"
+    dest: "/home/{{ item.opi_user }}/.config/lxpanel/LXDE/launchtaskbar/phoebus-{{ item.dest }}.desktop"
+    remote_src: yes
+    owner: "{{ item.opi_user }}"
+    mode: 0644
+  loop: "{{ opi_repos }}"
+  become: true
+  become_user: "{{ item.opi_user }}"
+  when: 
+    - skip_git_user_config is not defined or not skip_git_user_config
+    - "'LXDE' in desktop_environment"
+  ignore_errors: true
+
+- name: Check if LXDE panel config exists
+  stat:
+    path: "/home/{{ item.opi_user }}/.config/lxpanel/LXDE/panels/panel"
+  register: lxde_panel_stat
+  loop: "{{ opi_repos }}"
+  become: true
+  become_user: "{{ item.opi_user }}"
+  when: 
+    - skip_git_user_config is not defined or not skip_git_user_config
+    - "'LXDE' in desktop_environment"
+
+- name: Add Phoebus launcher to LXDE panel config
+  blockinfile:
+    path: "/home/{{ item.item.opi_user }}/.config/lxpanel/LXDE/panels/panel"
+    marker: "# {mark} ANSIBLE MANAGED BLOCK - phoebus-{{ item.item.dest }}"
+    insertafter: "Plugin {"
+    block: |
+      Plugin {
+        type=launchbar
+        Config {
+          Button {
+            id=phoebus-{{ item.item.dest }}.desktop
+          }
+        }
+      }
+  loop: "{{ lxde_panel_stat.results }}"
+  become: true
+  become_user: "{{ item.item.opi_user }}"
+  when: 
+    - item.stat is defined
+    - item.stat.exists
+    - skip_git_user_config is not defined or not skip_git_user_config
+    - "'LXDE' in desktop_environment"
+  ignore_errors: true
+
+- name: Reload LXDE panel to apply changes
+  shell: "lxpanelctl restart"
+  become: true
+  become_user: "{{ item.opi_user }}"
+  loop: "{{ opi_repos }}"
+  when: 
+    - skip_git_user_config is not defined or not skip_git_user_config
+    - "'LXDE' in desktop_environment"
+  ignore_errors: true
+  changed_when: false

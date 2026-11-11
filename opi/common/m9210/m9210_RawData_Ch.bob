@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-06-29 17:50:21 by michelottilabs-->
+<display version="2.0.0">
+  <macros>
+    <CH>0</CH>
+  </macros>
+  <width>780</width>
+  <height>1200</height>
+  <background_color>
+    <color name="IO Grid" red="215" green="215" blue="215">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="xyplot" version="3.0.0">
+    <name>XY Graph Template</name>
+    <x>23</x>
+    <y>40</y>
+    <width>728</width>
+    <height>439</height>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <title>Raw Data - Channel $(CHAN)</title>
+    <title_font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </title_font>
+    <show_toolbar>true</show_toolbar>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="enablech0" prop_id="traces[0].visible" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="pv0==0">
+          <value>true</value>
+        </exp>
+        <pv_name>loc://enable_ch0_$(DID)</pv_name>
+      </rule>
+    </rules>
+    <x_axis>
+      <title>Samples [n]</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>2059.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Voltage [V]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>-5.0E-12</minimum>
+        <maximum>5.0E-12</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(DEVICE):AI$(CHAN):AVG</name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):AI$(CHAN):AVG</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="IO Trace 1" red="79" green="129" blue="189">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>$(traces[1].y_pv)</name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):AI$(CHAN)</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="255" green="0" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>false</visible>
+      </trace>
+    </traces>
+    <marker>
+      <marker>
+        <color>
+          <color name="Off" red="60" green="100" blue="60">
+          </color>
+        </color>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_START_IDX</pv_name>
+        <interactive>true</interactive>
+      </marker>
+      <marker>
+        <color>
+          <color name="OK" red="0" green="255" blue="0">
+          </color>
+        </color>
+        <pv_name>$(DEVICE):AI$(CHAN):SET_END_IDX</pv_name>
+        <interactive>true</interactive>
+      </marker>
+    </marker>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Integral_Display_Target</name>
+    <text>CHARGE_FINAL Ch$(CHAN):</text>
+    <x>325</x>
+    <y>10</y>
+    <width>160</width>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_13</name>
+    <text>sample average</text>
+    <x>22</x>
+    <y>14</y>
+    <width>79</width>
+    <height>15</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_4</name>
+    <pv_name>$(DEVICE):AI$(CHAN):AVG.N</pv_name>
+    <x>119</x>
+    <y>11</y>
+    <width>91</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(DEVICE):AI$(CHAN):CHARGE_FINAL</pv_name>
+    <x>488</x>
+    <y>6</y>
+    <width>130</width>
+    <height>28</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="180" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <format>2</format>
+    <precision>3</precision>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_CF_EGU</name>
+    <text>pC</text>
+    <x>622</x>
+    <y>10</y>
+    <width>25</width>
+    <height>22</height>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>X/Y Plot_2</name>
+    <x>23</x>
+    <y>479</y>
+    <width>729</width>
+    <height>389</height>
+    <scripts>
+      <script file="EmbeddedPy" check_connections="false">
+        <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from jarray import array
+
+try:
+    # Index 0: Raw waveform signal data array ($(DEVICE):AI$(CHAN):AVG)
+    pv_reading = pvs[0].read()
+
+    if pv_reading is not None:
+        raw_data = pv_reading.getData()
+
+        if raw_data is not None and raw_data.size() > 40:
+            total_samples = raw_data.size()
+
+            cal_factor = 2.5
+            attenuation_factor = 1.0
+
+            # --- INDEX 3: CLKF_SP (Sampling Rate Clock) ---
+            clk_val = PVUtil.getDouble(pvs[3])
+            if clk_val < 100.0:
+                dt = 1.0 / (clk_val * 1e9)
+            else:
+                dt = 1.0 / clk_val
+
+            # --- INDEX 1: MICB_OFFSET (M1), INDEX 2: UBUNCHSAMPL (Width) ---
+            marker1_raw = PVUtil.getDouble(pvs[1])
+            width_raw = PVUtil.getDouble(pvs[2])
+            start_index = max(0, min(int(round(marker1_raw)), total_samples - 2))
+
+            # --- DYNAMIC PRE-TRIGGER BASELINE ---
+            lookback_size = 40
+            baseline_start = max(0, start_index - lookback_size - 15)
+            baseline_end = max(0, start_index - 15)
+            if (baseline_end - baseline_start) < 15:
+                baseline_start = 0
+                baseline_end = 40
+
+            baseline_sum = 0.0
+            for i in range(baseline_start, baseline_end):
+                baseline_sum += raw_data.getDouble(i)
+            baseline_avg = baseline_sum / float(baseline_end - baseline_start)
+
+            # --- FULL-SIGNAL CUMULATIVE INTEGRAL (OPI-side integral waveform) ---
+            charge_profile = [0.0] * total_samples
+            running_area = 0.0
+            for idx in range(0, total_samples - 1):
+                y1 = baseline_avg - raw_data.getDouble(idx)
+                y2 = baseline_avg - raw_data.getDouble(idx + 1)
+                running_area += (y1 + y2) / 2.0
+                v_secs = running_area * dt
+                charge_profile[idx + 1] = (v_secs * 1e12 * attenuation_factor) / cal_factor
+            charge_profile[-1] = charge_profile[-2]
+
+            # --- INDEX 4: WRITE INTEGRAL WAVEFORM TO LOCAL GRAPH PV ---
+            if len(pvs) > 4:
+                try:
+                    java_array = array(charge_profile, 'd')
+                    pvs[4].write(java_array)
+                except Exception as plot_err:
+                    print("Lower Graph data frame write deferred: " + str(plot_err))
+
+except Exception as e:
+    print("Script Execution Error: " + str(e))]]></text>
+        <pv_name>$(DEVICE):AI$(CHAN):AVG</pv_name>
+        <pv_name trigger="false">$(DEVICE):MICB_OFFSET</pv_name>
+        <pv_name trigger="false">$(DEVICE):UBUNCHSAMPL</pv_name>
+        <pv_name trigger="false">$(DEVICE):CLKF_SP</pv_name>
+        <pv_name trigger="false">loc://microbunch_integral_array_ch0</pv_name>
+      </script>
+    </scripts>
+    <x_axis>
+      <title>Samples [n]</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>2054.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Charge Profile [pC]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>2054.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>Integral Waveform (OPI-side, full signal)</name>
+        <x_pv></x_pv>
+        <y_pv>loc://microbunch_integral_array_ch0</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="0" green="0" blue="255">
+          </color>
+        </color>
+        <line_width>2</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(DEVICE):AI$(CHAN):INTEG_MEAN</pv_name>
+    <x>680</x>
+    <y>8</y>
+    <format>2</format>
+    <precision>5</precision>
+  </widget>
+</display>

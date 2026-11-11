@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>modulators_demo</name>
+  <width>1200</width>
+  <height>1200</height>
+  <widget type="label">
+    <name>Modulators_Title</name>
+    <x>50</x>
+    <y>50</y>
+    <width>600</width>
+    <height>40</height>
+    <text>MODULATORS SYSTEM DEMO</text>
+    <font>
+      <font name="Liberation Sans" size="24" style="BOLD"/>
+    </font>
+  </widget>
+</display>

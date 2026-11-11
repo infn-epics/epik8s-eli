@@ -1,0 +1,19 @@
+{
+    "prefix":"SPARC:BeamCurrent",
+    "collect":[
+    {
+        "pvname":"charge",
+        "src":["SPARC:BCM:AC1BCM01:charge", "SPARC:BCM:PTLBCM01:charge","SPARC:BCM:AC1TBCM1:charge"],
+        "type":"float",
+        "update":1000
+    },
+    {
+        "pvname":"bCm",
+        "type": "string",
+        "const":["AC1BCM01", "PTLBCM01"],
+        "update":0
+    }
+
+
+]
+}

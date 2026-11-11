@@ -1,0 +1,1424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-01-02 16:50:02 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Postmortem buffer - Libera Brilliance</name>
+  <x>355</x>
+  <y>266</y>
+  <width>920</width>
+  <height>620</height>
+  <background_color>
+    <color name="GLOBAL canvas" red="200" green="200" blue="200">
+    </color>
+  </background_color>
+  <widget type="rectangle" version="2.0.0">
+    <name>EDM activeRectangleClass</name>
+    <x>620</x>
+    <y>50</y>
+    <width>91</width>
+    <height>191</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>EDM xyGraphClass</name>
+    <x>10</x>
+    <y>50</y>
+    <width>600</width>
+    <height>500</height>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <title_font>
+      <font family="Liberation Mono" style="REGULAR" size="12.0">
+      </font>
+    </title_font>
+    <show_legend>false</show_legend>
+    <x_axis>
+      <title></title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>100.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font family="Liberation Mono" style="REGULAR" size="12.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font family="Liberation Mono" style="REGULAR" size="12.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title></title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font family="Liberation Mono" style="REGULAR" size="12.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font family="Liberation Mono" style="REGULAR" size="12.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="black-14" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+      <y_axis>
+        <title></title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font family="Liberation Mono" style="REGULAR" size="12.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font family="Liberation Mono" style="REGULAR" size="12.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>false</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name></name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):PM:PM_X_MONITOR</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="red-21" red="224" green="0" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name></name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):PM:PM_Y_MONITOR</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="blue-26" red="0" green="0" blue="224">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name></name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):PM:PM_VA_MONITOR</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="cyan-31" red="0" green="224" blue="224">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name></name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):PM:PM_VB_MONITOR</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="yellow-36" red="224" green="224" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name></name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):PM:PM_VC_MONITOR</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="orange-41" red="224" green="154" blue="84">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name></name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):PM:PM_VD_MONITOR</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="purple-46" red="192" green="0" blue="192">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name></name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):PM:PM_SUM_MONITOR</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="COOL title" red="181" green="249" blue="215">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name></name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):PM:PM_Q_MONITOR</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="CRYO title" red="176" green="218" blue="249">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Post mortem acquisition</text>
+    <x>10</x>
+    <y>10</y>
+    <width>720</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="24.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>EDM activeButtonClass</name>
+    <pv_name>loc://pm_traces(0)</pv_name>
+    <x>630</x>
+    <y>70</y>
+    <width>70</width>
+    <height>20</height>
+    <off_label>X</off_label>
+    <off_color>
+      <color name="red-21" red="224" green="0" blue="0">
+      </color>
+    </off_color>
+    <on_label>X</on_label>
+    <on_color>
+      <color name="GLOBAL title" red="158" green="158" blue="158">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="unknown" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>EDM activeButtonClass</name>
+    <pv_name>loc://pm_traces(0)</pv_name>
+    <bit>2</bit>
+    <x>630</x>
+    <y>110</y>
+    <width>70</width>
+    <height>20</height>
+    <off_label>VA</off_label>
+    <off_color>
+      <color name="cyan-31" red="0" green="224" blue="224">
+      </color>
+    </off_color>
+    <on_label>VA</on_label>
+    <on_color>
+      <color name="GLOBAL title" red="158" green="158" blue="158">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="unknown" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>EDM activeButtonClass</name>
+    <pv_name>loc://pm_traces(0)</pv_name>
+    <bit>3</bit>
+    <x>630</x>
+    <y>130</y>
+    <width>70</width>
+    <height>20</height>
+    <off_label>VB</off_label>
+    <off_color>
+      <color name="yellow-36" red="224" green="224" blue="0">
+      </color>
+    </off_color>
+    <on_label>VB</on_label>
+    <on_color>
+      <color name="GLOBAL title" red="158" green="158" blue="158">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="unknown" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>EDM activeButtonClass</name>
+    <pv_name>loc://pm_traces(0)</pv_name>
+    <bit>4</bit>
+    <x>630</x>
+    <y>150</y>
+    <width>70</width>
+    <height>20</height>
+    <off_label>VC</off_label>
+    <off_color>
+      <color name="orange-41" red="224" green="154" blue="84">
+      </color>
+    </off_color>
+    <on_label>VC</on_label>
+    <on_color>
+      <color name="GLOBAL title" red="158" green="158" blue="158">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="unknown" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>EDM activeButtonClass</name>
+    <pv_name>loc://pm_traces(0)</pv_name>
+    <bit>5</bit>
+    <x>630</x>
+    <y>170</y>
+    <width>70</width>
+    <height>20</height>
+    <off_label>VD</off_label>
+    <off_color>
+      <color name="purple-46" red="192" green="0" blue="192">
+      </color>
+    </off_color>
+    <on_label>VD</on_label>
+    <on_color>
+      <color name="GLOBAL title" red="158" green="158" blue="158">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="unknown" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>EDM activeButtonClass</name>
+    <pv_name>loc://pm_traces(0)</pv_name>
+    <bit>6</bit>
+    <x>630</x>
+    <y>190</y>
+    <width>70</width>
+    <height>20</height>
+    <off_label>SUM</off_label>
+    <off_color>
+      <color name="COOL title" red="181" green="249" blue="215">
+      </color>
+    </off_color>
+    <on_label>SUM</on_label>
+    <on_color>
+      <color name="GLOBAL title" red="158" green="158" blue="158">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="unknown" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>EDM activeButtonClass</name>
+    <pv_name>loc://pm_traces(0)</pv_name>
+    <bit>7</bit>
+    <x>630</x>
+    <y>210</y>
+    <width>70</width>
+    <height>20</height>
+    <off_label>Q</off_label>
+    <off_color>
+      <color name="CRYO title" red="176" green="218" blue="249">
+      </color>
+    </off_color>
+    <on_label>Q</on_label>
+    <on_color>
+      <color name="GLOBAL title" red="158" green="158" blue="158">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="unknown" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>EDM activeButtonClass</name>
+    <pv_name>loc://pm_traces(0)</pv_name>
+    <bit>1</bit>
+    <x>630</x>
+    <y>90</y>
+    <width>70</width>
+    <height>20</height>
+    <off_label>Y</off_label>
+    <off_color>
+      <color name="blue-26" red="0" green="0" blue="224">
+      </color>
+    </off_color>
+    <on_label>Y</on_label>
+    <on_color>
+      <color name="GLOBAL title" red="158" green="158" blue="158">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="unknown" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Signals</text>
+    <x>620</x>
+    <y>50</y>
+    <width>90</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>EDM TextupdateClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PMOFFSET_MONITOR</pv_name>
+    <x>730</x>
+    <y>150</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="FE canvas" red="244" green="218" blue="168">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>System time - ST</text>
+    <x>20</x>
+    <y>570</y>
+    <width>120</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>EDM TextupdateClass</name>
+    <pv_name>$(DEVICE):PM:PM_ST_MONITOR</pv_name>
+    <x>140</x>
+    <y>570</y>
+    <width>250</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM TextentryClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PMOFFSET_SP</pv_name>
+    <x>821</x>
+    <y>141</y>
+    <width>78</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Machine time - MT</text>
+    <x>20</x>
+    <y>590</y>
+    <width>120</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>EDM TextupdateClass</name>
+    <pv_name>$(DEVICE):PM:PM_MT_MONITOR</pv_name>
+    <x>140</x>
+    <y>590</y>
+    <width>230</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>PM offset</text>
+    <x>730</x>
+    <y>130</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Data
+decimation</text>
+    <x>730</x>
+    <y>90</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="8.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="radio" version="2.0.0">
+    <name>EDM activeRadioButtonClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PMDEC_SP</pv_name>
+    <x>820</x>
+    <y>80</y>
+    <width>80</width>
+    <height>40</height>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <horizontal>false</horizontal>
+    <items>
+      <item>Item 1</item>
+      <item>Item 2</item>
+    </items>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>EDM activeRectangleClass</name>
+    <x>720</x>
+    <y>50</y>
+    <width>191</width>
+    <height>501</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Postmortem settings</text>
+    <x>730</x>
+    <y>50</y>
+    <width>180</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Mode</text>
+    <x>730</x>
+    <y>180</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Y min</text>
+    <x>720</x>
+    <y>320</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>X max</text>
+    <x>720</x>
+    <y>280</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>X min</text>
+    <x>720</x>
+    <y>240</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>EDM TextupdateClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_X_LOW_MONITOR</pv_name>
+    <x>730</x>
+    <y>260</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="FE canvas" red="244" green="218" blue="168">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Y max</text>
+    <x>720</x>
+    <y>360</y>
+    <width>60</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>EDM TextupdateClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_X_HIGH_MONITOR</pv_name>
+    <x>730</x>
+    <y>300</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="FE canvas" red="244" green="218" blue="168">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>EDM TextupdateClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_Y_LOW_MONITOR</pv_name>
+    <x>730</x>
+    <y>340</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="FE canvas" red="244" green="218" blue="168">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>EDM TextupdateClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_Y_HIGH_MONITOR</pv_name>
+    <x>730</x>
+    <y>380</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="FE canvas" red="244" green="218" blue="168">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>ADC overflow
+limit</text>
+    <x>720</x>
+    <y>400</y>
+    <width>90</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="radio" version="2.0.0">
+    <name>EDM activeRadioButtonClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_MODE_SP</pv_name>
+    <x>820</x>
+    <y>180</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <horizontal>false</horizontal>
+    <items>
+      <item>Item 1</item>
+      <item>Item 2</item>
+    </items>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>ADC overflow
+duration</text>
+    <x>720</x>
+    <y>450</y>
+    <width>90</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>EDM TextupdateClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_OF_LIMIT_MONITOR</pv_name>
+    <x>730</x>
+    <y>430</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="FE canvas" red="244" green="218" blue="168">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>EDM TextupdateClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_OF_DUR_MONITOR</pv_name>
+    <x>730</x>
+    <y>480</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="FE canvas" red="244" green="218" blue="168">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>EDM activeButtonClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_SET_POSTMORTEM_PARAM_CMD</pv_name>
+    <x>820</x>
+    <y>510</y>
+    <width>80</width>
+    <off_label>Apply</off_label>
+    <off_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </off_color>
+    <on_label>Apply settings</on_label>
+    <on_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="unknown" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM TextentryClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_X_LOW_SP</pv_name>
+    <x>821</x>
+    <y>251</y>
+    <width>78</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM TextentryClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_X_HIGH_SP</pv_name>
+    <x>821</x>
+    <y>291</y>
+    <width>78</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM TextentryClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_Y_LOW_SP</pv_name>
+    <x>821</x>
+    <y>331</y>
+    <width>78</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM TextentryClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_Y_HIGH_SP</pv_name>
+    <x>821</x>
+    <y>371</y>
+    <width>78</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM TextentryClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_OF_LIMIT_SP</pv_name>
+    <x>821</x>
+    <y>421</y>
+    <width>78</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>EDM TextentryClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_OF_DUR_SP</pv_name>
+    <x>821</x>
+    <y>471</y>
+    <width>78</width>
+    <height>28</height>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>EDM TextupdateClass</name>
+    <pv_name>$(DEVICE):ENV:ENV_PM_MODE_MONITOR</pv_name>
+    <x>730</x>
+    <y>200</y>
+    <width>80</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="FE canvas" red="244" green="218" blue="168">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Timestamp</text>
+    <x>20</x>
+    <y>550</y>
+    <width>120</width>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>EDM activeRectangleClass</name>
+    <x>620</x>
+    <y>250</y>
+    <width>91</width>
+    <height>151</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>EDM activeXTextClass</name>
+    <text>Refresh</text>
+    <x>620</x>
+    <y>250</y>
+    <width>90</width>
+    <height>30</height>
+    <font>
+      <font family="Liberation Mono" style="BOLD" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>EDM activeButtonClass</name>
+    <pv_name>$(DEVICE):PM:PM_IGNORE_TRIG_SP</pv_name>
+    <x>630</x>
+    <y>280</y>
+    <width>70</width>
+    <off_label>Auto</off_label>
+    <off_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </off_color>
+    <on_label>Manual</on_label>
+    <on_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="unknown" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>EDM activeButtonClass</name>
+    <pv_name>$(DEVICE):PM:PM_ON_NEXT_TRIG_CMD</pv_name>
+    <x>630</x>
+    <y>320</y>
+    <width>70</width>
+    <off_label>Acquire</off_label>
+    <off_color>
+      <color red="204" green="204" blue="204">
+      </color>
+    </off_color>
+    <on_label>Acquire</on_label>
+    <on_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="unknown" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="EDM visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0&gt;=1.0 &amp;&amp; pv0&lt;2.0">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="true">
+          <value>false</value>
+        </exp>
+        <pv_name>$(DEVICE):PM:PM_IGNORE_TRIG_MONITOR</pv_name>
+      </rule>
+    </rules>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>EDM activeButtonClass</name>
+    <pv_name>$(DEVICE):PM:PM_REQUEST_CMD</pv_name>
+    <x>630</x>
+    <y>360</y>
+    <width>70</width>
+    <off_label>Acquire single</off_label>
+    <off_color>
+      <color red="204" green="204" blue="204">
+      </color>
+    </off_color>
+    <on_label>Acquire single</on_label>
+    <on_color>
+      <color name="Disconn/Invalid" red="255" green="255" blue="255">
+      </color>
+    </on_color>
+    <show_led>false</show_led>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="black-14" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="unknown" red="0" green="0" blue="0">
+      </color>
+    </background_color>
+    <rules>
+      <rule name="EDM visibility" prop_id="visible" out_exp="false">
+        <exp bool_exp="pv0&gt;=1.0 &amp;&amp; pv0&lt;2.0">
+          <value>true</value>
+        </exp>
+        <exp bool_exp="true">
+          <value>false</value>
+        </exp>
+        <pv_name>$(DEVICE):PM:PM_IGNORE_TRIG_MONITOR</pv_name>
+      </rule>
+    </rules>
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+  </widget>
+</display>

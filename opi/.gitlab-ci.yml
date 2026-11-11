@@ -1,0 +1,14 @@
+stages:
+    - deploy
+
+deploy_stage:
+  tags:
+    - eli
+  stage: deploy
+  image: alpine/ansible:2.16.1
+  script:
+    - apk add sshpass
+    - cd ansible
+    - ansible-playbook -i hosts.yml configure-consoles.yml
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive

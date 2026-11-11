@@ -1,0 +1,1973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-03-06 10:52:27 by root-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>760</width>
+  <height>907</height>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Interlock Control Panel</text>
+    <x>40</x>
+    <y>37</y>
+    <width>260</width>
+    <height>29</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs</name>
+    <tabs>
+      <tab>
+        <name>Ch2/Ch1</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>Monitoring1</name>
+            <x>20</x>
+            <y>116</y>
+            <width>137</width>
+            <height>205</height>
+            <transparent>true</transparent>
+            <widget type="label" version="2.0.0">
+              <name>FWD_1</name>
+              <text>RFL </text>
+              <y>4</y>
+              <foreground_color>
+                <color red="255" green="0" blue="0">
+                </color>
+              </foreground_color>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>RFL_1</name>
+              <text>FWD </text>
+              <y>59</y>
+              <foreground_color>
+                <color red="0" green="0" blue="128">
+                </color>
+              </foreground_color>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>FWD_1</name>
+              <pv_name>$(LLRF_NAME):$(SIGNAL2):amp_average_s.AVERAGE</pv_name>
+              <x>1</x>
+              <y>22</y>
+              <height>25</height>
+              <background_color>
+                <color name="Write_Background" red="128" green="255" blue="255">
+                </color>
+              </background_color>
+              <format>2</format>
+              <precision>3</precision>
+              <vertical_alignment>1</vertical_alignment>
+              <wrap_words>false</wrap_words>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>RFL_1</name>
+              <pv_name>$(LLRF_NAME):$(SIGNAL1):amp_average_s.AVERAGE</pv_name>
+              <x>1</x>
+              <y>77</y>
+              <height>25</height>
+              <background_color>
+                <color name="Write_Background" red="128" green="255" blue="255">
+                </color>
+              </background_color>
+              <format>2</format>
+              <precision>3</precision>
+              <vertical_alignment>1</vertical_alignment>
+              <wrap_words>false</wrap_words>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>VSWR_1</name>
+              <pv_name>loc://$(RATIO_MAX_CH2)</pv_name>
+              <x>1</x>
+              <y>135</y>
+              <height>25</height>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="14.0">
+                </font>
+              </font>
+              <background_color>
+                <color name="Write_Background" red="128" green="255" blue="255">
+                </color>
+              </background_color>
+              <format>1</format>
+              <precision>4</precision>
+              <vertical_alignment>1</vertical_alignment>
+              <wrap_words>false</wrap_words>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+data = PVUtil.getDoubleArray(pvs[0])
+
+if len(data) > 0:
+    val_max = max(data)
+    
+    pvs[1].write(val_max)]]></text>
+                  <pv_name>loc://$(RATIO_CH2)</pv_name>
+                  <pv_name trigger="false">loc://$(RATIO_MAX_CH2)</pv_name>
+                </script>
+              </scripts>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>VSWR_1</name>
+              <text>RFL/FWD</text>
+              <y>117</y>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="14.0">
+                </font>
+              </font>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Interlock_ch2</name>
+            <x>20</x>
+            <y>15</y>
+            <width>608</width>
+            <height>101</height>
+            <transparent>true</transparent>
+            <widget type="label" version="2.0.0">
+              <name>Level_1</name>
+              <text>Level (ratio)</text>
+              <x>226</x>
+              <y>1</y>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Level_1</name>
+              <pv_name>$(LLRF_NAME):$(INTLK2):level</pv_name>
+              <x>227</x>
+              <y>23</y>
+              <width>80</width>
+              <height>25</height>
+              <format>1</format>
+              <precision>4</precision>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Duration_1</name>
+              <text>Duration [us]</text>
+              <x>326</x>
+              <y>1</y>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Duration_1</name>
+              <pv_name>$(LLRF_NAME):$(MARKER_DUR2)</pv_name>
+              <x>326</x>
+              <y>23</y>
+              <width>80</width>
+              <height>25</height>
+              <format>1</format>
+              <precision>4</precision>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Offset_1</name>
+              <text>Offset [us]</text>
+              <x>428</x>
+              <y>1</y>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Offset_1</name>
+              <pv_name>$(LLRF_NAME):$(MARKER_OFS2)</pv_name>
+              <x>428</x>
+              <y>23</y>
+              <width>80</width>
+              <height>25</height>
+              <format>1</format>
+              <precision>4</precision>
+            </widget>
+            <widget type="led" version="2.0.0">
+              <name>LED_1</name>
+              <pv_name>$(LLRF_NAME):$(INTLK)</pv_name>
+              <x>18</x>
+              <y>14</y>
+              <width>49</width>
+              <height>41</height>
+              <off_label>NO INTLK</off_label>
+              <off_color>
+                <color name="OK" red="0" green="255" blue="0">
+                </color>
+              </off_color>
+              <on_label>INTLK</on_label>
+              <on_color>
+                <color name="STOP" red="255" green="0" blue="0">
+                </color>
+              </on_color>
+              <square>true</square>
+            </widget>
+            <widget type="bool_button" version="2.0.0">
+              <name>Action Button_1</name>
+              <pv_name>$(LLRF_NAME):$(INTLK)</pv_name>
+              <x>92</x>
+              <y>23</y>
+              <width>55</width>
+              <height>25</height>
+              <off_label>CLEAR</off_label>
+              <off_color>
+                <color name="Button_Background" red="210" green="210" blue="210">
+                </color>
+              </off_color>
+              <on_label>CLEAR</on_label>
+              <on_color>
+                <color name="Button_Background" red="210" green="210" blue="210">
+                </color>
+              </on_color>
+              <show_led>false</show_led>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="12.0">
+                </font>
+              </font>
+              <actions>
+                <action type="write_pv">
+                  <description>Write PV</description>
+                  <pv_name>$(LLRF_NAME):$(INTLK6):enabled</pv_name>
+                  <value>false</value>
+                </action>
+              </actions>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+interlock=PVUtil.getDouble(pvs[0])
+
+if interlock==0:
+	widget.setPropertyValue('enabled',0)
+else:
+	widget.setPropertyValue('enabled',1)]]></text>
+                  <pv_name>$(LLRF_NAME):$(INTLK)</pv_name>
+                </script>
+              </scripts>
+              <tooltip>$(actions)</tooltip>
+              <show_confirm_dialog>false</show_confirm_dialog>
+            </widget>
+            <widget type="slide_button" version="2.0.0">
+              <name>Slide Button_1</name>
+              <pv_name>$(LLRF_NAME):$(INTLK2):enabled</pv_name>
+              <label></label>
+              <x>167</x>
+              <y>21</y>
+              <width>43</width>
+            </widget>
+            <widget type="bool_button" version="2.0.0">
+              <name>SET_2</name>
+              <pv_name>loc://$(boolean2)(0)</pv_name>
+              <x>520</x>
+              <y>23</y>
+              <width>45</width>
+              <height>23</height>
+              <off_label>SET</off_label>
+              <off_color>
+                <color name="Button_Background" red="210" green="210" blue="210">
+                </color>
+              </off_color>
+              <on_label>OK</on_label>
+              <show_led>false</show_led>
+              <actions>
+              </actions>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+boolean_value = int(PVUtil.getDouble(pvs[4]))
+if boolean_value==0: pass
+else:
+
+    ofs = PVUtil.getDouble(pvs[0])
+    dur = PVUtil.getDouble(pvs[1])
+
+    PVUtil.writePV(str(pvs[2]), ofs,1)
+    PVUtil.writePV(str(pvs[3]), dur,1)]]></text>
+                  <pv_name trigger="false">$(LLRF_NAME):$(MARKER_OFS2)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(MARKER_DUR2)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(INTLK2):offset</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(INTLK2):duration</pv_name>
+                  <pv_name>loc://$(boolean2)</pv_name>
+                </script>
+              </scripts>
+              <tooltip>$(actions)</tooltip>
+              <mode>1</mode>
+              <confirm_message>Gate interlock applied!</confirm_message>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Waveforms1</name>
+            <x>158</x>
+            <y>116</y>
+            <width>470</width>
+            <height>605</height>
+            <transparent>true</transparent>
+            <widget type="xyplot" version="3.0.0">
+              <name>trend_4</name>
+              <y>284</y>
+              <width>420</width>
+              <height>280</height>
+              <show_toolbar>true</show_toolbar>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+idx_array = list(PVUtil.getDoubleArray(pvs[0]))
+limit = PVUtil.getDouble(pvs[1])
+
+next_val = idx_array[-1] + 1 if len(idx_array) > 0 else 0
+idx_array.append(next_val)
+
+if len(idx_array) > limit:
+    idx_array.pop(0)
+
+PVUtil.writePV(str(pvs[0]), idx_array, 1)]]></text>
+                  <pv_name trigger="false">loc://$(INDEX2)</pv_name>
+                  <pv_name trigger="false">loc://$(MAXENTRY2)(1000)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL2):amp_average_s.AVERAGE</pv_name>
+                  <pv_name>loc://$(RATIO_MAX_CH2)</pv_name>
+                </script>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+ratio_trend=PVUtil.getDoubleArray(pvs[1])
+level_set=PVUtil.getDoubleArray(pvs[4])
+limit=PVUtil.getDouble(pvs[2])
+
+if len(ratio_trend) == 0 or (len(ratio_trend) == 1 and ratio_trend[0] == 0):
+	ratio_trend=[] # delete 0 initial value
+
+if len(level_set) == 0 or (len(level_set) == 1 and level_set[0] == 0):
+	level_set=[] # delete 0 initial value
+
+if len(ratio_trend)>limit+1: ratio_trend=[] 
+if len(level_set)>limit+1: level_set=[] 
+
+if len(ratio_trend)==limit+1: ratio_trend.pop(0)
+if len(level_set)==limit+1: level_set.pop(0)
+
+ratio_trend.append(PVUtil.getDouble(pvs[0]))
+level_set.append(PVUtil.getDouble(pvs[5]))
+
+
+PVUtil.writePV(str(pvs[1]), ratio_trend, 1)
+PVUtil.writePV(str(pvs[4]), level_set, 1)
+]]></text>
+                  <pv_name>loc://$(RATIO_MAX_CH2)</pv_name>
+                  <pv_name trigger="false">loc://$(RATIO_TREND_CH2)&lt;VDoubleArray&gt;</pv_name>
+                  <pv_name trigger="false">loc://$(MAXENTRY2)(1000)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL2):amp_average_s.AVERAGE</pv_name>
+                  <pv_name trigger="false">loc://$(INTLK_TREND2)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(INTLK2):level</pv_name>
+                </script>
+              </scripts>
+              <x_axis>
+                <title>Samples</title>
+                <autoscale>true</autoscale>
+                <log_scale>false</log_scale>
+                <minimum>0.0</minimum>
+                <maximum>100.0</maximum>
+                <show_grid>false</show_grid>
+                <title_font>
+                  <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                  </font>
+                </title_font>
+                <scale_font>
+                  <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                  </font>
+                </scale_font>
+                <visible>true</visible>
+              </x_axis>
+              <y_axes>
+                <y_axis>
+                  <title>RFL/FWD power</title>
+                  <autoscale>true</autoscale>
+                  <log_scale>false</log_scale>
+                  <minimum>0.0</minimum>
+                  <maximum>10.0</maximum>
+                  <show_grid>true</show_grid>
+                  <title_font>
+                    <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                    </font>
+                  </title_font>
+                  <scale_font>
+                    <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                    </font>
+                  </scale_font>
+                  <on_right>false</on_right>
+                  <visible>true</visible>
+                  <color>
+                    <color red="26" green="51" blue="153">
+                    </color>
+                  </color>
+                </y_axis>
+                <y_axis>
+                  <title>level ratio set</title>
+                  <autoscale>true</autoscale>
+                  <log_scale>false</log_scale>
+                  <minimum>0.0</minimum>
+                  <maximum>10.0</maximum>
+                  <show_grid>true</show_grid>
+                  <title_font>
+                    <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                    </font>
+                  </title_font>
+                  <scale_font>
+                    <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                    </font>
+                  </scale_font>
+                  <on_right>true</on_right>
+                  <visible>true</visible>
+                  <color>
+                    <color red="255" green="0" blue="0">
+                    </color>
+                  </color>
+                </y_axis>
+              </y_axes>
+              <traces>
+                <trace>
+                  <name>$(traces[0].y_pv)</name>
+                  <x_pv>loc://$(INDEX2)</x_pv>
+                  <y_pv>loc://$(RATIO_TREND_CH2)</y_pv>
+                  <err_pv></err_pv>
+                  <axis>0</axis>
+                  <trace_type>1</trace_type>
+                  <color>
+                    <color red="26" green="51" blue="153">
+                    </color>
+                  </color>
+                  <line_width>1</line_width>
+                  <line_style>0</line_style>
+                  <point_type>2</point_type>
+                  <point_size>4</point_size>
+                  <visible>true</visible>
+                </trace>
+                <trace>
+                  <name>$(traces[1].y_pv)</name>
+                  <x_pv>loc://$(INDEX2)</x_pv>
+                  <y_pv>loc://$(INTLK_TREND2)</y_pv>
+                  <err_pv></err_pv>
+                  <axis>1</axis>
+                  <trace_type>1</trace_type>
+                  <color>
+                    <color red="255" green="0" blue="0">
+                    </color>
+                  </color>
+                  <line_width>2</line_width>
+                  <line_style>1</line_style>
+                  <point_type>0</point_type>
+                  <point_size>10</point_size>
+                  <visible>true</visible>
+                </trace>
+              </traces>
+            </widget>
+            <widget type="xyplot" version="3.0.0">
+              <name>wf3_2</name>
+              <width>420</width>
+              <height>280</height>
+              <show_toolbar>true</show_toolbar>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[# Conversione da ns a samples
+ns_conversion = 8.605e-3  # come indicato
+
+# Recupero valori dai PV
+fwd_v = PVUtil.getDoubleArray(pvs[0])   # FWD amplitude [V]
+rfl_v = PVUtil.getDoubleArray(pvs[1])   # RFL amplitude [V]
+gate_start = int(PVUtil.getDouble(pvs[2]) / ns_conversion)  # us -> samples
+gate_end   = int(PVUtil.getDouble(pvs[3]) / ns_conversion)  # us -> samples
+
+# Assicurarsi che gli indici non escano dai limiti
+gate_start = max(0, gate_start)
+gate_end   = min(len(fwd_v)-1, gate_end)
+
+# Calcolo del rapporto
+rapporto = []
+for i in range(gate_start, gate_end+1):
+    if fwd_v[i] != 0:
+        rapporto.append(rfl_v[i] / fwd_v[i])
+    else:
+        rapporto.append(0.0)  # gestione divisione per zero
+
+PVUtil.writePV(str(pvs[4]), rapporto,1)
+]]></text>
+                  <pv_name>$(LLRF_NAME):$(SIGNAL1):amp_phase.AMP_REMOTE</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL2):amp_phase.AMP_REMOTE</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(MARKER_OFS2)</pv_name>
+                  <pv_name trigger="false">='$(LLRF_NAME):$(MARKER_OFS2)'+'$(LLRF_NAME):$(MARKER_DUR2)'</pv_name>
+                  <pv_name trigger="false">loc://$(RATIO_CH2)</pv_name>
+                </script>
+              </scripts>
+              <x_axis>
+                <title>Time [μs]</title>
+                <autoscale>true</autoscale>
+                <log_scale>false</log_scale>
+                <minimum>0.0</minimum>
+                <maximum>10.0</maximum>
+                <show_grid>false</show_grid>
+                <title_font>
+                  <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                  </font>
+                </title_font>
+                <scale_font>
+                  <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                  </font>
+                </scale_font>
+                <visible>true</visible>
+              </x_axis>
+              <y_axes>
+                <y_axis>
+                  <title>FWD signal [V]</title>
+                  <autoscale>true</autoscale>
+                  <log_scale>false</log_scale>
+                  <minimum>0.0</minimum>
+                  <maximum>1.0</maximum>
+                  <show_grid>true</show_grid>
+                  <title_font>
+                    <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                    </font>
+                  </title_font>
+                  <scale_font>
+                    <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                    </font>
+                  </scale_font>
+                  <on_right>false</on_right>
+                  <visible>true</visible>
+                  <color>
+                    <color red="0" green="0" blue="128">
+                    </color>
+                  </color>
+                </y_axis>
+                <y_axis>
+                  <title>RFL signal [V]</title>
+                  <autoscale>true</autoscale>
+                  <log_scale>false</log_scale>
+                  <minimum>-200.0</minimum>
+                  <maximum>200.0</maximum>
+                  <show_grid>true</show_grid>
+                  <title_font>
+                    <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                    </font>
+                  </title_font>
+                  <scale_font>
+                    <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                    </font>
+                  </scale_font>
+                  <on_right>true</on_right>
+                  <visible>true</visible>
+                  <color>
+                    <color red="255" green="0" blue="0">
+                    </color>
+                  </color>
+                </y_axis>
+              </y_axes>
+              <traces>
+                <trace>
+                  <name>$(traces[0].y_pv)</name>
+                  <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+                  <y_pv>$(LLRF_NAME):$(SIGNAL1):amp_phase.AMP_REMOTE</y_pv>
+                  <err_pv></err_pv>
+                  <axis>0</axis>
+                  <trace_type>1</trace_type>
+                  <color>
+                    <color red="0" green="0" blue="128">
+                    </color>
+                  </color>
+                  <line_width>2</line_width>
+                  <line_style>0</line_style>
+                  <point_type>0</point_type>
+                  <point_size>10</point_size>
+                  <visible>true</visible>
+                </trace>
+                <trace>
+                  <name>$(traces[1].y_pv)</name>
+                  <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+                  <y_pv>$(LLRF_NAME):$(SIGNAL2):amp_phase.AMP_REMOTE</y_pv>
+                  <err_pv></err_pv>
+                  <axis>1</axis>
+                  <trace_type>1</trace_type>
+                  <color>
+                    <color red="255" green="0" blue="0">
+                    </color>
+                  </color>
+                  <line_width>2</line_width>
+                  <line_style>0</line_style>
+                  <point_type>0</point_type>
+                  <point_size>10</point_size>
+                  <visible>true</visible>
+                </trace>
+              </traces>
+              <marker>
+                <marker>
+                  <color>
+                    <color red="128" green="128" blue="128">
+                    </color>
+                  </color>
+                  <pv_name>$(LLRF_NAME):$(MARKER_OFS2)</pv_name>
+                  <interactive>true</interactive>
+                </marker>
+                <marker>
+                  <color>
+                    <color red="128" green="128" blue="128">
+                    </color>
+                  </color>
+                  <pv_name>='$(LLRF_NAME):$(MARKER_OFS2)'+'$(LLRF_NAME):$(MARKER_DUR2)'</pv_name>
+                  <interactive>true</interactive>
+                </marker>
+                <marker>
+                  <color>
+                    <color name="OK" red="0" green="255" blue="0">
+                    </color>
+                  </color>
+                  <pv_name>$(LLRF_NAME):$(INTLK2):offset</pv_name>
+                  <interactive>true</interactive>
+                </marker>
+                <marker>
+                  <color>
+                    <color name="OK" red="0" green="255" blue="0">
+                    </color>
+                  </color>
+                  <pv_name>='$(LLRF_NAME):$(INTLK2):offset'+'$(LLRF_NAME):$(INTLK2):duration'</pv_name>
+                  <interactive>true</interactive>
+                </marker>
+              </marker>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>RESET_1</name>
+              <actions execute_as_one="true">
+                <action type="write_pv">
+                  <description>WritePV</description>
+                  <pv_name>loc://$(RATIO_TREND_CH2)&lt;VDoubleArray&gt;</pv_name>
+                  <value>0</value>
+                </action>
+                <action type="write_pv">
+                  <description>WritePV</description>
+                  <pv_name>loc://$(INTLK_TREND2)</pv_name>
+                  <value>0</value>
+                </action>
+                <action type="write_pv">
+                  <description>WritePV</description>
+                  <pv_name>loc://$(INDEX2)</pv_name>
+                  <value>0</value>
+                </action>
+              </actions>
+              <text>RESET</text>
+              <x>368</x>
+              <y>549</y>
+              <width>53</width>
+              <height>20</height>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="12.0">
+                </font>
+              </font>
+              <tooltip></tooltip>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Text Entry_3</name>
+              <pv_name>loc://$(MAXENTRY2)(1000)</pv_name>
+              <x>368</x>
+              <y>527</y>
+              <width>53</width>
+              <precision>0</precision>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Ch4/Ch3</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>Monitoring2</name>
+            <x>20</x>
+            <y>116</y>
+            <width>137</width>
+            <height>205</height>
+            <transparent>true</transparent>
+            <widget type="label" version="2.0.0">
+              <name>FWD_2</name>
+              <text>RFL </text>
+              <y>4</y>
+              <foreground_color>
+                <color red="255" green="0" blue="0">
+                </color>
+              </foreground_color>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>RFL_2</name>
+              <text>FWD </text>
+              <y>59</y>
+              <foreground_color>
+                <color red="0" green="0" blue="128">
+                </color>
+              </foreground_color>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>FWD_2</name>
+              <pv_name>$(LLRF_NAME):$(SIGNAL4):amp_average_s.AVERAGE</pv_name>
+              <x>1</x>
+              <y>22</y>
+              <height>25</height>
+              <background_color>
+                <color name="Write_Background" red="128" green="255" blue="255">
+                </color>
+              </background_color>
+              <format>2</format>
+              <precision>3</precision>
+              <vertical_alignment>1</vertical_alignment>
+              <wrap_words>false</wrap_words>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>RFL_2</name>
+              <pv_name>$(LLRF_NAME):$(SIGNAL3):amp_average_s.AVERAGE</pv_name>
+              <x>1</x>
+              <y>77</y>
+              <height>25</height>
+              <background_color>
+                <color name="Write_Background" red="128" green="255" blue="255">
+                </color>
+              </background_color>
+              <format>2</format>
+              <precision>3</precision>
+              <vertical_alignment>1</vertical_alignment>
+              <wrap_words>false</wrap_words>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>VSWR_2</name>
+              <pv_name>loc://$(RATIO_MAX_CH4)</pv_name>
+              <x>1</x>
+              <y>135</y>
+              <height>25</height>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="14.0">
+                </font>
+              </font>
+              <background_color>
+                <color name="Write_Background" red="128" green="255" blue="255">
+                </color>
+              </background_color>
+              <format>1</format>
+              <precision>4</precision>
+              <vertical_alignment>1</vertical_alignment>
+              <wrap_words>false</wrap_words>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+data = PVUtil.getDoubleArray(pvs[0])
+
+if len(data) > 0:
+    val_max = max(data)
+    
+    pvs[1].write(val_max)]]></text>
+                  <pv_name>loc://$(RATIO_CH4)</pv_name>
+                  <pv_name trigger="false">loc://$(RATIO_MAX_CH4)</pv_name>
+                </script>
+              </scripts>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>VSWR_2</name>
+              <text>RFL/FWD</text>
+              <y>117</y>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="14.0">
+                </font>
+              </font>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Interlock_ch4</name>
+            <x>20</x>
+            <y>15</y>
+            <width>608</width>
+            <height>101</height>
+            <transparent>true</transparent>
+            <widget type="bool_button" version="2.0.0">
+              <name>Action Button_2</name>
+              <pv_name>$(LLRF_NAME):$(INTLK)</pv_name>
+              <x>92</x>
+              <y>23</y>
+              <width>55</width>
+              <height>25</height>
+              <off_label>CLEAR</off_label>
+              <off_color>
+                <color name="Button_Background" red="210" green="210" blue="210">
+                </color>
+              </off_color>
+              <on_label>CLEAR</on_label>
+              <on_color>
+                <color name="Button_Background" red="210" green="210" blue="210">
+                </color>
+              </on_color>
+              <show_led>false</show_led>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="12.0">
+                </font>
+              </font>
+              <actions>
+                <action type="write_pv">
+                  <description>Write PV</description>
+                  <pv_name>$(LLRF_NAME):$(INTLK6):enabled</pv_name>
+                  <value>false</value>
+                </action>
+              </actions>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+interlock=PVUtil.getDouble(pvs[0])
+
+if interlock==0:
+	widget.setPropertyValue('enabled',0)
+else:
+	widget.setPropertyValue('enabled',1)]]></text>
+                  <pv_name>$(LLRF_NAME):$(INTLK)</pv_name>
+                </script>
+              </scripts>
+              <tooltip>$(actions)</tooltip>
+              <show_confirm_dialog>false</show_confirm_dialog>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Level_2</name>
+              <text>Level (ratio)</text>
+              <x>226</x>
+              <y>1</y>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Duration_2</name>
+              <text>Duration [us]</text>
+              <x>326</x>
+              <y>1</y>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Offset_2</name>
+              <text>Offset [us]</text>
+              <x>428</x>
+              <y>1</y>
+            </widget>
+            <widget type="led" version="2.0.0">
+              <name>LED_5</name>
+              <pv_name>$(LLRF_NAME):$(INTLK)</pv_name>
+              <x>18</x>
+              <y>14</y>
+              <width>49</width>
+              <height>41</height>
+              <off_label>NO INTLK</off_label>
+              <off_color>
+                <color name="OK" red="0" green="255" blue="0">
+                </color>
+              </off_color>
+              <on_label>INTLK</on_label>
+              <on_color>
+                <color name="STOP" red="255" green="0" blue="0">
+                </color>
+              </on_color>
+              <square>true</square>
+            </widget>
+            <widget type="slide_button" version="2.0.0">
+              <name>Slide Button_2</name>
+              <pv_name>$(LLRF_NAME):$(INTLK4):enabled</pv_name>
+              <label></label>
+              <x>167</x>
+              <y>21</y>
+              <width>43</width>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Level_2</name>
+              <pv_name>$(LLRF_NAME):$(INTLK4):level</pv_name>
+              <x>227</x>
+              <y>23</y>
+              <width>80</width>
+              <height>25</height>
+              <format>1</format>
+              <precision>4</precision>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Duration_2</name>
+              <pv_name>$(LLRF_NAME):$(MARKER_DUR4)</pv_name>
+              <x>326</x>
+              <y>23</y>
+              <width>80</width>
+              <height>25</height>
+              <format>1</format>
+              <precision>4</precision>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Offset_2</name>
+              <pv_name>$(LLRF_NAME):$(MARKER_OFS4)</pv_name>
+              <x>428</x>
+              <y>23</y>
+              <width>80</width>
+              <height>25</height>
+              <format>1</format>
+              <precision>4</precision>
+            </widget>
+            <widget type="bool_button" version="2.0.0">
+              <name>SET_4</name>
+              <pv_name>loc://$(boolean4)(0)</pv_name>
+              <x>520</x>
+              <y>23</y>
+              <width>45</width>
+              <height>23</height>
+              <off_label>SET</off_label>
+              <off_color>
+                <color name="Button_Background" red="210" green="210" blue="210">
+                </color>
+              </off_color>
+              <on_label>OK</on_label>
+              <show_led>false</show_led>
+              <actions>
+              </actions>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+boolean_value = int(PVUtil.getDouble(pvs[4]))
+if boolean_value==0: pass
+else:
+
+    ofs = PVUtil.getDouble(pvs[0])
+    dur = PVUtil.getDouble(pvs[1])
+
+    PVUtil.writePV(str(pvs[2]), ofs,1)
+    PVUtil.writePV(str(pvs[3]), dur,1)]]></text>
+                  <pv_name trigger="false">$(LLRF_NAME):$(MARKER_OFS4)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(MARKER_DUR4)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(INTLK4):offset</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(INTLK4):duration</pv_name>
+                  <pv_name>loc://$(boolean4)</pv_name>
+                </script>
+              </scripts>
+              <tooltip>$(actions)</tooltip>
+              <mode>1</mode>
+              <confirm_message>Gate interlock applied!</confirm_message>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Waveforms2</name>
+            <x>158</x>
+            <y>116</y>
+            <width>470</width>
+            <height>605</height>
+            <transparent>true</transparent>
+            <widget type="xyplot" version="3.0.0">
+              <name>trend_2</name>
+              <y>284</y>
+              <width>420</width>
+              <height>280</height>
+              <show_toolbar>true</show_toolbar>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+idx_array = list(PVUtil.getDoubleArray(pvs[0]))
+limit = PVUtil.getDouble(pvs[1])
+
+next_val = idx_array[-1] + 1 if len(idx_array) > 0 else 0
+idx_array.append(next_val)
+
+if len(idx_array) > limit:
+    idx_array.pop(0)
+
+PVUtil.writePV(str(pvs[0]), idx_array, 1)]]></text>
+                  <pv_name trigger="false">loc://$(INDEX4)</pv_name>
+                  <pv_name trigger="false">loc://$(MAXENTRY4)(1000)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL4):amp_average_s.AVERAGE</pv_name>
+                  <pv_name>loc://$(RATIO_MAX_CH4)</pv_name>
+                </script>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+ratio_trend=PVUtil.getDoubleArray(pvs[1])
+level_set=PVUtil.getDoubleArray(pvs[4])
+limit=PVUtil.getDouble(pvs[2])
+
+if len(ratio_trend) == 0 or (len(ratio_trend) == 1 and ratio_trend[0] == 0):
+	ratio_trend=[] # delete 0 initial value
+
+if len(level_set) == 0 or (len(level_set) == 1 and level_set[0] == 0):
+	level_set=[] # delete 0 initial value
+
+if len(ratio_trend)>limit+1: ratio_trend=[] 
+if len(level_set)>limit+1: level_set=[] 
+
+if len(ratio_trend)==limit+1: ratio_trend.pop(0)
+if len(level_set)==limit+1: level_set.pop(0)
+
+ratio_trend.append(PVUtil.getDouble(pvs[0]))
+level_set.append(PVUtil.getDouble(pvs[5]))
+
+
+PVUtil.writePV(str(pvs[1]), ratio_trend, 1)
+PVUtil.writePV(str(pvs[4]), level_set, 1)
+]]></text>
+                  <pv_name>loc://$(RATIO_MAX_CH4)</pv_name>
+                  <pv_name trigger="false">loc://$(RATIO_TREND_CH4)&lt;VDoubleArray&gt;</pv_name>
+                  <pv_name trigger="false">loc://$(MAXENTRY4)(1000)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL4):amp_average_s.AVERAGE</pv_name>
+                  <pv_name trigger="false">loc://$(INTLK_TREND4)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(INTLK4):level</pv_name>
+                </script>
+              </scripts>
+              <x_axis>
+                <title>Samples</title>
+                <autoscale>true</autoscale>
+                <log_scale>false</log_scale>
+                <minimum>0.0</minimum>
+                <maximum>100.0</maximum>
+                <show_grid>false</show_grid>
+                <title_font>
+                  <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                  </font>
+                </title_font>
+                <scale_font>
+                  <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                  </font>
+                </scale_font>
+                <visible>true</visible>
+              </x_axis>
+              <y_axes>
+                <y_axis>
+                  <title>RFL/FWD power</title>
+                  <autoscale>true</autoscale>
+                  <log_scale>false</log_scale>
+                  <minimum>0.0</minimum>
+                  <maximum>10.0</maximum>
+                  <show_grid>true</show_grid>
+                  <title_font>
+                    <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                    </font>
+                  </title_font>
+                  <scale_font>
+                    <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                    </font>
+                  </scale_font>
+                  <on_right>false</on_right>
+                  <visible>true</visible>
+                  <color>
+                    <color red="26" green="51" blue="153">
+                    </color>
+                  </color>
+                </y_axis>
+                <y_axis>
+                  <title>level ratio set</title>
+                  <autoscale>true</autoscale>
+                  <log_scale>false</log_scale>
+                  <minimum>0.0</minimum>
+                  <maximum>10.0</maximum>
+                  <show_grid>true</show_grid>
+                  <title_font>
+                    <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                    </font>
+                  </title_font>
+                  <scale_font>
+                    <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                    </font>
+                  </scale_font>
+                  <on_right>true</on_right>
+                  <visible>true</visible>
+                  <color>
+                    <color red="255" green="0" blue="0">
+                    </color>
+                  </color>
+                </y_axis>
+              </y_axes>
+              <traces>
+                <trace>
+                  <name>$(traces[0].y_pv)</name>
+                  <x_pv>loc://$(INDEX4)</x_pv>
+                  <y_pv>loc://$(RATIO_TREND_CH4)</y_pv>
+                  <err_pv></err_pv>
+                  <axis>0</axis>
+                  <trace_type>1</trace_type>
+                  <color>
+                    <color red="26" green="51" blue="153">
+                    </color>
+                  </color>
+                  <line_width>1</line_width>
+                  <line_style>0</line_style>
+                  <point_type>2</point_type>
+                  <point_size>4</point_size>
+                  <visible>true</visible>
+                </trace>
+                <trace>
+                  <name>$(traces[1].y_pv)</name>
+                  <x_pv>loc://$(INDEX4)</x_pv>
+                  <y_pv>loc://$(INTLK_TREND4)</y_pv>
+                  <err_pv></err_pv>
+                  <axis>1</axis>
+                  <trace_type>1</trace_type>
+                  <color>
+                    <color red="255" green="0" blue="0">
+                    </color>
+                  </color>
+                  <line_width>2</line_width>
+                  <line_style>1</line_style>
+                  <point_type>0</point_type>
+                  <point_size>10</point_size>
+                  <visible>true</visible>
+                </trace>
+              </traces>
+            </widget>
+            <widget type="xyplot" version="3.0.0">
+              <name>wf3_1</name>
+              <width>420</width>
+              <height>280</height>
+              <show_toolbar>true</show_toolbar>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[# Conversione da ns a samples
+ns_conversion = 8.605e-3  # come indicato
+
+# Recupero valori dai PV
+fwd_v = PVUtil.getDoubleArray(pvs[0])   # FWD amplitude [V]
+rfl_v = PVUtil.getDoubleArray(pvs[1])   # RFL amplitude [V]
+gate_start = int(PVUtil.getDouble(pvs[2]) / ns_conversion)  # us -> samples
+gate_end   = int(PVUtil.getDouble(pvs[3]) / ns_conversion)  # us -> samples
+
+# Assicurarsi che gli indici non escano dai limiti
+gate_start = max(0, gate_start)
+gate_end   = min(len(fwd_v)-1, gate_end)
+
+# Calcolo del rapporto
+rapporto = []
+for i in range(gate_start, gate_end+1):
+    if fwd_v[i] != 0:
+        rapporto.append(rfl_v[i] / fwd_v[i])
+    else:
+        rapporto.append(0.0)  # gestione divisione per zero
+
+PVUtil.writePV(str(pvs[4]), rapporto,1)
+]]></text>
+                  <pv_name>$(LLRF_NAME):$(SIGNAL3):amp_phase.AMP_REMOTE</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL4):amp_phase.AMP_REMOTE</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(MARKER_OFS4)</pv_name>
+                  <pv_name trigger="false">='$(LLRF_NAME):$(MARKER_OFS4)'+'$(LLRF_NAME):$(MARKER_DUR4)'</pv_name>
+                  <pv_name trigger="false">loc://$(RATIO_CH4)</pv_name>
+                </script>
+              </scripts>
+              <x_axis>
+                <title>Time [μs]</title>
+                <autoscale>true</autoscale>
+                <log_scale>false</log_scale>
+                <minimum>0.0</minimum>
+                <maximum>10.0</maximum>
+                <show_grid>false</show_grid>
+                <title_font>
+                  <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                  </font>
+                </title_font>
+                <scale_font>
+                  <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                  </font>
+                </scale_font>
+                <visible>true</visible>
+              </x_axis>
+              <y_axes>
+                <y_axis>
+                  <title>FWD signal [V]</title>
+                  <autoscale>true</autoscale>
+                  <log_scale>false</log_scale>
+                  <minimum>0.0</minimum>
+                  <maximum>1.0</maximum>
+                  <show_grid>true</show_grid>
+                  <title_font>
+                    <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                    </font>
+                  </title_font>
+                  <scale_font>
+                    <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                    </font>
+                  </scale_font>
+                  <on_right>false</on_right>
+                  <visible>true</visible>
+                  <color>
+                    <color red="0" green="0" blue="128">
+                    </color>
+                  </color>
+                </y_axis>
+                <y_axis>
+                  <title>RFL signal [V]</title>
+                  <autoscale>true</autoscale>
+                  <log_scale>false</log_scale>
+                  <minimum>-200.0</minimum>
+                  <maximum>200.0</maximum>
+                  <show_grid>true</show_grid>
+                  <title_font>
+                    <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                    </font>
+                  </title_font>
+                  <scale_font>
+                    <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                    </font>
+                  </scale_font>
+                  <on_right>true</on_right>
+                  <visible>true</visible>
+                  <color>
+                    <color red="255" green="0" blue="0">
+                    </color>
+                  </color>
+                </y_axis>
+              </y_axes>
+              <traces>
+                <trace>
+                  <name>$(traces[0].y_pv)</name>
+                  <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+                  <y_pv>$(LLRF_NAME):$(SIGNAL3):amp_phase.AMP_REMOTE</y_pv>
+                  <err_pv></err_pv>
+                  <axis>0</axis>
+                  <trace_type>1</trace_type>
+                  <color>
+                    <color red="0" green="0" blue="128">
+                    </color>
+                  </color>
+                  <line_width>2</line_width>
+                  <line_style>0</line_style>
+                  <point_type>0</point_type>
+                  <point_size>10</point_size>
+                  <visible>true</visible>
+                </trace>
+                <trace>
+                  <name>$(traces[1].y_pv)</name>
+                  <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+                  <y_pv>$(LLRF_NAME):$(SIGNAL4):amp_phase.AMP_REMOTE</y_pv>
+                  <err_pv></err_pv>
+                  <axis>1</axis>
+                  <trace_type>1</trace_type>
+                  <color>
+                    <color red="255" green="0" blue="0">
+                    </color>
+                  </color>
+                  <line_width>2</line_width>
+                  <line_style>0</line_style>
+                  <point_type>0</point_type>
+                  <point_size>10</point_size>
+                  <visible>true</visible>
+                </trace>
+              </traces>
+              <marker>
+                <marker>
+                  <color>
+                    <color red="128" green="128" blue="128">
+                    </color>
+                  </color>
+                  <pv_name>$(LLRF_NAME):$(MARKER_OFS4)</pv_name>
+                  <interactive>true</interactive>
+                </marker>
+                <marker>
+                  <color>
+                    <color red="128" green="128" blue="128">
+                    </color>
+                  </color>
+                  <pv_name>='$(LLRF_NAME):$(MARKER_OFS4)'+'$(LLRF_NAME):$(MARKER_DUR4)'</pv_name>
+                  <interactive>true</interactive>
+                </marker>
+                <marker>
+                  <color>
+                    <color name="OK" red="0" green="255" blue="0">
+                    </color>
+                  </color>
+                  <pv_name>$(LLRF_NAME):$(INTLK4):offset</pv_name>
+                  <interactive>true</interactive>
+                </marker>
+                <marker>
+                  <color>
+                    <color name="OK" red="0" green="255" blue="0">
+                    </color>
+                  </color>
+                  <pv_name>='$(LLRF_NAME):$(INTLK4):offset'+'$(LLRF_NAME):$(INTLK4):duration'</pv_name>
+                  <interactive>true</interactive>
+                </marker>
+              </marker>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Text Entry_2</name>
+              <pv_name>loc://$(MAXENTRY4)(1000)</pv_name>
+              <x>368</x>
+              <y>527</y>
+              <width>53</width>
+              <precision>0</precision>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>RESET_2</name>
+              <actions execute_as_one="true">
+                <action type="write_pv">
+                  <description>WritePV</description>
+                  <pv_name>loc://$(RATIO_TREND_CH4)&lt;VDoubleArray&gt;</pv_name>
+                  <value>0</value>
+                </action>
+                <action type="write_pv">
+                  <description>WritePV</description>
+                  <pv_name>loc://$(INTLK_TREND4)</pv_name>
+                  <value>0</value>
+                </action>
+                <action type="write_pv">
+                  <description>WritePV</description>
+                  <pv_name>loc://$(INDEX4)</pv_name>
+                  <value>0</value>
+                </action>
+              </actions>
+              <text>RESET</text>
+              <x>368</x>
+              <y>549</y>
+              <width>53</width>
+              <height>20</height>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="12.0">
+                </font>
+              </font>
+              <tooltip></tooltip>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Ch6/Ch5</name>
+        <children>
+          <widget type="group" version="3.0.0">
+            <name>Monitoring3</name>
+            <x>20</x>
+            <y>116</y>
+            <width>137</width>
+            <height>205</height>
+            <transparent>true</transparent>
+            <widget type="label" version="2.0.0">
+              <name>FWD_3</name>
+              <text>RFL </text>
+              <y>4</y>
+              <foreground_color>
+                <color red="255" green="0" blue="0">
+                </color>
+              </foreground_color>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>RFL_3</name>
+              <text>FWD </text>
+              <y>59</y>
+              <foreground_color>
+                <color red="0" green="0" blue="128">
+                </color>
+              </foreground_color>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>FWD_3</name>
+              <pv_name>$(LLRF_NAME):$(SIGNAL6):amp_average_s.AVERAGE</pv_name>
+              <x>1</x>
+              <y>22</y>
+              <height>25</height>
+              <background_color>
+                <color name="Write_Background" red="128" green="255" blue="255">
+                </color>
+              </background_color>
+              <format>2</format>
+              <precision>3</precision>
+              <vertical_alignment>1</vertical_alignment>
+              <wrap_words>false</wrap_words>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>RFL_3</name>
+              <pv_name>$(LLRF_NAME):$(SIGNAL5):amp_average_s.AVERAGE</pv_name>
+              <x>1</x>
+              <y>77</y>
+              <height>25</height>
+              <background_color>
+                <color name="Write_Background" red="128" green="255" blue="255">
+                </color>
+              </background_color>
+              <format>2</format>
+              <precision>3</precision>
+              <vertical_alignment>1</vertical_alignment>
+              <wrap_words>false</wrap_words>
+            </widget>
+            <widget type="textupdate" version="2.0.0">
+              <name>VSWR_3</name>
+              <pv_name>loc://$(RATIO_MAX_CH6)</pv_name>
+              <x>1</x>
+              <y>135</y>
+              <height>25</height>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="14.0">
+                </font>
+              </font>
+              <background_color>
+                <color name="Write_Background" red="128" green="255" blue="255">
+                </color>
+              </background_color>
+              <format>1</format>
+              <precision>4</precision>
+              <vertical_alignment>1</vertical_alignment>
+              <wrap_words>false</wrap_words>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+data = PVUtil.getDoubleArray(pvs[0])
+
+if len(data) > 0:
+    val_max = max(data)
+    
+    pvs[1].write(val_max)]]></text>
+                  <pv_name>loc://$(RATIO_CH6)</pv_name>
+                  <pv_name trigger="false">loc://$(RATIO_MAX_CH6)</pv_name>
+                </script>
+              </scripts>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>VSWR_3</name>
+              <text>RFL/FWD</text>
+              <y>117</y>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="14.0">
+                </font>
+              </font>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Interlock_ch6</name>
+            <x>20</x>
+            <y>15</y>
+            <width>608</width>
+            <height>101</height>
+            <transparent>true</transparent>
+            <widget type="label" version="2.0.0">
+              <name>Level_3</name>
+              <text>Level (ratio)</text>
+              <x>226</x>
+              <y>1</y>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Level_3</name>
+              <pv_name>$(LLRF_NAME):$(INTLK6):level</pv_name>
+              <x>227</x>
+              <y>23</y>
+              <width>80</width>
+              <height>25</height>
+              <format>1</format>
+              <precision>4</precision>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Duration_3</name>
+              <text>Duration [us]</text>
+              <x>326</x>
+              <y>1</y>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Duration_3</name>
+              <pv_name>$(LLRF_NAME):$(MARKER_DUR6)</pv_name>
+              <x>326</x>
+              <y>23</y>
+              <width>80</width>
+              <height>25</height>
+              <format>1</format>
+              <precision>4</precision>
+            </widget>
+            <widget type="label" version="2.0.0">
+              <name>Offset_3</name>
+              <text>Offset [us]</text>
+              <x>428</x>
+              <y>1</y>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Offset_3</name>
+              <pv_name>$(LLRF_NAME):$(MARKER_OFS6)</pv_name>
+              <x>428</x>
+              <y>23</y>
+              <width>80</width>
+              <height>25</height>
+              <format>1</format>
+              <precision>4</precision>
+            </widget>
+            <widget type="slide_button" version="2.0.0">
+              <name>Slide Button_3</name>
+              <pv_name>$(LLRF_NAME):$(INTLK6):enabled</pv_name>
+              <label></label>
+              <x>167</x>
+              <y>21</y>
+              <width>43</width>
+            </widget>
+            <widget type="led" version="2.0.0">
+              <name>LED_3</name>
+              <pv_name>$(LLRF_NAME):$(INTLK)</pv_name>
+              <x>18</x>
+              <y>14</y>
+              <width>49</width>
+              <height>41</height>
+              <off_label>NO INTLK</off_label>
+              <off_color>
+                <color name="OK" red="0" green="255" blue="0">
+                </color>
+              </off_color>
+              <on_label>INTLK</on_label>
+              <on_color>
+                <color name="STOP" red="255" green="0" blue="0">
+                </color>
+              </on_color>
+              <square>true</square>
+            </widget>
+            <widget type="bool_button" version="2.0.0">
+              <name>Action Button_3</name>
+              <pv_name>$(LLRF_NAME):$(INTLK)</pv_name>
+              <x>92</x>
+              <y>23</y>
+              <width>55</width>
+              <height>25</height>
+              <off_label>CLEAR</off_label>
+              <off_color>
+                <color name="Button_Background" red="210" green="210" blue="210">
+                </color>
+              </off_color>
+              <on_label>CLEAR</on_label>
+              <on_color>
+                <color name="Button_Background" red="210" green="210" blue="210">
+                </color>
+              </on_color>
+              <show_led>false</show_led>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="12.0">
+                </font>
+              </font>
+              <actions>
+                <action type="write_pv">
+                  <description>Write PV</description>
+                  <pv_name>$(LLRF_NAME):$(INTLK6):enabled</pv_name>
+                  <value>false</value>
+                </action>
+              </actions>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+interlock=PVUtil.getDouble(pvs[0])
+
+if interlock==0:
+	widget.setPropertyValue('enabled',0)
+else:
+	widget.setPropertyValue('enabled',1)]]></text>
+                  <pv_name>$(LLRF_NAME):$(INTLK)</pv_name>
+                </script>
+              </scripts>
+              <tooltip>$(actions)</tooltip>
+              <show_confirm_dialog>false</show_confirm_dialog>
+            </widget>
+            <widget type="bool_button" version="2.0.0">
+              <name>SET_5</name>
+              <pv_name>loc://$(boolean6)(0)</pv_name>
+              <x>520</x>
+              <y>23</y>
+              <width>45</width>
+              <height>23</height>
+              <off_label>SET</off_label>
+              <off_color>
+                <color name="Button_Background" red="210" green="210" blue="210">
+                </color>
+              </off_color>
+              <on_label>OK</on_label>
+              <show_led>false</show_led>
+              <actions>
+              </actions>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+boolean_value = int(PVUtil.getDouble(pvs[4]))
+if boolean_value==0: pass
+else:
+
+    ofs = PVUtil.getDouble(pvs[0])
+    dur = PVUtil.getDouble(pvs[1])
+
+    PVUtil.writePV(str(pvs[2]), ofs,1)
+    PVUtil.writePV(str(pvs[3]), dur,1)]]></text>
+                  <pv_name trigger="false">$(LLRF_NAME):$(MARKER_OFS6)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(MARKER_DUR6)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(INTLK6):offset</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(INTLK6):duration</pv_name>
+                  <pv_name>loc://$(boolean6)</pv_name>
+                </script>
+              </scripts>
+              <tooltip>$(actions)</tooltip>
+              <mode>1</mode>
+              <confirm_message>Gate interlock applied!</confirm_message>
+            </widget>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Waveforms3</name>
+            <x>158</x>
+            <y>116</y>
+            <width>470</width>
+            <height>605</height>
+            <transparent>true</transparent>
+            <widget type="xyplot" version="3.0.0">
+              <name>trend_3</name>
+              <y>284</y>
+              <width>420</width>
+              <height>280</height>
+              <show_toolbar>true</show_toolbar>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+idx_array = list(PVUtil.getDoubleArray(pvs[0]))
+limit = PVUtil.getDouble(pvs[1])
+
+next_val = idx_array[-1] + 1 if len(idx_array) > 0 else 0
+idx_array.append(next_val)
+
+if len(idx_array) > limit:
+    idx_array.pop(0)
+
+PVUtil.writePV(str(pvs[0]), idx_array, 1)]]></text>
+                  <pv_name trigger="false">loc://$(INDEX6)</pv_name>
+                  <pv_name trigger="false">loc://$(MAXENTRY6)(1000)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL6):amp_average_s.AVERAGE</pv_name>
+                  <pv_name>loc://$(RATIO_MAX_CH6)</pv_name>
+                </script>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+ratio_trend=PVUtil.getDoubleArray(pvs[1])
+level_set=PVUtil.getDoubleArray(pvs[4])
+limit=PVUtil.getDouble(pvs[2])
+
+if len(ratio_trend) == 0 or (len(ratio_trend) == 1 and ratio_trend[0] == 0):
+	ratio_trend=[] # delete 0 initial value
+
+if len(level_set) == 0 or (len(level_set) == 1 and level_set[0] == 0):
+	level_set=[] # delete 0 initial value
+
+if len(ratio_trend)>limit+1: ratio_trend=[] 
+if len(level_set)>limit+1: level_set=[] 
+
+if len(ratio_trend)==limit+1: ratio_trend.pop(0)
+if len(level_set)==limit+1: level_set.pop(0)
+
+ratio_trend.append(PVUtil.getDouble(pvs[0]))
+level_set.append(PVUtil.getDouble(pvs[5]))
+
+
+PVUtil.writePV(str(pvs[1]), ratio_trend, 1)
+PVUtil.writePV(str(pvs[4]), level_set, 1)
+]]></text>
+                  <pv_name>loc://$(RATIO_MAX_CH6)</pv_name>
+                  <pv_name trigger="false">loc://$(RATIO_TREND_CH6)&lt;VDoubleArray&gt;</pv_name>
+                  <pv_name trigger="false">loc://$(MAXENTRY6)(1000)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL6):amp_average_s.AVERAGE</pv_name>
+                  <pv_name trigger="false">loc://$(INTLK_TREND6)</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(INTLK6):level</pv_name>
+                </script>
+              </scripts>
+              <x_axis>
+                <title>Samples</title>
+                <autoscale>true</autoscale>
+                <log_scale>false</log_scale>
+                <minimum>0.0</minimum>
+                <maximum>100.0</maximum>
+                <show_grid>false</show_grid>
+                <title_font>
+                  <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                  </font>
+                </title_font>
+                <scale_font>
+                  <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                  </font>
+                </scale_font>
+                <visible>true</visible>
+              </x_axis>
+              <y_axes>
+                <y_axis>
+                  <title>RFL/FWD power</title>
+                  <autoscale>true</autoscale>
+                  <log_scale>false</log_scale>
+                  <minimum>0.0</minimum>
+                  <maximum>10.0</maximum>
+                  <show_grid>true</show_grid>
+                  <title_font>
+                    <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                    </font>
+                  </title_font>
+                  <scale_font>
+                    <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                    </font>
+                  </scale_font>
+                  <on_right>false</on_right>
+                  <visible>true</visible>
+                  <color>
+                    <color red="26" green="51" blue="153">
+                    </color>
+                  </color>
+                </y_axis>
+                <y_axis>
+                  <title>level ratio set</title>
+                  <autoscale>true</autoscale>
+                  <log_scale>false</log_scale>
+                  <minimum>0.0</minimum>
+                  <maximum>10.0</maximum>
+                  <show_grid>true</show_grid>
+                  <title_font>
+                    <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                    </font>
+                  </title_font>
+                  <scale_font>
+                    <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                    </font>
+                  </scale_font>
+                  <on_right>true</on_right>
+                  <visible>true</visible>
+                  <color>
+                    <color red="255" green="0" blue="0">
+                    </color>
+                  </color>
+                </y_axis>
+              </y_axes>
+              <traces>
+                <trace>
+                  <name>$(traces[0].y_pv)</name>
+                  <x_pv>loc://$(INDEX6)</x_pv>
+                  <y_pv>loc://$(RATIO_TREND_CH6)</y_pv>
+                  <err_pv></err_pv>
+                  <axis>0</axis>
+                  <trace_type>1</trace_type>
+                  <color>
+                    <color red="26" green="51" blue="153">
+                    </color>
+                  </color>
+                  <line_width>1</line_width>
+                  <line_style>0</line_style>
+                  <point_type>2</point_type>
+                  <point_size>4</point_size>
+                  <visible>true</visible>
+                </trace>
+                <trace>
+                  <name>$(traces[1].y_pv)</name>
+                  <x_pv>loc://$(INDEX6)</x_pv>
+                  <y_pv>loc://$(INTLK_TREND6)</y_pv>
+                  <err_pv></err_pv>
+                  <axis>1</axis>
+                  <trace_type>1</trace_type>
+                  <color>
+                    <color red="255" green="0" blue="0">
+                    </color>
+                  </color>
+                  <line_width>2</line_width>
+                  <line_style>1</line_style>
+                  <point_type>0</point_type>
+                  <point_size>10</point_size>
+                  <visible>true</visible>
+                </trace>
+              </traces>
+            </widget>
+            <widget type="xyplot" version="3.0.0">
+              <name>wf3</name>
+              <width>420</width>
+              <height>280</height>
+              <show_toolbar>true</show_toolbar>
+              <scripts>
+                <script file="EmbeddedPy">
+                  <text><![CDATA[# Conversione da ns a samples
+ns_conversion = 8.605e-3  # come indicato
+
+# Recupero valori dai PV
+fwd_v = PVUtil.getDoubleArray(pvs[0])   # FWD amplitude [V]
+rfl_v = PVUtil.getDoubleArray(pvs[1])   # RFL amplitude [V]
+gate_start = int(PVUtil.getDouble(pvs[2]) / ns_conversion)  # us -> samples
+gate_end   = int(PVUtil.getDouble(pvs[3]) / ns_conversion)  # us -> samples
+
+# Assicurarsi che gli indici non escano dai limiti
+gate_start = max(0, gate_start)
+gate_end   = min(len(fwd_v)-1, gate_end)
+
+# Calcolo del rapporto
+rapporto = []
+for i in range(gate_start, gate_end+1):
+    if fwd_v[i] != 0:
+        rapporto.append(rfl_v[i] / fwd_v[i])
+    else:
+        rapporto.append(0.0)  # gestione divisione per zero
+
+PVUtil.writePV(str(pvs[4]), rapporto,1)
+]]></text>
+                  <pv_name>$(LLRF_NAME):$(SIGNAL5):amp_phase.AMP_REMOTE</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(SIGNAL6):amp_phase.AMP_REMOTE</pv_name>
+                  <pv_name trigger="false">$(LLRF_NAME):$(MARKER_OFS6)</pv_name>
+                  <pv_name trigger="false">='$(LLRF_NAME):$(MARKER_OFS6)'+'$(LLRF_NAME):$(MARKER_DUR6)'</pv_name>
+                  <pv_name trigger="false">loc://$(RATIO_CH6)</pv_name>
+                </script>
+              </scripts>
+              <x_axis>
+                <title>Time [μs]</title>
+                <autoscale>true</autoscale>
+                <log_scale>false</log_scale>
+                <minimum>0.0</minimum>
+                <maximum>10.0</maximum>
+                <show_grid>false</show_grid>
+                <title_font>
+                  <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                  </font>
+                </title_font>
+                <scale_font>
+                  <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                  </font>
+                </scale_font>
+                <visible>true</visible>
+              </x_axis>
+              <y_axes>
+                <y_axis>
+                  <title>FWD signal [V]</title>
+                  <autoscale>true</autoscale>
+                  <log_scale>false</log_scale>
+                  <minimum>0.0</minimum>
+                  <maximum>1.0</maximum>
+                  <show_grid>true</show_grid>
+                  <title_font>
+                    <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                    </font>
+                  </title_font>
+                  <scale_font>
+                    <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                    </font>
+                  </scale_font>
+                  <on_right>false</on_right>
+                  <visible>true</visible>
+                  <color>
+                    <color red="0" green="0" blue="128">
+                    </color>
+                  </color>
+                </y_axis>
+                <y_axis>
+                  <title>RFL signal [V]</title>
+                  <autoscale>true</autoscale>
+                  <log_scale>false</log_scale>
+                  <minimum>-200.0</minimum>
+                  <maximum>200.0</maximum>
+                  <show_grid>true</show_grid>
+                  <title_font>
+                    <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+                    </font>
+                  </title_font>
+                  <scale_font>
+                    <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+                    </font>
+                  </scale_font>
+                  <on_right>true</on_right>
+                  <visible>true</visible>
+                  <color>
+                    <color red="255" green="0" blue="0">
+                    </color>
+                  </color>
+                </y_axis>
+              </y_axes>
+              <traces>
+                <trace>
+                  <name>$(traces[0].y_pv)</name>
+                  <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+                  <y_pv>$(LLRF_NAME):$(SIGNAL5):amp_phase.AMP_REMOTE</y_pv>
+                  <err_pv></err_pv>
+                  <axis>0</axis>
+                  <trace_type>1</trace_type>
+                  <color>
+                    <color red="0" green="0" blue="128">
+                    </color>
+                  </color>
+                  <line_width>2</line_width>
+                  <line_style>0</line_style>
+                  <point_type>0</point_type>
+                  <point_size>10</point_size>
+                  <visible>true</visible>
+                </trace>
+                <trace>
+                  <name>$(traces[1].y_pv)</name>
+                  <x_pv>$(LLRF_NAME):app:time_vector</x_pv>
+                  <y_pv>$(LLRF_NAME):$(SIGNAL6):amp_phase.AMP_REMOTE</y_pv>
+                  <err_pv></err_pv>
+                  <axis>1</axis>
+                  <trace_type>1</trace_type>
+                  <color>
+                    <color red="255" green="0" blue="0">
+                    </color>
+                  </color>
+                  <line_width>2</line_width>
+                  <line_style>0</line_style>
+                  <point_type>0</point_type>
+                  <point_size>10</point_size>
+                  <visible>true</visible>
+                </trace>
+              </traces>
+              <marker>
+                <marker>
+                  <color>
+                    <color red="128" green="128" blue="128">
+                    </color>
+                  </color>
+                  <pv_name>$(LLRF_NAME):$(MARKER_OFS6)</pv_name>
+                  <interactive>true</interactive>
+                </marker>
+                <marker>
+                  <color>
+                    <color red="128" green="128" blue="128">
+                    </color>
+                  </color>
+                  <pv_name>='$(LLRF_NAME):$(MARKER_OFS6)'+'$(LLRF_NAME):$(MARKER_DUR6)'</pv_name>
+                  <interactive>true</interactive>
+                </marker>
+                <marker>
+                  <color>
+                    <color name="OK" red="0" green="255" blue="0">
+                    </color>
+                  </color>
+                  <pv_name>$(LLRF_NAME):$(INTLK6):offset</pv_name>
+                  <interactive>true</interactive>
+                </marker>
+                <marker>
+                  <color>
+                    <color name="OK" red="0" green="255" blue="0">
+                    </color>
+                  </color>
+                  <pv_name>='$(LLRF_NAME):$(INTLK6):offset'+'$(LLRF_NAME):$(INTLK6):duration'</pv_name>
+                  <interactive>true</interactive>
+                </marker>
+              </marker>
+            </widget>
+            <widget type="textentry" version="3.0.0">
+              <name>Text Entry</name>
+              <pv_name>loc://$(MAXENTRY6)(1000)</pv_name>
+              <x>368</x>
+              <y>527</y>
+              <width>53</width>
+              <precision>0</precision>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>RESET_3</name>
+              <actions execute_as_one="true">
+                <action type="write_pv">
+                  <description>WritePV</description>
+                  <pv_name>loc://$(RATIO_TREND_CH6)&lt;VDoubleArray&gt;</pv_name>
+                  <value>0</value>
+                </action>
+                <action type="write_pv">
+                  <description>WritePV</description>
+                  <pv_name>loc://$(INTLK_TREND6)</pv_name>
+                  <value>0</value>
+                </action>
+                <action type="write_pv">
+                  <description>WritePV</description>
+                  <pv_name>loc://$(INDEX6)</pv_name>
+                  <value>0</value>
+                </action>
+              </actions>
+              <text>RESET</text>
+              <x>368</x>
+              <y>549</y>
+              <width>53</width>
+              <height>20</height>
+              <font>
+                <font family="Liberation Sans" style="BOLD" size="12.0">
+                </font>
+              </font>
+              <tooltip></tooltip>
+            </widget>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <x>40</x>
+    <y>66</y>
+    <width>680</width>
+    <height>804</height>
+    <active_tab>2</active_tab>
+  </widget>
+</display>

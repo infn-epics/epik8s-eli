@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-04-28 11:04:37 by georg-->
+<display version="2.0.0">
+  <name>vacuum_demo</name>
+  <width>1860</width>
+  <height>740</height>
+  <widget type="picture" version="2.0.0">
+    <name>Picture_4</name>
+    <x>400</x>
+    <y>435</y>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Univac</name>
+    <macros>
+      <GROUP>vac</GROUP>
+      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+    </macros>
+    <x>18</x>
+    <y>18</y>
+    <width>1844</width>
+    <height>714</height>
+    <style>3</style>
+    <widget type="navtabs" version="2.0.0">
+      <name>VacZone</name>
+      <tabs>
+        <tab>
+          <name>WaveGuides</name>
+          <file>VAC/vac-opi/Waveguide_ALL_Template.bob</file>
+          <macros>
+            <ZONE>ALL</ZONE>
+            <PLTFILE>../../ini/plt/LELvac-all.plt</PLTFILE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>WGS01</name>
+          <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+          <macros>
+            <ZONE>WGS01</ZONE>
+            <PLTFILE>../../ini/plt/WGS01vac.plt</PLTFILE>
+            <IMGFILE>../../img/WGS01-664x340-Layout.png</IMGFILE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>WGS02</name>
+          <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+          <macros>
+            <ZONE>WGS02</ZONE>
+            <PLTFILE>../../ini/plt/WGS02vac.plt</PLTFILE>
+            <IMGFILE>../../img/WGS02-664x340-Layout.png</IMGFILE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>WGS03</name>
+          <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+          <macros>
+            <ZONE>WGS03</ZONE>
+            <PLTFILE>../../ini/plt/WGS03vac.plt</PLTFILE>
+            <IMGFILE>../../img/WGS03-664x340-Layout.png</IMGFILE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>WGC01</name>
+          <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+          <macros>
+            <ZONE>WGC01</ZONE>
+            <PLTFILE>../../ini/plt/WGC01vac.plt</PLTFILE>
+            <IMGFILE>../../img/WGC01-664x340-Layout.png</IMGFILE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>M1</name>
+          <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+          <macros>
+            <ZONE>M1</ZONE>
+            <PLTFILE>../../ini/plt/M1vac.plt</PLTFILE>
+            <IMGFILE>../../img/M1.png</IMGFILE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>M2</name>
+          <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+          <macros>
+            <ZONE>M2</ZONE>
+            <PLTFILE>../../ini/plt/M2vac.plt</PLTFILE>
+            <IMGFILE>../../img/M2.png</IMGFILE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>M3</name>
+          <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+          <macros>
+            <ZONE>M3</ZONE>
+            <PLTFILE>../../ini/plt/M3vac.plt</PLTFILE>
+            <IMGFILE>../../img/M1.png</IMGFILE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>M4</name>
+          <file>epik8s-opi/univac-opi/VacuumHistocombo.bob</file>
+          <macros>
+            <ZONE>M4</ZONE>
+            <PLTFILE>../../ini/plt/M4vac.plt</PLTFILE>
+            <IMGFILE>../../img/M4.png</IMGFILE>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>WGS01+M1</name>
+          <file>VAC/vac-opi/Vac_double.bob</file>
+          <macros>
+            <PLTFILE1>../../ini/plt/WGS01vac.plt</PLTFILE1>
+            <PLTFILE2>../../ini/plt/M1vac.plt</PLTFILE2>
+            <IMGFILE1>../../img/WGS01-664x340-Layout.png</IMGFILE1>
+            <IMGFILE2>../../img/M1.png</IMGFILE2>
+            <ZONE1>WGS01</ZONE1>
+            <ZONE2>M1</ZONE2>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>WGS02+M2</name>
+          <file>VAC/vac-opi/Vac_double.bob</file>
+          <macros>
+            <PLTFILE1>../../ini/plt/WGS02vac.plt</PLTFILE1>
+            <PLTFILE2>../../ini/plt/M2vac.plt</PLTFILE2>
+            <IMGFILE1>../../img/WGS02-664x340-Layout.png</IMGFILE1>
+            <IMGFILE2>../../img/M2.png</IMGFILE2>
+            <ZONE1>WGS02</ZONE1>
+            <ZONE2>M2</ZONE2>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>WGS03+M3</name>
+          <file>VAC/vac-opi/Vac_double.bob</file>
+          <macros>
+            <PLTFILE1>../../ini/plt/WGS03vac.plt</PLTFILE1>
+            <PLTFILE2>../../ini/plt/M3vac.plt</PLTFILE2>
+            <IMGFILE1>../../img/WGS03-664x340-Layout.png</IMGFILE1>
+            <IMGFILE2>../../img/M3.png</IMGFILE2>
+            <ZONE1>WGS03</ZONE1>
+            <ZONE2>M3</ZONE2>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>WGC01+M4</name>
+          <file>VAC/vac-opi/Vac_double.bob</file>
+          <macros>
+            <PLTFILE1>../../ini/plt/WGC01vac.plt</PLTFILE1>
+            <PLTFILE2>../../ini/plt/M4vac.plt</PLTFILE2>
+            <IMGFILE1>../../img/WGC01-664x340-Layout.png</IMGFILE1>
+            <IMGFILE2>../../img/M4.png</IMGFILE2>
+            <ZONE1>WGC01</ZONE1>
+            <ZONE2>M4</ZONE2>
+          </macros>
+          <group_name></group_name>
+        </tab>
+        <tab>
+          <name>LINAC</name>
+          <file>VAC/vac-opi/LINAC_ALL_Template.bob</file>
+          <macros>
+          </macros>
+          <group_name></group_name>
+        </tab>
+      </tabs>
+      <x>2</x>
+      <y>2</y>
+      <width>1840</width>
+      <height>709</height>
+      <tab_width>120</tab_width>
+      <rules>
+        <rule name="New Rule" prop_id="name" out_exp="false">
+          <exp bool_exp="If pv0 == 0">
+            <value>set Color to Blue</value>
+          </exp>
+          <exp bool_exp="If pv0 == 1">
+            <value>set Color to Blue</value>
+          </exp>
+          <pv_name>loc://selectedTab(0)</pv_name>
+        </rule>
+        <rule name="Dynamic Background" prop_id="active_tab" out_exp="false">
+          <exp bool_exp="pv0 == 0">
+            <value>#0078D7</value>
+          </exp>
+          <exp bool_exp="pv0 == 1">
+            <value>#E81123</value>
+          </exp>
+          <exp bool_exp="pv0 == 2">
+            <value>#107C10</value>
+          </exp>
+          <pv_name>loc://active_tab</pv_name>
+        </rule>
+      </rules>
+      <scripts>
+        <script file="EmbeddedJs">
+          <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+
+# Get the index of the tab clicked (0 through 12)
+idx = widget.getPropertyValue("selection")
+
+# 1. Update the Local PV for the background color rule
+PVUtil.writePV("loc://tab_state", idx)
+
+# 2. Update the Container's Macros
+# Assuming your container is named "ContentContainer" 
+# and your macro for the file is $(tab_file)
+container = display.getWidget("ContentContainer")
+new_macro = "tab_" + str(idx) + ".bob" 
+
+container.setPropertyValue("macros", {"tab_file": new_macro})]]></text>
+          <pv_name>tab_index</pv_name>
+        </script>
+      </scripts>
+    </widget>
+  </widget>
+</display>

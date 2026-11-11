@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>Beam Energy Monitor</name>
+  <macros>
+    <P>$(P=LEL:CALC:ENERGY)</P>
+  </macros>
+  <width>980</width>
+  <height>680</height>
+  <background_color>
+    <color red="237" green="236" blue="235">
+    </color>
+  </background_color>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Title</name>
+    <text>Beam Energy Monitor</text>
+    <width>980</width>
+    <height>42</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <background_color>
+      <color name="Diagnostics Title" red="207" green="151" blue="207">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>PV prefix</name>
+    <text>Device: $(P)</text>
+    <y>42</y>
+    <width>980</width>
+    <height>22</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="80" green="80" blue="80">
+      </color>
+    </foreground_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Readouts</name>
+    <x>680</x>
+    <y>70</y>
+    <width>290</width>
+    <height>600</height>
+    <style>1</style>
+    <background_color>
+      <color red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <widget type="label" version="2.0.0">
+      <name>lbl_ekin</name>
+      <text>Kinetic Energy</text>
+      <x>5</x>
+      <y>10</y>
+      <width>280</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="13.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="31" green="73" blue="125">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>E_KIN</name>
+      <pv_name>$(P):E_KIN</pv_name>
+      <x>5</x>
+      <y>32</y>
+      <width>187</width>
+      <height>36</height>
+      <font>
+        <font family="Liberation Mono" style="BOLD" size="20.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="31" green="73" blue="125">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <precision>3</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>unit_ekin</name>
+      <text>MeV</text>
+      <x>192</x>
+      <y>38</y>
+      <width>60</width>
+      <height>24</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="80" green="80" blue="80">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>lbl_p</name>
+      <text>Momentum</text>
+      <x>5</x>
+      <y>84</y>
+      <width>280</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="13.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="192" green="80" blue="77">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>P</name>
+      <pv_name>$(P):P</pv_name>
+      <x>5</x>
+      <y>106</y>
+      <width>180</width>
+      <height>36</height>
+      <font>
+        <font family="Liberation Mono" style="BOLD" size="20.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="192" green="80" blue="77">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <precision>3</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>unit_p</name>
+      <text>MeV/c</text>
+      <x>192</x>
+      <y>112</y>
+      <width>65</width>
+      <height>24</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="80" green="80" blue="80">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>lbl_idip</name>
+      <text>Dipole Current</text>
+      <x>5</x>
+      <y>158</y>
+      <width>280</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="13.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="75" green="172" blue="198">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>I_DIP</name>
+      <pv_name>$(P):I_DIP</pv_name>
+      <x>5</x>
+      <y>180</y>
+      <width>180</width>
+      <height>36</height>
+      <font>
+        <font family="Liberation Mono" style="BOLD" size="20.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="75" green="172" blue="198">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>1</format>
+      <precision>2</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>unit_idip</name>
+      <text>A</text>
+      <x>192</x>
+      <y>186</y>
+      <width>30</width>
+      <height>24</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="80" green="80" blue="80">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>lbl_k1</name>
+      <text>Calibration K1</text>
+      <x>5</x>
+      <y>232</y>
+      <width>280</width>
+      <height>22</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="13.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="128" green="100" blue="162">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>K1</name>
+      <pv_name>$(P):K1</pv_name>
+      <x>5</x>
+      <y>254</y>
+      <width>180</width>
+      <height>36</height>
+      <font>
+        <font family="Liberation Mono" style="REGULAR" size="16.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="128" green="100" blue="162">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <format>2</format>
+      <precision>6</precision>
+      <horizontal_alignment>2</horizontal_alignment>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>unit_k1</name>
+      <text>Tm/A</text>
+      <x>192</x>
+      <y>260</y>
+      <width>55</width>
+      <height>24</height>
+      <font>
+        <font family="Liberation Sans" style="REGULAR" size="12.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="80" green="80" blue="80">
+        </color>
+      </foreground_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>formula</name>
+      <text>p = 300·K1·I / θ   [MeV/c]
+Ekin = √(p²+m²) - m
+m = 0.511 MeV,  θ = 24°</text>
+      <x>5</x>
+      <y>320</y>
+      <width>275</width>
+      <height>70</height>
+      <font>
+        <font family="Liberation Mono" style="REGULAR" size="10.0">
+        </font>
+      </font>
+      <foreground_color>
+        <color red="100" green="100" blue="100">
+        </color>
+      </foreground_color>
+    </widget>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Energy Trend</name>
+    <file>energy_trend.plt</file>
+    <x>10</x>
+    <y>70</y>
+    <width>660</width>
+    <height>390</height>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>E_KIN vs I_DIP</name>
+    <x>10</x>
+    <y>470</y>
+    <width>660</width>
+    <height>200</height>
+    <title>E_kin vs I_dip  (calibration curve)</title>
+    <title_font>
+      <font family="Liberation Sans" style="BOLD" size="13.0">
+      </font>
+    </title_font>
+    <show_toolbar>true</show_toolbar>
+    <scripts>
+      <script file="EmbeddedPy">
+        <text><![CDATA[
+# Compute calibration curve: E_kin [MeV] vs I_dip [A]
+import math
+from org.csstudio.display.builder.runtime.script import PVUtil
+
+K1 = 0.00157450  # Tm/A  (mean of Int_Bz/I from dipole excitation table)
+ANGLE_RAD = 24.0 * math.pi / 180.0
+ME = 0.511  # MeV
+
+N = 100
+i_vals = [i * 160.0 / (N - 1) for i in range(N)]
+ekin_vals = []
+for i in i_vals:
+    p = 300.0 * K1 * i / ANGLE_RAD
+    ekin = math.sqrt(p**2 + ME**2) - ME
+    ekin_vals.append(ekin)
+
+PVUtil.writePV(str(pvs[0]), i_vals, 1)
+PVUtil.writePV(str(pvs[1]), ekin_vals, 1)
+        ]]></text>
+        <pv_name trigger="false">loc://cal_i_axis</pv_name>
+        <pv_name trigger="false">loc://cal_ekin_axis</pv_name>
+      </script>
+    </scripts>
+    <x_axis>
+      <title>I_dip [A]</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>160.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font family="Liberation Sans" style="REGULAR" size="11.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>E_kin [MeV]</title>
+        <autoscale>false</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>200.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font family="Liberation Sans" style="BOLD" size="12.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font family="Liberation Sans" style="REGULAR" size="11.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="31" green="73" blue="125">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>Calibration curve</name>
+        <x_pv>loc://cal_i_axis</x_pv>
+        <y_pv>loc://cal_ekin_axis</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="150" green="150" blue="150">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>2</line_style>
+        <point_type>0</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>Operating point</name>
+        <x_pv>$(P):I_DIP</x_pv>
+        <y_pv>$(P):E_KIN</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>0</trace_type>
+        <color>
+          <color red="31" green="73" blue="125">
+          </color>
+        </color>
+        <line_width>0</line_width>
+        <line_style>0</line_style>
+        <point_type>3</point_type>
+        <point_size>14</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+</display>

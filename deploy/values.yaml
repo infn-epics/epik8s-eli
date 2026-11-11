@@ -120,7 +120,7 @@ epicsConfiguration:
 
     console: 
         replicaCount: 1
-        charturl: https://baltig.infn.it/epics-containers/epics-console-chart.git
+        charturl: https://github.com/infn-epics/console-chart.git
         enable_ingress: true
         gitpath: opi
         resources:
@@ -131,14 +131,15 @@ epicsConfiguration:
               cpu: 1000m
               memory: 1Gi
         gitRepoConfig:
-          url: https://baltig.infn.it/lnf-da-control/epik8s-eli.git
+          url: https://github.com/infn-epics/epik8s-eli.git
           path: opi
-          branch: master
+          branch: devel
         autosync: true ## restart automatically on changes
         usegateway: true
 
     notebook: 
-      charturl: https://baltig.infn.it/epics-containers/jupyter-chart.git
+      # github copy of the baltig chart: init and notebook images come from ghcr
+      charturl: https://github.com/infn-epics/jupyter-chart.git
       replicaCount: 1
       gitRepoConfig:
         url: https://baltig.infn.it/lnf-da-control/ecs-jupyter-control.git
@@ -159,7 +160,7 @@ epicsConfiguration:
 
     webalarm: 
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       image:
         repository: baltig.infn.it:4567/epics-containers/phoebus-web-docker
       phoebusservice: "webalarm"
@@ -172,9 +173,7 @@ epicsConfiguration:
 
     pws: 
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
-      image:
-        repository: baltig.infn.it:4567/epics-containers/phoebus-web-docker
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       phoebusservice: "pvws"
       auto_security: true
       enable_ingress: true
@@ -185,9 +184,7 @@ epicsConfiguration:
     
     dbwr: 
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
-      image:
-        repository: baltig.infn.it:4567/epics-containers/phoebus-web-docker
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       phoebusservice: "dbwr"
       auto_security: true
       enable_ingress: true
@@ -205,10 +202,10 @@ epicsConfiguration:
     webolog:
       name: "webolog"
       image:
-        repository: "ghcr.io/infn-epics/phoebus-olog-web-client"
+        repository: "ghcr.io/infn-epics/phoebus-olog-web-client-node-server"
         tag: "latest"
         pullPolicy: "Always"
-      charturl: https://baltig.infn.it/epics-containers/generic-application-chart.git
+      charturl: https://github.com/infn-epics/generic-application-chart.git
       enable_ingress: true
       disable: false ##
       env:
@@ -217,35 +214,51 @@ epicsConfiguration:
         - name: VITE_APP_DEFAULT_LEVEL
           value: "Info"
         - name: VITE_APP_BASE_URL
-          value: "https://eli-webolog.srv.int.eli-np.ro/Olog"
-        - name: VITE_REACT_APP_USE_KEYCLOAK
-          value: true
-        - name: VITE_AUTH_CLIENT_ID
-          value: camunda
-        - name: VITE_AUTH_ENDPOINT
-          value: "https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/auth"
-        - name: VITE_AUTH_ENDPOINT_LOGOUT
-          value: "https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/logout"
-        - name: VITE_AUTH_ENDPOINT_TOKEN
-          value: "https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/token"
-        - name: VITE_AUTH_ENDPOINT_REDIRECT_URI
-          value: "https://eli-webolog.srv.int.eli-np.ro"
-        - name: VITE_AUTH_SCOPE
-          value: openid
+          value: "http://eli-olog.srv.int.eli-np.ro/Olog"
 
+      # Same node-server image and build as BTF. No AAI at ELI: OAuth2 stays off,
+      # users sign in to Olog with the basic-auth account. The ELI ingresses
+      # serve plain HTTP only, so Olog is reached over http:// and ws://.
+      # This client switches to OAuth2 whenever VITE_APP_OAUTH2_ENABLED is
+      # non-empty ("false" included) and always mounts the OAuth2 provider, which
+      # needs a client id and endpoints and logs in on load. So the sources are
+      # patched to classic login before the build, the provider gets autoLogin
+      # off, and the AUTH values are placeholders it never contacts.
       exec: |
-        echo "VITE_APP_BASE_URL=$(VITE_APP_BASE_URL)" > .env
-        echo "VITE_APP_LOGBOOK_NAME=INFN BTF Logbook" >> .env
-        echo "VITE_AUTH_CLIENT_ID=camunda" >> .env
-        echo "VITE_AUTH_ENDPOINT=https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/auth" >> .env
-        echo "VITE_AUTH_ENDPOINT_LOGOUT=https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/logout" >> .env
-        echo "VITE_AUTH_ENDPOINT_TOKEN=https://idp-test.app.infn.it/auth/realms/aai/protocol/openid-connect/token" >> .env
-        echo "VITE_AUTH_ENDPOINT_REDIRECT_URI=https://eli-webolog.srv.int.eli-np.ro" >> .env
-        echo "VITE_AUTH_SCOPE=openid" >> .env
-        echo "VITE_APP_OAUTH2_ENABLED=false" >> .env
-        cat .env
+        rm -rf .package-lock.json .env .env.production .env.local node_modules env* build
+        echo "=== Creating .env.production file ==="
+        cat > .env.production <<'ENVEOF'
+        VITE_APP_BASE_URL=http://eli-olog.srv.int.eli-np.ro/Olog
+        VITE_APP_LOGBOOK_NAME=ELI-NP Logbook
+        VITE_APP_OAUTH2_ENABLED=false
+        VITE_APP_AUTH_CLIENT_ID=webolog
+        VITE_APP_AUTH_ENDPOINT=http://eli-webolog.srv.int.eli-np.ro/
+        VITE_APP_AUTH_ENDPOINT_TOKEN=http://eli-webolog.srv.int.eli-np.ro/
+        VITE_APP_AUTH_ENDPOINT_REDIRECT_URI=http://eli-webolog.srv.int.eli-np.ro
+        VITE_APP_LEVEL_VALUES=["Urgent","Suggestion","Info","Request","Problem"]
+        VITE_APP_DEFAULT_LEVEL=Info
+        VITE_APP_WEBSOCKET_BASE_URL=ws://eli-olog.srv.int.eli-np.ro/Olog/web-socket
+        ENVEOF
+        echo "=== .env.production contents ==="
+        cat .env.production
+        echo "=== Forcing classic (username/password) login ==="
+        grep -rl "VITE_APP_OAUTH2_ENABLED" src | xargs sed -i \
+          -e 's/import\.meta\.env\.VITE_APP_OAUTH2_ENABLED === "false"/true/g' \
+          -e 's/import\.meta\.env\.VITE_APP_OAUTH2_ENABLED === "true"/false/g' \
+          -e 's/import\.meta\.env\.VITE_APP_OAUTH2_ENABLED/false/g'
+        sed -i 's/autoRefreshToken: true,/autoRefreshToken: true, autoLogin: false,/' src/views/App.jsx
+        # Search, logbooks and log views wait for isAuthenticated, which is set
+        # only by an OAuth2 token: with classic login, signed in = a user in the
+        # store (API calls and attachments already use the Olog session cookie).
+        sed -i \
+          -e 's/import { useDispatch } from "react-redux";/import { useDispatch, useSelector } from "react-redux";/' \
+          -e 's/const isAuthenticated = !!authState\.token .*;/const isAuthenticated = !!useSelector((state) => state.auth.user);/' \
+          src/auth/authContext.jsx
+        grep -rn "OAUTH2_ENABLED\|autoLogin\|const isAuthenticated" src | grep -v "\.test\." || true
         npm ci
-        npm run build --force
+        npm run build
+        echo "=== Verifying build (should NOT find localhost:3000) ==="
+        grep -r "localhost:3000" build/ && echo "ERROR: localhost:3000 still in build!" || echo "OK: No localhost:3000 found"
         serve -l 3000 -s build
       securityContext:
             runAsUser: 1000
@@ -266,10 +279,16 @@ epicsConfiguration:
       mongodb: "eli-ologAttachments"
       disable: false ##      
       targetRevision: "main"
+      # INFN build of phoebus-olog branch infn/2026-10, as BTF and SPARC. It adds
+      # per-logbook permissions and grants signed-in users nothing by default.
+      olog:
+        image: "ghcr.io/infn-epics/org-phoebus-service-olog:infn-2026-10"
+        # Every signed-in user (here the basic-auth account) reads and writes every logbook
+        authenticatedPermissions: "READ,WRITE"
       service:
         loglevel: "DEBUG"
       cors:
-        origins: "https://eli-webolog.srv.int.eli-np.ro"
+        origins: "http://eli-webolog.srv.int.eli-np.ro"
       user: epics
       password: epics
       oauth2:
@@ -287,7 +306,10 @@ epicsConfiguration:
       phoebusservice: "saveandrestore"
       targetRevision: "main"
       saveandrestore:
-        image: "ghcr.io/infn-epics/phoebus/service-save-and-restore"
+        # Pinned to the INFN build BTF and SPARC run (untagged = latest moved to it
+        # and crash-looped). A Spring Boot 4 image: jackson3 is required.
+        image: "ghcr.io/infn-epics/phoebus/service-save-and-restore:infn-2026-10"
+        jackson3: true
       enable_ingress: true
       mongodb: "eli-ologAttachments"
       disable: false ##
@@ -298,9 +320,9 @@ epicsConfiguration:
     
     alarmserver: 
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       phoebusservice: "alarmserver"
-      targetRevision: "test-olog-saveandrestore"
+      targetRevision: "main"
       alarm:
         config: "eli-Accelerator"
       
@@ -314,23 +336,31 @@ epicsConfiguration:
     
     alarmlogger: 
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       phoebusservice: "alarmlogger"
-      targetRevision: "test-olog-saveandrestore"
+      targetRevision: "main"
 
       auto_security: true
       enable_ingress: true
       mongodb: "eli-ologAttachments"
       alarm:
-        config: "Accelerator"
-        topics: "Accelerato,ALARM,CONFIGS"
+        config: "eli-Accelerator"
+        topics: "eli-Accelerator,ALARM,CONFIGS"
       autosync: true ## restart automatically on changes
 
     channelfinder: 
+      name: channelfinder
       autosync: true ## restart automatically on changes
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/channelfinder-chart.git
-      auto_security: true
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
+      phoebusservice: channelfinder
+      channelfinderFeeder:
+        image: ghcr.io/infn-epics/channelfinder-service-feeder:2.1.5
+      image:
+        repository: ghcr.io/infn-epics/channelfinderservice
+        tag: latest
+        pullPolicy: Always
+      # no auto_security: as uid 1000 the start script cannot write /app/truststore.jks
       enable_ingress: true
       mongodb: "eli-channelfinder"
       aa:
@@ -347,7 +377,7 @@ epicsConfiguration:
       image:
         repository: "nginx:alpine"
         pullPolicy: "Always"
-      charturl: https://baltig.infn.it/epics-containers/generic-application-chart.git
+      charturl: https://github.com/infn-epics/generic-application-chart.git
       enable_ingress: true
       disable: false ##
       secure: true
@@ -362,11 +392,12 @@ epicsConfiguration:
 
     scanserver: 
       loglevel: DEBUG
-      charturl: https://baltig.infn.it/epics-containers/phoebus-services-chart.git
+      charturl: https://github.com/infn-epics/phoebus-services-chart.git
       phoebusservice: "scanserver"
       auto_security: true
       enable_ingress: true
       mongodb: "eli-ologAttachments"
+      disable: true ## image only on baltig registry, unreachable from ELI
     mysql: 
       name: mysql
       charturl: registry-1.docker.io/bitnamicharts
@@ -385,6 +416,14 @@ epicsConfiguration:
         name: "default"
   
   iocs:
+
+    # --- Moxa NPort web-console monitor/control IOCs (serial-converter-moxa) ---
+    # Read-only monitoring (dryrun: 1), as in BTF. Admin credentials come from
+    # /.ssh/moxa_netrc (epik8s-secret, via epik8s-platform/secrets-moxa/apply-moxa-secret.sh).
+    # pollperiod 5 s to keep the console session load light on production serial servers.
+    nport-mxa16001: { name: nport-mxa16001, template: moxaNport, iocprefix: "ELI:MOXA:N01", server: scelimxa16001.int.eli-np.ro, devgroup: net, devtype: moxaNport, nports: 16, pollperiod: 5, dryrun: 1 }
+    nport-mxa16002: { name: nport-mxa16002, template: moxaNport, iocprefix: "ELI:MOXA:N02", server: scelimxa16002.int.eli-np.ro, devgroup: net, devtype: moxaNport, nports: 16, pollperiod: 5, dryrun: 1 }
+
     llrf01:
       name: "llrf01"
       asset: "https://confluence.infn.it/x/doKBBg"
@@ -819,7 +858,43 @@ epicsConfiguration:
               value: "1"
             - name: "FrameRateEnable"
               value: "Yes"
-    
+    cam07:
+      name: "cam07"
+      asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2748&objectId=126655"
+      charturl: 'https://github.com/infn-epics/ioc-chart.git'
+      image: ghcr.io/infn-epics/infn-epics-ioc-runtime
+      devtype: camera
+      devgroup: cam
+      template:  "adcamera"
+      pva: true
+      networks:
+        - name: "gigevision-client"
+          annotation: "multus-secondary-net"
+      iocprefix: "LEL"
+      autosync: false ## restart automatically on changes
+      
+      iocparam:
+        - name: "overlay_enable"
+          value: true
+        - name: "stats_enable"
+          value: true
+        - name: "proc_enable"
+          value: true
+        - name: "tiff_enable"
+          value: true
+        - name: "roi_enable"
+          value: true
+      devices:
+        - name: "SCN07:CAM01"
+          id: "10.16.4.28" # 
+          iocinit:
+            - name: "AcquirePeriod"
+              value: "1"
+            - name: "FrameRate"
+              value: "1"
+            - name: "FrameRateEnable"
+              value: "Yes"
+              
     plelievr001-laser-delay:
       name: "plelievr001-laser-delay"
       asset: "https://servicedesk.infn.it/secure/ObjectSchema.jspa?id=44&typeId=2441&mode=object&objectId=113215"
@@ -2846,6 +2921,9 @@ epicsConfiguration:
           
         - axid: 6
           name: SCN06:MOT01
+
+        - axid: 7
+          name: SCN07:MOT01
           
     plcs:
       name: "plcs"
@@ -2883,7 +2961,7 @@ cronjobs:
       image:
         repository: "ghcr.io/hugomods/hugo:debian-nightly"
         pullPolicy: "Always"
-      charturl: https://baltig.infn.it/epics-containers/generic-application-chart.git
+      charturl: https://github.com/infn-epics/generic-application-chart.git
       gitRepoApp:
         url: https://github.com/infn-epics/epik8s-elinp-site.git
         mountPath: /src
@@ -2935,45 +3013,46 @@ syncPolicy:
       - CreateNamespace=true 
       - Prune=true
 
+## OPIs live in this repo (opi/, no submodules, see VENDORED.md)
 opi:
   camera:
-    url: https://baltig.infn.it/infn-epics/camera-opi.git
-    main: Camera_Main.bob
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: opi/common/camera/Camera_Main.bob
     macro:
       - name: "DEVICE"
         value: "{{iocprefix}}"
       - name: "CAM"
         value: "{{iocroot}}"
   icpdas:
-    url: https://baltig.infn.it/infn-epics/icpdas-opi.git
-    main: "{{devtype}}.bob"
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: "opi/epik8s-opi/uniio-opi/icpdas-opi/{{devtype}}.bob"
     macro:
       - name: "P"
         value: "{{iocprefix}}"
       - name: "R"
         value: "{{iocroot}}"
   agilentXGS:
-    url: https://baltig.infn.it/infn-epics/vac-opi.git
-    main: "agilentXgs600/agilentXgs600Ctlr.bob"
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: "opi/epik8s-opi/univac-opi/agilentXgs600/agilentXgs600Ctlr.bob"
     macro:
       - name: "P"
         value: "{{iocprefix}}"
 
   agilent4uhv:
-    url: https://baltig.infn.it/infn-epics/vac-opi.git
-    main: "agilent4uhv/agilent4uhv.bob"
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: "opi/epik8s-opi/univac-opi/agilent4uhv/agilent4uhv.bob"
     macro:
       - name: "P"
         value: "{{iocprefix}}"
   sigmaphi:
-    url: https://baltig.infn.it/infn-epics/mag-opi.git
-    main: "sigmaphi/sigmaphi.bob"
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: "opi/epik8s-opi/unimag-opi/sigmaphi/sigmaPhiStart.bob"
     macro:
       - name: "P"
         value: "{{iocprefix}}"
   biltitest:
-    url: https://baltig.infn.it/infn-epics/mag-opi.git
-    main: "biltitest/biltitest.bob"
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: "opi/epik8s-opi/unimag-opi/biltitest/biltitest.bob"
     macro:
       - name: "P"
         value: "{{iocprefix}}"
@@ -2987,8 +3066,8 @@ opi:
       - name: "M"
         value: "m0"
   tml:
-    url: https://baltig.infn.it/infn-epics/motor-tml-opi.git
-    main: TML.bob
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: opi/common/motor-tml/TML.bob
     macro:
       - name: "PREFIX"
         value: "{{iocprefix}}"
@@ -2996,8 +3075,8 @@ opi:
         value: "{{CONFIG}}"
 
   unimag:
-    url: https://baltig.infn.it/infn-epics/unimag.git
-    main: opi/unimag.bob
+    url: https://github.com/infn-epics/epik8s-eli.git
+    main: opi/epik8s-opi/unimag-opi/unimag.bob
     macro:
       - name: "TITLE"
         value: "Unimag {{beamline}}"

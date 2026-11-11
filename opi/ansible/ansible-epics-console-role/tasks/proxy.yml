@@ -1,0 +1,81 @@
+- name: Set APT proxy environment variables
+  copy:
+    dest: /etc/apt/apt.conf.d/proxy.conf
+#    backup: yes
+    content: |
+      # added by ansible {{ ansible_date_time }}
+      Acquire::http::Proxy "{{ proxy_url }}:{{ proxy_port }}";
+      Acquire::https::Proxy "{{ proxy_url }}:{{ proxy_port }}";
+    force: no
+
+- name: Update APT cache every day
+  apt:
+    update_cache: yes
+    cache_valid_time: 86400
+
+- name: Add APT {{ ansible_distribution_release }}-updates
+  ansible.builtin.apt_repository:
+     repo: deb http://archive.ubuntu.com/ubuntu {{ ansible_distribution_release }}-updates main restricted
+     state: present
+  when: ansible_os_family == 'Debian' and ansible_distribution != 'LinuxMint'
+  notify: Update APT cache
+  ignore_errors: yes
+
+
+- name: Set proxy information for curl as root user
+  lineinfile:
+    path: /root/.curlrc
+    create: yes
+    mode: 0644
+    regexp: '^proxy'
+    line: proxy = "{{ proxy_url }}:{{ proxy_port }}"
+
+
+
+- name: Check if /etc/dnf/dnf.conf exists
+  ansible.builtin.stat:
+    path: /etc/dnf/dnf.conf
+  register: dnf_conf_stat
+
+- name: Set DNF proxy information for dnf
+  lineinfile:
+    path: /etc/dnf/dnf.conf
+    regexp: '^proxy'
+    line: proxy={{ proxy_url }}:{{ proxy_port }}
+  when: ansible_distribution != 'LinuxMint' and dnf_conf_stat.stat.exists
+  ignore_errors: yes
+
+- name: Set HTTP_PROXY variables in environment file
+  lineinfile:
+    path: /etc/environment
+    regexp: '^HTTP_PROXY='
+    line: HTTP_PROXY="{{ proxy_url }}:{{ proxy_port }}"
+
+- name: Set HTTPS_PROXY variable in environment file
+  lineinfile:
+    path: /etc/environment
+    regexp: '^HTTPS_PROXY='
+    line: HTTPS_PROXY="{{ proxy_url }}:{{ proxy_port }}"
+
+- name: Set NO_PROXY variable in environment file
+  lineinfile:
+    path: /etc/environment
+    regexp: '^NO_PROXY='
+    line: NO_PROXY="{{ no_proxy }}"
+  when: no_proxy is defined
+
+- name: Wget proxy
+  shell: |
+    echo "https_proxy={{ proxy_url }}:{{ proxy_port }}" > /etc/wgetrc
+    echo "http_proxy={{ proxy_url }}:{{ proxy_port }}" >> /etc/wgetrc
+    echo "use_proxy=yes" >> /etc/wgetrc
+
+- name: Set git proxy for each user
+  git_config:
+    name: "http.proxy"
+    value: "{{ proxy_url }}:{{ proxy_port }}"
+    scope: global
+  become: true
+  become_user: "{{ item.opi_user }}"
+  loop: "{{ opi_repos }}"
+  when: skip_git_user_config is not defined or not skip_git_user_config

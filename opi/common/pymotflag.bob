@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-05-29 16:55:14 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>150</width>
+  <height>143</height>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>Label</class>
+    <text>$(DEVICE)</text>
+    <width>130</width>
+    <height>31</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update</name>
+    <pv_name>$(DEVICE):POS_RB</pv_name>
+    <x>2</x>
+    <y>63</y>
+    <width>148</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="choice" version="2.0.0">
+    <name>Select POI</name>
+    <pv_name>$(DEVICE):IN</pv_name>
+    <x>1</x>
+    <y>20</y>
+    <width>129</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="10.0">
+      </font>
+    </font>
+    <actions execute_as_one="true">
+      <action type="write_pv">
+        <pv_name>loc://StartPosition_$(DEVICE)</pv_name>
+        <value>int($(DEVICE):POS_RB)</value>
+        <description>WriteStartPosition</description>
+      </action>
+    </actions>
+    <items>
+      <item>Flag POI1</item>
+      <item>Flag POI2</item>
+    </items>
+  </widget>
+  <widget type="progressbar" version="2.0.0">
+    <name>Progress Bar</name>
+    <pv_name>=(100.0 - (abs(`$(DEVICE):IN_RB`- `$(DEVICE):POS_RB`)/abs(`loc://StartPosition_$(DEVICE)` - `$(DEVICE):IN_RB`)))</pv_name>
+    <x>2</x>
+    <y>83</y>
+    <limits_from_pv>false</limits_from_pv>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <pv_name>$(DEVICE):POI_RB</pv_name>
+    <x>2</x>
+    <y>103</y>
+    <width>138</width>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="12.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>LED</name>
+    <pv_name>$(DEVICE):MOVING</pv_name>
+    <x>130</x>
+  </widget>
+  <widget type="symbol" version="2.0.0">
+    <name>Text Entry</name>
+    <pv_name>$(DEVICE):DIR_RB</pv_name>
+    <symbols>
+      <symbol>up-arrow.png</symbol>
+      <symbol>down-arrow.png</symbol>
+      <symbol>close.png</symbol>
+      <symbol>line.png</symbol>
+    </symbols>
+    <y>123</y>
+    <height>20</height>
+    <background_color>
+      <color name="Write_Background" red="128" green="255" blue="255">
+      </color>
+    </background_color>
+    <tooltip>$(pv_name)
+$(pv_value)
+$(actions)</tooltip>
+  </widget>
+</display>

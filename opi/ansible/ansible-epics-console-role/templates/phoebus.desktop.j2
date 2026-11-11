@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Comment=Phoebus application
+Icon={{ phoebus_icon }}
+Categories=EPIK8s {{dest}}
+{% if opi_main is defined and opi_settings is defined and dest is defined %}
+Name=Phoebus EPIK8s {{dest}}
+Exec=sh -c "cp /phoebus/opi/epik8-sparc/opi/sparc-tools/Scripts/memento_sparcbar .phoebus/memento; {{phoebus_bin}} -settings {{opi_settings}} -resource {{opi_main}}"
+{% else %}
+Name=Phoebus
+Exec=sh -c "cd; {{phoebus_bin}}"
+{% endif %}

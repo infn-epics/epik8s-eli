@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-04-10 14:15:12 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Timing</name>
+  <macros>
+    <confPath>/network-share/timing-config/</confPath>
+    <loadedPath>/var/tmp/</loadedPath>
+    <logPath>/network-share/timing-log/</logPath>
+  </macros>
+  <width>519</width>
+  <height>560</height>
+  <background_color>
+    <color red="237" green="236" blue="235">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  
+  <widget type="textupdate" version="2.0.0">
+    <name>Loaded_Path</name>
+    <pv_name>loc://loadedP("$(loadedPath)")</pv_name>
+    <x>204</x>
+    <y>419</y>
+    <width>138</width>
+    <height>28</height>
+    <visible>false</visible>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <format>6</format>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template</name>
+    <text>Timing</text>
+    <width>546</width>
+    <height>45</height>
+    <font>
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Label" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="ELI-NP Timing Title" red="169" green="210" blue="240">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Saved</name>
+    <pv_name>loc://saved(0)</pv_name>
+    <x>359</x>
+    <y>419</y>
+    <width>138</width>
+    <height>28</height>
+    <visible>false</visible>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle Template</name>
+    <macros>
+      <pv_name></pv_name>
+    </macros>
+    <x>10</x>
+    <y>55</y>
+    <width>526</width>
+    <height>201</height>
+    <line_width>0</line_width>
+    <line_color>
+      <color red="150" green="150" blue="150">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_31</name>
+    <text>Configuration</text>
+    <x>25</x>
+    <y>70</y>
+    <width>80</width>
+    <height>18</height>
+    <font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button Template_1</name>
+    <actions execute_as_one="true">
+      <action type="execute">
+        <script file="scripts/openConfigFile.py">
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+    <pv_name>loc://edit_$(DID)(0)</pv_name>
+    <text>EDIT</text>
+    <x>28</x>
+    <y>195</y>
+    <width>120</width>
+    <height>40</height>
+    <font>
+      <font family="Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Choose_path</name>
+    <pv_name>loc://choosePath_$(DID)("$(confPath)")</pv_name>
+    <x>152</x>
+    <y>152</y>
+    <width>326</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <format>6</format>
+    <precision>0</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_18</name>
+    <text>Name</text>
+    <x>25</x>
+    <y>155</y>
+    <width>27</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button Template</name>
+    <actions>
+      <action type="execute">
+        <script file="scripts/start.py">
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+    <text>START</text>
+    <x>278</x>
+    <y>195</y>
+    <width>120</width>
+    <height>40</height>
+    <font>
+      <font family="Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button Template_5</name>
+    <actions execute_as_one="true">
+      <action type="execute">
+        <script file="scripts/stop.py">
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+    <pv_name>GEN-TMG-EVG01:SoftSeq-1-Unload-Cmd</pv_name>
+    <text>STOP</text>
+    <x>403</x>
+    <y>195</y>
+    <width>120</width>
+    <height>40</height>
+    <font>
+      <font family="Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button Template_7</name>
+    <actions execute_as_one="true">
+      <action type="execute">
+        <script file="scripts/GetPVs.py">
+        </script>
+        <description>Execute Script</description>
+      </action>
+    </actions>
+    <pv_name>loc://save_$(DID)(0)</pv_name>
+    <text>SAVE</text>
+    <x>153</x>
+    <y>195</y>
+    <width>120</width>
+    <height>40</height>
+    <font>
+      <font family="Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_10</name>
+    <text>Running</text>
+    <x>25</x>
+    <y>110</y>
+    <width>37</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Loaded_file</name>
+    <pv_name>loc://last_loaded_$(DID)(" ")</pv_name>
+    <x>151</x>
+    <y>106</y>
+    <width>368</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <format>6</format>
+    <precision>0</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <scripts>
+      <script file="scripts/runningUnsaved.py">
+        <pv_name>loc://unsaved(0)</pv_name>
+      </script>
+    </scripts>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle Template_4</name>
+    <macros>
+      <pv_name></pv_name>
+    </macros>
+    <x>10</x>
+    <y>435</y>
+    <width>526</width>
+    <height>110</height>
+    <line_width>0</line_width>
+    <line_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Open_opi_1</name>
+    <actions execute_as_one="true">
+      <action type="open_display">
+        <file>Timing_EVR.bob</file>
+        <target>tab</target>
+        <description>Open Display</description>
+      </action>
+    </actions>
+    <text>MANAGE</text>
+    <x>28</x>
+    <y>480</y>
+    <width>119</width>
+    <height>40</height>
+    <font>
+      <font family="Sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_30</name>
+    <text>Triggers</text>
+    <x>25</x>
+    <y>447</y>
+    <width>49</width>
+    <height>18</height>
+    <font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle Template_1</name>
+    <macros>
+      <pv_name></pv_name>
+    </macros>
+    <x>10</x>
+    <y>265</y>
+    <width>526</width>
+    <height>162</height>
+    <line_width>0</line_width>
+    <line_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_18</name>
+    <text>Run Status</text>
+    <x>375</x>
+    <y>335</y>
+    <width>49</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="led" version="2.0.0">
+    <name>Run_status</name>
+    <pv_name>GEN-TMG-EVG01:SoftSeq-1-Load-RB</pv_name>
+    <bit>0</bit>
+    <x>496</x>
+    <y>332</y>
+    <width>25</width>
+    <height>25</height>
+    <off_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </off_color>
+    <on_color>
+      <color red="30" green="210" blue="0">
+      </color>
+    </on_color>
+    <font>
+      <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <actions>
+    </actions>
+    <rules>
+      <rule name="BorderRule" prop_id="border_style" out_exp="false">
+        <exp bool_exp="pv0==1">
+          <value>9</value>
+        </exp>
+        <pv_name>$(pv_name).SIMM</pv_name>
+      </rule>
+    </rules>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_21</name>
+    <text>Sequence</text>
+    <x>25</x>
+    <y>285</y>
+    <width>59</width>
+    <height>18</height>
+    <font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_15</name>
+    <text>Error</text>
+    <x>25</x>
+    <y>380</y>
+    <width>23</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template</name>
+    <pv_name>GEN-TMG-EVG01:SoftSeq-1-Error-RB</pv_name>
+    <x>151</x>
+    <y>376</y>
+    <width>368</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <format>6</format>
+    <precision>0</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_20</name>
+    <text>Resolution</text>
+    <x>25</x>
+    <y>335</y>
+    <width>47</width>
+    <height>11</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_5</name>
+    <pv_name>GEN-TMG-EVG01:SoftSeq-1-TsResolution-RB</pv_name>
+    <x>151</x>
+    <y>331</y>
+    <width>135</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="picture" version="2.0.0">
+    <name>Image Template</name>
+    <file>/CSS/opi/boy/elinp-css-common/images/csl_logo.png</file>
+    <x>462</x>
+    <y>2</y>
+    <width>82</width>
+    <height>41</height>
+    <actions>
+    </actions>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Star_main</name>
+    <pv_name>loc://saveMain_$(DID)("")</pv_name>
+    <x>196</x>
+    <width>30</width>
+    <height>30</height>
+    <font>
+      <font name="ELI-NP Title Bar" family="sans" style="REGULAR" size="23.762376237623762">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <format>6</format>
+    <precision>0</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="fileselector" version="2.0.0">
+    <pv_name>loc://choosePath_$(DID)("$(confPath)")</pv_name>
+    <x>480</x>
+    <y>150</y>
+    <height>30</height>
+  </widget>
+</display>

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-04-21 14:26:14 by georg-->
+<display version="2.0.0">
+  <name>vacuum_display_$(LCID)</name>
+  <width>420</width>
+  <height>570</height>
+  <scripts>
+    <script file="Scripts/LoadDevicePopulateArray.py" check_connections="false">
+      <pv_name>loc://ZONE_$(LCID)&lt;VString&gt;($(ZONE))</pv_name>
+      <pv_name>loc://TYPE_$(LCID)&lt;VLong&gt;($(TYPE))</pv_name>
+    </script>
+  </scripts>
+  <widget type="embedded" version="2.0.0">
+    <name>element_template</name>
+    <file>VacuumChannel.bob</file>
+    <y>270</y>
+    <width>420</width>
+    <height>30</height>
+    <visible>false</visible>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>$(WGS)</text>
+    <x>50</x>
+    <width>160</width>
+    <visible>false</visible>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>WGS02_Layout</name>
+    <macros>
+      <WGS>WGS02</WGS>
+    </macros>
+    <x>30</x>
+    <width>340</width>
+    <height>709</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <tooltip>Layout for $(WGS)</tooltip>
+    <widget type="picture" version="2.0.0">
+      <name>Picture_1</name>
+      <file>../../img/20260226.3 WGS02-664x340-Layout.png</file>
+      <width>340</width>
+      <height>709</height>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS02-IONP01</name>
+      <pv_name>LEL:VAC:VPCON05:$(WGS)IONP01:PRES</pv_name>
+      <x>9</x>
+      <y>99</y>
+      <width>80</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="New Rule1" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0 &lt; 1e-9">
+            <value>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0 &gt;= 1e-9 &amp;&amp; pv0 &lt; 1e-7 ">
+            <value>
+              <color name="Attention" red="255" green="160" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0 &gt;= 1e-7  ">
+            <value>
+              <color name="STOP" red="255" green="0" blue="0">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(pv_name)</pv_name>
+        </rule>
+      </rules>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS02-IONP02</name>
+      <pv_name>LEL:VAC:VPCON05:$(WGS)IONP02:PRES</pv_name>
+      <x>9</x>
+      <y>208</y>
+      <width>80</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="New Rule1" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0 &lt; 1e-9">
+            <value>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0 &gt;= 1e-9 &amp;&amp; pv0 &lt; 1e-7 ">
+            <value>
+              <color name="Attention" red="255" green="160" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0 &gt;= 1e-7">
+            <value>
+              <color name="Read_Background" red="240" green="240" blue="240">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(pv_name)</pv_name>
+        </rule>
+      </rules>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS02-IONP03</name>
+      <pv_name>LEL:VAC:VPCON06:$(WGS)IONP03:PRES</pv_name>
+      <x>9</x>
+      <y>397</y>
+      <width>80</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="New Rule1" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0 &lt; 1e-9">
+            <value>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0 &gt;= 1e-9 &amp;&amp; pv0 &lt; 1e-7 ">
+            <value>
+              <color name="Attention" red="255" green="160" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0 &gt;= 1e-7">
+            <value>
+              <color name="Read_Background" red="240" green="240" blue="240">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(pv_name)</pv_name>
+        </rule>
+      </rules>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS02-IONP04</name>
+      <pv_name>LEL:VAC:VPCON06:$(WGS)IONP04:PRES</pv_name>
+      <x>6</x>
+      <y>503</y>
+      <width>80</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="New Rule1" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0 &lt; 1e-9">
+            <value>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0 &gt;= 1e-9 &amp;&amp; pv0 &lt; 1e-7 ">
+            <value>
+              <color name="Attention" red="255" green="160" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0 &gt;= 1e-7">
+            <value>
+              <color name="Read_Background" red="240" green="240" blue="240">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(pv_name)</pv_name>
+        </rule>
+      </rules>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>WGS02-IONP05</name>
+      <pv_name>LEL:VAC:VPCON06:$(WGS)IONP05:PRES</pv_name>
+      <x>6</x>
+      <y>600</y>
+      <width>80</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="New Rule1" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0 &lt; 1e-9">
+            <value>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0 &gt;= 1e-9 &amp;&amp; pv0 &lt; 1e-7 ">
+            <value>
+              <color name="Attention" red="255" green="160" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0 &gt;= 1e-7">
+            <value>
+              <color name="Read_Background" red="240" green="240" blue="240">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(pv_name)</pv_name>
+        </rule>
+      </rules>
+      <border_width>1</border_width>
+    </widget>
+  </widget>
+</display>

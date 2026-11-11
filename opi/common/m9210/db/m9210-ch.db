@@ -1,0 +1,518 @@
+# =============================================================================
+# STANDARD CHANNEL HARDWARE INTERFACE (MACRO CONTROLLED)
+# =============================================================================
+
+record(mbbi, "$(PREFIX,undefined):AI$(IDX):STAT") {
+	field(DESC, "The state of the channel.")
+	field(DTYP, "asynInt32")
+	field(INP,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX)) State")
+	field(ZRVL, "0")
+	field(ZRST, "UNKNOWN")
+	field(ONVL, "1")
+	field(ONST, "IOCINIT")
+	field(TWVL, "2")
+	field(TWST, "DISABLED")
+	field(THVL, "3")
+	field(THST, "ENABLED [DEPRECATED]")
+	field(FRVL, "4")
+	field(FRST, "PROCESSING")
+	field(FVVL, "5")
+	field(FVST, "DEGRADED [DEPRECATED]")
+	field(SXVL, "6")
+	field(SXST, "ERROR")
+	field(SVVL, "7")
+	field(SVST, "RESET")
+	field(EIVL, "8")
+	field(EIST, "FAULT")
+	field(NIVL, "9")
+	field(NIST, "READY [DEPRECATED]")
+	field(SCAN, "I/O Intr")
+}
+
+record(bo, "$(PREFIX,undefined):AI$(IDX):ENBL_SP"){
+	field(DESC, "Specifies if the channel enabled.")
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX))Enabled")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")
+	field(PINI, "YES")
+	field(VAL,  "1")
+}
+
+record(ao, "$(PREFIX,undefined):AI$(IDX):RNG_SP") {
+	field(DESC, "Range of the analog input.")
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX))RangeDouble")
+	field(EGU,  "Vpp")
+	field(VAL,  "0.05")
+	field(PINI, "YES")
+	field(HOPR, "50")
+	field(LOPR, "0")
+	field(PREC, "2")	
+}
+
+record(bi, "$(PREFIX,undefined):AI$(IDX):ENBL_RB"){
+	field(DESC, "Current state of the analog input")
+	field(DTYP, "asynInt32")
+	field(SCAN, "I/O Intr")
+	field(INP,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX))Enabled")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")    
+}
+
+record(ai, "$(PREFIX,undefined):AI$(IDX):RNG_RB") {
+	field(DESC, "Applied range of the analog input")
+	field(DTYP, "asynFloat64")
+	field(SCAN, "I/O Intr")
+	field(INP,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX))RangeDouble")
+	field(EGU,  "Vpp")
+	field(PREC, "2")
+}
+
+record(ao,"$(PREFIX,undefined):AI$(IDX):ATT_SP") {
+	field(DESC, "Attenuation of the analog input")
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX))Attenuation")
+	field(VAL,  "1")
+	field(PINI, "YES")
+	field(HOPR, "10")
+	field(LOPR, "1")
+}
+
+record(ao,"$(PREFIX,undefined):AI$(IDX):OFS_SP") {
+	field(DESC, "Offset of analog channel")
+	field(DTYP, "asynFloat64")
+	field(OUT,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX))Offset")
+	field(EGU,  "Vdc")
+	field(VAL,  "0.0")
+	field(PINI, "YES")
+	field(HOPR, "20.0")
+	field(LOPR, "-20.0")
+	field(PREC, "2")
+}
+
+record(mbbo, "$(PREFIX,undefined):AI$(IDX):IMPD_SP") {
+	field(DESC, "Impedance of the analog input")
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX))Impedance32")
+	field(ZRVL, "50")
+	field(ONVL, "1000000")
+	field(ZRST, "50 Ohm")
+	field(ONST, "1 MOhm")
+	field(VAL,  "0")
+	field(PINI, "YES")
+}
+
+record(mbbo,"$(PREFIX,undefined):AI$(IDX):ACDC_SP") {
+	field(DESC, "Coupling of the analog input")
+	field(DTYP, "asynInt32")
+	field(OUT,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX))Coupling")
+	field(ZRVL, "0")
+	field(ONVL, "1")
+	field(TWVL, "2")
+	field(ZRST, "AC")
+	field(ONST, "DC")
+	field(TWST, "GND")
+	field(VAL,  "0")
+	field(PINI, "YES")
+}
+
+record(ai,"$(PREFIX,undefined):AI$(IDX):OFS_RB") {
+	field(DESC, "Applied offset of the analog input")
+	field(DTYP, "asynFloat64")
+	field(SCAN, "I/O Intr")
+	field(INP,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX))Offset")
+	field(EGU,  "Vdc")
+	field(PREC, "2")
+}
+
+record(mbbi,"$(PREFIX,undefined):AI$(IDX):ACDC_RB") {
+	field(DESC, "Applied coupling of the analog input")
+	field(DTYP, "asynInt32")
+	field(SCAN, "I/O Intr")
+	field(INP,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX))Coupling")
+	field(ZRVL, "0")
+	field(ONVL, "1")
+	field(TWVL, "2")
+	field(ZRST, "AC")
+	field(ONST, "DC")
+	field(TWST, "GND")
+}
+
+# =============================================================================
+# BUFFER / WAVEFORM TARGETS
+# =============================================================================
+
+record(waveform, "$(PREFIX,undefined):AI$(IDX)") {
+	field(DESC, "Read data acquisition buffer.")
+	field(DTYP, "asynFloat64ArrayIn")
+	field(INP,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX)) BufferFloat64")
+	field(FTVL, "DOUBLE")
+	field(NELM, "$(BUFSIZE,undefined)")
+	field(PINI, "NO")
+	field(SCAN, "I/O Intr")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):ROI")
+}
+
+record(subArray, "$(PREFIX,undefined):AI$(IDX):ROI") {
+	field(DESC, "Sub array of raw data.")
+	field(INP,  "$(PREFIX,undefined):AI$(IDX)")
+	field(FTVL, "DOUBLE")
+	field(MALM, "$(BUFSIZE,undefined)")
+	field(NELM, "$(BUFSIZE,undefined)")
+	field(INDX, "0")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):FANOUT")
+}
+
+record(fanout, "$(PREFIX,undefined):AI$(IDX):FANOUT") {
+	field(DESC, "Fanout")
+	field(SCAN, "Passive")
+	field(SELM, "All")	
+	field(LNK1, "$(PREFIX,undefined):AI$(IDX):CNT")
+	field(LNK2, "$(PV_STATS,undefined)")
+	field(LNK3, "$(PREFIX,undefined):AI$(IDX):AVG")
+	field(LNK4, "$(PREFIX,undefined):AI$(IDX):INTEG_MEAN")
+}
+
+record(calc, "$(PREFIX,undefined):AI$(IDX):CNT"){
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):CNT")
+	field(CALC, "A+1")
+	field(VAL,  "0")
+}
+
+record(calc, "$(PREFIX,undefined):AI$(IDX):TCNT"){
+	field(DESC, "Time counter")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):TCNT")
+	field(CALC, "A+1")
+	field(VAL,  "0")
+	field(SCAN, "1 second")
+}
+
+record(longin,  "$(PREFIX,undefined):AI$(IDX):CNTLCK"){
+	field(INP,  "$(PREFIX,undefined):AI$(IDX):CNT NPP")
+	field(SCAN, "Passive")
+	field(VAL,  "0")
+}
+
+record(longin,  "$(PREFIX,undefined):AI$(IDX):CNTLCK2"){
+	field(INP,  "$(PREFIX,undefined):AI$(IDX):CNT NPP")
+	field(SCAN, "Passive")
+	field(VAL,  "0")
+}
+
+record(longin,  "$(PREFIX,undefined):AI$(IDX):TCNTLCK"){
+	field(DESC, "Time counter lock.")
+	field(INP,  "$(PREFIX,undefined):AI$(IDX):TCNT NPP")
+	field(SCAN, "Passive")
+	field(VAL,  "0")
+}
+
+record(longin,  "$(PREFIX,undefined):AI$(IDX):TRGCNTLCK"){
+	field(DESC, "Trigger counter lock.")
+	field(INP,  "$(PV_EVENT_CNT,undefined) NPP")
+	field(SCAN, "Passive")
+	field(VAL,  "0")
+}
+
+# The required native 10-depth average buffer trace block
+record(compress, "$(PREFIX,undefined):AI$(IDX):AVG"){
+	field(INP,  "$(PREFIX,undefined):AI$(IDX)")
+	field(ALG,  "Average")
+	field(NSAM, "$(BUFSIZE,undefined)")
+	field(N,    "10")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_DT")
+}
+
+# Mean of the full averaged trace (scalar), used to derive the signal integral
+record(compress, "$(PREFIX,undefined):AI$(IDX):INTEG_MEAN"){
+	field(DESC, "Mean of full averaged trace")
+	field(INP,  "$(PREFIX,undefined):AI$(IDX):AVG NPP")
+	field(ALG,  "Average")
+	field(NSAM, "1")
+	field(N,    "$(BUFSIZE,undefined)")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INTEG")
+}
+
+# Integral of the signal (area under curve = sum(samples) * dt)
+record(calc, "$(PREFIX,undefined):AI$(IDX):INTEG"){
+	field(DESC, "Integral of the signal")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):INTEG_MEAN NPP")
+	field(INPB, "$(PREFIX,undefined):AI$(IDX):INT_DT NPP")
+	field(CALC, "A*$(BUFSIZE,undefined)*B")
+	field(EGU,  "V*s")
+	field(PREC, "6")
+}
+
+record(calcout, "$(PREFIX,undefined):AI$(IDX):MISS"){
+	field(DESC, "Missed triggers")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):CNTLCK NPP")
+	field(INPB, "$(PREFIX,undefined):AI$(IDX):CNTLCK PP")
+	field(INPC, "$(PREFIX,undefined):AI$(IDX):TRGCNTLCK NPP")
+	field(INPD, "$(PREFIX,undefined):AI$(IDX):TRGCNTLCK PP")
+	field(INPE, "$(PREFIX,undefined):AI$(IDX):MISS NPP")
+	field(CALC, "E+(D-C)-(B-A)")
+	field(VAL,  "0")	
+	field(SCAN, "10 second")			
+}
+
+record(calc, "$(PREFIX,undefined):AI$(IDX):CTR"){
+	field(DESC, "Calculated trigger rate.")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):CNTLCK2 NPP")
+	field(INPB, "$(PREFIX,undefined):AI$(IDX):CNTLCK2 PP")
+	field(INPE, "$(PREFIX,undefined):AI$(IDX):MISS NPP")
+	field(CALC, "(B-A)/10")
+	field(VAL,  "0")
+	field(SCAN, "10 second")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):CTRA")
+	field(EGU,  "Hz")
+}
+
+record(compress, "$(PREFIX,undefined):AI$(IDX):CTRA"){
+	field(DESC, "Calculated trigger rate average.")
+	field(INP,  "$(PREFIX,undefined):AI$(IDX):CTR")
+	field(ALG,  "N to 1 Average")
+	field(NSAM, "1")
+	field(N,    "30")
+	field(EGU,  "Hz")
+}
+
+record(ai, "$(PREFIX,undefined):AI$(IDX):IN") {
+	field(DESC, "Current value.")
+	field(DTYP, "asynFloat64")
+	field(INP,  "@asyn($(ASYN_PORT,undefined).ai, $(IDX)) ValueFloat64")
+	field(SCAN, "I/O Intr")
+}
+
+# =============================================================================
+# ACTIVE INTEGRATION PIPELINE
+# Integration window is defined by two writable indices that the OPI markers
+# drag interactively:
+#   start = $(PREFIX):AI$(IDX):SET_START_IDX   (draggable marker / textentry)
+#   end   = $(PREFIX):AI$(IDX):SET_END_IDX     (draggable marker / textentry)
+# Defaults are seeded from the device microbunch markers at startup but can be
+# overridden from the OPI at any time.
+# =============================================================================
+
+record(ao, "$(PREFIX,undefined):AI$(IDX):SET_START_IDX") {
+	field(DESC, "Start index (draggable marker)")
+	field(VAL,  "100")
+	field(PINI, "YES")
+	field(DRVL, "0")
+	field(DRVH, "2047")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_WSIZE")
+}
+
+record(ao, "$(PREFIX,undefined):AI$(IDX):SET_END_IDX") {
+	field(DESC, "End index (draggable marker)")
+	field(VAL,  "200")
+	field(PINI, "YES")
+	field(DRVL, "0")
+	field(DRVH, "2047")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_WSIZE")
+}
+
+record(ao, "$(PREFIX,undefined):K_OFFSET_CALC") {
+	field(DESC, "Calibration constant (replaces hardcoded 2.5 in CHARGE_FINAL)")
+	field(VAL,  "5")
+	field(PINI, "YES")
+	field(PREC, "4")
+	field(HOPR, "100")
+	field(LOPR, "0.001")
+}
+
+# 1. Direct hardware Sampling Rate Clock Delta Parser (Calculates dt)
+record(calc, "$(PREFIX,undefined):AI$(IDX):INT_DT") {
+	field(DESC, "Calculate dt step size")
+	field(INPA, "$(PREFIX,undefined):CLKF_SP NPP")
+	field(CALC, "A<100?(1.0/(A*1e9)):(1.0/A)")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_WSIZE")
+}
+
+# 2. Configurable baseline window (indices settable from OPI)
+record(ao, "$(PREFIX,undefined):AI$(IDX):SET_BASE_START_IDX") {
+	field(DESC, "Baseline window start index")
+	field(VAL,  "100")
+	field(PINI, "YES")
+	field(DRVL, "0")
+	field(DRVH, "2047")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_WSIZE")
+}
+
+record(ao, "$(PREFIX,undefined):AI$(IDX):SET_BASE_END_IDX") {
+	field(DESC, "Baseline window end index")
+	field(VAL,  "200")
+	field(PINI, "YES")
+	field(DRVL, "0")
+	field(DRVH, "2047")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_WSIZE")
+}
+
+record(calc, "$(PREFIX,undefined):AI$(IDX):INT_BASE_WSIZE") {
+	field(DESC, "Baseline window width")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):SET_BASE_END_IDX NPP")
+	field(INPB, "$(PREFIX,undefined):AI$(IDX):SET_BASE_START_IDX NPP")
+	field(CALC, "(A-B)<=0?1:NINT(A-B)")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_PUSH_INDX")
+}
+
+record(calcout, "$(PREFIX,undefined):AI$(IDX):INT_BASE_PUSH_INDX") {
+	field(DESC, "Push baseline start index into subArray")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):SET_BASE_START_IDX NPP")
+	field(CALC, "NINT(A)")
+	field(OUT,  "$(PREFIX,undefined):AI$(IDX):INT_BASE.INDX NPP")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_PUSH_NELM")
+}
+
+record(calcout, "$(PREFIX,undefined):AI$(IDX):INT_BASE_PUSH_NELM") {
+	field(DESC, "Push baseline window length into subArray")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):INT_BASE_WSIZE NPP")
+	field(CALC, "A")
+	field(OUT,  "$(PREFIX,undefined):AI$(IDX):INT_BASE.NELM NPP")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_PUSH_AVGN")
+}
+
+record(calcout, "$(PREFIX,undefined):AI$(IDX):INT_BASE_PUSH_AVGN") {
+	field(DESC, "Push baseline window length into compress N")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):INT_BASE_WSIZE NPP")
+	field(CALC, "A")
+	field(OUT,  "$(PREFIX,undefined):AI$(IDX):INT_BASE_AVG.N NPP")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE")
+}
+
+# 2b. Slice baseline window (INDX/NELM set dynamically by push chain above) (points 700 to 749)
+record(subArray, "$(PREFIX,undefined):AI$(IDX):INT_BASE") {
+	field(DESC, "Slice baseline reference window")
+	field(INP,  "$(PREFIX,undefined):AI$(IDX):AVG NPP")
+	field(FTVL, "DOUBLE")
+	field(MALM, "2048")
+	field(INDX, "100")
+	field(NELM, "50")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_BASE_AVG")
+}
+
+# 3. Compute baseline average scalar
+record(compress, "$(PREFIX,undefined):AI$(IDX):INT_BASE_AVG") {
+	field(DESC, "Compute average of baseline window")
+	field(INP,  "$(PREFIX,undefined):AI$(IDX):INT_BASE NPP")
+	field(ALG,  "N to 1 Average")
+	field(NSAM, "1")
+	field(N,    "50")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_WSIZE")
+}
+
+# 4. Calculate gate width span safely
+record(calc, "$(PREFIX,undefined):AI$(IDX):INT_WSIZE") {
+	field(DESC, "Calc window width size")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):SET_END_IDX NPP")
+	field(INPB, "$(PREFIX,undefined):AI$(IDX):SET_START_IDX NPP")
+	field(CALC, "(A-B)<=0?1:NINT(A-B)")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_PUSH_INDX")
+}
+
+# 5. Push rounded start index into subArray structure
+record(calcout, "$(PREFIX,undefined):AI$(IDX):INT_PUSH_INDX") {
+	field(DESC, "Push array index location")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):SET_START_IDX NPP")
+	field(CALC, "NINT(A)")
+	field(OUT,  "$(PREFIX,undefined):AI$(IDX):SLICED_WAVE.INDX PP")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_PUSH_NELM")
+}
+
+# 6. Push verified window length into subArray element count
+record(calcout, "$(PREFIX,undefined):AI$(IDX):INT_PUSH_NELM") {
+	field(DESC, "Push array element count")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):INT_WSIZE NPP")
+	field(CALC, "A")
+	field(OUT,  "$(PREFIX,undefined):AI$(IDX):SLICED_WAVE.NELM PP")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_PUSH_SUMN")
+}
+
+# 7. Push compression target samples directly down to the wave slice trigger
+record(calcout, "$(PREFIX,undefined):AI$(IDX):INT_PUSH_SUMN") {
+	field(DESC, "Push compression size block")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):INT_WSIZE NPP")
+	field(CALC, "A")
+	field(OUT,  "$(PREFIX,undefined):AI$(IDX):SUM_WAVE.N NPP")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):SLICED_WAVE")
+}
+
+# 8. Extract waveform array region dynamically
+record(subArray, "$(PREFIX,undefined):AI$(IDX):SLICED_WAVE") {
+	field(DESC, "Slice Bunch Window Chunk")
+	field(INP,  "$(PREFIX,undefined):AI$(IDX):AVG NPP")
+	field(FTVL, "DOUBLE")
+	field(MALM, "2059")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):SUM_WAVE")
+}
+
+# 9. Compress the extracted slice to an average scalar
+record(compress, "$(PREFIX,undefined):AI$(IDX):SUM_WAVE") {
+	field(DESC, "Sum Waveform Area Elements")
+	field(INP,  "$(PREFIX,undefined):AI$(IDX):SLICED_WAVE NPP")
+	field(ALG,  "N to 1 Average")
+	field(NSAM, "1")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):CHARGE_FINAL")
+}
+
+record(bo, "$(PREFIX,undefined):AI$(IDX):BASELINE_ENBL") {
+	field(DESC, "Enable baseline subtraction")
+	field(VAL,  "1")
+	field(PINI, "YES")
+	field(ZNAM, "DISABLED")
+	field(ONAM, "ENABLED")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):CHARGE_FINAL")
+}
+
+record(ao, "$(PREFIX,undefined):AI$(IDX):USER_OFFSET") {
+	field(DESC, "User offset added to integral (pC)")
+	field(VAL,  "0.0")
+	field(PINI, "YES")
+	field(EGU,  "pC")
+	field(PREC, "4")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):CHARGE_FINAL")
+}
+
+# 10. Final Scaled Database Math
+record(calc, "$(PREFIX,undefined):AI$(IDX):CHARGE_FINAL") {
+	field(DESC, "True Integrated Charge")
+	field(INPA, "$(PREFIX,undefined):AI$(IDX):SUM_WAVE NPP")
+	field(INPB, "$(PREFIX,undefined):AI$(IDX):INT_WSIZE NPP")
+	field(INPC, "$(PREFIX,undefined):AI$(IDX):INT_BASE_AVG NPP")
+	field(INPD, "$(PREFIX,undefined):AI$(IDX):INT_DT NPP")
+	field(INPE, "$(PREFIX,undefined):AI$(IDX):OFS_SP NPP")
+	field(INPF, "$(PREFIX,undefined):K_OFFSET_CALC NPP")
+	field(INPG, "$(PREFIX,undefined):AI$(IDX):BASELINE_ENBL NPP")
+	field(INPH, "$(PREFIX,undefined):AI$(IDX):USER_OFFSET NPP")
+	field(CALC, "((A-C*G-E)*B)*D*1e12/F+H")
+	field(EGU,  "pC")
+	field(PREC, "4")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_GRAPH_SLICE")
+}
+
+# =============================================================================
+# DEPENDENCY-FREE GRAPH INTEGRAL TRACKING (NATIVE CORE SUBSTRUCTURE)
+# =============================================================================
+
+# 11. Extract exactly what falls between markers for visualization
+# NOTE: INDX and NELM are numeric fields — they cannot hold PV-link strings.
+# SLICED_WAVE is already correctly indexed via the INT_PUSH_INDX/NELM calcout
+# chain, so feed it directly here as a passthrough.
+record(subArray, "$(PREFIX,undefined):AI$(IDX):INT_GRAPH_SLICE") {
+	field(DESC, "Slice trace array for visual alignment")
+	field(INP,  "$(PREFIX,undefined):AI$(IDX):SLICED_WAVE NPP")
+	field(FTVL, "DOUBLE")
+	field(MALM, "2059")
+	field(INDX, "0")
+	field(NELM, "2059")
+	field(FLNK, "$(PREFIX,undefined):AI$(IDX):INT_ARRAY_OUT")
+}
+
+# 12. Accumulate the profile structure into a running timeline array 
+record(compress, "$(PREFIX,undefined):AI$(IDX):INT_ARRAY_OUT") {
+	field(DESC, "Accumulated Integral Profile Array")
+	field(INP,  "$(PREFIX,undefined):AI$(IDX):INT_GRAPH_SLICE NPP")
+	field(ALG,  "N to 1 Low Pass Filter") 
+	field(NSAM, "2059")
+	field(N,    "1")
+	field(EGU,  "pC")
+}

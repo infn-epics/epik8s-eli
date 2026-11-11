@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Terminal=false
+Name=EPIK8
+Comment=Launch Control System Studio Phoebus on EPIK8
+Icon={{ phoebus_icon }}
+Categories=EPIK8
+{% if opi_main is defined and opi_main != '' %}
+Exec=sh -c "cp /phoebus/opi/epik8-sparc/opi/sparc-tools/Scripts/memento_sparcbar .phoebus/memento; /usr/bin/phoebus -settings {{ phoebus_settings_path }} -resource {{opi_path}}/{{opi_main}}"
+{% else %}
+Exec=sh -c "cd; /usr/bin/phoebus -settings {{ phoebus_settings_path }}"
+{% endif %}

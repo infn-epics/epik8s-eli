@@ -1,0 +1,4 @@
+---
+# vars file for dafne-epics-control
+
+# phoebus_bin: /usr/bin/phoebus ## created shell scripts to call phoebus

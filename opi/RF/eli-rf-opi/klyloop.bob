@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-02-25 10:07:34 by beatr-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>945</width>
+  <height>360</height>
+  <background_color>
+    <color red="230" green="230" blue="230">
+    </color>
+  </background_color>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_2</name>
+    <x>685</x>
+    <y>25</y>
+    <width>260</width>
+    <height>335</height>
+    <line_color>
+      <color red="179" green="179" blue="179">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="230" green="230" blue="230">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle_1</name>
+    <x>485</x>
+    <y>25</y>
+    <width>193</width>
+    <height>190</height>
+    <line_color>
+      <color red="179" green="179" blue="179">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="230" green="230" blue="230">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle</name>
+    <x>485</x>
+    <y>220</y>
+    <width>193</width>
+    <height>140</height>
+    <line_color>
+      <color red="179" green="179" blue="179">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="230" green="230" blue="230">
+      </color>
+    </background_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <class>TITLE</class>
+    <text>Klystron Loop Control Panel</text>
+    <x use_class="true">0</x>
+    <y use_class="true">0</y>
+    <width>305</width>
+    <height>31</height>
+    <font use_class="true">
+      <font name="Header 1" family="Liberation Sans" style="BOLD" size="22.0">
+      </font>
+    </font>
+    <foreground_color use_class="true">
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <transparent use_class="true">true</transparent>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Corr Avg</name>
+    <pv_name>$(DEVICE_KL):CORR_AVG</pv_name>
+    <x>591</x>
+    <y>177</y>
+    <width>70</width>
+    <height>30</height>
+    <precision>5</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_1</name>
+    <x>510</x>
+    <y>95</y>
+    <width>1</width>
+    <height>1</height>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>X/Y Plot</name>
+    <x>15</x>
+    <y>60</y>
+    <width>460</width>
+    <show_toolbar>true</show_toolbar>
+    <x_axis>
+      <title>X</title>
+      <autoscale>false</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>17000.0</maximum>
+      <show_grid>false</show_grid>
+      <title_font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Err</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color red="102" green="153" blue="153">
+          </color>
+        </color>
+      </y_axis>
+      <y_axis>
+        <title>Corr</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>false</show_grid>
+        <title_font>
+          <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="Default" family="Liberation Sans" style="REGULAR" size="14.0">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="STOP" red="255" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE_RP1):IN1_DATA_MONITOR</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="102" green="153" blue="153">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+      <trace>
+        <name>$(traces[1].y_pv)</name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE_RP1):IN2_DATA_MONITOR</y_pv>
+        <err_pv></err_pv>
+        <axis>1</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color red="255" green="0" blue="0">
+          </color>
+        </color>
+        <line_width>1</line_width>
+        <line_style>0</line_style>
+        <point_type>0</point_type>
+        <point_size>10</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+    <marker>
+      <marker>
+        <color>
+          <color name="MINOR" red="255" green="128" blue="0">
+          </color>
+        </color>
+        <pv_name>$(DEVICE_KL):AVG_START</pv_name>
+        <interactive>false</interactive>
+      </marker>
+      <marker>
+        <color>
+          <color name="MINOR" red="255" green="128" blue="0">
+          </color>
+        </color>
+        <pv_name>$(DEVICE_KL):AVG_STOP</pv_name>
+        <interactive>false</interactive>
+      </marker>
+    </marker>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Avg Stop</name>
+    <pv_name>$(DEVICE_KL):AVG_STOP</pv_name>
+    <x>591</x>
+    <y>75</y>
+    <width>70</width>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_1</name>
+    <text>Corr avg stop</text>
+    <x>591</x>
+    <y>55</y>
+    <width>86</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Avg Start_1</name>
+    <pv_name>$(DEVICE_KL):AVG_START</pv_name>
+    <x>495</x>
+    <y>75</y>
+    <width>70</width>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_2</name>
+    <text>Corr avg start</text>
+    <x>495</x>
+    <y>55</y>
+    <width>86</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_3</name>
+    <text>Corr avg</text>
+    <x>591</x>
+    <y>157</y>
+    <width>70</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_4</name>
+    <text>Setpoint</text>
+    <x>495</x>
+    <y>250</y>
+    <width>70</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_5</name>
+    <text>Autoset</text>
+    <x>495</x>
+    <y>225</y>
+    <width>89</width>
+    <height>21</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Setpoint</name>
+    <pv_name>$(DEVICE_KL):AUTOSET_SETPOINT</pv_name>
+    <x>495</x>
+    <y>270</y>
+    <width>70</width>
+    <height>30</height>
+    <precision>2</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_6</name>
+    <text>Corr single</text>
+    <x>495</x>
+    <y>157</y>
+    <width>70</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Corr Single</name>
+    <pv_name>$(DEVICE_KL):CORR</pv_name>
+    <x>495</x>
+    <y>177</y>
+    <width>70</width>
+    <height>30</height>
+    <precision>5</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Boolean Button</name>
+    <pv_name>$(DEVICE_KL):AUTOSET_ON</pv_name>
+    <x>632</x>
+    <y>225</y>
+    <width>36</width>
+    <off_label></off_label>
+    <on_label></on_label>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_7</name>
+    <text>Waveform analysis</text>
+    <x>495</x>
+    <y>30</y>
+    <width>183</width>
+    <height>21</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Avg Num</name>
+    <pv_name>$(DEVICE_KL):AVG_NUM</pv_name>
+    <x>495</x>
+    <y>126</y>
+    <width>70</width>
+    <height>30</height>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_8</name>
+    <text>Avg number</text>
+    <x>495</x>
+    <y>106</y>
+    <width>86</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_9</name>
+    <text>Threshold</text>
+    <x>495</x>
+    <y>301</y>
+    <width>70</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Step</name>
+    <pv_name>$(DEVICE_KL):AUTOSET_TSH</pv_name>
+    <x>495</x>
+    <y>321</y>
+    <width>70</width>
+    <height>30</height>
+    <precision>2</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="bool_button" version="2.0.0">
+    <name>Reset avg</name>
+    <pv_name>$(DEVICE_KL):AVG_RESET</pv_name>
+    <x>591</x>
+    <y>126</y>
+    <width>71</width>
+    <off_label></off_label>
+    <on_label></on_label>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_10</name>
+    <text>Reset avg</text>
+    <x>591</x>
+    <y>106</y>
+    <width>71</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_12</name>
+    <text>Step</text>
+    <x>590</x>
+    <y>300</y>
+    <width>70</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Step_1</name>
+    <pv_name>$(DEVICE_KL):AUTOSET_STEP</pv_name>
+    <x>585</x>
+    <y>320</y>
+    <width>70</width>
+    <height>30</height>
+    <precision>4</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_13</name>
+    <text>Manual set</text>
+    <x>695</x>
+    <y>30</y>
+    <width>183</width>
+    <height>21</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group</name>
+    <x>695</x>
+    <y>65</y>
+    <width>176</width>
+    <height>30</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="label" version="2.0.0">
+      <name>Label_18</name>
+      <text>KlyLoop ON/OFF</text>
+      <y>5</y>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="bool_button" version="2.0.0">
+      <name>Loop On</name>
+      <pv_name>$(DEVICE_RP1):DIGITAL_P6_STATE_CMD</pv_name>
+      <x>105</x>
+      <width>71</width>
+      <off_label></off_label>
+      <on_label></on_label>
+    </widget>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Corr Avg_5</name>
+    <pv_name>$(DEVICE_KL):AUTOSET_ERR</pv_name>
+    <x>585</x>
+    <y>270</y>
+    <width>70</width>
+    <height>30</height>
+    <precision>5</precision>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_11</name>
+    <text>Error</text>
+    <x>585</x>
+    <y>250</y>
+    <width>70</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_22</name>
+    <text>DEVICE: $(DEVICE_KL)</text>
+    <y>30</y>
+    <width>405</width>
+    <height>21</height>
+    <font>
+      <font name="Header 2" family="Liberation Sans" style="BOLD" size="18.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="102" green="26" blue="51">
+      </color>
+    </foreground_color>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group</name>
+    <x>695</x>
+    <y>293</y>
+    <width>238</width>
+    <height>46</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_4</name>
+      <pv_name>$(DEVICE_RP2):OUT2_ENABLE_CMD</pv_name>
+      <x>202</x>
+      <y>16</y>
+      <width>36</width>
+      <off_label></off_label>
+      <on_label></on_label>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Corr Avg_4</name>
+      <pv_name>=10*'$(DEVICE_RP2):OUT2_OFFSET_SP'</pv_name>
+      <x>125</x>
+      <y>16</y>
+      <width>70</width>
+      <height>30</height>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="scaledslider" version="2.0.0">
+      <name>Scaled Slider_3</name>
+      <pv_name>$(DEVICE_RP2):OUT2_OFFSET_SP</pv_name>
+      <y>21</y>
+      <width>115</width>
+      <height>20</height>
+      <increment>0.001</increment>
+      <maximum>1.0</maximum>
+      <limits_from_pv>false</limits_from_pv>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_17</name>
+      <text>Slow Ref</text>
+      <x>14</x>
+      <width>86</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group</name>
+    <x>695</x>
+    <y>110</y>
+    <width>239</width>
+    <height>46</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_1</name>
+      <pv_name>$(DEVICE_RP1):OUT1_ENABLE_CMD</pv_name>
+      <x>203</x>
+      <y>16</y>
+      <width>36</width>
+      <off_label></off_label>
+      <on_label></on_label>
+    </widget>
+    <widget type="scaledslider" version="2.0.0">
+      <name>Scaled Slider</name>
+      <pv_name>$(DEVICE_RP1):OUT1_OFFSET_SP</pv_name>
+      <y>21</y>
+      <width>115</width>
+      <height>20</height>
+      <increment>0.005</increment>
+      <maximum>1.0</maximum>
+      <limits_from_pv>false</limits_from_pv>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_14</name>
+      <text>Working Point</text>
+      <x>14</x>
+      <width>86</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Corr Avg_1</name>
+      <pv_name>=10*'$(DEVICE_RP1):OUT1_OFFSET_SP'</pv_name>
+      <x>125</x>
+      <y>16</y>
+      <width>70</width>
+      <height>30</height>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group</name>
+    <x>695</x>
+    <y>171</y>
+    <width>239</width>
+    <height>46</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_2</name>
+      <pv_name>$(DEVICE_RP1):OUT2_ENABLE_CMD</pv_name>
+      <x>203</x>
+      <y>16</y>
+      <width>36</width>
+      <off_label></off_label>
+      <on_label></on_label>
+    </widget>
+    <widget type="scaledslider" version="2.0.0">
+      <name>Scaled Slider_1</name>
+      <pv_name>$(DEVICE_RP1):OUT2_OFFSET_SP</pv_name>
+      <y>21</y>
+      <width>115</width>
+      <height>20</height>
+      <increment>0.001</increment>
+      <minimum>-1.0</minimum>
+      <maximum>1.0</maximum>
+      <limits_from_pv>false</limits_from_pv>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_15</name>
+      <text>Sum</text>
+      <x>14</x>
+      <width>86</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Corr Avg_2</name>
+      <pv_name>=10*'$(DEVICE_RP1):OUT2_OFFSET_SP'</pv_name>
+      <x>123</x>
+      <y>16</y>
+      <width>70</width>
+      <height>30</height>
+      <precision>2</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Group</name>
+    <x>695</x>
+    <y>232</y>
+    <width>239</width>
+    <height>46</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="bool_button" version="2.0.0">
+      <name>Boolean Button_3</name>
+      <pv_name>$(DEVICE_RP2):OUT1_ENABLE_CMD</pv_name>
+      <x>203</x>
+      <y>16</y>
+      <width>36</width>
+      <off_label></off_label>
+      <on_label></on_label>
+    </widget>
+    <widget type="scaledslider" version="2.0.0">
+      <name>Scaled Slider_2</name>
+      <pv_name>$(DEVICE_RP2):OUT1_OFFSET_SP</pv_name>
+      <y>21</y>
+      <width>115</width>
+      <height>20</height>
+      <increment>0.001</increment>
+      <maximum>1.0</maximum>
+      <limits_from_pv>false</limits_from_pv>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_16</name>
+      <text>Slow Gain</text>
+      <x>14</x>
+      <width>86</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Corr Avg_3</name>
+      <pv_name>=10*'$(DEVICE_RP2):OUT1_OFFSET_SP'</pv_name>
+      <x>125</x>
+      <y>16</y>
+      <width>70</width>
+      <height>30</height>
+      <precision>3</precision>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+</display>

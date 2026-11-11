@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-04-18 22:29:58 by georg-->
+<display version="2.0.0">
+  <name>rf_demo</name>
+  <width>1300</width>
+  <height>2000</height>
+  <widget type="group" version="3.0.0">
+    <name>chiller</name>
+    <macros>
+      <GROUP>cool</GROUP>
+      <CONFFILE>../../../deploy/values.yaml</CONFFILE>
+      <ZONE>ALL</ZONE>
+      <TYPE>ALL</TYPE>
+      <READOUTPV>INT_TEMP_RB</READOUTPV>
+    </macros>
+    <x>6</x>
+    <y>20</y>
+    <width>804</width>
+    <height>720</height>
+    <widget type="embedded" version="2.0.0">
+      <name>Embedded Display_25</name>
+      <macros>
+        <READOUTPV>INT_TEMP_RB</READOUTPV>
+        <SETPOINTPV>TEMP_SETPT_SP</SETPOINTPV>
+        <STATUSPV>STATUS:RUN</STATUSPV>
+        <SETSTATUS>STATUS</SETSTATUS>
+      </macros>
+      <file>epik8s-opi/unicool-opi/cool_array.bob</file>
+      <x>16</x>
+      <y>12</y>
+      <width>750</width>
+      <height>650</height>
+    </widget>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>Data Browser_3</name>
+    <file>ini/plt/chiller.plt</file>
+    <x>850</x>
+    <width>884</width>
+    <height>740</height>
+    <show_toolbar>true</show_toolbar>
+  </widget>
+</display>

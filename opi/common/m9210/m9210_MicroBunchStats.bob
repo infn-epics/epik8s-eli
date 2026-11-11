@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-05-13 18:14:23 by andreamichelotti-->
+<display version="2.0.0">
+  <width>700</width>
+  <height>530</height>
+  <background_color>
+    <color name="IO Grid" red="215" green="215" blue="215">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="xyplot" version="3.0.0">
+    <name>XY Graph Template_1</name>
+    <x>5</x>
+    <y>45</y>
+    <width>691</width>
+    <height>236</height>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <title>Microbunch Average</title>
+    <title_font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </title_font>
+    <actions>
+    </actions>
+    <x_axis>
+      <title>Microbunch [n]</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>32.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Voltage [V]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):MICB_AVGROLL</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="IO Trace 1" red="79" green="129" blue="189">
+          </color>
+        </color>
+        <line_width>5</line_width>
+        <line_style>0</line_style>
+        <point_type>2</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="xyplot" version="3.0.0">
+    <name>XY Graph Template_1</name>
+    <x>5</x>
+    <y>290</y>
+    <width>691</width>
+    <height>236</height>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <title>Microbunch Cumulative Sum</title>
+    <title_font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </title_font>
+    <actions>
+    </actions>
+    <x_axis>
+      <title>Microbunch [n]</title>
+      <autoscale>true</autoscale>
+      <log_scale>false</log_scale>
+      <minimum>0.0</minimum>
+      <maximum>32.0</maximum>
+      <show_grid>true</show_grid>
+      <title_font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </title_font>
+      <scale_font>
+        <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </scale_font>
+      <visible>true</visible>
+    </x_axis>
+    <y_axes>
+      <y_axis>
+        <title>Voltage [V]</title>
+        <autoscale>true</autoscale>
+        <log_scale>false</log_scale>
+        <minimum>0.0</minimum>
+        <maximum>100.0</maximum>
+        <show_grid>true</show_grid>
+        <title_font>
+          <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </title_font>
+        <scale_font>
+          <font name="IO Scale 1" family="sans" style="REGULAR" size="10.891089108910892">
+          </font>
+        </scale_font>
+        <on_right>false</on_right>
+        <visible>true</visible>
+        <color>
+          <color name="Text" red="0" green="0" blue="0">
+          </color>
+        </color>
+      </y_axis>
+    </y_axes>
+    <traces>
+      <trace>
+        <name>$(traces[0].y_pv)</name>
+        <x_pv></x_pv>
+        <y_pv>$(DEVICE):MICB_FSUM.AVAL</y_pv>
+        <err_pv></err_pv>
+        <axis>0</axis>
+        <trace_type>1</trace_type>
+        <color>
+          <color name="IO Trace 1" red="79" green="129" blue="189">
+          </color>
+        </color>
+        <line_width>5</line_width>
+        <line_style>0</line_style>
+        <point_type>2</point_type>
+        <point_size>4</point_size>
+        <visible>true</visible>
+      </trace>
+    </traces>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_13</name>
+    <text>Number of acquisitions to average</text>
+    <x>5</x>
+    <y>18</y>
+    <width>276</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template_4</name>
+    <pv_name>$(DEVICE):MICB_AVGROLL.N</pv_name>
+    <x>292</x>
+    <y>15</y>
+    <width>91</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_width>2</border_width>
+  </widget>
+</display>

@@ -1,0 +1,1154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-04-30 16:03:04 by georg-->
+<display version="2.0.0">
+  <name>vacuum_display_$(LCID)</name>
+  <width>600</width>
+  <height>570</height>
+  <scripts>
+    <script file="Scripts/LoadDevicePopulateArray.py" check_connections="false">
+      <pv_name>loc://ZONE_$(LCID)&lt;VString&gt;($(ZONE))</pv_name>
+      <pv_name>loc://TYPE_$(LCID)&lt;VLong&gt;($(TYPE))</pv_name>
+    </script>
+  </scripts>
+  <widget type="embedded" version="2.0.0">
+    <name>element_template</name>
+    <file>VacuumChannel.bob</file>
+    <y>270</y>
+    <width>361</width>
+    <height>1</height>
+    <visible>false</visible>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label</name>
+    <text>$(WGS)</text>
+    <x>50</x>
+    <width>101</width>
+    <height>1</height>
+    <visible>false</visible>
+  </widget>
+  <widget type="picture" version="2.0.0">
+    <name>Picture_LINAC</name>
+    <macros>
+      <LINAC>ALL</LINAC>
+    </macros>
+    <file>../../img/20260422. Vacuum LINAC Layout_ALL_1980_353.png</file>
+    <width>1337</width>
+    <height>237</height>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>M1</name>
+    <macros>
+      <LINAC>M1</LINAC>
+    </macros>
+    <x>7</x>
+    <y>10</y>
+    <width>354</width>
+    <height>225</height>
+    <style>3</style>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <transparent>true</transparent>
+    <rules>
+      <rule name="Change background" prop_id="background_color" out_exp="false">
+        <exp bool_exp="LEL:VAC:VPCON01:IONP01:PRES &gt; 1e-8">
+          <value>
+            <color name="MINOR" red="255" green="128" blue="0">
+            </color>
+          </value>
+        </exp>
+        <pv_name>LEL:VAC:VPCON01:IONP01:PRES</pv_name>
+      </rule>
+    </rules>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>VAC-GAUCC01</text>
+      <x>1</x>
+      <y>27</y>
+      <width>68</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>VAC-IONP01</text>
+      <y>125</y>
+      <width>55</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_3</name>
+      <text>VAC-IONP02</text>
+      <x>152</x>
+      <y>149</y>
+      <width>70</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>VAC-IONP04</text>
+      <x>260</x>
+      <y>151</y>
+      <width>58</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>VAC-GAUCC03</text>
+      <x>231</x>
+      <y>51</y>
+      <width>68</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-GAUCC04</name>
+      <pv_name>LEL:VAC:VGCON01:CC04:PRES</pv_name>
+      <x>284</x>
+      <y>14</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VGCON01:CC04:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_CC04(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP03</name>
+      <pv_name>LEL:VAC:VPCON01:IONP03:PRES</pv_name>
+      <x>208</x>
+      <y>13</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <rules>
+        <rule name="New Rule1" prop_id="background_color" out_exp="false">
+          <exp bool_exp="pv0 &lt; 1e-8">
+            <value>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0 &gt;= 1e-8 &amp;&amp; pv0 &lt;= 1e-7 ">
+            <value>
+              <color name="Attention" red="255" green="160" blue="0">
+              </color>
+            </value>
+          </exp>
+          <exp bool_exp="pv0 &gt; 1e-7">
+            <value>
+              <color name="STOP" red="255" green="0" blue="0">
+              </color>
+            </value>
+          </exp>
+          <pv_name>$(pv_name)</pv_name>
+        </rule>
+      </rules>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-GAUCC03</name>
+      <pv_name>LEL:VAC:VGCON01:CC03:PRES</pv_name>
+      <x>231</x>
+      <y>62</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VGCON01:CC03:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_CC03(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP01</name>
+      <pv_name>LEL:VAC:VPCON01:IONP01:PRES</pv_name>
+      <y>136</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON01:IONP01:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP01(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-GAUCC01</name>
+      <pv_name>LEL:VAC:VGCON01:CC01:PRES</pv_name>
+      <x>1</x>
+      <y>37</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VGCON01:CC01:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_CC01(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP02</name>
+      <pv_name>LEL:VAC:VPCON01:IONP02:PRES</pv_name>
+      <x>152</x>
+      <y>160</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON01:IONP02:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP02(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP04</name>
+      <pv_name>LEL:VAC:VPCON01:IONP04:PRES</pv_name>
+      <x>258</x>
+      <y>162</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON01:IONP04:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP04(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_7</name>
+      <text>VAC-GAUCC04</text>
+      <x>282</x>
+      <y>3</y>
+      <width>68</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>VAC-IONP03</text>
+      <x>208</x>
+      <y>2</y>
+      <width>58</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Health indicator M1</name>
+      <y>202</y>
+      <width>350</width>
+      <height>22</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color name="Text" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="Background" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <scripts>
+        <script file="Scripts/LinacVacuumAlarmM1.py">
+          <pv_name>LEL:VAC:VPCON01:IONP01:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON01:IONP02:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON01:IONP03:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON01:IONP04:PRES</pv_name>
+          <pv_name>LEL:VAC:VGCON01:CC01:PRES</pv_name>
+          <pv_name>LEL:VAC:VGCON01:CC03:PRES</pv_name>
+          <pv_name>LEL:VAC:VGCON01:CC04:PRES</pv_name>
+        </script>
+      </scripts>
+      <tooltip>Module M1 Vacuum Status</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Health indicator M1</name>
+      <text>Alarm Vacuum M1</text>
+      <x>113</x>
+      <y>202</y>
+      <width>122</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>M2</name>
+    <macros>
+      <LINAC>M1</LINAC>
+    </macros>
+    <x>361</x>
+    <width>209</width>
+    <height>235</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP05</name>
+      <pv_name>LEL:VAC:VPCON02:IONP05:PRES</pv_name>
+      <x>80</x>
+      <y>196</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON02:IONP05:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP05(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP06</name>
+      <pv_name>LEL:VAC:VPCON02:IONP06:PRES</pv_name>
+      <x>142</x>
+      <y>196</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON02:IONP06:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP06(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>VAC-IONP05</text>
+      <x>87</x>
+      <y>185</y>
+      <width>55</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_9</name>
+      <text>VAC-IONP06</text>
+      <x>146</x>
+      <y>185</y>
+      <width>55</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Health indicator M2</name>
+      <x>19</x>
+      <y>213</y>
+      <width>182</width>
+      <height>22</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color name="Text" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="Background" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <scripts>
+        <script file="Scripts/LinacVacuumAlarmM2.py">
+          <pv_name>LEL:VAC:VPCON02:IONP05:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON02:IONP06:PRES</pv_name>
+        </script>
+      </scripts>
+      <tooltip>Module M2 Vacuum Status</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Health indicator M2</name>
+      <text>Alarm Vacuum M2</text>
+      <x>16</x>
+      <y>212</y>
+      <width>182</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>M3</name>
+    <x>570</x>
+    <y>9</y>
+    <width>250</width>
+    <height>230</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-GAUCC06</name>
+      <pv_name>LEL:VAC:VGCON01:CC06:PRES</pv_name>
+      <x>104</x>
+      <y>63</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VGCON01:CC06:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://spike_timer_CC06(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP07</name>
+      <pv_name>LEL:VAC:VPCON02:IONP07:PRES</pv_name>
+      <x>77</x>
+      <y>16</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON02:IONP07:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP07(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP08</name>
+      <pv_name>LEL:VAC:VPCON02:IONP08:PRES</pv_name>
+      <x>99</x>
+      <y>183</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON02:IONP08:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP08(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP09</name>
+      <pv_name>LEL:VAC:VPCON03:IONP09:PRES</pv_name>
+      <x>190</x>
+      <y>183</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON03:IONP09:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP09(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_10</name>
+      <text>VAC-IONP07</text>
+      <x>77</x>
+      <y>4</y>
+      <width>55</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_11</name>
+      <text>VAC-GAUCC06</text>
+      <x>104</x>
+      <y>51</y>
+      <width>68</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_12</name>
+      <text>VAC-IONP08</text>
+      <x>104</x>
+      <y>172</y>
+      <width>55</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_13</name>
+      <text>VAC-IONP08</text>
+      <x>189</x>
+      <y>171</y>
+      <width>55</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Health indicator M3</name>
+      <y>204</y>
+      <width>250</width>
+      <height>22</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color name="Text" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="Background" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <scripts>
+        <script file="Scripts/LinacVacuumAlarmM3.py">
+          <pv_name>LEL:VAC:VPCON02:IONP07:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON02:IONP08:PRES</pv_name>
+          <pv_name>LEL:VAC:VPCON03:IONP09:PRES</pv_name>
+          <pv_name>LEL:VAC:VGCON01:CC06:PRES</pv_name>
+        </script>
+      </scripts>
+      <tooltip>Module M3 Vacuum Status</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Health indicator M3</name>
+      <text>Alarm Vacuum M3</text>
+      <x>60</x>
+      <y>205</y>
+      <width>142</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/LinacVacuumAlarmM3.py">
+        </script>
+      </scripts>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>M4</name>
+    <x>825</x>
+    <y>9</y>
+    <width>525</width>
+    <height>226</height>
+    <style>3</style>
+    <transparent>true</transparent>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP12</name>
+      <pv_name>LEL:VAC:VPCON03:IONP12:PRES</pv_name>
+      <x>197</x>
+      <y>180</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON03:IONP12:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP12(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP13</name>
+      <pv_name>LEL:VAC:VPCON04:IONP13:PRES</pv_name>
+      <x>167</x>
+      <y>40</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON04:IONP13:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP13(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP14</name>
+      <pv_name>LEL:VAC:VPCON04:IONP14:PRES</pv_name>
+      <x>232</x>
+      <y>76</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON04:IONP14:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP14(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP10</name>
+      <pv_name>LEL:VAC:VPCON03:IONP10:PRES</pv_name>
+      <x>99</x>
+      <y>16</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON03:IONP10:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP10(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_14</name>
+      <text>VAC-IONP11</text>
+      <x>128</x>
+      <y>170</y>
+      <width>55</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_15</name>
+      <text>VAC-IONP12</text>
+      <x>197</x>
+      <y>169</y>
+      <width>55</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-GAUCC08</name>
+      <pv_name>LEL:VAC:VGCON02:CC08:PRES</pv_name>
+      <x>102</x>
+      <y>40</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VGCON02:CC08:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://spike_timer_CC08(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_16</name>
+      <text>VAC-IONP14</text>
+      <x>237</x>
+      <y>64</y>
+      <width>55</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_17</name>
+      <text>VAC-IONP13</text>
+      <x>174</x>
+      <y>58</y>
+      <width>55</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_18</name>
+      <text>VAC-IONP10</text>
+      <x>98</x>
+      <y>4</y>
+      <width>55</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_19</name>
+      <text>VAC-GAUCC08</text>
+      <x>101</x>
+      <y>79</y>
+      <width>68</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP11</name>
+      <pv_name>LEL:VAC:VPCON03:IONP11:PRES</pv_name>
+      <x>129</x>
+      <y>182</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON03:IONP11:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP11(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>VAC-IONP15</name>
+      <pv_name>LEL:VAC:VPCON04:IONP15:PRES</pv_name>
+      <x>423</x>
+      <y>46</y>
+      <width>60</width>
+      <height>15</height>
+      <font>
+        <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+        </font>
+      </font>
+      <format>2</format>
+      <precision>2</precision>
+      <show_units>false</show_units>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <scripts>
+        <script file="Scripts/vacuum_latch.py">
+          <pv_name>LEL:VAC:VPCON04:IONP15:PRES</pv_name>
+          <pv_name>sim://sine(1, 1, 1)</pv_name>
+          <pv_name>loc://last_spike_IONP15(0)</pv_name>
+        </script>
+      </scripts>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_20</name>
+      <text>VAC-IONP15</text>
+      <x>426</x>
+      <y>32</y>
+      <width>55</width>
+      <height>10</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="9.0">
+        </font>
+      </font>
+      <transparent>false</transparent>
+    </widget>
+    <widget type="rectangle" version="2.0.0">
+      <name>Health indicator M4_A</name>
+      <x>358</x>
+      <y>204</y>
+      <width>165</width>
+      <height>22</height>
+      <line_width>1</line_width>
+      <line_color>
+        <color name="Text" red="0" green="0" blue="0">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="Background" red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <scripts>
+        <script file="Scripts/LinacVacuumAlarmM4_A.py">
+          <pv_name>LEL:VAC:VPCON04:IONP15:PRES</pv_name>
+        </script>
+      </scripts>
+      <tooltip>Module M4_A Vacuum Status</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Health indicator M4_A</name>
+      <text>Alarm Vacuum M4_A</text>
+      <x>361</x>
+      <y>204</y>
+      <width>160</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+    </widget>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>M1</name>
+    <file>../../ini/plt/M1vac.plt</file>
+    <y>235</y>
+    <width>450</width>
+    <height>435</height>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>M2</name>
+    <file>../../ini/plt/M2vac.plt</file>
+    <x>450</x>
+    <y>235</y>
+    <width>450</width>
+    <height>435</height>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>M3</name>
+    <file>../../ini/plt/M3vac.plt</file>
+    <x>899</x>
+    <y>235</y>
+    <width>450</width>
+    <height>435</height>
+  </widget>
+  <widget type="databrowser" version="2.0.0">
+    <name>M4</name>
+    <file>../../ini/plt/M4vac.plt</file>
+    <x>1350</x>
+    <y>235</y>
+    <width>478</width>
+    <height>435</height>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>waveformM1</name>
+    <actions>
+      <action type="open_display">
+        <file>waveformM1.bob</file>
+        <target>window</target>
+        <description>M1 Display</description>
+      </action>
+    </actions>
+    <y>231</y>
+    <width>450</width>
+    <height>439</height>
+    <transparent>true</transparent>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>waveformM2</name>
+    <actions>
+      <action type="open_display">
+        <file>waveformM2.bob</file>
+        <target>window</target>
+        <description>M2 Display</description>
+      </action>
+    </actions>
+    <x>450</x>
+    <y>234</y>
+    <width>450</width>
+    <height>436</height>
+    <transparent>true</transparent>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>waveformM3</name>
+    <actions>
+      <action type="open_display">
+        <file>waveformM3.bob</file>
+        <target>window</target>
+        <description>M3 Display</description>
+      </action>
+    </actions>
+    <x>899</x>
+    <y>234</y>
+    <width>450</width>
+    <height>436</height>
+    <transparent>true</transparent>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>waveformM4</name>
+    <actions>
+      <action type="open_display">
+        <file>waveformM4.bob</file>
+        <target>window</target>
+        <description>M4 Display</description>
+      </action>
+    </actions>
+    <x>1363</x>
+    <y>234</y>
+    <width>450</width>
+    <height>436</height>
+    <transparent>true</transparent>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Health indicator M4</name>
+    <x>825</x>
+    <y>213</y>
+    <width>348</width>
+    <height>22</height>
+    <line_width>1</line_width>
+    <line_color>
+      <color name="Text" red="0" green="0" blue="0">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Background" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <scripts>
+      <script file="Scripts/LinacVacuumAlarmM4.py">
+        <pv_name>LEL:VAC:VPCON03:IONP10:PRES</pv_name>
+        <pv_name>LEL:VAC:VPCON03:IONP11:PRES</pv_name>
+        <pv_name>LEL:VAC:VPCON03:IONP12:PRES</pv_name>
+        <pv_name>LEL:VAC:VGCON02:CC08:PRES</pv_name>
+        <pv_name>LEL:VAC:VPCON04:IONP13:PRES</pv_name>
+        <pv_name>LEL:VAC:VPCON04:IONP14:PRES</pv_name>
+      </script>
+    </scripts>
+    <tooltip>Module M4 Vacuum Status</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Health indicator M4</name>
+    <text>Alarm Vacuum M4</text>
+    <x>948</x>
+    <y>213</y>
+    <width>142</width>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="16.0">
+      </font>
+    </font>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+  </widget>
+</display>

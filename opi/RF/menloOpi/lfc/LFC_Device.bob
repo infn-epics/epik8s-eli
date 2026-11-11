@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-06-08 01:28:42 by andreamichelotti-->
+<display version="2.0.0">
+  <width>395</width>
+  <height>415</height>
+  <background_color>
+    <color name="IO Grid" red="215" green="215" blue="215">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>5</grid_step_x>
+  <grid_step_y>5</grid_step_y>
+  <widget type="label" version="2.0.0">
+    <name>Label Template</name>
+    <text>Input Power 1</text>
+    <x>86</x>
+    <y>50</y>
+    <width>110</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_1</name>
+    <text>Diode Output Power</text>
+    <x>35</x>
+    <y>346</y>
+    <width>160</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_3</name>
+    <text>Input Power 2</text>
+    <x>86</x>
+    <y>88</y>
+    <width>110</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_4</name>
+    <text>Input Power 3</text>
+    <x>86</x>
+    <y>128</y>
+    <width>110</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_5</name>
+    <text>Input Power 4</text>
+    <x>86</x>
+    <y>168</y>
+    <width>110</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_7</name>
+    <text>Diode Current Set</text>
+    <x>52</x>
+    <y>226</y>
+    <width>143</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_8</name>
+    <text>Diode Current RBV</text>
+    <x>44</x>
+    <y>266</y>
+    <width>150</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <tooltip>Diode current readback value</tooltip>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_9</name>
+    <text>Diode Current</text>
+    <x>83</x>
+    <y>305</y>
+    <width>112</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <tooltip>Actual diode current</tooltip>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_10</name>
+    <text>Diode Temperature</text>
+    <x>42</x>
+    <y>386</y>
+    <width>154</width>
+    <height>19</height>
+    <font>
+      <font name="IO Label 1" family="sans" style="REGULAR" size="11.881188118811881">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textentry" version="3.0.0">
+    <name>Text Input Template</name>
+    <pv_name>$(DEVICE):MDD:ISET_SP</pv_name>
+    <x>206</x>
+    <y>223</y>
+    <width>166</width>
+    <height>26</height>
+    <font>
+      <font name="IO Input 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <actions>
+    </actions>
+    <border_width>2</border_width>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_8</name>
+    <pv_name>$(DEVICE):MDD:DIODE_TACT</pv_name>
+    <x>205</x>
+    <y>382</y>
+    <width>168</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_3</name>
+    <pv_name>$(DEVICE):DET4:PACT4</pv_name>
+    <x>206</x>
+    <y>164</y>
+    <width>168</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_2</name>
+    <pv_name>$(DEVICE):DET4:PACT3</pv_name>
+    <x>206</x>
+    <y>124</y>
+    <width>168</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_5</name>
+    <pv_name>$(DEVICE):MDD:PACT</pv_name>
+    <x>205</x>
+    <y>342</y>
+    <width>168</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_7</name>
+    <pv_name>$(DEVICE):MDD:ISET_RB</pv_name>
+    <x>205</x>
+    <y>262</y>
+    <width>168</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template</name>
+    <pv_name>$(DEVICE):DET4:PACT1</pv_name>
+    <x>206</x>
+    <y>46</y>
+    <width>168</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_9</name>
+    <pv_name>$(DEVICE):MDD:IACT</pv_name>
+    <x>205</x>
+    <y>301</y>
+    <width>168</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update Template_1</name>
+    <pv_name>$(DEVICE):DET4:PACT2</pv_name>
+    <x>206</x>
+    <y>84</y>
+    <width>168</width>
+    <height>28</height>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Panel 2_1</name>
+    <x>10</x>
+    <y>5</y>
+    <width>375</width>
+    <height>25</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <widget type="group" version="3.0.0">
+      <name>Controls Grouping Container_1</name>
+      <y>12</y>
+      <width>375</width>
+      <height>1</height>
+      <style>3</style>
+      <font>
+        <font name="IO Normal" family="sans" style="REGULAR" size="10.891089108910892">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </foreground_color>
+      <line_color>
+        <color name="IO Border" red="215" green="215" blue="215">
+        </color>
+      </line_color>
+      <background_color>
+        <color name="IO OutputPV Bg" red="121" green="123" blue="126">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_124</name>
+      <text>Power / Diode Status</text>
+      <x>72</x>
+      <width>231</width>
+      <height>25</height>
+      <font>
+        <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+        </font>
+      </font>
+      <foreground_color>
+        <color name="IO Label" red="0" green="0" blue="0">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color name="IO Grid" red="215" green="215" blue="215">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+    </widget>
+  </widget>
+</display>

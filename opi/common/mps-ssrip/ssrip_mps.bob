@@ -1,0 +1,3368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-04-08 16:47:25 by giuli-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>910</width>
+  <height>700</height>
+  <widget type="tabs" version="2.0.0">
+    <name>Tabs</name>
+    <tabs>
+      <tab>
+        <name>MPS Summary</name>
+        <children>
+          <widget type="rectangle" version="2.0.0">
+            <name>Rectangle_1</name>
+            <x>328</x>
+            <y>22</y>
+            <width>330</width>
+            <height>220</height>
+            <line_color>
+              <color name="Button_Background" red="210" green="210" blue="210">
+              </color>
+            </line_color>
+            <line_style>1</line_style>
+            <background_color>
+              <color name="Header_ForeGround" red="255" green="255" blue="255">
+              </color>
+            </background_color>
+          </widget>
+          <widget type="bool_button" version="2.0.0">
+            <name>ack</name>
+            <pv_name>RUF-MPS-A-001:ACK_SP</pv_name>
+            <x>48</x>
+            <y>72</y>
+            <width>170</width>
+            <height>70</height>
+            <off_label>ACK</off_label>
+            <off_color>
+              <color name="Button_Background" red="210" green="210" blue="210">
+              </color>
+            </off_color>
+            <on_label>ACK</on_label>
+            <on_color>
+              <color name="Button_Background" red="210" green="210" blue="210">
+              </color>
+            </on_color>
+            <show_led>false</show_led>
+            <font>
+              <font family="Liberation Sans" style="BOLD_ITALIC" size="18.0">
+              </font>
+            </font>
+            <mode>1</mode>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>sleep</name>
+            <pv_name>RUF-MPS-A-001:SLEEP</pv_name>
+            <x>438</x>
+            <y>152</y>
+            <width>22</width>
+            <height>22</height>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_5</name>
+            <text>Sleep</text>
+            <x>478</x>
+            <y>152</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Watchdog</name>
+            <pv_name>RUF-MPS-A-001:WATCHDOG</pv_name>
+            <x>358</x>
+            <y>122</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_6</name>
+            <text>watchdog</text>
+            <x>478</x>
+            <y>122</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>temp</name>
+            <pv_name>RUF-MPS-A-001:TEMP</pv_name>
+            <x>358</x>
+            <y>92</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_7</name>
+            <text>temp [°C]</text>
+            <x>478</x>
+            <y>92</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>benchmark</name>
+            <pv_name>RUF-MPS-A-001:BENCHMARK</pv_name>
+            <x>358</x>
+            <y>62</y>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_8</name>
+            <text>benchmark [us]</text>
+            <x>478</x>
+            <y>62</y>
+            <width>130</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="bool_button" version="2.0.0">
+            <name>Boolean Button_2</name>
+            <pv_name>RUF-MPS-A-001:RESET</pv_name>
+            <bit>-1</bit>
+            <x>358</x>
+            <y>182</y>
+            <width>250</width>
+            <off_label>Reset State Machine</off_label>
+            <off_color>
+              <color name="Button_Background" red="210" green="210" blue="210">
+              </color>
+            </off_color>
+            <on_label>Reset State Machine</on_label>
+            <on_color>
+              <color name="Button_Background" red="210" green="210" blue="210">
+              </color>
+            </on_color>
+            <show_led>false</show_led>
+            <font>
+              <font family="Liberation Sans" style="BOLD_ITALIC" size="10.0">
+              </font>
+            </font>
+            <mode>1</mode>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>enable</name>
+            <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+            <x>58</x>
+            <y>162</y>
+            <width>50</width>
+            <height>50</height>
+            <off_color>
+              <color name="Read_Background" red="240" green="240" blue="240">
+              </color>
+            </off_color>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_10</name>
+            <text>ENABLE</text>
+            <x>118</x>
+            <y>175</y>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>modulator</name>
+            <text>Modulator</text>
+            <x>298</x>
+            <y>334</y>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>LLRF</name>
+            <text>LLRF</text>
+            <x>298</x>
+            <y>388</y>
+            <height>30</height>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>vacuum roof</name>
+            <text>Vacuum Roof</text>
+            <x>298</x>
+            <y>435</y>
+            <width>160</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>vacuum cor</name>
+            <text>Vacuum Cor</text>
+            <x>298</x>
+            <y>475</y>
+            <width>160</width>
+            <height>29</height>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="polyline" version="2.0.0">
+            <name>Polyline_1</name>
+            <x>18</x>
+            <y>372</y>
+            <width>600</width>
+            <height>1</height>
+            <points>
+              <point x="0.0" y="0.0">
+              </point>
+              <point x="600.0" y="0.0">
+              </point>
+            </points>
+            <line_width>1</line_width>
+            <line_color>
+              <color name="Button_Background" red="210" green="210" blue="210">
+              </color>
+            </line_color>
+            <line_style>1</line_style>
+          </widget>
+          <widget type="polyline" version="2.0.0">
+            <name>Polyline_3</name>
+            <x>18</x>
+            <y>422</y>
+            <width>600</width>
+            <height>1</height>
+            <points>
+              <point x="0.0" y="0.0">
+              </point>
+              <point x="600.0" y="0.0">
+              </point>
+            </points>
+            <line_width>1</line_width>
+            <line_color>
+              <color name="Button_Background" red="210" green="210" blue="210">
+              </color>
+            </line_color>
+            <line_style>1</line_style>
+          </widget>
+          <widget type="polyline" version="2.0.0">
+            <name>Polyline_12</name>
+            <x>8</x>
+            <y>299</y>
+            <width>660</width>
+            <height>3</height>
+            <points>
+              <point x="0.0" y="0.0">
+              </point>
+              <point x="660.0" y="3.0">
+              </point>
+            </points>
+            <line_width>2</line_width>
+            <line_color>
+              <color name="Header_Background" red="77" green="77" blue="77">
+              </color>
+            </line_color>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_3</name>
+            <text>ilk status</text>
+            <x>18</x>
+            <y>282</y>
+            <font>
+              <font family="Liberation Sans" style="BOLD_ITALIC" size="14.0">
+              </font>
+            </font>
+            <foreground_color>
+              <color name="Header_Background" red="77" green="77" blue="77">
+              </color>
+            </foreground_color>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED</name>
+            <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+            <x>228</x>
+            <y>472</y>
+            <width>32</width>
+            <height>32</height>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="STOP" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_1</name>
+            <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+            <x>228</x>
+            <y>432</y>
+            <width>32</width>
+            <height>32</height>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="STOP" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+          <widget type="byte_monitor" version="2.0.0">
+            <name>Byte Monitor</name>
+            <pv_name>RUF-MPS-A-001:ILK:MOD</pv_name>
+            <x>128</x>
+            <y>332</y>
+            <width>130</width>
+            <height>32</height>
+            <numBits>4</numBits>
+            <bitReverse>true</bitReverse>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+          <widget type="byte_monitor" version="2.0.0">
+            <name>Byte Monitor_1</name>
+            <pv_name>RUF-MPS-A-001:ILK:LLRF</pv_name>
+            <x>128</x>
+            <y>382</y>
+            <width>65</width>
+            <height>33</height>
+            <numBits>2</numBits>
+            <bitReverse>true</bitReverse>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_2</name>
+            <x>228</x>
+            <y>432</y>
+            <width>32</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[2])
+# PV locale dove salvare il valore
+saved = PVUtil.getInt(pvs[1])
+
+# salva solo se diverso da zero e diverso dal precedente
+if value != 0:
+	if value != saved:
+		pvs[1].write(value)
+		widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+
+#if bit_ilk_number != 0:
+#	widget.setPropertyValue('visible', True)
+#else:
+#	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name trigger="false">loc://provare(0)</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>LED_3</name>
+            <x>228</x>
+            <y>472</y>
+            <width>32</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+
+value = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[2])
+# PV locale dove salvare il valore
+saved = PVUtil.getInt(pvs[1])
+
+# salva solo se diverso da zero e diverso dal precedente
+if value != 0:
+	if value != saved:
+		pvs[1].write(value)
+		widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+#bit_ilk_number = PVUtil.getInt(pvs[0])
+#if bit_ilk_number != 0:
+#	widget.setPropertyValue('visible', True)
+#else:
+#	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>loc://provare_cor(0)</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update</name>
+            <pv_name>loc://ilk_ruf("")</pv_name>
+            <x>458</x>
+            <y>435</y>
+            <width>200</width>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+value = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[2])
+
+# PV locale dove salvare il valore
+saved = PVUtil.getInt(pvs[1])
+
+# salva solo se diverso da zero e diverso dal precedente
+if value != 0:
+	if value != saved:
+			#pvs[1].write(value)
+		if value == 240:
+			pvs[1].write('ruf spare ch ilk')
+
+		if value == 1:
+			pvs[1].write('LEL-VAC-WGC01:IONP02')
+		if value == 2:
+			pvs[1].write('LEL-VAC-WGC01:IONP03')
+		if value == 4:
+			pvs[1].write('LEL-VAC-WCS01:IONP04')
+		if value == 8:
+			pvs[1].write('LEL-VAC-WCS01:IONP05')
+		if value == 16:
+			pvs[1].write('ruf spare ch ilk')
+		if value == 32:
+			pvs[1].write('ruf spare ch ilk')
+		if value == 64:
+			pvs[1].write('ruf spare ch ilk')
+		if value == 128:
+			pvs[1].write('ruf spare ch ilk')
+		if value == 256:
+			pvs[1].write('LEL-VAC-WGS02:IONP03')
+		if value == 512:
+			pvs[1].write('LEL-VAC-WGS02:IONP04')
+		if value == 1024:
+			pvs[1].write('LEL-VAC-WGS02:IONP05')
+		if value == 2048:
+			pvs[1].write('LEL-VAC-WGS03:IONP01')
+		if value == 4096:
+			pvs[1].write('LEL-VAC-WGS03:IONP02')
+		if value == 8192:
+			pvs[1].write('LEL-VAC-WGS03:IONP03')
+		if value == 16384:
+			pvs[1].write('LEL-VAC-WGS03:IONP04')
+		if value == 32768:
+			pvs[1].write('LEL-VAC-WGC01:IONP01')
+		if value == 65536:
+			pvs[1].write('LEL-VAC-WGS01:IONP01')
+		if value == 131072:
+			pvs[1].write('LEL-VAC-WGS01:IONP02')
+		if value == 262144:
+			pvs[1].write('LEL-VAC-WGS01:IONP03')
+		if value == 524288:
+			pvs[1].write('LEL-VAC-WGS01:IONP04')
+		if value == 1048576:
+			pvs[1].write('LEL-VAC-WGS01:IONP05')
+		if value == 2097152:
+			pvs[1].write('LEL-VAC-WGS01:IONP06')
+		if value == 4194304:
+			pvs[1].write('LEL-VAC-WGS02:IONP01')
+		if value == 8388608:
+			pvs[1].write('LEL-VAC-WGS02:IONP02')
+if enable == 1:
+	pvs[1].write(' ')
+#--------------------------------------------
+
+
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name trigger="false">loc://ilk_ruf</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_1</name>
+            <pv_name>loc://ilk_cor("")</pv_name>
+            <x>458</x>
+            <y>475</y>
+            <width>200</width>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+#-------------------------------------------
+value = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[2])
+
+# PV locale dove salvare il valore
+saved = PVUtil.getInt(pvs[1])
+
+# salva solo se diverso da zero e diverso dal precedente
+if value != 0:
+	if value != saved:
+			#pvs[1].write(value)
+		if value == 8388608:
+			pvs[1].write('cor spare ch ilk')
+
+		if value == 1: #16777216:
+			pvs[1].write('LEL-VAC-IONP01')
+		if value == 2: #33554432:
+			pvs[1].write('LEL-VAC-IONP02')
+		if value == 4: #67108864:
+			pvs[1].write('LEL-VAC-IONP03')
+		if value == 8: #134217728:
+			pvs[1].write('LEL-VAC-IONP04')
+		if value == 16: #268435456:
+			pvs[1].write('LEL-VAC-IONP05')
+		if value == 32: #536870912:
+			pvs[1].write('LEL-VAC-IONP06')
+		if value == 64: #1073741824:
+			pvs[1].write('LEL-VAC-IONP07')
+		if value == 128: #2147483648:
+			pvs[1].write('LEL-VAC-IONP08')
+		if value == 65536:
+			pvs[1].write('LEL-VAC-IONP09')
+		if value == 131072:
+			pvs[1].write('LEL-VAC-IONP10')
+		if value == 262144:
+			pvs[1].write('LEL-VAC-IONP11')
+		if value == 524288:
+			pvs[1].write('LEL-VAC-IONP12')
+		if value == 1048576:
+			pvs[1].write('LEL-VAC-IONP13')
+		if value == 2097152:
+			pvs[1].write('LEL-VAC-IONP14')
+		if value == 4194304:
+			pvs[1].write('LEL-VAC-IONP15')
+if enable == 1:
+	pvs[1].write(' ')
+#--------------------------------------------
+
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name trigger="false">loc://ilk_cor</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_3</name>
+            <pv_name>loc://last(0)</pv_name>
+            <x>58</x>
+            <y>432</y>
+            <width>150</width>
+            <visible>false</visible>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+value = PVUtil.getInt(pvs[0])
+
+# PV locale dove salvare il valore
+saved = PVUtil.getInt(pvs[1])
+
+# salva solo se diverso da zero e diverso dal precedente
+if value != 0:
+	if value != saved:
+		pvs[1].write(value)
+		print("ruf:", pvs[0].getValue())
+		print("ruf:", pvs[1].getValue())
+
+
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name trigger="false">loc://last(0)</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_4</name>
+            <pv_name>loc://la_cor(0)</pv_name>
+            <x>58</x>
+            <y>462</y>
+            <width>150</width>
+            <visible>false</visible>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+value = PVUtil.getInt(pvs[0])
+
+# PV locale dove salvare il valore
+saved = PVUtil.getInt(pvs[1])
+
+# salva solo se diverso da zero e diverso dal precedente
+if value != 0:
+	if value != saved:
+		pvs[1].write(value)
+		print("cor:", pvs[0].getValue())
+		print("cor:", pvs[1].getValue())
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name trigger="false">loc://la_cor(0)</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label</name>
+            <text>1</text>
+            <x>128</x>
+            <y>312</y>
+            <width>30</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_1</name>
+            <text>4</text>
+            <x>228</x>
+            <y>312</y>
+            <width>30</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_2</name>
+            <text>2</text>
+            <x>158</x>
+            <y>312</y>
+            <width>40</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_4</name>
+            <text>3</text>
+            <x>188</x>
+            <y>312</y>
+            <width>40</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="byte_monitor" version="2.0.0">
+            <name>Byte Monitor_2</name>
+            <pv_name>RUF-MPS-A-001:ILK:LLRF</pv_name>
+            <x>193</x>
+            <y>382</y>
+            <width>65</width>
+            <height>32</height>
+            <startBit>2</startBit>
+            <numBits>2</numBits>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_2</name>
+            <pv_name>loc://last_ruf</pv_name>
+            <x>48</x>
+            <y>502</y>
+            <width>170</width>
+            <visible>false</visible>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+print 'Hello'
+# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))
+# binario 32 bit con zeri iniziali
+bin_word = format(PVUtil.getInt(pvs[0]), '032b')
+print("Word in binario 32 bit: RUF", bin_word)
+bin_word_2 = format(PVUtil.getInt(pvs[1]), '032b')
+print("Word in binario 32 bit: COR", bin_word_2)
+bin_word_3 = format(PVUtil.getInt(pvs[2]), '032b')
+print("Word in binario 32 bit: BYPASS RUF", bin_word_3)
+bin_word_4 = format(PVUtil.getInt(pvs[3]), '032b')
+print("Word in binario 32 bit: BYPASS COR", bin_word_4)]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_SP</pv_name>
+                <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_SP</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="textupdate" version="2.0.0">
+            <name>Text Update_5</name>
+            <pv_name>loc://last_cor</pv_name>
+            <x>48</x>
+            <y>532</y>
+            <width>170</width>
+            <visible>false</visible>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[# Embedded python script
+from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+print 'Hello'
+# widget.setPropertyValue('text', PVUtil.getString(pvs[0]))
+# binario 32 bit con zeri iniziali
+bin_word = format(PVUtil.getInt(pvs[0]), '032b')
+print("Word in binario 32 bit: RUF", bin_word)
+bin_word_2 = format(PVUtil.getInt(pvs[1]), '032b')
+print("Word in binario 32 bit: COR", bin_word_2)
+bin_word_3 = format(PVUtil.getInt(pvs[2]), '032b')
+print("Word in binario 32 bit: BYPASS RUF", bin_word_3)
+bin_word_4 = format(PVUtil.getInt(pvs[3]), '032b')
+print("Word in binario 32 bit: BYPASS COR", bin_word_4)]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_SP</pv_name>
+                <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_SP</pv_name>
+              </script>
+            </scripts>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Modulator</name>
+        <children>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:MOD:0</pv_name>
+            <label>MOD-S01</label>
+            <x>78</x>
+            <y>62</y>
+            <width>310</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:MOD:1</pv_name>
+            <label>MOD-S02</label>
+            <x>78</x>
+            <y>96</y>
+            <width>220</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass3</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:MOD:2</pv_name>
+            <label>MOD-S03</label>
+            <x>78</x>
+            <y>130</y>
+            <width>220</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass4</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:MOD:3</pv_name>
+            <label>MOD-C01</label>
+            <x>78</x>
+            <y>164</y>
+            <width>220</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="byte_monitor" version="2.0.0">
+            <name>Byte Monitor mod_2</name>
+            <pv_name>RUF-MPS-A-001:ILK:MOD</pv_name>
+            <x>38</x>
+            <y>65</y>
+            <width>32</width>
+            <height>130</height>
+            <numBits>4</numBits>
+            <bitReverse>true</bitReverse>
+            <horizontal>false</horizontal>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_29</name>
+            <text>ILK</text>
+            <x>38</x>
+            <y>32</y>
+            <width>30</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_30</name>
+            <text>BYPASS</text>
+            <x>78</x>
+            <y>32</y>
+            <width>200</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="polyline" version="2.0.0">
+            <name>Polyline_18</name>
+            <x>38</x>
+            <y>52</y>
+            <width>310</width>
+            <height>1</height>
+            <points>
+              <point x="0.0" y="0.0">
+              </point>
+              <point x="310.0" y="1.0">
+              </point>
+            </points>
+            <line_width>1</line_width>
+            <line_color>
+              <color name="Text" red="0" green="0" blue="0">
+              </color>
+            </line_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>LLRF</name>
+        <children>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1_7</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:LLRF:0</pv_name>
+            <label>LLRF-S01</label>
+            <x>78</x>
+            <y>62</y>
+            <width>310</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2_1</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:LLRF:1</pv_name>
+            <label>LLRF-S02</label>
+            <x>78</x>
+            <y>96</y>
+            <width>220</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass3_1</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:LLRF:3</pv_name>
+            <label>LLRF-S03</label>
+            <x>78</x>
+            <y>162</y>
+            <width>220</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass4_1</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:LLRF:2</pv_name>
+            <label>LLRF-C01</label>
+            <x>78</x>
+            <y>132</y>
+            <width>220</width>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="polyline" version="2.0.0">
+            <name>Polyline_17</name>
+            <x>38</x>
+            <y>52</y>
+            <width>310</width>
+            <height>1</height>
+            <points>
+              <point x="0.0" y="0.0">
+              </point>
+              <point x="310.0" y="1.0">
+              </point>
+            </points>
+            <line_width>1</line_width>
+            <line_color>
+              <color name="Text" red="0" green="0" blue="0">
+              </color>
+            </line_color>
+          </widget>
+          <widget type="byte_monitor" version="2.0.0">
+            <name>Byte Monitor llrf_1</name>
+            <pv_name>RUF-MPS-A-001:ILK:LLRF</pv_name>
+            <x>38</x>
+            <y>65</y>
+            <width>32</width>
+            <height>64</height>
+            <numBits>2</numBits>
+            <bitReverse>true</bitReverse>
+            <horizontal>false</horizontal>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_23</name>
+            <text>ILK</text>
+            <x>38</x>
+            <y>32</y>
+            <width>30</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_24</name>
+            <text>BYPASS</text>
+            <x>78</x>
+            <y>32</y>
+            <width>200</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="byte_monitor" version="2.0.0">
+            <name>Byte Monitor_3</name>
+            <pv_name>RUF-MPS-A-001:ILK:LLRF</pv_name>
+            <x>38</x>
+            <y>129</y>
+            <width>32</width>
+            <height>65</height>
+            <startBit>2</startBit>
+            <numBits>2</numBits>
+            <horizontal>false</horizontal>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Vacuum ruf</name>
+        <children>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1_16</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B14</pv_name>
+            <label>LEL-VAC-WGS03:IONP04</label>
+            <x>388</x>
+            <y>56</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2_10</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B15</pv_name>
+            <label>LEL-VAC-WGC01:IONP01</label>
+            <x>388</x>
+            <y>88</y>
+            <width>257</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass3_10</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B16</pv_name>
+            <label>LEL-VAC-WGS01:IONP01</label>
+            <x>388</x>
+            <y>122</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass4_10</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B17</pv_name>
+            <label>LEL-VAC-WGS01:IONP02</label>
+            <x>388</x>
+            <y>156</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1_17</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B4</pv_name>
+            <label>spare</label>
+            <x>56</x>
+            <y>186</y>
+            <width>88</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2_11</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B5</pv_name>
+            <label>spare</label>
+            <x>56</x>
+            <y>218</y>
+            <width>88</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass3_11</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B6</pv_name>
+            <label>spare</label>
+            <x>56</x>
+            <y>252</y>
+            <width>88</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass4_11</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B7</pv_name>
+            <label>spare</label>
+            <x>56</x>
+            <y>286</y>
+            <width>88</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass4_12</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B3</pv_name>
+            <label>LEL-VAC-WGC01:IONP05</label>
+            <x>56</x>
+            <y>156</y>
+            <width>257</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1_18</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B0</pv_name>
+            <label>LEL-VAC-WGC01:IONP02</label>
+            <x>56</x>
+            <y>56</y>
+            <width>257</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass3_12</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B2</pv_name>
+            <label>LEL-VAC-WGC01:IONP04</label>
+            <x>56</x>
+            <y>122</y>
+            <width>257</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2_12</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B1</pv_name>
+            <label>LEL-VAC-WGC01:IONP03</label>
+            <x>56</x>
+            <y>88</y>
+            <width>257</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="byte_monitor" version="2.0.0">
+            <name>Byte Monitor llrf_6</name>
+            <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+            <x>348</x>
+            <y>52</y>
+            <width>33</width>
+            <height>330</height>
+            <startBit>14</startBit>
+            <numBits>10</numBits>
+            <bitReverse>true</bitReverse>
+            <horizontal>false</horizontal>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1_19</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B8</pv_name>
+            <label>LEL-VAC-WGS02:IONP03</label>
+            <x>56</x>
+            <y>324</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2_13</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B9</pv_name>
+            <label>LEL-VAC-WGS02:IONP04</label>
+            <x>56</x>
+            <y>358</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass3_13</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B10</pv_name>
+            <label>LEL-VAC-WGS02:IONP05</label>
+            <x>56</x>
+            <y>392</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1_20</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B18</pv_name>
+            <label>LEL-VAC-WGS01:IONP03</label>
+            <x>388</x>
+            <y>186</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2_14</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B19</pv_name>
+            <label>LEL-VAC-WGS01:IONP04</label>
+            <x>388</x>
+            <y>218</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass3_14</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B20</pv_name>
+            <label>LEL-VAC-WGS01:IONP05</label>
+            <x>388</x>
+            <y>252</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass4_13</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B21</pv_name>
+            <label>LEL-VAC-WGS01:IONP06</label>
+            <x>388</x>
+            <y>286</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1_21</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B22</pv_name>
+            <label>LEL-VAC-WGS02:IONP01</label>
+            <x>390</x>
+            <y>324</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2_15</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B23</pv_name>
+            <label>LEL-VAC-WGS02:IONP02</label>
+            <x>390</x>
+            <y>356</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass3_16</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B11</pv_name>
+            <label>LEL-VAC-WGS03:IONP01</label>
+            <x>56</x>
+            <y>424</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1_13</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B12</pv_name>
+            <label>LEL-VAC-WGS03:IONP02</label>
+            <x>55</x>
+            <y>454</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2_7</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_RUF_B13</pv_name>
+            <label>LEL-VAC-WGS03:IONP03</label>
+            <x>55</x>
+            <y>484</y>
+            <width>256</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_16</name>
+            <text>BYPASS</text>
+            <x>48</x>
+            <y>22</y>
+            <width>200</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_17</name>
+            <text>ILK</text>
+            <x>18</x>
+            <y>22</y>
+            <width>30</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_18</name>
+            <text>BYPASS</text>
+            <x>390</x>
+            <y>22</y>
+            <width>200</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_21</name>
+            <text>ILK</text>
+            <x>350</x>
+            <y>22</y>
+            <width>30</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="polyline" version="2.0.0">
+            <name>Polyline_19</name>
+            <x>18</x>
+            <y>42</y>
+            <width>630</width>
+            <height>1</height>
+            <points>
+              <point x="0.0" y="0.0">
+              </point>
+              <point x="630.0" y="0.0">
+              </point>
+            </points>
+            <line_width>1</line_width>
+            <line_color>
+              <color name="Text" red="0" green="0" blue="0">
+              </color>
+            </line_color>
+          </widget>
+          <widget type="byte_monitor" version="2.0.0">
+            <name>Byte Monitor llrf_10</name>
+            <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+            <x>18</x>
+            <y>52</y>
+            <width>40</width>
+            <height>460</height>
+            <numBits>14</numBits>
+            <bitReverse>true</bitReverse>
+            <horizontal>false</horizontal>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf</name>
+            <x>18</x>
+            <y>52</y>
+            <width>32</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 1:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch2_ruf</name>
+            <x>18</x>
+            <y>86</y>
+            <width>32</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 2:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch3_ruf</name>
+            <x>18</x>
+            <y>119</y>
+            <width>32</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 4:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch4_ruf</name>
+            <x>18</x>
+            <y>149</y>
+            <width>32</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 8:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf</name>
+            <x>18</x>
+            <y>313</y>
+            <width>32</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 256:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_1</name>
+            <x>18</x>
+            <y>348</y>
+            <width>32</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 512:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_2</name>
+            <x>18</x>
+            <y>382</y>
+            <width>32</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 1024:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_3</name>
+            <x>18</x>
+            <y>413</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 2048:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_4</name>
+            <x>18</x>
+            <y>446</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 4096:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_5</name>
+            <x>18</x>
+            <y>480</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 8192:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_6</name>
+            <x>349</x>
+            <y>52</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 16384:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_7</name>
+            <x>349</x>
+            <y>84</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 32768:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_8</name>
+            <x>349</x>
+            <y>117</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 65536:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_9</name>
+            <x>349</x>
+            <y>152</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 131072:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_10</name>
+            <x>349</x>
+            <y>184</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 262144:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_11</name>
+            <x>349</x>
+            <y>217</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 524288:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_12</name>
+            <x>349</x>
+            <y>251</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 1048576:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_13</name>
+            <x>349</x>
+            <y>282</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 2097152:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_14</name>
+            <x>349</x>
+            <y>316</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 4194304:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch9_ruf_15</name>
+            <x>349</x>
+            <y>350</y>
+            <width>30</width>
+            <height>32</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 8388608:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Vacuum cor</name>
+        <children>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1_15</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B4</pv_name>
+            <label>LEL-VAC-IONP05</label>
+            <x>68</x>
+            <y>175</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2_9</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B5</pv_name>
+            <label>LEL-VAC-IONP06</label>
+            <x>68</x>
+            <y>204</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass3_9</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B6</pv_name>
+            <label>LEL-VAC-IONP07</label>
+            <x>68</x>
+            <y>234</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass4_9</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B7</pv_name>
+            <label>LEL-VAC-IONP08</label>
+            <x>68</x>
+            <y>264</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass4_8</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B3</pv_name>
+            <label>LEL-VAC-IONP04</label>
+            <x>68</x>
+            <y>144</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1_14</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B0</pv_name>
+            <label>LEL-VAC-IONP01</label>
+            <x>68</x>
+            <y>56</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass3_8</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B2</pv_name>
+            <label>LEL-VAC-IONP03</label>
+            <x>68</x>
+            <y>114</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2_8</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B1</pv_name>
+            <label>LEL-VAC-IONP02</label>
+            <x>68</x>
+            <y>86</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_14</name>
+            <text>BYPASS</text>
+            <x>68</x>
+            <y>22</y>
+            <width>200</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+          </widget>
+          <widget type="byte_monitor" version="2.0.0">
+            <name>Byte Monitor llrf_4</name>
+            <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+            <x>28</x>
+            <y>52</y>
+            <width>30</width>
+            <height>240</height>
+            <bitReverse>true</bitReverse>
+            <horizontal>false</horizontal>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1_12</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B8</pv_name>
+            <label>LEL-VAC-IONP09</label>
+            <x>68</x>
+            <y>294</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2_6</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B9</pv_name>
+            <label>LEL-VAC-IONP10</label>
+            <x>68</x>
+            <y>324</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass3_6</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B10</pv_name>
+            <label>LEL-VAC-IONP11</label>
+            <x>68</x>
+            <y>354</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass4_6</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B11</pv_name>
+            <label>LEL-VAC-IONP12</label>
+            <x>68</x>
+            <y>384</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass1_22</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B12</pv_name>
+            <label>LEL-VAC-IONP13</label>
+            <x>68</x>
+            <y>414</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass2_16</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B13</pv_name>
+            <label>LEL-VAC-IONP14</label>
+            <x>68</x>
+            <y>444</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass3_17</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B14</pv_name>
+            <label>LEL-VAC-IONP15</label>
+            <x>68</x>
+            <y>474</y>
+            <width>188</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <show_confirm_dialog>2</show_confirm_dialog>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="slide_button" version="2.0.0">
+            <name>bypass4_15</name>
+            <pv_name>RUF-MPS-A-001:BYPASS:VAC_COR_B15</pv_name>
+            <label>spare</label>
+            <x>68</x>
+            <y>504</y>
+            <width>88</width>
+            <height>21</height>
+            <font>
+              <font family="Liberation Sans" style="REGULAR" size="18.0">
+              </font>
+            </font>
+            <auto_size>true</auto_size>
+            <confirm_message>Confirm channel bypass:</confirm_message>
+            <password>eli2025</password>
+          </widget>
+          <widget type="label" version="2.0.0">
+            <name>Label_15</name>
+            <text>ILK</text>
+            <x>28</x>
+            <y>22</y>
+            <width>30</width>
+            <font>
+              <font family="Liberation Sans" style="BOLD" size="14.0">
+              </font>
+            </font>
+            <horizontal_alignment>1</horizontal_alignment>
+          </widget>
+          <widget type="polyline" version="2.0.0">
+            <name>Polyline_20</name>
+            <x>28</x>
+            <y>42</y>
+            <width>310</width>
+            <height>1</height>
+            <points>
+              <point x="0.0" y="0.0">
+              </point>
+              <point x="310.0" y="1.0">
+              </point>
+            </points>
+            <line_width>1</line_width>
+            <line_color>
+              <color name="Text" red="0" green="0" blue="0">
+              </color>
+            </line_color>
+          </widget>
+          <widget type="byte_monitor" version="2.0.0">
+            <name>Byte Monitor llrf_8</name>
+            <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+            <x>28</x>
+            <y>292</y>
+            <width>30</width>
+            <height>240</height>
+            <startBit>16</startBit>
+            <bitReverse>true</bitReverse>
+            <horizontal>false</horizontal>
+            <off_color>
+              <color name="OK" red="0" green="255" blue="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </on_color>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_1</name>
+            <x>28</x>
+            <y>52</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 1: #16777216:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_2</name>
+            <x>28</x>
+            <y>82</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 2: #67108864:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_3</name>
+            <x>28</x>
+            <y>112</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 4: #33554432:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_4</name>
+            <x>28</x>
+            <y>142</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 8: #134217728:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_5</name>
+            <x>28</x>
+            <y>172</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 16: #268435456:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_6</name>
+            <x>28</x>
+            <y>202</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 36: #536870912:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_7</name>
+            <x>28</x>
+            <y>232</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 64: #1073741824:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_8</name>
+            <x>28</x>
+            <y>262</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 128: #2147483648:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_9</name>
+            <x>28</x>
+            <y>292</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 65536:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_10</name>
+            <x>28</x>
+            <y>322</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number ==131072:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_11</name>
+            <x>28</x>
+            <y>352</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 262144:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_12</name>
+            <x>28</x>
+            <y>382</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 524288:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_13</name>
+            <x>28</x>
+            <y>412</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 1048576:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_14</name>
+            <x>28</x>
+            <y>442</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 2097152:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+          <widget type="led" version="2.0.0">
+            <name>ch1_ruf_15</name>
+            <x>28</x>
+            <y>472</y>
+            <width>30</width>
+            <height>30</height>
+            <visible>false</visible>
+            <off_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </off_color>
+            <on_color>
+              <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+              </color>
+            </on_color>
+            <line_color>
+              <color name="MAJOR" red="255" green="0" blue="0">
+              </color>
+            </line_color>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil, ScriptUtil
+
+bit_ilk_number = PVUtil.getInt(pvs[0])
+enable = PVUtil.getInt(pvs[1])
+if bit_ilk_number == 4194304:
+	widget.setPropertyValue('visible', True)
+if enable == 1:
+	widget.setPropertyValue('visible', False)
+	
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name>RUF-MPS-A-001:ENABLE</pv_name>
+              </script>
+            </scripts>
+          </widget>
+        </children>
+      </tab>
+      <tab>
+        <name>Log Vac ILK</name>
+        <children>
+          <widget type="table" version="2.0.0">
+            <name>Table</name>
+            <x>38</x>
+            <y>62</y>
+            <width>600</width>
+            <height>430</height>
+            <columns>
+              <column>
+                <name>Time</name>
+                <width>250</width>
+                <editable>false</editable>
+              </column>
+              <column>
+                <name>Ilk</name>
+                <width>250</width>
+                <editable>true</editable>
+              </column>
+            </columns>
+            <scripts>
+              <script file="EmbeddedPy">
+                <text><![CDATA[from org.csstudio.display.builder.runtime.script import PVUtil
+from java.time import LocalDateTime
+import json
+
+# --- PV memoria ---
+history_pv = pvs[3]     # loc://history
+last_ruf_pv = pvs[4]    # loc://last_ruf
+last_cor_pv = pvs[5]    # loc://last_cor
+
+# --- Leggi storico ---
+history_str = PVUtil.getString(history_pv)
+
+try:
+    merge = json.loads(history_str) if history_str else []
+    if not isinstance(merge, list):
+        merge = []
+except:
+    merge = []
+
+# --- Leggi valori attuali ---
+value_ruf = PVUtil.getInt(pvs[0])
+value_cor = PVUtil.getInt(pvs[2])
+#value=value_cor
+
+# --- Leggi ultimi valori salvati ---
+last_ruf = PVUtil.getInt(last_ruf_pv)
+last_cor = PVUtil.getInt(last_cor_pv)
+
+# --- FLAG cambiamento ---
+changed = False
+
+# =======================
+# 🔵 RUF
+# =======================
+value=value_ruf
+if value_ruf !=0:
+
+    #if value == 0:
+	#label = "NO RUF ILK"
+    if value == 240:
+	label = "ruf spare ch ilk"
+    if value == 1:
+    	label = 'LEL-VAC-WGC01:IONP02'
+    if value == 2:
+   	 label = 'LEL-VAC-WGC01:IONP03'
+    if value == 4:
+    	label = 'LEL-VAC-WGC01:IONP04'
+    if value == 8:
+    	label = 'LEL-VAC-WGC01:IONP05'
+    if value == 16:
+	label = 'ruf spare ch ilk'
+    if value == 32:
+	 label = 'ruf spare ch ilk'
+    if value == 64:
+	label = 'ruf spare ch ilk'
+    if value == 128:
+	 label = 'ruf spare ch ilk'
+    if value == 256:
+    	label = 'LEL-VAC-WGS02:IONP03'
+    if value == 512:
+    	label = 'LEL-VAC-WGS02:IONP04'
+    if value == 1024:
+    	label = 'LEL-VAC-WGS02:IONP05'
+    if value == 2048:
+    	label = 'LEL-VAC-WGS03:IONP01'
+    if value == 4096:
+    	label = 'LEL-VAC-WGS03:IONP02'
+    if value == 8192:
+    	label = 'LEL-VAC-WGS03:IONP03'
+    if value == 16384:
+    	label = 'LEL-VAC-WGS03:IONP04'
+    if value == 32768:
+    	label = 'LEL-VAC-WGC01:IONP01'
+    if value == 65536:
+    	label = 'LEL-VAC-WGS01:IONP01'
+    if value == 131072:
+    	label = 'LEL-VAC-WGS01:IONP02'
+    if value == 262144:
+   	 label = 'LEL-VAC-WGS01:IONP03'
+    if value == 524288:
+    	label = 'LEL-VAC-WGS01:IONP04'
+    if value == 1048576:
+   	 label = 'LEL-VAC-WGS01:IONP05'
+    if value == 2097152:
+    	label = 'LEL-VAC-WGS01:IONP06'
+    if value == 4194304:
+   	 label = 'LEL-VAC-WGS02:IONP01'
+    if value == 8388608:
+    	label = 'LEL-VAC-WGS02:IONP02'
+
+
+    time = str(LocalDateTime.now())
+    merge.append([time, label])
+
+    last_ruf_pv.write(value_ruf)
+    changed = True
+
+# =======================
+# 🔵 COR
+# =======================
+#if value_cor != last_cor:
+if value_cor != 0:
+
+    #label_2 = "UNKNOWN"
+    #if value_cor == 0:
+   	 #label_2 = 'NO COR ILK '
+    if value_cor == 8388608:
+    	label_2 = 'cor spare ch ilk'
+    if value_cor == 1: #16777216:
+    	label_2 = 'LEL-VAC-IONP01'
+    if value_cor ==2: #33554432:
+    	label_2 = 'LEL-VAC-IONP02'
+    if value_cor == 4: #67108864:
+   	 label_2 = 'LEL-VAC-IONP03'
+    if value_cor == 8: #134217728:
+   	 label_2 = 'LEL-VAC-IONP04'
+    if value_cor == 16: #268435456:
+   	 label_2 = 'LEL-VAC-IONP05'
+    if value_cor == 32: #536870912:
+    	label_2 = 'LEL-VAC-IONP06'
+    if value_cor == 64: #1073741824:
+   	 label_2 = 'LEL-VAC-IONP07'
+    if value_cor == 128: #2147483648:
+    	label_2 = 'LEL-VAC-IONP08'
+    if value_cor == 65536:
+    	label_2 = 'LEL-VAC-IONP09'
+    if value_cor == 131072:
+    	label_2 = 'LEL-VAC-IONP10'
+    if value_cor == 262144:
+    	label_2 = 'LEL-VAC-IONP11'
+    if value_cor == 524288:
+   	 label_2 = 'LEL-VAC-IONP12'
+    if value_cor == 1048576:
+   	 label_2 = 'LEL-VAC-IONP13'
+    if value_cor == 2097152:
+	label_2 = 'LEL-VAC-IONP14'
+    if value_cor == 4194304:
+	label_2 = 'LEL-VAC-IONP15'
+    
+
+
+
+    time_2 = str(LocalDateTime.now())
+    merge.append([time_2, label_2])
+
+    last_cor_pv.write(value_cor)
+    changed = True
+
+
+
+# =======================
+# aggiorna SOLO se cambia
+# =======================
+if changed:
+
+    # tieni solo ultime 30
+    if len(merge) > 30:
+        merge = merge[-30:]
+
+    history_pv.write(json.dumps(merge))
+    widget.setValue(merge)
+
+
+
+
+]]></text>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_RUF</pv_name>
+                <pv_name trigger="false">loc://merge(0)</pv_name>
+                <pv_name>RUF-MPS-A-001:ILK:VAC_COR</pv_name>
+                <pv_name trigger="false">loc://memory</pv_name>
+                <pv_name trigger="false"> loc://last_ruf</pv_name>
+                <pv_name trigger="false"> loc://last_cor</pv_name>
+              </script>
+            </scripts>
+          </widget>
+        </children>
+      </tab>
+    </tabs>
+    <x>130</x>
+    <y>70</y>
+    <width>690</width>
+    <height>630</height>
+    <font>
+      <font family="Liberation Sans" style="REGULAR" size="15.0">
+      </font>
+    </font>
+  </widget>
+  <widget type="rectangle" version="2.0.0">
+    <name>Rectangle</name>
+    <x>40</x>
+    <y>270</y>
+    <width>1</width>
+    <height>1</height>
+  </widget>
+</display>

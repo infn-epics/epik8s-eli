@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-06-16 19:58:28 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>30</width>
+  <height>180</height>
+  <actions>
+    <action type="open_display">
+      <description>Open  SPE</description>
+      <file>../libera-bpm-opi/GUI/LiberaSinglePassE/opi/signal_processing.bob</file>
+      <target>replace</target>
+    </action>
+  </actions>
+  <widget type="ellipse" version="2.0.0">
+    <name>Ellipse</name>
+    <y>100</y>
+    <width>30</width>
+    <height>80</height>
+    <line_width>2</line_width>
+    <actions>
+      <action type="open_display">
+        <description>Open Display Libera sppp</description>
+        <file>../libera-bpm-opi/GUI/LiberaSinglePassE/opi/signal_processing.bob</file>
+        <target>replace</target>
+      </action>
+    </actions>
+    <tooltip>Libera Single Pass E(4x)</tooltip>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>BPMname</name>
+    <text>$(BPM)</text>
+    <x>8</x>
+    <width>16</width>
+    <height>85</height>
+    <background_color>
+      <color name="Transparent" red="255" green="255" blue="255" alpha="0">
+      </color>
+    </background_color>
+    <rotation_step>1</rotation_step>
+  </widget>
+  <widget type="action_button" version="3.0.0">
+    <name>Action Button_1</name>
+    <actions>
+      <action type="open_display">
+        <description>Open Libera SPE</description>
+        <file>../libera-bpm-opi/libera-spe/signal_processing.bob</file>
+        <target>window</target>
+      </action>
+    </actions>
+    <pv_name>$(P):$(BPM):dsp_control:enable</pv_name>
+    <text>$(BPM)</text>
+    <y>110</y>
+    <width>30</width>
+    <height>60</height>
+    <font>
+      <font family="Liberation Sans" style="BOLD" size="12.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <transparent>true</transparent>
+    <rotation_step>1</rotation_step>
+    <rules>
+      <rule name="alarm" prop_id="foreground_color" out_exp="false">
+        <exp bool_exp="pvInt0!=0">
+          <value>
+            <color name="STOP" red="255" green="0" blue="0">
+            </color>
+          </value>
+        </exp>
+        <pv_name>$(pv_name).STAT</pv_name>
+      </rule>
+    </rules>
+    <tooltip>$(actions)</tooltip>
+  </widget>
+</display>

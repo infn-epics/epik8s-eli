@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<display version="2.0.0">
+  <name>UniMagterminal Dynamic</name>
+  <macros>
+    <BOBITEM>mag_channel_dante.bob</BOBITEM>
+  </macros>
+  <width>810</width>
+  <height>840</height>
+  <widget type="group" version="3.0.0">
+    <name>SaveRestore</name>
+    <y>50</y>
+    <width>810</width>
+    <height>30</height>
+    <style>2</style>
+    <background_color>
+      <color name="Read_Background" red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <widget type="action_button" version="3.0.0">
+      <name>SaveBtn</name>
+      <actions>
+        <action type="execute">
+          <description>Save snapshot</description>
+          <script file="scripts/SaveDynamic.py">
+          </script>
+        </action>
+      </actions>
+      <text>Save Snapshot</text>
+      <x>10</x>
+      <y>2</y>
+      <width>120</width>
+      <height>25</height>
+      <tooltip>Save current setpoints and states of all visible power supplies to a CSV file</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>RestoreBtn</name>
+      <actions>
+        <action type="execute">
+          <description>Restore snapshot</description>
+          <script file="scripts/RestoreDynamic.py">
+          </script>
+        </action>
+      </actions>
+      <text>Restore Snapshot</text>
+      <x>140</x>
+      <y>2</y>
+      <width>130</width>
+      <height>25</height>
+      <tooltip>Load a CSV snapshot, review differences, then restore setpoints and states</tooltip>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>SelLabel</name>
+      <text>Selected:</text>
+      <x>292</x>
+      <y>7</y>
+      <width>68</width>
+      <height>16</height>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="12.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>OnBtn</name>
+      <actions>
+        <action type="execute">
+          <description>Turn ON selected</description>
+          <script file="scripts/TurnOnSelected.py">
+          </script>
+        </action>
+      </actions>
+      <text>ON</text>
+      <x>365</x>
+      <y>2</y>
+      <width>60</width>
+      <height>25</height>
+      <foreground_color>
+        <color name="White" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="0" green="160" blue="0">
+        </color>
+      </background_color>
+      <tooltip>Turn ON all selected magnets</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>OffBtn</name>
+      <actions>
+        <action type="execute">
+          <description>Turn OFF selected</description>
+          <script file="scripts/TurnOffSelected.py">
+          </script>
+        </action>
+      </actions>
+      <text>OFF</text>
+      <x>430</x>
+      <y>2</y>
+      <width>60</width>
+      <height>25</height>
+      <foreground_color>
+        <color name="White" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="180" green="0" blue="0">
+        </color>
+      </background_color>
+      <tooltip>Turn OFF all selected magnets</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>ResetBtn</name>
+      <actions>
+        <action type="execute">
+          <description>Reset selected</description>
+          <script file="scripts/ResetSelected.py">
+          </script>
+        </action>
+      </actions>
+      <text>RESET</text>
+      <x>495</x>
+      <y>2</y>
+      <width>65</width>
+      <height>25</height>
+      <foreground_color>
+        <color name="White" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="210" green="110" blue="0">
+        </color>
+      </background_color>
+      <tooltip>Send RESET command to all selected magnets</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>ZeroBtn</name>
+      <actions>
+        <action type="execute">
+          <description>Zero selected</description>
+          <script file="scripts/ZeroSelected.py">
+          </script>
+        </action>
+      </actions>
+      <text>ZERO</text>
+      <x>565</x>
+      <y>2</y>
+      <width>60</width>
+      <height>25</height>
+      <foreground_color>
+        <color name="White" red="255" green="255" blue="255">
+        </color>
+      </foreground_color>
+      <background_color>
+        <color red="60" green="60" blue="180">
+        </color>
+      </background_color>
+      <tooltip>Set CURRENT_SP to 0 for all selected magnets</tooltip>
+    </widget>
+  </widget>
+  <widget type="embedded" version="2.0.0">
+    <name>Embedded Display</name>
+    <file>mag_array.bob</file>
+    <y>80</y>
+    <width>810</width>
+    <height>760</height>
+    <border_width>1</border_width>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Selection</name>
+    <macros>
+      <ZONE>ALL</ZONE>
+      <TYPE>ALL</TYPE>
+      <FUNC>ALL</FUNC>
+    </macros>
+    <width>810</width>
+    <height>50</height>
+    <style>2</style>
+    <background_color>
+      <color name="Read_Background" red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <scripts>
+      <script file="scripts/LoadZoneTypes.py">
+        <pv_name trigger="false">loc://ZONE_$(DID)</pv_name>
+        <pv_name trigger="false">loc://TYPE_$(DID)</pv_name>
+      </script>
+    </scripts>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>Zone</text>
+      <x>9</x>
+      <y>12</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Zonecombo</name>
+      <pv_name>loc://ZONE_$(DID)&lt;VString&gt;("ALL")</pv_name>
+      <x>79</x>
+      <y>9</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_7</name>
+      <text>Type</text>
+      <x>199</x>
+      <y>12</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Funccombo</name>
+      <pv_name>loc://FUNC_$(DID)&lt;VString&gt;("ALL")</pv_name>
+      <x>269</x>
+      <y>9</y>
+    </widget>
+    <widget type="combo" version="2.0.0">
+      <name>Typecombo</name>
+      <pv_name>loc://TYPE_$(DID)&lt;VString&gt;("ALL")</pv_name>
+      <x>539</x>
+      <y>9</y>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>Model</text>
+      <x>459</x>
+      <y>12</y>
+      <width>80</width>
+      <font>
+        <font family="Liberation Sans" style="BOLD" size="16.0">
+        </font>
+      </font>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions>
+        <action type="open_display">
+          <description>Preture</description>
+          <file>pretune/pretune.bob</file>
+          <macros>
+            <P>$(P)</P>
+            <CONFFILE>$(CONFFILE)</CONFFILE>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <x>699</x>
+      <y>12</y>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+</display>

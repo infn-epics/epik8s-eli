@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-06-23 10:48:56 by michelottilabs-->
+<display version="2.0.0">
+  <name>Display</name>
+  <width>1160</width>
+  <height>260</height>
+  <widget type="label" version="2.0.0">
+    <name>Text Input</name>
+    <macros>
+      <pv_name></pv_name>
+    </macros>
+    <text>${TITLE}  ${R}</text>
+    <width>1050</width>
+    <height>32</height>
+    <font>
+      <font name="Title" family="OpenSans" style="BOLD" size="24.752475247524753">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Header_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="Header_Background" red="77" green="77" blue="77">
+      </color>
+    </background_color>
+    <transparent>false</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Delay Generators</name>
+    <y>32</y>
+    <width>927</width>
+    <height>228</height>
+    <style>1</style>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Header_2_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color name="Header_2_Background" red="114" green="159" blue="207">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Group_Background" red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="template" version="2.0.0">
+      <name>Delay</name>
+      <file>evr230dly.bob</file>
+      <instances>
+        <instance>
+          <macros>
+            <N>0</N>
+            <GEN>Pul$(N)-</GEN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <N>1</N>
+            <GEN>Pul$(N)-</GEN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <N>2</N>
+            <GEN>Pul$(N)-</GEN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <N>3</N>
+            <GEN>Pul$(N)-</GEN>
+          </macros>
+        </instance>
+      </instances>
+      <y>35</y>
+      <width>790</width>
+      <height>91</height>
+      <gap>5</gap>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_28</name>
+      <text>Line Name</text>
+      <x>89</x>
+      <width>70</width>
+      <height>35</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_29</name>
+      <text>Line Name A.</text>
+      <x>209</x>
+      <width>70</width>
+      <height>35</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_26</name>
+      <text>Delay to Apply</text>
+      <x>429</x>
+      <width>110</width>
+      <height>35</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Configuration</name>
+    <x>927</x>
+    <y>32</y>
+    <width>233</width>
+    <height>149</height>
+    <style>1</style>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Header_2_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color name="Header_2_Background" red="114" green="159" blue="207">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Group_Background" red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="fileselector" version="2.0.0">
+      <name>FileLoad</name>
+      <pv_name>loc://confload-$(LCID)&lt;VString&gt;</pv_name>
+      <x>49</x>
+      <y>20</y>
+      <width>80</width>
+      <actions>
+      </actions>
+      <scripts>
+        <script file="Scripts/restorePVsFromFile.py">
+          <pv_name>loc://confload-$(LCID)&lt;VString&gt;</pv_name>
+        </script>
+      </scripts>
+      <tooltip>File to load </tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button_2</name>
+      <actions>
+        <action type="execute">
+          <description>Save As</description>
+          <script file="scripts/dumpPvsTofile.py">
+          </script>
+        </action>
+      </actions>
+      <x>9</x>
+      <y>89</y>
+      <width>110</width>
+      <tooltip>Save current configuration to file</tooltip>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>confload</name>
+      <pv_name>loc://confload-${LCID}&lt;VString&gt;</pv_name>
+      <x>9</x>
+      <y>59</y>
+      <width>213</width>
+      <height>17</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions>
+        <action type="execute">
+          <description>Apply</description>
+          <script file="scripts/applyPVs.py">
+          </script>
+        </action>
+      </actions>
+      <text>APPLY</text>
+      <x>129</x>
+      <y>20</y>
+      <width>93</width>
+      <height>25</height>
+      <tooltip>Apply loaded value to set</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Text Update_1</name>
+      <text>Load</text>
+      <y>25</y>
+      <width>49</width>
+      <height>17</height>
+      <background_color>
+        <color name="Read_Background" red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <tooltip>$(actions)</tooltip>
+    </widget>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_24</name>
+    <text>Delay</text>
+    <x>342</x>
+    <y>51</y>
+    <width>70</width>
+    <height>35</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_25</name>
+    <text>Width</text>
+    <x>562</x>
+    <y>51</y>
+    <width>70</width>
+    <height>35</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_27</name>
+    <text>Width to Apply</text>
+    <x>642</x>
+    <y>51</y>
+    <width>114</width>
+    <height>35</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_30</name>
+    <text>Trig Code</text>
+    <x>795</x>
+    <y>51</y>
+    <width>55</width>
+    <height>35</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label_31</name>
+    <text>Trig to Apply</text>
+    <x>850</x>
+    <y>51</y>
+    <width>70</width>
+    <height>35</height>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Expert Control</name>
+    <x>927</x>
+    <y>181</y>
+    <width>233</width>
+    <height>79</height>
+    <style>1</style>
+    <font>
+      <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="Header_2_ForeGround" red="255" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color name="Header_2_Background" red="114" green="159" blue="207">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="Group_Background" red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="action_button" version="3.0.0">
+      <name>Receiver</name>
+      <actions>
+        <action type="open_display">
+          <description>Receiver</description>
+          <file>evr-230.bob</file>
+          <target>window</target>
+        </action>
+      </actions>
+      <y>21</y>
+      <width>110</width>
+      <tooltip>Save current configuration to file</tooltip>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Generator</name>
+      <actions>
+        <action type="open_display">
+          <description>Generator</description>
+          <file>evg-230.bob</file>
+          <macros>
+            <R>TMG</R>
+            <TITLE>Master Timing Generator</TITLE>
+          </macros>
+          <target>window</target>
+        </action>
+      </actions>
+      <text>Generator</text>
+      <x>110</x>
+      <y>21</y>
+      <width>110</width>
+      <tooltip>Save current configuration to file</tooltip>
+    </widget>
+  </widget>
+</display>

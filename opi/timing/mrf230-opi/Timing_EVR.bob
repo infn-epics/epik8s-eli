@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2024-04-10 18:22:05 by andreamichelotti-->
+<display version="2.0.0">
+  <name>Triggers</name>
+  <width>790</width>
+  <height>395</height>
+  <background_color>
+    <color red="237" green="236" blue="235">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <widget type="embedded" version="2.0.0">
+    <name>Timing_EVR_Main</name>
+    <file>Timing_EVR_Main.bob</file>
+    <width>790</width>
+    <height>385</height>
+    <transparent>true</transparent>
+    <actions>
+    </actions>
+    <scripts>
+      <script file="scripts/chooseEVR.py">
+        <pv_name>loc://EVRchoice_$(DID)("")</pv_name>
+      </script>
+    </scripts>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Star</name>
+    <pv_name>loc://saveStatus_$(DID)("")</pv_name>
+    <x>248</x>
+    <width>30</width>
+    <height>30</height>
+    <font>
+      <font name="ELI-NP Title Bar" family="sans" style="REGULAR" size="23.762376237623762">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <format>6</format>
+    <precision>0</precision>
+    <show_units>false</show_units>
+    <horizontal_alignment>1</horizontal_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="combo" version="2.0.0">
+    <name>Select_EVR</name>
+    <pv_name>loc://EVRchoice_$(DID)("EVR50")</pv_name>
+    <x>200</x>
+    <y>60</y>
+    <width>124</width>
+    <height>32</height>
+    <font>
+      <font family="Sans" style="REGULAR" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO InputPV Bg" red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <items>
+      <item>EVR50</item>
+      <item>EVR07</item>
+      <item>EVR12</item>
+    </items>
+    <items_from_pv>false</items_from_pv>
+  </widget>
+  <widget type="label" version="2.0.0">
+    <name>Label Template_21</name>
+    <text>EVR Selection</text>
+    <x>40</x>
+    <y>65</y>
+    <width>82</width>
+    <height>18</height>
+    <font>
+      <font name="IO Title" family="sans" style="BOLD" size="13.861386138613861">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Background" red="255" green="255" blue="205">
+      </color>
+    </background_color>
+    <vertical_alignment>1</vertical_alignment>
+    <auto_size>true</auto_size>
+    <actions>
+    </actions>
+    <border_color>
+      <color name="IO Border" red="215" green="215" blue="215">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Unsaved</name>
+    <pv_name>loc://unsaved(0)</pv_name>
+    <x>401</x>
+    <y>131</y>
+    <width>118</width>
+    <height>28</height>
+    <visible>false</visible>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Loaded_Path</name>
+    <pv_name>loc://loadedP("$(loadedPath)")</pv_name>
+    <x>401</x>
+    <y>141</y>
+    <width>118</width>
+    <height>28</height>
+    <visible>false</visible>
+    <font>
+      <font name="IO Output 1" family="sans" style="BOLD" size="10.891089108910892">
+      </font>
+    </font>
+    <foreground_color>
+      <color name="IO Foreground" red="0" green="0" blue="0">
+      </color>
+    </foreground_color>
+    <background_color>
+      <color name="IO Grid" red="215" green="215" blue="215">
+      </color>
+    </background_color>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+    <border_color>
+      <color name="IO PV OFF" red="77" green="77" blue="77">
+      </color>
+    </border_color>
+  </widget>
+</display>

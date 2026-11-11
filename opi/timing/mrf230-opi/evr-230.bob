@@ -1,0 +1,1483 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2025-02-28 12:01:56 by andreamichelotti-->
+<display version="2.0.0">
+  <name>$(TITLE)</name>
+  <height>861</height>
+  <background_color>
+    <color red="240" green="240" blue="240">
+    </color>
+  </background_color>
+  <actions>
+  </actions>
+  <grid_step_x>6</grid_step_x>
+  <grid_step_y>6</grid_step_y>
+  <widget type="group" version="3.0.0">
+    <name>Delay Generators (Pulsers)</name>
+    <x>18</x>
+    <y>56</y>
+    <width>557</width>
+    <height>468</height>
+    <style>1</style>
+    <foreground_color>
+      <color name="TabBG" red="224" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color name="LabelBG" red="65" green="105" blue="225">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="TabBG" red="224" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>Polarity</text>
+      <x>42</x>
+      <y>25</y>
+      <width>52</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_2</name>
+      <text>Enable</text>
+      <x>42</x>
+      <y>6</y>
+      <width>52</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>Prescaler</text>
+      <x>99</x>
+      <y>18</y>
+      <width>52</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>Delay</text>
+      <x>195</x>
+      <y>25</y>
+      <width>52</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_7</name>
+      <text>Width</text>
+      <x>312</x>
+      <y>25</y>
+      <width>52</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_8</name>
+      <text>Triggering Code   (0=Disable)</text>
+      <x>395</x>
+      <y>18</y>
+      <width>132</width>
+      <height>32</height>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="template" version="2.0.0">
+      <name>Template/Instance</name>
+      <file>_evrdlygen.bob</file>
+      <instances>
+        <instance>
+          <macros>
+            <N>0</N>
+            <GEN>Pul$(N)-</GEN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <N>1</N>
+            <GEN>Pul$(N)-</GEN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <N>2</N>
+            <GEN>Pul$(N)-</GEN>
+          </macros>
+        </instance>
+        <instance>
+          <macros>
+            <N>3</N>
+            <GEN>Pul$(N)-</GEN>
+          </macros>
+        </instance>
+      </instances>
+      <x>12</x>
+      <y>45</y>
+      <width>520</width>
+      <height>190</height>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Physical Inputs</name>
+    <x>577</x>
+    <y>421</y>
+    <width>175</width>
+    <height>311</height>
+    <style>1</style>
+    <foreground_color>
+      <color name="TabBG" red="224" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color name="LabelBG" red="65" green="105" blue="225">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="TabBG" red="224" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="embedded" version="2.0.0">
+      <name>Linking Container</name>
+      <macros>
+        <P>FPIn0</P>
+      </macros>
+      <file>_evrinput.bob</file>
+      <x>4</x>
+      <width>169</width>
+      <height>131</height>
+      <transparent>true</transparent>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="embedded" version="2.0.0">
+      <name>Linking Container</name>
+      <macros>
+        <P>FPIn1</P>
+      </macros>
+      <file>_evrinput.bob</file>
+      <x>4</x>
+      <y>131</y>
+      <width>167</width>
+      <height>142</height>
+      <transparent>true</transparent>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Prescalers</name>
+    <x>577</x>
+    <y>54</y>
+    <width>177</width>
+    <height>115</height>
+    <style>1</style>
+    <foreground_color>
+      <color name="TabBG" red="224" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color name="LabelBG" red="65" green="105" blue="225">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="TabBG" red="224" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):PS2-Rate-I</pv_name>
+      <x>85</x>
+      <y>67</y>
+      <width>65</width>
+      <height>17</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):PS1-Rate-I</pv_name>
+      <x>85</x>
+      <y>37</y>
+      <width>65</width>
+      <height>17</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):PS0-Rate-I</pv_name>
+      <x>85</x>
+      <y>7</y>
+      <width>65</width>
+      <height>17</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input</name>
+      <pv_name>$(P):$(R):PS0-Div-SP</pv_name>
+      <x>18</x>
+      <y>6</y>
+      <width>61</width>
+      <height>19</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input</name>
+      <pv_name>$(P):$(R):PS1-Div-SP</pv_name>
+      <x>18</x>
+      <y>36</y>
+      <width>61</width>
+      <height>19</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input</name>
+      <pv_name>$(P):$(R):PS2-Div-SP</pv_name>
+      <x>18</x>
+      <y>66</y>
+      <width>61</width>
+      <height>19</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <horizontal_alignment>1</horizontal_alignment>
+      <actions>
+      </actions>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_6</name>
+      <text>2</text>
+      <x>5</x>
+      <y>66</y>
+      <width>14</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_5</name>
+      <text>1</text>
+      <x>5</x>
+      <y>36</y>
+      <width>14</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_4</name>
+      <text>0</text>
+      <x>5</x>
+      <y>6</y>
+      <width>14</width>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Global</name>
+    <x>577</x>
+    <y>174</y>
+    <width>177</width>
+    <height>247</height>
+    <style>1</style>
+    <foreground_color>
+      <color name="TabBG" red="224" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color name="LabelBG" red="65" green="105" blue="225">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="TabBG" red="224" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Enabled</text>
+      <x>16</x>
+      <y>7</y>
+      <width>63</width>
+      <height>17</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):Ena-Sel</pv_name>
+      <x>91</x>
+      <y>7</y>
+      <width>65</width>
+      <height>17</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Link Status</text>
+      <x>16</x>
+      <y>25</y>
+      <width>63</width>
+      <height>17</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):Link-Sts</pv_name>
+      <x>91</x>
+      <y>25</y>
+      <width>65</width>
+      <height>17</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>PLL Status</text>
+      <x>16</x>
+      <y>43</y>
+      <width>63</width>
+      <height>17</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):Pll-Sts</pv_name>
+      <x>91</x>
+      <y>43</y>
+      <width>65</width>
+      <height>17</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Link Err Cnt</text>
+      <x>16</x>
+      <y>97</y>
+      <width>63</width>
+      <height>17</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):Cnt-RxErr-I</pv_name>
+      <x>91</x>
+      <y>97</y>
+      <width>65</width>
+      <height>17</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>HBt TIMO Cnt</text>
+      <x>6</x>
+      <y>115</y>
+      <width>73</width>
+      <height>17</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):Cnt-LinkTimo-I</pv_name>
+      <x>91</x>
+      <y>115</y>
+      <width>65</width>
+      <height>17</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Time Status</text>
+      <x>16</x>
+      <y>61</y>
+      <width>63</width>
+      <height>17</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):Time-Valid-Sts</pv_name>
+      <x>91</x>
+      <y>61</y>
+      <width>65</width>
+      <height>17</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="textentry" version="3.0.0">
+      <name>Text Input</name>
+      <pv_name>$(P):$(R):Evt-Blink0-SP</pv_name>
+      <x>90</x>
+      <y>180</y>
+      <width>67</width>
+      <height>19</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="action_button" version="3.0.0">
+      <name>Action Button</name>
+      <actions>
+        <action type="open_display">
+          <description>Open Display</description>
+          <file>evr-expert.bob</file>
+          <target>replace</target>
+        </action>
+      </actions>
+      <text>Expert</text>
+      <x>42</x>
+      <y>204</y>
+      <height>19</height>
+      <background_color>
+        <color name="ButtonFG" red="180" green="180" blue="180">
+        </color>
+      </background_color>
+      <tooltip>$(actions)</tooltip>
+      <border_alarm_sensitive>false</border_alarm_sensitive>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>FIFO OFlw</text>
+      <x>16</x>
+      <y>132</y>
+      <width>63</width>
+      <height>17</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):Cnt-HwOflw-I</pv_name>
+      <x>91</x>
+      <y>132</y>
+      <width>65</width>
+      <height>17</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Sw OFlw</text>
+      <x>6</x>
+      <y>149</y>
+      <width>73</width>
+      <height>17</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):Cnt-SwOflw-I</pv_name>
+      <x>91</x>
+      <y>149</y>
+      <width>65</width>
+      <height>17</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label_1</name>
+      <text>Blink Event</text>
+      <x>6</x>
+      <y>181</y>
+      <width>73</width>
+      <height>17</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="label" version="2.0.0">
+      <name>Label</name>
+      <text>Rx Pwr</text>
+      <x>16</x>
+      <y>79</y>
+      <width>63</width>
+      <height>17</height>
+      <horizontal_alignment>2</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+    <widget type="textupdate" version="2.0.0">
+      <name>Text Update_1</name>
+      <pv_name>$(P):$(R):SFP-Pwr-RX-I</pv_name>
+      <x>91</x>
+      <y>79</y>
+      <width>65</width>
+      <height>17</height>
+      <background_color>
+        <color red="255" green="255" blue="255">
+        </color>
+      </background_color>
+      <transparent>true</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <wrap_words>false</wrap_words>
+      <actions>
+      </actions>
+      <border_width>1</border_width>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Physical Outputs</name>
+    <x>18</x>
+    <y>540</y>
+    <width>557</width>
+    <height>321</height>
+    <style>1</style>
+    <foreground_color>
+      <color name="TabBG" red="224" green="255" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color name="LabelBG" red="65" green="105" blue="225">
+      </color>
+    </line_color>
+    <background_color>
+      <color name="TabBG" red="224" green="255" blue="255">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="tabs" version="2.0.0">
+      <name>Tabbed Container</name>
+      <tabs>
+        <tab>
+          <name>FP</name>
+          <children>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_16</name>
+              <macros>
+                <O>FrontUnivOut6</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>320</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_15</name>
+              <macros>
+                <O>FrontUnivOut5</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>268</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_13</name>
+              <macros>
+                <O>FrontUnivOut3</O>
+              </macros>
+              <file>_evroutput.bob</file>
+              <x>6</x>
+              <y>166</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_12</name>
+              <macros>
+                <O>FrontUnivOut2</O>
+              </macros>
+              <file>_evroutput.bob</file>
+              <x>6</x>
+              <y>115</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_11</name>
+              <macros>
+                <O>FrontUnivOut1</O>
+              </macros>
+              <file>_evroutput.bob</file>
+              <x>6</x>
+              <y>63</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_10</name>
+              <macros>
+                <O>FrontUnivOut0</O>
+              </macros>
+              <file>_evroutput.bob</file>
+              <x>6</x>
+              <y>12</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>Action Button</name>
+              <actions>
+                <action type="open_display">
+                  <description>Open Display</description>
+                  <file>evr-cml-output.opi</file>
+                  <macros>
+                    <O>FrontUnivOut5</O>
+                  </macros>
+                  <target>tab</target>
+                </action>
+              </actions>
+              <text>CML/GTX</text>
+              <x>423</x>
+              <y>320</y>
+              <width>61</width>
+              <height>20</height>
+              <font>
+                <font name="LinkText" family="Arial" style="REGULAR" size="8.910891089108912">
+                </font>
+              </font>
+              <background_color>
+                <color name="ButtonFG" red="180" green="180" blue="180">
+                </color>
+              </background_color>
+              <tooltip>$(actions)</tooltip>
+              <border_alarm_sensitive>false</border_alarm_sensitive>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>Action Button</name>
+              <actions>
+                <action type="open_display">
+                  <description>Open Display</description>
+                  <file>evr-cml-output.opi</file>
+                  <macros>
+                    <O>FrontUnivOut5</O>
+                  </macros>
+                  <target>tab</target>
+                </action>
+              </actions>
+              <text>CML/GTX</text>
+              <x>423</x>
+              <y>268</y>
+              <width>61</width>
+              <height>20</height>
+              <font>
+                <font name="LinkText" family="Arial" style="REGULAR" size="8.910891089108912">
+                </font>
+              </font>
+              <background_color>
+                <color name="ButtonFG" red="180" green="180" blue="180">
+                </color>
+              </background_color>
+              <tooltip>$(actions)</tooltip>
+              <border_alarm_sensitive>false</border_alarm_sensitive>
+            </widget>
+            <widget type="action_button" version="3.0.0">
+              <name>Action Button_1</name>
+              <actions>
+                <action type="open_display">
+                  <description>Open Display</description>
+                  <file>evr-cml-output.opi</file>
+                  <macros>
+                    <O>FrontUnivOut4</O>
+                  </macros>
+                  <target>tab</target>
+                </action>
+              </actions>
+              <text>CML/GTX</text>
+              <x>423</x>
+              <y>217</y>
+              <width>61</width>
+              <height>20</height>
+              <font>
+                <font name="LinkText" family="Arial" style="REGULAR" size="8.910891089108912">
+                </font>
+              </font>
+              <background_color>
+                <color name="ButtonFG" red="180" green="180" blue="180">
+                </color>
+              </background_color>
+              <tooltip>$(actions)</tooltip>
+              <border_alarm_sensitive>false</border_alarm_sensitive>
+            </widget>
+          </children>
+        </tab>
+        <tab>
+          <name>FPUV</name>
+          <children>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_13</name>
+              <macros>
+                <O>FrontUnivOutUV3</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>160</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_12</name>
+              <macros>
+                <O>FrontUnivOutUV2</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>109</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_11</name>
+              <macros>
+                <O>FrontUnivOutUV1</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>57</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_10</name>
+              <macros>
+                <O>FrontUnivOutUV0</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>6</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+          </children>
+        </tab>
+        <tab>
+          <name>RB</name>
+          <children>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_19</name>
+              <macros>
+                <O>RB11</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>570</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_20</name>
+              <macros>
+                <O>RB10</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>519</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_21</name>
+              <macros>
+                <O>RB09</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>467</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_22</name>
+              <macros>
+                <O>RB08</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>416</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_23</name>
+              <macros>
+                <O>RB15</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>775</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_24</name>
+              <macros>
+                <O>RB14</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>724</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_25</name>
+              <macros>
+                <O>RB13</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>672</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_26</name>
+              <macros>
+                <O>RB12</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>621</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_15</name>
+              <macros>
+                <O>RB07</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>365</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_16</name>
+              <macros>
+                <O>RB06</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>314</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_17</name>
+              <macros>
+                <O>RB05</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>262</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_18</name>
+              <macros>
+                <O>RB04</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>211</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_13</name>
+              <macros>
+                <O>RB03</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>160</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_12</name>
+              <macros>
+                <O>RB02</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>109</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_11</name>
+              <macros>
+                <O>RB01</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>57</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_10</name>
+              <macros>
+                <O>RB00</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>6</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+          </children>
+        </tab>
+        <tab>
+          <name>Internal</name>
+          <children>
+            <widget type="embedded" version="2.0.0">
+              <name>Linking Container_10</name>
+              <macros>
+                <O>Int</O>
+              </macros>
+              <file>_evroutput.opi</file>
+              <x>6</x>
+              <y>12</y>
+              <width>418</width>
+              <height>52</height>
+              <transparent>true</transparent>
+              <actions>
+              </actions>
+              <border_color>
+                <color red="0" green="128" blue="255">
+                </color>
+              </border_color>
+            </widget>
+          </children>
+        </tab>
+      </tabs>
+      <x>6</x>
+      <y>6</y>
+      <width>541</width>
+      <height>289</height>
+      <background_color>
+        <color red="240" green="240" blue="240">
+        </color>
+      </background_color>
+      <tab_height>10</tab_height>
+      <actions>
+      </actions>
+    </widget>
+  </widget>
+  <widget type="group" version="3.0.0">
+    <name>Title800_1</name>
+    <width>800</width>
+    <height>32</height>
+    <style>3</style>
+    <foreground_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </foreground_color>
+    <line_color>
+      <color red="0" green="128" blue="255">
+      </color>
+    </line_color>
+    <background_color>
+      <color red="240" green="240" blue="240">
+      </color>
+    </background_color>
+    <actions>
+    </actions>
+    <widget type="label" version="2.0.0">
+      <name>Text Input</name>
+      <macros>
+        <pv_name></pv_name>
+      </macros>
+      <text>${TITLE}</text>
+      <x>10</x>
+      <width>777</width>
+      <height>32</height>
+      <font>
+        <font name="Title" family="Sans" style="BOLD" size="11.881188118811881">
+        </font>
+      </font>
+      <background_color>
+        <color name="EngTitleBG" red="175" green="238" blue="238">
+        </color>
+      </background_color>
+      <transparent>false</transparent>
+      <horizontal_alignment>1</horizontal_alignment>
+      <vertical_alignment>1</vertical_alignment>
+      <actions>
+      </actions>
+      <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+      <border_color>
+        <color red="0" green="128" blue="255">
+        </color>
+      </border_color>
+    </widget>
+  </widget>
+  <widget type="textupdate" version="2.0.0">
+    <name>Text Update_3</name>
+    <pv_name>$(P):$(R):Time-Clock-I</pv_name>
+    <x>18</x>
+    <y>32</y>
+    <width>209</width>
+    <height>23</height>
+    <background_color>
+      <color red="255" green="255" blue="255">
+      </color>
+    </background_color>
+    <transparent>true</transparent>
+    <horizontal_alignment>1</horizontal_alignment>
+    <vertical_alignment>1</vertical_alignment>
+    <wrap_words>false</wrap_words>
+    <actions>
+    </actions>
+    <border_width>1</border_width>
+  </widget>
+</display>
