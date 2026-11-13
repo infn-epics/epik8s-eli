@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--Saved on 2026-11-13 16:53:15 by georg-->
 <display version="2.0.0">
   <name>diagnostics_demo</name>
-  <width>1400</width>
-  <height>780</height>
+  <width>1380</width>
+  <height>650</height>
   <widget type="tabs" version="2.0.0">
     <name>DiagTools</name>
     <tabs>
@@ -11,16 +12,14 @@
         <children>
           <widget type="picture" version="2.0.0">
             <name>Synoptic_2</name>
-            <file>img/eli-layout2.png</file>
-            <x>2</x>
-            <y>8</y>
-            <width>1220</width>
-            <height>590</height>
+            <file>img/eli-layout2-SCN.png</file>
+            <width>1388</width>
+            <height>707</height>
             <actions>
               <action type="open_display">
-                <description>Open Display</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
                 <target>replace</target>
+                <description>Open Display</description>
               </action>
             </actions>
           </widget>
@@ -28,17 +27,17 @@
             <name>MotorController</name>
             <actions>
               <action type="open_display">
-                <description>Motor Controller</description>
                 <file>common/motor-tml/TML.bob</file>
                 <macros>
                   <PREFIX>LEL:</PREFIX>
                   <CONFFILE>mot_list.ini</CONFFILE>
                 </macros>
                 <target>window</target>
+                <description>Motor Controller</description>
               </action>
             </actions>
-            <x>72</x>
-            <y>598</y>
+            <x>73</x>
+            <y>570</y>
             <width>200</width>
             <height>40</height>
             <font>
@@ -57,10 +56,11 @@
             <macros>
               <P>LEL</P>
               <R>SCN01:MOT01</R>
+              <SCN>SCN01</SCN>
             </macros>
             <file>common/motor-tml/flag-simple.bob</file>
-            <x>72</x>
-            <y>448</y>
+            <x>49</x>
+            <y>373</y>
             <width>160</width>
             <height>130</height>
             <resize>1</resize>
@@ -70,10 +70,11 @@
             <macros>
               <P>LEL</P>
               <R>SCN02:MOT01</R>
+              <SCN>SCN02</SCN>
             </macros>
             <file>common/motor-tml/flag-simple.bob</file>
-            <x>238</x>
-            <y>448</y>
+            <x>299</x>
+            <y>373</y>
             <width>160</width>
             <height>130</height>
             <resize>1</resize>
@@ -83,10 +84,11 @@
             <macros>
               <P>LEL</P>
               <R>SCN03:MOT01</R>
+              <SCN>SCN03</SCN>
             </macros>
             <file>common/motor-tml/flag-simple.bob</file>
-            <x>512</x>
-            <y>498</y>
+            <x>589</x>
+            <y>373</y>
             <width>160</width>
             <height>130</height>
             <resize>1</resize>
@@ -96,10 +98,11 @@
             <macros>
               <P>LEL</P>
               <R>SCN04:MOT01</R>
+              <SCN>SCN04</SCN>
             </macros>
             <file>common/motor-tml/flag-simple.bob</file>
-            <x>720</x>
-            <y>498</y>
+            <x>763</x>
+            <y>373</y>
             <width>160</width>
             <height>130</height>
             <resize>1</resize>
@@ -109,10 +112,11 @@
             <macros>
               <P>LEL</P>
               <R>SCN05:MOT01</R>
+              <SCN>SCN05</SCN>
             </macros>
             <file>common/motor-tml/flag-simple.bob</file>
-            <x>884</x>
-            <y>498</y>
+            <x>928</x>
+            <y>373</y>
             <width>160</width>
             <height>130</height>
             <resize>1</resize>
@@ -122,10 +126,11 @@
             <macros>
               <P>LEL</P>
               <R>SCN06:MOT01</R>
+              <SCN>SCN06</SCN>
             </macros>
             <file>common/motor-tml/flag-simple.bob</file>
-            <x>1082</x>
-            <y>498</y>
+            <x>1091</x>
+            <y>373</y>
             <width>160</width>
             <height>130</height>
             <resize>1</resize>
@@ -135,10 +140,11 @@
             <macros>
               <P>LEL</P>
               <R>SCN07:MOT01</R>
+              <SCN>SCN07</SCN>
             </macros>
             <file>common/motor-tml/flag-simple.bob</file>
-            <x>1198</x>
-            <y>247</y>
+            <x>1208</x>
+            <y>525</y>
             <width>160</width>
             <height>130</height>
             <resize>1</resize>
@@ -152,7 +158,6 @@
             <name>cameraInterfaceBase</name>
             <actions>
               <action type="open_display">
-                <description>Camera APP</description>
                 <file>common/camera/Camera.bob</file>
                 <macros>
                   <DEVICE>LEL</DEVICE>
@@ -160,6 +165,7 @@
                   <CONFFILE>cam_list.ini</CONFFILE>
                 </macros>
                 <target>window</target>
+                <description>Camera APP</description>
               </action>
             </actions>
             <text>CAMERA APP</text>
@@ -174,55 +180,63 @@
             <name>cameraInterfaceBase_1</name>
             <actions>
               <action type="open_display">
-                <description>Camera Scren APP</description>
-                <file>epik8s-opi/screen-camera-opi/CameraFullLedLight.bob</file>
+                <file>epik8s-opi/screen-camera-opi/CameraFull.bob</file>
                 <macros>
                   <DEVICE>LEL</DEVICE>
                   <CONFFILE>../../../deploy/values.yaml</CONFFILE>
-                  <CAMLIGHT>LEL:ILLUM:ICPDAS:CAMILLUM</CAMLIGHT>
                 </macros>
                 <target>window</target>
+                <description>Camera Scren APP</description>
               </action>
             </actions>
             <text>CAMERA Screen</text>
-            <x>928</x>
-            <y>187</y>
+            <x>52</x>
+            <y>58</y>
             <width>190</width>
             <height>130</height>
             <tooltip>$(actions)</tooltip>
+          </widget>
+          <widget type="group" version="3.0.0">
+            <name>Light</name>
+            <x>122</x>
+            <y>298</y>
+            <width>220</width>
+            <height>120</height>
+            <widget type="bool_button" version="2.0.0">
+              <name>Boolean Button</name>
+              <pv_name>LEL:ILLUM:ICPDAS:CAMILLUM:RLY_SP</pv_name>
+              <x>72</x>
+              <y>12</y>
+              <height>50</height>
+            </widget>
+            <widget type="led" version="2.0.0">
+              <name>LED</name>
+              <pv_name>LEL:ILLUM:ICPDAS:CAMILLUM:RLY_RB</pv_name>
+              <x>12</x>
+              <y>12</y>
+              <width>50</width>
+              <height>50</height>
+            </widget>
           </widget>
           <widget type="action_button" version="3.0.0">
             <name>cameraInterfaceBase_2</name>
             <actions>
               <action type="open_display">
-                <description>Camera2 Screen APP</description>
                 <file>epik8s-opi/unicam-opi-v2/CameraV2.bob</file>
                 <macros>
                   <DEVICE>LEL</DEVICE>
                   <CONFFILE>../../../deploy/values.yaml</CONFFILE>
                 </macros>
                 <target>window</target>
+                <description>Camera2 Screen APP</description>
               </action>
             </actions>
             <text>CAMERA2 Screen</text>
-            <x>928</x>
-            <y>327</y>
+            <x>342</x>
+            <y>58</y>
             <width>190</width>
             <height>130</height>
             <tooltip>$(actions)</tooltip>
-          </widget>
-          <widget type="embedded" version="2.0.0">
-            <name>Embeddedcamera</name>
-            <macros>
-              <DEVICE>LEL</DEVICE>
-              <CONFFILE>../../../deploy//values.yaml</CONFFILE>
-              <CAMLIGHT>LEL:ILLUM:ICPDAS:CAMILLUM</CAMLIGHT>
-            </macros>
-            <file>epik8s-opi/screen-camera-opi/CameraFullLedLight.bob</file>
-            <x>8</x>
-            <y>7</y>
-            <width>920</width>
-            <height>700</height>
           </widget>
         </children>
       </tab>
@@ -231,16 +245,14 @@
         <children>
           <widget type="picture" version="2.0.0">
             <name>Synoptic_3</name>
-            <file>img/eli-layout2.png</file>
-            <x>2</x>
-            <y>8</y>
-            <width>1220</width>
-            <height>590</height>
+            <file>img/eli-layout2-BPM.png</file>
+            <width>1388</width>
+            <height>707</height>
             <actions>
               <action type="open_display">
-                <description>Open Display</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaSinglePassE/opi/main.bob</file>
                 <target>replace</target>
+                <description>Open Display</description>
               </action>
             </actions>
           </widget>
@@ -256,20 +268,20 @@
               <BOARD>$(BPM)</BOARD>
             </macros>
             <file>diag/comp/bpmspe.bob</file>
-            <x>137</x>
-            <y>18</y>
-            <width>30</width>
-            <height>180</height>
+            <x>124</x>
+            <y>330</y>
+            <width>58</width>
+            <height>32</height>
             <resize>4</resize>
             <transparent>true</transparent>
             <actions>
               <action type="open_display">
-                <description>Open Display libera sppp</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                 <macros>
                   <DEVICE>AC1BPM01</DEVICE>
                 </macros>
                 <target>replace</target>
+                <description>Open Display libera sppp</description>
               </action>
             </actions>
           </widget>
@@ -285,20 +297,20 @@
               <BOARD>$(BPM)</BOARD>
             </macros>
             <file>diag/comp/bpmspe.bob</file>
-            <x>403</x>
-            <y>40</y>
-            <width>30</width>
-            <height>180</height>
+            <x>384</x>
+            <y>330</y>
+            <width>58</width>
+            <height>32</height>
             <resize>4</resize>
             <transparent>true</transparent>
             <actions>
               <action type="open_display">
-                <description>Open Display libera sppp</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                 <macros>
                   <DEVICE>AC1BPM01</DEVICE>
                 </macros>
                 <target>replace</target>
+                <description>Open Display libera sppp</description>
               </action>
             </actions>
           </widget>
@@ -314,20 +326,20 @@
               <BOARD>$(BPM)</BOARD>
             </macros>
             <file>diag/comp/bpmspe.bob</file>
-            <x>682</x>
-            <y>40</y>
-            <width>30</width>
-            <height>180</height>
+            <x>705</x>
+            <y>330</y>
+            <width>58</width>
+            <height>32</height>
             <resize>4</resize>
             <transparent>true</transparent>
             <actions>
               <action type="open_display">
-                <description>Open Display libera sppp</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                 <macros>
                   <DEVICE>AC1BPM01</DEVICE>
                 </macros>
                 <target>replace</target>
+                <description>Open Display libera sppp</description>
               </action>
             </actions>
           </widget>
@@ -343,20 +355,20 @@
               <BOARD>$(BPM)</BOARD>
             </macros>
             <file>diag/comp/bpmspe.bob</file>
-            <x>842</x>
-            <y>40</y>
-            <width>30</width>
-            <height>180</height>
+            <x>914</x>
+            <y>330</y>
+            <width>58</width>
+            <height>32</height>
             <resize>4</resize>
             <transparent>true</transparent>
             <actions>
               <action type="open_display">
-                <description>Open Display libera sppp</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                 <macros>
                   <DEVICE>AC1BPM01</DEVICE>
                 </macros>
                 <target>replace</target>
+                <description>Open Display libera sppp</description>
               </action>
             </actions>
           </widget>
@@ -372,20 +384,20 @@
               <BOARD>$(BPM)</BOARD>
             </macros>
             <file>diag/comp/bpmspe.bob</file>
-            <x>972</x>
-            <y>40</y>
-            <width>30</width>
-            <height>180</height>
+            <x>1028</x>
+            <y>330</y>
+            <width>58</width>
+            <height>32</height>
             <resize>4</resize>
             <transparent>true</transparent>
             <actions>
               <action type="open_display">
-                <description>Open Display libera sppp</description>
                 <file>diag/libera-bpm-opi/GUI/LiberaBrillianceSinglePass/opi/main.bob</file>
                 <macros>
                   <DEVICE>AC1BPM01</DEVICE>
                 </macros>
                 <target>replace</target>
+                <description>Open Display libera sppp</description>
               </action>
             </actions>
           </widget>
@@ -398,12 +410,12 @@
             <name>Action Button_OpenOrbitSingle</name>
             <actions>
               <action type="open_display">
-                <description>Open Display</description>
                 <file>epik8s-opi/unibpm-opi/orbitSingle.bob</file>
                 <macros>
                   <P>$(P=LEL:ORBIT)</P>
                 </macros>
                 <target>window</target>
+                <description>Open Display</description>
               </action>
             </actions>
             <text>ORBIT Single</text>
@@ -460,12 +472,12 @@
             <name>Action Button_4</name>
             <actions>
               <action type="open_display">
-                <description>Open Display</description>
                 <file>common/m9210/m9210_Main.bob</file>
                 <macros>
                   <DEVICE>LEL:DIA:FCT01</DEVICE>
                 </macros>
                 <target>window</target>
+                <description>Open Display</description>
               </action>
             </actions>
             <text>ICT1</text>
@@ -479,12 +491,12 @@
             <name>Action Button_5</name>
             <actions>
               <action type="open_display">
-                <description>Open Display</description>
                 <file>common/m9210/m9210_Main.bob</file>
                 <macros>
                   <DEVICE>LEL:DIA:FCT02</DEVICE>
                 </macros>
                 <target>window</target>
+                <description>Open Display</description>
               </action>
             </actions>
             <text>ICT2</text>
@@ -563,13 +575,6 @@
               <font family="Liberation Sans" style="BOLD" size="16.0">
               </font>
             </font>
-          </widget>
-          <widget type="textupdate" version="2.0.0">
-            <name>Text Update_2</name>
-            <pv_name>=`LEL:DIA:FCT02:AI0:CHARGE_FINAL`/`LEL:DIA:FCT01:AI0:CHARGE_FINAL`</pv_name>
-            <x>298</x>
-            <y>247</y>
-            <width>120</width>
           </widget>
         </children>
       </tab>
@@ -659,7 +664,7 @@ else:
       </tab>
     </tabs>
     <width>1400</width>
-    <height>780</height>
+    <height>735</height>
     <font>
       <font name="Default Bold" family="Liberation Sans" style="BOLD" size="14.0">
       </font>
