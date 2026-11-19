@@ -268,10 +268,10 @@
               <BOARD>$(BPM)</BOARD>
             </macros>
             <file>diag/comp/bpmspe.bob</file>
-            <x>124</x>
-            <y>330</y>
-            <width>58</width>
-            <height>32</height>
+            <x>121</x>
+            <y>328</y>
+            <width>64</width>
+            <height>36</height>
             <resize>4</resize>
             <transparent>true</transparent>
             <actions>
@@ -297,10 +297,10 @@
               <BOARD>$(BPM)</BOARD>
             </macros>
             <file>diag/comp/bpmspe.bob</file>
-            <x>384</x>
-            <y>330</y>
-            <width>58</width>
-            <height>32</height>
+            <x>381</x>
+            <y>328</y>
+            <width>64</width>
+            <height>36</height>
             <resize>4</resize>
             <transparent>true</transparent>
             <actions>
@@ -326,10 +326,10 @@
               <BOARD>$(BPM)</BOARD>
             </macros>
             <file>diag/comp/bpmspe.bob</file>
-            <x>705</x>
-            <y>330</y>
-            <width>58</width>
-            <height>32</height>
+            <x>702</x>
+            <y>328</y>
+            <width>64</width>
+            <height>36</height>
             <resize>4</resize>
             <transparent>true</transparent>
             <actions>
@@ -355,10 +355,10 @@
               <BOARD>$(BPM)</BOARD>
             </macros>
             <file>diag/comp/bpmspe.bob</file>
-            <x>914</x>
-            <y>330</y>
-            <width>58</width>
-            <height>32</height>
+            <x>911</x>
+            <y>328</y>
+            <width>64</width>
+            <height>36</height>
             <resize>4</resize>
             <transparent>true</transparent>
             <actions>
@@ -384,10 +384,10 @@
               <BOARD>$(BPM)</BOARD>
             </macros>
             <file>diag/comp/bpmspe.bob</file>
-            <x>1028</x>
-            <y>330</y>
-            <width>58</width>
-            <height>32</height>
+            <x>1025</x>
+            <y>328</y>
+            <width>64</width>
+            <height>36</height>
             <resize>4</resize>
             <transparent>true</transparent>
             <actions>
