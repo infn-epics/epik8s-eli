@@ -12,7 +12,7 @@
   </scripts>
   <widget type="picture" version="2.0.0">
     <name>Picture_1</name>
-    <file>../../img/20260226.3 WGS03-664x340-Layout.png</file>
+    <file>../../img/20260226.3_WGS03-664x340-Layout.png</file>
     <x>47</x>
     <width>340</width>
     <height>709</height>
