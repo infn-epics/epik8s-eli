@@ -38,7 +38,7 @@
     <tooltip>Layout for $(WGS)</tooltip>
     <widget type="picture" version="2.0.0">
       <name>Picture_1</name>
-      <file>../../img/20260226.3 WGC01-664x340-Layout.png</file>
+      <file>../../img/20260226.3_WGC01-664x340-Layout.png</file>
       <width>340</width>
       <height>709</height>
     </widget>
